@@ -60,25 +60,23 @@
                         	
                             <li>
                                 <div class="info">
-                                    <a href="<c:url value="/store/view/${item.id }"/>" class="thumbnail" style="background:#ddd;">
-                                    	김밥이 맛있는 단아분식
-                                    </a>
+                                    <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
                                     <a href="<c:url value="/store/view/${item.id }"/>" class="name">${item.title }</a>
                                     <div>${item.phone1 } <input type="button" value="복사" class="bt2"></div>
-                                    <div>${item.address2 } ${item.address3 } <input type="button" value="복사" class="bt2"></div>
+                                    <div>${item.address2 }, ${item.address4 } <input type="button" value="복사" class="bt2"></div>
                                 </div>
                                 <div class="bt_wrap">
                                     <a href="<c:url value="/store/view/${item.id }"/>" class="bt_view">
-                                        <img src="/resources/img/comm/bt_view.png" alt="icon">상세
+                                        <img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
                                     </a>
                                     <a href="tel:0637142536" class="bt_call">
-                                        <img src="/resources/img/comm/bt_call.png" alt="icon">전화
+                                        <img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
                                     </a>
                                     <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
-                                        <img src="/resources/img/comm/bt_map.png" alt="icon">지도
+                                        <img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
                                     </a>
                                     <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
-                                        <img src="/resources/img/comm/bt_share.png" alt="icon">공유
+                                        <img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
                                     </a>
                                 </div>
                             </li>

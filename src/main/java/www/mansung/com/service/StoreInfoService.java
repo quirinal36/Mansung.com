@@ -20,8 +20,7 @@ public class StoreInfoService implements DataService<StoreInfo> {
 
 	@Override
 	public int update(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.update(input);
 	}
 
 	@Override

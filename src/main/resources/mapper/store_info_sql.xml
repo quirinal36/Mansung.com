@@ -44,6 +44,7 @@
 	
 	<select id="select_all" resultType="store">
 		SELECT * FROM StoreInfo
+		ORDER BY ID DESC
 	</select>
 	
 	<select id="select_one" resultType="store" parameterType="store">

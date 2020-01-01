@@ -24,8 +24,24 @@
                                     <td>${store.title }</td>
                                 </tr>
                                 <tr>
-                                    <th>주소</th>
-                                    <td>${store.address1 } ${store.address2 } ${store.address3 }</td>
+                                    <th>지역명</th>
+                                    <td>${store.address1 }</td>
+                                </tr>
+                                <tr>
+                                    <th>도로명</th>
+                                    <td>${store.address2 }</td>
+                                </tr>
+                                <tr>
+                                    <th>건물명</th>
+                                    <td>${store.address3 }</td>
+                                </tr>
+                                <tr>
+                                    <th>층</th>
+                                    <td>${store.address4 }</td>
+                                </tr>
+                                <tr>
+                                    <th>지번주소</th>
+                                    <td>${store.address5 }</td>
                                 </tr>
                                 <tr>
                                     <th>X좌표</th>

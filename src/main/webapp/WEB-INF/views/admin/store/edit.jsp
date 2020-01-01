@@ -9,6 +9,9 @@
 			var url = $("form").attr("action");
 			var param = $("form").serialize();
 			
+			console.log(url);
+			console.log(param);
+			
 			$.ajax({
 				url : url,
 				data: param,
@@ -40,52 +43,76 @@
 	                            <tbody>
 	                                <tr>
 	                                    <th>업체명</th>
-	                                    <td><input type="text" value="${store.title }" placeholder="업체명 입력" class="ipt1"></td>
+	                                    <td><input type="text" value="${store.title }" placeholder="업체명 입력" class="ipt1" name="title"></td>
 	                                </tr>
 	                                <tr>
-	                                    <th>주소</th>
+	                                    <th>지역명</th>
 	                                    <td>
-	                                        <input type="text" value="${store.address1 } ${store.address2 } ${store.address3 }" placeholder="주소 입력" class="ipt1">
+	                                        <input type="text" value="전북 전주시 덕진구" placeholder="주소 입력" class="ipt1" name="address1">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>도로명</th>
+	                                    <td>
+	                                        <input type="text" value="${store.address2 }" placeholder="주소 입력" class="ipt1" name="address2">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>건물명</th>
+	                                    <td>
+	                                        <input type="text" value="${store.address3 }" placeholder="주소 입력" class="ipt1" name="address3">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>층</th>
+	                                    <td>
+	                                        <input type="text" value="${store.address4 }" placeholder="주소 입력" class="ipt1" name="address4">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>지번주소</th>
+	                                    <td>
+	                                        <input type="text" value="${store.address5 }" placeholder="주소 입력" class="ipt1" name="address5">
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>X좌표</th>
 	                                    <td>
-	                                        <input type="text" value="${store.XPosition }" placeholder="X좌표 입력" class="ipt1">
+	                                        <input type="text" value="${store.XPosition }" placeholder="X좌표 입력" class="ipt1" name="xPosition">
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>Y좌표</th>
 	                                    <td>
-	                                        <input type="text" value="${store.YPosition }" placeholder="Y좌표 입력" class="ipt1">
+	                                        <input type="text" value="${store.YPosition }" placeholder="Y좌표 입력" class="ipt1" name="yPosition">
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>전화번호</th>
-	                                    <td><input type="text" value="${store.phone1 }" placeholder="전화번호 입력" class="ipt1"></td>
+	                                    <td><input type="text" value="${store.phone1 }" placeholder="전화번호 입력" class="ipt1" name="phone1"></td>
 	                                </tr>
 	                                <tr>
 	                                    <th>소개</th>
 	                                    <td>
-	                                        <textarea placeholder="소개 입력" class="ipt1">${store.information }</textarea>
+	                                        <textarea placeholder="소개 입력" class="ipt1" name="information">${store.information }</textarea>
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>영업시간</th>
 	                                    <td>
-	                                        <textarea placeholder="영업시간 입력" class="ipt1">${store.time }</textarea>
+	                                        <textarea placeholder="영업시간 입력" class="ipt1" name="time">${store.time }</textarea>
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>웹사이트</th>
 	                                    <td>
-	                                        <input type="text" value="${store.website }" placeholder="웹사이트 주소 입력" class="ipt1">
+	                                        <input type="text" value="${store.website }" placeholder="웹사이트 주소 입력" class="ipt1" name="website">
 	                                    </td>
 	                                </tr>
 	                                <tr>
 	                                    <th>블로그</th>
 	                                    <td>
-	                                        <input type="text" value="${store.blog }" placeholder="블로그 주소 입력" class="ipt1">
+	                                        <input type="text" value="${store.blog }" placeholder="블로그 주소 입력" class="ipt1" name="blog">
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
@@ -141,6 +168,7 @@
 	                                </tr>
 	                            </tbody>
 	                        </table>
+	                        <input type="hidden" name="id" value="${store.id }"/>
                         </form>
                         <div class="bt_wrap">
                             <a href="javascript:editConfirm();" class="bt1 on">수정</a>

@@ -45,9 +45,33 @@
 	                                    <td><input type="text" placeholder="업체명 입력" class="ipt1" name="title"></td>
 	                                </tr>
 	                                <tr>
-	                                    <th>주소</th>
+	                                    <th>지역명</th>
 	                                    <td>
-	                                        <input type="text" placeholder="주소 입력" class="ipt1" name="address1">
+	                                        <input type="text" value="전북 전주시 덕진구" placeholder="주소 입력" class="ipt1" name="address1">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>도로명</th>
+	                                    <td>
+	                                        <input type="text" placeholder="주소 입력" class="ipt1" name="address2">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>건물명</th>
+	                                    <td>
+	                                        <input type="text" placeholder="주소 입력" class="ipt1" name="address3">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>층</th>
+	                                    <td>
+	                                        <input type="text" placeholder="주소 입력" class="ipt1" name="address4">
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                    <th>지번주소</th>
+	                                    <td>
+	                                        <input type="text" placeholder="주소 입력" class="ipt1" name="address5">
 	                                    </td>
 	                                </tr>
 	                                <tr>

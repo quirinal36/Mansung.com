@@ -76,4 +76,15 @@ public class AdminController {
 		mv.setViewName("/admin/store/edit");
 		return mv;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/store/edit", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String postStoreEdit(StoreInfo info) {
+		JSONObject json = new JSONObject(); 
+		
+		int result = service.update(info);
+		json.put("result", result);
+		
+		return json.toString();
+	}
 }
