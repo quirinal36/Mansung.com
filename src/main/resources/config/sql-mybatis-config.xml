@@ -4,6 +4,7 @@
 
 <configuration>
     <typeAliases>
-		
+		<typeAlias type="www.mansung.com.vo.Board" alias="board"/>
+		<typeAlias type="www.mansung.com.vo.StoreInfo" alias="store"/>
     </typeAliases>
 </configuration>

@@ -57,7 +57,9 @@
                         <ul>
                             <li>
                                 <div class="info">
-                                    <a href="/store/view.html" class="thumbnail" style="background-image: url(/resources/img/store/1.png);">김밥이 맛있는 단아분식</a>
+                                    <a href="/store/view.html" class="thumbnail" style="background-image: url(/resources/img/store/1.png);">
+                                    	김밥이 맛있는 단아분식
+                                    </a>
                                     <a href="/store/view.html" class="name">전주코딩학원</a>
                                     <div>063-714-2536 <input type="button" value="복사" class="bt2"></div>
                                     <div>만성중앙로 53-39 <input type="button" value="복사" class="bt2"></div>

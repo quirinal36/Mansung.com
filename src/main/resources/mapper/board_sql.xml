@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board_sql">
+	<insert id="insert" parameterType="board" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO Board
+		(
+			title,
+			content,
+			writer,
+			boardType
+		)
+		values
+		(
+			'${title}',
+			'${content}',
+			${writer},
+			${boardType}
+		)
+	</insert>
+	<update id="update" parameterType="board">
+		UPDATE Board
+		<set>
+			viewCount = ${viewCount},
+			title = '${title}',
+			content = '${content}'
+		</set>
+		<where>
+			id=${id}
+		</where>
+	</update>
+	<select id="select" parameterType="board" resultType="board">
+		SELECT 
+			board.*,
+			(SELECT COUNT(*) FROM FileInfo WHERE boardId = board.id) AS fileCnt,
+			(SELECT COUNT(*) FROM PhotoInfo WHERE boardId = board.id) AS pictureCnt,
+			(SELECT boardName FROM BoardType WHERE id = board.boardType) AS boardName,
+			(SELECT COUNT(*) FROM Reply WHERE boardId = board.id) AS replyCnt,
+			usr.username AS writerName,
+			(SELECT url FROM PhotoInfo where boardId = board.id LIMIT 0,1) AS thumbnail
+		FROM 
+			Board board LEFT JOIN users usr ON (board.writer = usr.id)
+		<where>
+			<choose>
+				<when test="boardType eq 0">
+					(
+						board.boardType = 1 or
+						board.boardType = 2 or
+						board.boardType = 3 or
+						board.boardType = 4 or
+						board.boardType = 5
+					) 
+				</when>
+				<otherwise>
+					board.boardType = ${boardType}
+				</otherwise>
+			</choose>
+			<if test="query != ''">
+			and 
+				(
+				board.title like '%${query}%'
+				or
+				board.content like '%${query}%'
+				)
+			</if>
+			
+		</where>
+		order by board.id desc
+		LIMIT ${from}, ${pageSize}
+	</select>
+	
+	<select id="count" parameterType="board" resultType="int">
+		SELECT COUNT(*) FROM Board
+		<where>
+			<choose>
+				<when test="boardType eq 0">
+					boardType = 1 or
+					boardType = 2 or
+					boardType = 3 or
+					boardType = 4 or
+					boardType = 5
+				</when>
+				<otherwise>
+					boardType = ${boardType}
+				</otherwise>
+			</choose>
+			
+		</where>
+	</select>
+	
+	<select id="selectOne" parameterType="board" resultType="board">
+		SELECT 
+			board.*,
+			usr.username AS writerName
+		FROM 
+			Board board LEFT JOIN users usr ON (board.writer = usr.id)
+		<where>
+			board.id = ${id}
+		</where>
+	</select>
+	
+	<delete id="delete" parameterType="board">
+		DELETE FROM Board
+		<where>
+			id = ${id}		
+		</where>
+	</delete>
+</mapper>
