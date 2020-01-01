@@ -45,4 +45,36 @@
 	<select id="select_all" resultType="store">
 		SELECT * FROM StoreInfo
 	</select>
+	
+	<select id="select_one" resultType="store" parameterType="store">
+		SELECT * FROM StoreInfo
+		<where>
+			id = ${id}
+		</where>
+	</select>
+	
+	<update id="update" parameterType="store">
+		UPDATE StoreInfo
+		<set>
+			title='${title}', 
+			address1 = '${address1}', 
+			address2 = '${address2}', 
+			address3 = '${address3}', 
+			address4 = '${address4}', 
+			address5 = '${address5}', 
+			postcode = '${postcode}',
+			xPosition = '${xPosition}', 
+			yPosition = '${yPosition}', 
+			phone1 = '${phone1}',
+			phone2 = '${phone2}',
+			information = '${information}', 
+			website = '${website}',
+			blog = '${blog}',
+			time = '${time}',
+			representImage = ${representImage}
+		</set>
+		<where>
+			id=${id}
+		</where>
+	</update>
 </mapper>

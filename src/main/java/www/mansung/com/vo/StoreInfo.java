@@ -29,4 +29,10 @@ public class StoreInfo {
 	int representImage;
 	Date wdate;
 	Date udate;
+	
+	public static StoreInfo newInstance(int id) {
+		StoreInfo result = new StoreInfo();
+		result.setId(id);
+		return result;
+	}
 }

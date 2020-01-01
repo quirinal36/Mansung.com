@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,12 +50,30 @@ public class AdminController {
 		return json.toString();
 	}
 	
-	@RequestMapping(value="/store/list", method = RequestMethod.GET)
+	@RequestMapping(value= {"/store", "/store/list"}, method = RequestMethod.GET)
 	public ModelAndView getStoreListFormView(ModelAndView mv) {
 		List<StoreInfo> list = service.select();
 		mv.addObject("list", list);
 		
 		mv.setViewName("/admin/store/list");
+		return mv;
+	}
+	@RequestMapping(value="/store/view/{id}", method = RequestMethod.GET)
+	public ModelAndView getStoreDetailView(ModelAndView mv,
+			@PathVariable(value="id", required = true)Integer id) {
+		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
+		mv.addObject("store", store);
+		
+		mv.setViewName("/admin/store/view");
+		return mv;
+	}
+	@RequestMapping(value="/store/edit/{id}", method = RequestMethod.GET)
+	public ModelAndView getStoreEditFormView(ModelAndView mv,
+			@PathVariable(value="id", required = true)Integer id) {
+		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
+		mv.addObject("store", store);
+		
+		mv.setViewName("/admin/store/edit");
 		return mv;
 	}
 }

@@ -1,19 +1,13 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>만성닷컴</title>
-	<link rel="stylesheet" href="/resources/css/css.css">
-	<script src="/resources/js/jquery-1.12.1.min.js"></script>
-	<script src="/resources/js/jquery.bxslider.min.js"></script>
-	<script src="/resources/js/load.js"></script>
-	<script src="/resources/js/common.js"></script>
-	<script src="/resources/js/index.js"></script>
+	<c:import url="/inc/head"></c:import>
 </head>
 <body>
 	<div id="wrap">
-		<div id="headerWrap"></div>
+		<c:import url="/inc/header"></c:import>
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
@@ -27,42 +21,41 @@
                             <tbody>
                                 <tr>
                                     <th>업체명</th>
-                                    <td>전주코딩학원</td>
+                                    <td>${store.title }</td>
                                 </tr>
                                 <tr>
                                     <th>주소</th>
-                                    <td>만성중앙로 53-39</td>
+                                    <td>${store.address1 } ${store.address2 } ${store.address3 }</td>
                                 </tr>
                                 <tr>
                                     <th>X좌표</th>
-                                    <td>123.123</td>
+                                    <td>${store.XPosition }</td>
                                 </tr>
                                 <tr>
                                     <th>Y좌표</th>
-                                    <td>123.123</td>
+                                    <td>${store.YPosition }</td>
                                 </tr>
                                 <tr>
                                     <th>전화번호</th>
-                                    <td>0637142536</td>
+                                    <td>${store.phone1 }</td>
                                 </tr>
                                 <tr>
                                     <th>소개</th>
-                                    <td>안녕하세요. 김밥을 맛있게 잘 하는 단아분식입니다. 많이 사랑해주세요 ~ ^^</td>
+                                    <td>${store.information }</td>
                                 </tr>
                                 <tr>
                                     <th>영업시간</th>
 									<td>
-										평일 09:00~21:00<br>
-										주말, 공휴일 휴무
+										${store.time }
                                     </td>
 								</tr>
 								<tr></tr>
                                     <th>웹사이트</th>
-                                    <td><a href="http://xn--o01bu84am0am2a97shmj.com" target="_blank">http://xn--o01bu84am0am2a97shmj.com</a></td>
+                                    <td><a href="http://xn--o01bu84am0am2a97shmj.com" target="_blank">${store.website }</a></td>
                                 </tr>
                                 <tr>
                                     <th>블로그</th>
-                                    <td><a href="https://blog.naver.com/code-ing" target="_blank">https://blog.naver.com/code-ing</a></td>
+                                    <td><a href="https://blog.naver.com/code-ing" target="_blank">${store.blog }</a></td>
                                 </tr>
                                 <tr class="image">
                                     <th>썸네일</th>
@@ -111,14 +104,14 @@
                             </tbody>
                         </table>
                         <div class="bt_wrap">
-                            <a href="/admin/store/edit.html" class="bt1 on">수정</a>
-                            <a href="/admin/store/list.html" class="bt1">목록</a>
+                            <a href="<c:url value="/admin/store/edit/${store.id }"/>" class="bt1 on">수정</a>
+                            <a href="<c:url value="/admin/store/list"/>" class="bt1">목록</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-		<div id="footerWrap"></div>
+		<c:import url="/inc/footer"></c:import>
 	</div>	
 </body>
 </html>

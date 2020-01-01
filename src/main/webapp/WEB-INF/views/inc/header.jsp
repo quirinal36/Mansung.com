@@ -36,7 +36,7 @@ $(function(){
 	                        <li><a href="#">업체등록·정정신청</a></li>
 	                        <li><a href="#">만성닷컴 이용안내</a></li>
 	                        <li><a href="#">문의하기</a></li>
-	                        <li><a href="#">관리자</a></li>
+	                        <li><a href="<c:url value="/admin/store"/>">관리자</a></li>
 	                        <li><a href="#">로그아웃</a></li>
 	                    </ul>
 	                </nav>

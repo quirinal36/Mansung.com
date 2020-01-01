@@ -22,8 +22,7 @@ public class StoreInfoDAO implements DataAccess<StoreInfo>{
 
 	@Override
 	public int update(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(namespace +".update", input);
 	}
 
 	@Override
@@ -45,8 +44,7 @@ public class StoreInfoDAO implements DataAccess<StoreInfo>{
 
 	@Override
 	public StoreInfo selectOne(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(namespace +".select_one", input);
 	}
 
 	@Override

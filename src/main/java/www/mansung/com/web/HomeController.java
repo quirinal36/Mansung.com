@@ -14,13 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.dao.BoardDAO;
 import www.mansung.com.service.BoardService;
+import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.Board;
+import www.mansung.com.vo.StoreInfo;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	@Autowired
+	private StoreInfoService storeService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -28,9 +32,9 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, ModelAndView mv,
 			HttpServletRequest req, Authentication authentication) {
-		Board input = new Board();
-		input.setBoardType(0);
-		input.setTotalCount(5);
+		List<StoreInfo> list = storeService.select();
+		
+		mv.addObject("list", list);
 		
 		mv.setViewName("index");
 		return mv;

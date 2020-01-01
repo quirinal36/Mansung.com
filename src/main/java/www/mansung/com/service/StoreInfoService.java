@@ -43,8 +43,7 @@ public class StoreInfoService implements DataService<StoreInfo> {
 
 	@Override
 	public StoreInfo selectOne(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectOne(input);
 	}
 
 	@Override
