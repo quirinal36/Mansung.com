@@ -29,10 +29,13 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, ModelAndView mv,
-			HttpServletRequest req, Authentication authentication) {
-		List<StoreInfo> list = storeService.select();
+			HttpServletRequest req, Authentication authentication,
+			StoreInfo storeInfo) {
+		storeInfo.setPageNo(1);
+		storeInfo.setTotalCount(storeService.count(storeInfo));		
+		List<StoreInfo> list = storeService.select(storeInfo);
 		
 		mv.addObject("list", list);
 		

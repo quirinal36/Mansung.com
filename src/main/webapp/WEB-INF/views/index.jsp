@@ -16,35 +16,35 @@
 				<div id="contentsPrint">
 					<!-- index top : category -->
 					<div class="idx_category">
-						<a href="#">
+						<a href="<c:url value="/index?category=2"/>">
 							<span>icon</span>
 							식당
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=3"/>">
 							<span>icon</span>
 							카페
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=4"/>">
 							<span>icon</span>
 							병원/약국
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=5"/>">
 							<span>icon</span>
 							마트/편의점
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=6"/>">
 							<span>icon</span>
 							미용실
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=7"/>">
 							<span>icon</span>
 							학원
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=8"/>">
 							<span>icon</span>
 							변호사
 						</a>
-						<a href="#">
+						<a href="<c:url value="/index?category=9"/>">
 							<span>icon</span>
 							부동산
 						</a>

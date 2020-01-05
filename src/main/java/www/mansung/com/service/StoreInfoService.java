@@ -36,8 +36,7 @@ public class StoreInfoService implements DataService<StoreInfo> {
 
 	@Override
 	public List<StoreInfo> select(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.select(input);
 	}
 
 	@Override
@@ -47,8 +46,7 @@ public class StoreInfoService implements DataService<StoreInfo> {
 
 	@Override
 	public int count(StoreInfo input) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.count(input);
 	}
 
 }

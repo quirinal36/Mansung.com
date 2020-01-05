@@ -9,9 +9,6 @@
 			var url = $("form").attr("action");
 			var param = $("form").serialize();
 			
-			console.log(url);
-			console.log(param);
-			
 			if(confirm("저장하시겠습니까?")){
 				$.ajax({
 					url : url,
@@ -95,7 +92,7 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <th>X좌표</th>
+	                                    <th onclick="javascript:editConfirm();">X좌표</th>
 	                                    <td>
 	                                        <input type="text" value="${store.XPosition }" placeholder="X좌표 입력" class="ipt1" name="xPosition">
 	                                    </td>
@@ -190,7 +187,7 @@
 	                        <input type="hidden" name="id" value="${store.id }"/>
                         </form>
                         <div class="bt_wrap">
-                            <a href="javascript:editConfirm();" class="bt1 on">수정</a>
+                            <!-- <a href="javascript:editConfirm();" class="bt1 on">수정</a> -->
                             <a href="<c:url value="/admin/store"/>" class="bt1">취소</a>
                         </div>
                     </div>

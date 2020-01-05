@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class StoreInfo {
+public class StoreInfo extends Paging{
 	int id;
 	String title;
 	String address1;

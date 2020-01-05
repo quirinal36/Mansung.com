@@ -45,7 +45,21 @@
 			${category}
 		)
 	</insert>
-	
+	<select id="select" parameterType="store" resultType="store">
+		SELECT 
+			s.*, 
+			c.title AS categoryTitle
+		FROM 
+			StoreInfo s LEFT JOIN Category c 
+			ON
+			s.category = c.id
+		<if test="category > 0">
+			<where>
+				s.category = ${category}
+			</where>
+		</if>
+		LIMIT ${from}, ${pageSize}
+	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
 			s.*, 
@@ -54,6 +68,16 @@
 			StoreInfo s LEFT JOIN Category c 
 			ON
 			s.category = c.id
+	</select>
+	
+	<select id="count" parameterType="store" resultType="int">
+		SELECT COUNT(*)
+		FROM StoreInfo
+		<if test="category > 0">
+			<where>		
+				category = ${category}
+			</where>
+		</if>
 	</select>
 	
 	<select id="select_one" resultType="store" parameterType="store">
