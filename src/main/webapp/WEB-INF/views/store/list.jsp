@@ -1,149 +1,65 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="su" uri="/WEB-INF/tlds/customTags" %>
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="canonical" href="http://www.xn--lz2b88k.com">
-	<meta name="apple-mobile-web-app-title" content="만성닷컴">
-	<meta name="robots" content="index,follow">
-	
-	<title>만성닷컴</title>
-	<meta name="description" content="만성동 가게 찾을 때는, 역시 만성닷컴!">
-	<link rel="icon" href="/resources/img/comm/favicon.ico">
-	<link rel=" shortcut icon" href="/resources/img/comm/favicon.ico">
-	
-	<meta property="og:title" content="만성닷컴">
-	<meta property="og:url" content="http://www.xn--lz2b88k.com">
-	<meta property="og:image" content="/resources/img/comm/og.jpg">
-	<meta property="og:description" content="만성동 가게 찾을 때는, 역시 만성닷컴!">
-	
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="만성닷컴">
-	<meta name="twitter:url" content="http://www.xn--lz2b88k.com">
-	<meta name="twitter:image" content="/resources/img/comm/og.jpg">
-	<meta name="twitter:description" content="만성동 가게 찾을 때는, 역시 만성닷컴!">
-	
-	<link rel="stylesheet" href="/resources/css/css.css">
-	<script src="/resources/js/jquery-1.12.1.min.js"></script>
-	<script src="/resources/js/jquery.bxslider.min.js"></script>
-	<script src="/resources/js/load.js"></script>
-	<script src="/resources/js/common.js"></script>
-	<script src="/resources/js/index.js"></script>
+	<c:import url="/inc/head"></c:import>
 </head>
 <body>
 	<div id="wrap">
-		<div id="headerWrap"></div>
+		<c:import url="/inc/header"></c:import>
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-                    <div class="noResult">
-                        <img src="/resources/img/comm/character1.png" alt="캐릭터">
-                        <p>검색된 내용이 없습니다.</p>
+                    <!-- store list -->
+					<div class="store_list">
                         <ul>
-                            <li>검색어에 오타가 있는지 확인해주세요.</li>
-                            <li>한 단어로 간단하게 입력해보세요.</li>
-                            <li>띄어 쓴 단어는 붙여 써보세요.</li>
-                            <li>업체등록 및 정정신청 <a href="https://pf.kakao.com/_ipZxeT" target="_blank" class="bt2">바로가기</a></li>
+                        	<c:forEach items="${list }" var="store">
+	                            <li>
+	                                <div class="info">
+	                                    <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
+	                                    <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+	                                     <c:if test="${fn:length(store.phone1) > 0 }">
+	                                    	<div>
+	                                    		<span>
+	                                    			${store.phone1 }
+	                                    		</span> 
+	                                    		<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+	                                    	</div>
+	                                    </c:if>
+	                                    <div>
+	                                    	<span>${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }</span> 
+	                                    	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+	                                    </div>
+	                                </div>
+	                                <div class="bt_wrap">
+	                                    <a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
+	                                        <img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
+	                                    </a>
+	                                    <a href="tel:0637142536" class="bt_call">
+	                                        <img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
+	                                    </a>
+	                                    <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
+	                                        <img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
+	                                    </a>
+	                                    <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
+	                                        <img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
+	                                    </a>
+	                                </div>
+	                            </li>
+                            </c:forEach>
+                           
                         </ul>
                     </div>
-                    <div class="store_list">
-                        <ul>
-                            <li>
-                                <div class="info">
-                                    <a href="/store/view.html" class="thumbnail" style="background-image: url(/resources/img/store/1.png);">김밥이 맛있는 단아분식</a>
-                                    <a href="/store/view.html" class="name">전주코딩학원</a>
-                                    <div>063-714-2536 <input type="button" value="복사" class="bt2"></div>
-                                    <div>만성중앙로 53-39 <input type="button" value="복사" class="bt2"></div>
-                                </div>
-                                <div class="bt_wrap">
-                                    <a href="/store/view.html" class="bt_view">
-                                        <img src="/resources/img/comm/bt_view.png" alt="icon">
-                                        상세
-                                    </a>
-                                    <a href="tel:0637142536" class="bt_call">
-                                        <img src="/resources/img/comm/bt_call.png" alt="icon">
-                                        전화
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
-                                        <img src="/resources/img/comm/bt_map.png" alt="icon">
-                                        지도
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
-                                        <img src="/resources/img/comm/bt_share.png" alt="icon">
-                                        공유
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <a href="/store/view.html" class="thumbnail" style="background-image: url(/resources/img/store/1.png);">김밥이 맛있는 단아분식</a>
-                                    <a href="/store/view.html" class="name">전주코딩학원</a>
-                                    <div>063-714-2536 <input type="button" value="복사" class="bt2"></div>
-                                    <div>만성중앙로 53-39 <input type="button" value="복사" class="bt2"></div>
-                                </div>
-                                <div class="bt_wrap">
-                                    <a href="/store/view.html" class="bt_view">
-                                        <img src="/resources/img/comm/bt_view.png" alt="icon">
-                                        상세
-                                    </a>
-                                    <a href="tel:0637142536" class="bt_call">
-                                        <img src="/resources/img/comm/bt_call.png" alt="icon">
-                                        전화
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
-                                        <img src="/resources/img/comm/bt_map.png" alt="icon">
-                                        지도
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
-                                        <img src="/resources/img/comm/bt_share.png" alt="icon">
-                                        공유
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <a href="/store/view.html" class="thumbnail" style="background-image: url(/resources/img/store/1.png);">김밥이 맛있는 단아분식</a>
-                                    <a href="/store/view.html" class="name">형구브레드</a>
-                                    <div>063-714-2536 <input type="button" value="복사" class="bt2"></div>
-                                    <div>만성중앙로 53-39 <input type="button" value="복사" class="bt2"></div>
-                                </div>
-                                <div class="bt_wrap">
-                                    <a href="/store/view.html" class="bt_view">
-                                        <img src="/resources/img/comm/bt_view.png" alt="icon">
-                                        상세
-                                    </a>
-                                    <a href="tel:0637142536" class="bt_call">
-                                        <img src="/resources/img/comm/bt_call.png" alt="icon">
-                                        전화
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
-                                        <img src="/resources/img/comm/bt_map.png" alt="icon">
-                                        지도
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
-                                        <img src="/resources/img/comm/bt_share.png" alt="icon">
-                                        공유
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="footerWrap"></div>
-        <div id="popupWrap" class="popup_selectMap_wrap">
-            <div class="popup">
-                <div class="popup_selectMap"></div>
-            </div>
-        </div>
-        <div id="popupWrap" class="popup_selectShare_wrap">
-            <div class="popup">
-                <div class="popup_selectShare"></div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
+		<c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/selectMap"></c:import>
+		<c:import url="/inc/selectShare"></c:import>
 	</div>	
 </body>
 </html>

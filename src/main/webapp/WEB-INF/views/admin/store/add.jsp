@@ -11,17 +11,19 @@
 			
 			console.log(param);
 			
-			$.ajax({
-				url : url,
-				data: param,
-				type: "POST",
-				dataType: "json"
-			}).done(function(json){
-				if(json.result > 0){
-					alert("등록되었습니다.");
-					window.location.replace("/admin/store/list");
-				}
-			});
+			if(confirm("저장하시겠습니까?")){
+				$.ajax({
+					url : url,
+					data: param,
+					type: "POST",
+					dataType: "json"
+				}).done(function(json){
+					if(json.result > 0){
+						alert("등록되었습니다.");
+						window.location.replace("/admin/store/list");
+					}
+				});
+			}
 		}
 	</script>
 </head>
@@ -40,6 +42,16 @@
 	                                <col width="80%">
 	                            </colgroup>
 	                            <tbody>
+	                            	<tr>
+	                                    <th>카테고리</th>
+	                                    <td>
+	                                    	<select name="category">
+	                                    		<c:forEach items="${cateList }" var="cate">
+	                                    			<option value="${cate.id }">${cate.title }</option>
+	                                    		</c:forEach>
+	                                    	</select>
+	                                    </td>
+	                                </tr>
 	                                <tr>
 	                                    <th>업체명</th>
 	                                    <td><input type="text" placeholder="업체명 입력" class="ipt1" name="title"></td>

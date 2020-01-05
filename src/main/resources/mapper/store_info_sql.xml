@@ -9,7 +9,8 @@
 			address2, 
 			address3, 
 			address4, 
-			address5, 
+			address5,
+			address6,  
 			postcode, 
 			xPosition, 
 			yPosition, 
@@ -19,7 +20,8 @@
 			website,
 			blog,
 			time,
-			representImage
+			representImage,
+			category
 		)
 		VALUES
 		(
@@ -28,7 +30,8 @@
 			'${address2}', 
 			'${address3}', 
 			'${address4}', 
-			'${address5}', 
+			'${address5}',
+			'${address6}',  
 			'${postcode}',
 			'${xPosition}',
 			'${yPosition}', 
@@ -38,19 +41,31 @@
 			'${website}',
 			'${blog}',
 			'${time}',
-			${representImage}
+			${representImage},
+			${category}
 		)
 	</insert>
 	
 	<select id="select_all" resultType="store">
-		SELECT * FROM StoreInfo
-		ORDER BY ID DESC
+		SELECT 
+			s.*, 
+			c.title AS categoryTitle
+		FROM 
+			StoreInfo s LEFT JOIN Category c 
+			ON
+			s.category = c.id
 	</select>
 	
 	<select id="select_one" resultType="store" parameterType="store">
-		SELECT * FROM StoreInfo
+		SELECT 
+			s.*, 
+			c.title AS categoryTitle
+		FROM 
+			StoreInfo s LEFT JOIN Category c 
+			ON
+			s.category = c.id
 		<where>
-			id = ${id}
+			s.id = ${id}
 		</where>
 	</select>
 	
@@ -62,7 +77,8 @@
 			address2 = '${address2}', 
 			address3 = '${address3}', 
 			address4 = '${address4}', 
-			address5 = '${address5}', 
+			address5 = '${address5}',
+			address6 = '${address6}', 
 			postcode = '${postcode}',
 			xPosition = '${xPosition}', 
 			yPosition = '${yPosition}', 
@@ -72,7 +88,8 @@
 			website = '${website}',
 			blog = '${blog}',
 			time = '${time}',
-			representImage = ${representImage}
+			representImage = ${representImage},
+			category = ${category}
 		</set>
 		<where>
 			id=${id}

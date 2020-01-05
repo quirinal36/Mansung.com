@@ -1,9 +1,13 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
+	<script type="text/javascript">
+		
+	</script>
 </head>
 <body>
 	<div id="wrap">
@@ -15,10 +19,21 @@
                         <ul>
                             <li>
                                 <div class="info">
+                                	<div>${store.categoryTitle }</div>
                                     <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
                                     <a href="javascript:void(0)" class="name">${store.title }</a>
-                                    <div>${store.phone1 } <input type="button" value="복사" class="bt2"></div>
-                                    <div>${store.address2 }, ${store.address4 } <input type="button" value="복사" class="bt2"></div>
+                                    <c:if test="${fn:length(store.phone1) > 0 }">
+                                    	<div>
+                                    		<span>
+                                    			${store.phone1 }
+                                    		</span> 
+                                    		<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+                                    	</div>
+                                    </c:if>
+                                    <div>
+                                    	<span>${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }</span> 
+                                    	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+                                    </div>
                                 </div>
                                 <div class="bt_wrap item3">
                                     <a href="tel:${store.phone1 }" class="bt_call">
@@ -36,19 +51,27 @@
                     </div>
                     <div class="storeView">
                         <div class="text">
-							${store.information }
-                            <div>
-                                <strong>영업시간</strong>
-								${store.time }
-                            </div>
-                            <div>
-                                <strong>웹사이트</strong>
-                                <a href="${store.website }" target="_blank">${store.website }</a>
-                            </div>
-                            <div>
-                                <strong>블로그</strong>
-                                <a href="${store.blog }" target="_blank">${store.blog }</a>
-                            </div>
+                        	<c:if test="${fn:length(store.information) > 0 }">
+								${store.information }
+							</c:if>
+							<c:if test="${fn:length(store.time) > 0 }">
+	                            <div>
+	                                <strong>영업시간</strong>
+									${store.time }
+	                            </div>
+                            </c:if>
+                            <c:if test="${fn:length(store.website) > 0 }">
+	                            <div>
+	                                <strong>웹사이트</strong>
+	                                <a href="${store.website }" target="_blank">${store.website }</a>
+	                            </div>
+                            </c:if>
+                            <c:if test="${fn:length(store.blog) > 0 }">
+	                            <div>
+	                                <strong>블로그</strong>
+	                                <a href="${store.blog }" target="_blank">${store.blog }</a>
+	                            </div>
+                            </c:if>
                         </div>
                         <!--
                         <img src="/resources/img/store/1_1.png" alt="사진">
@@ -73,17 +96,9 @@
                 </div>
             </div>
         </div>
-         <c:import url="/inc/footer"></c:import>
-        <div id="popupWrap" class="popup_selectMap_wrap">
-            <div class="popup">
-                <div class="popup_selectMap"></div>
-            </div>
-        </div>
-        <div id="popupWrap" class="popup_selectShare_wrap">
-            <div class="popup">
-                <div class="popup_selectShare"></div>
-            </div>
-        </div>
+        <c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/selectMap"></c:import>
+		<c:import url="/inc/selectShare"></c:import>
 	</div>	
 </body>
 </html>

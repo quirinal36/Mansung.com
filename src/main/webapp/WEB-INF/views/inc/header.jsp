@@ -9,6 +9,8 @@ $(function(){
 });
 </script>
 <div id="headerWrap">
+	<div id="msg-area">
+	</div>
 	<header>
 	    <div id="header">
 	        <h1 class="logo_wrap">

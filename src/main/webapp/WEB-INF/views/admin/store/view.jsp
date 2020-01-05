@@ -19,6 +19,10 @@
                                 <col width="80%">
                             </colgroup>
                             <tbody>
+                            	<tr>
+                                    <th>분류</th>
+                                    <td>${store.categoryTitle }</td>
+                                </tr>
                                 <tr>
                                     <th>업체명</th>
                                     <td>${store.title }</td>

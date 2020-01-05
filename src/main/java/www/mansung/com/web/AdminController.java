@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import www.mansung.com.service.CategoryService;
 import www.mansung.com.service.StoreInfoService;
+import www.mansung.com.vo.Category;
 import www.mansung.com.vo.StoreInfo;
 
 /**
@@ -27,12 +29,16 @@ import www.mansung.com.vo.StoreInfo;
 public class AdminController {
 	@Autowired
 	private StoreInfoService service;
+	@Autowired
+	private CategoryService categoryService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());			
 	
 	@RequestMapping(value="/store/add", method = RequestMethod.GET)
 	public ModelAndView getStoreAddFormView(ModelAndView mv) {
+		List<Category> cateList = categoryService.select();
 		
+		mv.addObject("cateList", cateList);
 		mv.setViewName("/admin/store/add");
 		return mv;
 	}
@@ -40,8 +46,6 @@ public class AdminController {
 	@ResponseBody
 	@RequestMapping(value="/store/add", method = RequestMethod.POST, produces = "application/json; charset=utf8")
 	public String postStoreAdd(StoreInfo info) {
-		logger.info(info.toString());
-		
 		JSONObject json = new JSONObject(); 
 		
 		int result = service.insert(info);
@@ -70,6 +74,9 @@ public class AdminController {
 	@RequestMapping(value="/store/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView getStoreEditFormView(ModelAndView mv,
 			@PathVariable(value="id", required = true)Integer id) {
+		List<Category> cateList = categoryService.select();
+		mv.addObject("cateList", cateList);
+		
 		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
 		mv.addObject("store", store);
 		

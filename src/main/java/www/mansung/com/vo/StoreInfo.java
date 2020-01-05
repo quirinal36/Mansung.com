@@ -17,6 +17,7 @@ public class StoreInfo {
 	String address3;
 	String address4;
 	String address5;
+	String address6;
 	String postcode;
 	String xPosition;
 	String yPosition;
@@ -29,6 +30,8 @@ public class StoreInfo {
 	int representImage;
 	Date wdate;
 	Date udate;
+	int category;
+	String categoryTitle;
 	
 	public static StoreInfo newInstance(int id) {
 		StoreInfo result = new StoreInfo();

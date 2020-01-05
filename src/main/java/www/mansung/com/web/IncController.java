@@ -23,4 +23,14 @@ public class IncController {
 		mv.setViewName("/inc/head");
 		return mv;
 	}
+	@RequestMapping(value="/inc/selectMap", method=RequestMethod.GET)
+	public ModelAndView getMap(ModelAndView mv) {
+		mv.setViewName("/inc/selectMap");
+		return mv;
+	}
+	@RequestMapping(value="/inc/selectShare", method=RequestMethod.GET)
+	public ModelAndView getShare(ModelAndView mv) {
+		mv.setViewName("/inc/selectShare");
+		return mv;
+	}
 }

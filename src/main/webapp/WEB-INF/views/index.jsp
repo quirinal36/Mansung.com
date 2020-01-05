@@ -55,40 +55,56 @@
                     <!-- store list -->
 					<div class="store_list">
                         <ul>
-                        	<c:forEach items="${list }" var="item">
-                        	
-                        	
-                            <li>
+                        	<c:forEach items="${list }" var="store">
+                            <li id="store-${store.id }">
                                 <div class="info">
+                                	<div>${store.categoryTitle }</div>
                                     <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
-                                    <a href="<c:url value="/store/view/${item.id }"/>" class="name">${item.title }</a>
-                                    <div>${item.phone1 } <input type="button" value="복사" class="bt2"></div>
-                                    <div>${item.address2 }, ${item.address4 } <input type="button" value="복사" class="bt2"></div>
+                                    <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+                                     <c:if test="${fn:length(store.phone1) > 0 }">
+                                    	<div>
+                                    		<span>
+                                    			${store.phone1 }
+                                    		</span> 
+                                    		<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+                                    	</div>
+                                    </c:if>
+                                    <div>
+                                    	<span>
+	                                    	${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
+                                    	</span> 
+                                    	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+                                    </div>
                                 </div>
                                 <div class="bt_wrap">
-                                    <a href="<c:url value="/store/view/${item.id }"/>" class="bt_view">
+                                    <a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
                                         <img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
                                     </a>
-                                    <a href="tel:0637142536" class="bt_call">
+                                    <a href="tel:${store.phone1 }" class="bt_call">
                                         <img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
                                     </a>
                                     <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
                                         <img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
                                     </a>
                                     <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
+                                    	<c:set var="fullURL" value="${pageContext.request.requestURL }"></c:set>
+                                    	<c:set var="pathURL" value="${pageContext.request.requestURI }"></c:set>
+                                    	<c:set var="baseURL" value="${fn:replace(fullURL, pathURL, '')}"></c:set>
+                                    	
+                                    	<input type="hidden" value="<c:url value="${baseURL }/store/view/${store.id }"/>"/>
                                         <img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
                                     </a>
                                 </div>
                             </li>
-                            
                             </c:forEach>
-                           
                         </ul>
                     </div>
 				</div>
 			</div>
 		</div>
 		<c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/selectMap"></c:import>
+		<c:import url="/inc/selectShare"></c:import>
 	</div>	
 </body>
 </html>
