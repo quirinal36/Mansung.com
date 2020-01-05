@@ -21,7 +21,7 @@ $(function(){
 	            <input type="button" value="검색">
 	        </div>
 	        <div class="login_wrap">
-	            <a href="/member/login.html" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
+	            <a href="<c:url value="/member/login"/>" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
 	            <!--
 	            <a href="#" class="logout"><img src="/resources/img/comm/logout.png" alt="로그아웃"></a>
 	            -->
