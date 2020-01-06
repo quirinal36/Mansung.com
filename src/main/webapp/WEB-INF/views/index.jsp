@@ -16,38 +16,13 @@
 				<div id="contentsPrint">
 					<!-- index top : category -->
 					<div class="idx_category">
-						<a href="<c:url value="/index?category=2"/>">
-							<span>icon</span>
-							식당
-						</a>
-						<a href="<c:url value="/index?category=3"/>">
-							<span>icon</span>
-							카페
-						</a>
-						<a href="<c:url value="/index?category=4"/>">
-							<span>icon</span>
-							병원/약국
-						</a>
-						<a href="<c:url value="/index?category=5"/>">
-							<span>icon</span>
-							마트/편의점
-						</a>
-						<a href="<c:url value="/index?category=6"/>">
-							<span>icon</span>
-							미용실
-						</a>
-						<a href="<c:url value="/index?category=7"/>">
-							<span>icon</span>
-							학원
-						</a>
-						<a href="<c:url value="/index?category=8"/>">
-							<span>icon</span>
-							변호사
-						</a>
-						<a href="<c:url value="/index?category=9"/>">
-							<span>icon</span>
-							부동산
-						</a>
+						<c:forEach items="${cateList }" var="category">
+							<a href="<c:url value="/index?category=${category.id }"/>">
+								<span>icon</span>
+								${category.title }
+							</a>
+						</c:forEach>
+						
                     </div>
                     <div class="bt_wrap">
                         <a href="http://naver.me/IgoZTYYM" target="_blank" class="bt4">업체등록·정정신청</a>

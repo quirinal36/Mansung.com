@@ -14,8 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.dao.BoardDAO;
 import www.mansung.com.service.BoardService;
+import www.mansung.com.service.CategoryService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.Board;
+import www.mansung.com.vo.Category;
 import www.mansung.com.vo.StoreInfo;
 
 /**
@@ -25,7 +27,8 @@ import www.mansung.com.vo.StoreInfo;
 public class HomeController {
 	@Autowired
 	private StoreInfoService storeService;
-	
+	@Autowired
+	private CategoryService categoryService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -38,7 +41,9 @@ public class HomeController {
 		List<StoreInfo> list = storeService.select(storeInfo);
 		
 		mv.addObject("list", list);
+		List<Category> cateList = categoryService.select();
 		
+		mv.addObject("cateList", cateList);
 		mv.setViewName("index");
 		return mv;
 	}

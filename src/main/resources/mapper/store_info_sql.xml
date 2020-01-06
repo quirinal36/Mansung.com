@@ -58,7 +58,6 @@
 				s.category = ${category}
 			</where>
 		</if>
-		LIMIT ${from}, ${pageSize}
 	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
