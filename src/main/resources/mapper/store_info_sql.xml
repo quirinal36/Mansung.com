@@ -53,11 +53,18 @@
 			StoreInfo s LEFT JOIN Category c 
 			ON
 			s.category = c.id
-		<if test="category > 0">
-			<where>
+		<where>
+			<if test="category > 0">
 				s.category = ${category}
-			</where>
-		</if>
+			</if>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
+				and (
+					s.title like '%${query}%' or
+					s.phone1 like '%${query}%' or
+					s.phone2 like '%${query}%'
+					)
+			</if>
+		</where>
 	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
@@ -75,6 +82,13 @@
 		<if test="category > 0">
 			<where>		
 				category = ${category}
+				<if test="@www.mansung.com.util.StringUtil@notEmpty(username)">
+					and (
+						s.title like '%${query}%' or
+						s.phone1 like '%${query}%' or
+						s.phone2 like '%${query}%'
+					)
+				</if>
 			</where>
 		</if>
 	</select>

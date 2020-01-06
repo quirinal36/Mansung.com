@@ -50,3 +50,7 @@ function copyIntoClipboard(text){
 	
 	document.body.removeChild(tempElem);
 }
+
+function search(elem){
+	$(elem).closest("form").submit();
+}

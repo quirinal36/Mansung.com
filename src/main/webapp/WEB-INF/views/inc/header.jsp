@@ -46,11 +46,13 @@ $(function(){
 		            </div>
 		        </div>
 		    </div>
-	        <div class="search_wrap">
-	            <input type="text" placeholder="검색어 입력" value="학원" onFocus="this.value='';return true;">
-	            <input type="button" value="검색">
-	        </div>
-	        <!--
+			<div class="search_wrap">
+				<form action="/index">
+					<input type="text" placeholder="검색어 입력" name="query"> <input
+						type="button" value="검색" onclick="javascript:search(this);">
+				</form>
+			</div>
+			<!--
 	        <div id="gnbWrap">
 	            <a href="javascript:void(0)" class="menu_opener">
 	                <span class="line1">메뉴</span>
