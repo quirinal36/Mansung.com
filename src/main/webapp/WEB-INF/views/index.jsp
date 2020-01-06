@@ -14,6 +14,103 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
+					<!-- 커뮤니티 view -->
+					<div class="msg_wrap">
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">루루</a>
+									<span class="date">2020-01-04 11:29:01 수정됨</span>
+								</div>
+								<p>
+									나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요.
+								</p>
+								<div class="msg_tags">
+									<a href="#">학원</a>
+									<a href="#">코딩</a>
+									<a href="#">4차산업혁명</a>
+								</div>
+								<div class="bt_wrap">
+									<a href="#">수정</a>
+									<a href="#">삭제</a>
+								</div>
+								<div class="comments_wrap">
+									<a href="#">댓글 2개</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">티티</a>
+									<span class="date">2020-01-01 11:29:01</span>
+								</div>
+								<p>
+									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
+								</p>
+								<div class="msg_tags">
+									<a href="#">학원</a>
+									<a href="#">코딩</a>
+									<a href="#">4차산업혁명</a>
+								</div>
+								<div class="comments_wrap">
+									<a href="#">댓글 22개</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">티티</a>
+									<span class="date">2020-01-01 11:29:01</span>
+								</div>
+								<p>
+									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
+								</p>
+								<div class="msg_tags">
+									<a href="#">학원</a>
+									<a href="#">코딩</a>
+									<a href="#">4차산업혁명</a>
+								</div>
+								<div class="comments_wrap">
+									<a href="#">댓글 22개</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">티티</a>
+									<span class="date">2020-01-01 11:29:01</span>
+								</div>
+								<p>
+									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
+								</p>
+								<div class="comments_wrap">
+									<a href="#">댓글 22개</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">티티</a>
+									<span class="date">2020-01-01 11:29:01</span>
+								</div>
+								<p>
+									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
+								</p>
+								<div class="comments_wrap">
+									<a href="#">댓글 22개</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- index top : category -->
 					<div class="idx_category">
 						<c:forEach items="${cateList }" var="category">
@@ -32,9 +129,9 @@
                         	<c:forEach items="${list }" var="store">
                             <li id="store-${store.id }">
                                 <div class="info">
-                                	<div>${store.categoryTitle }</div>
-                                    <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
+                                    <!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
                                     <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+                                	<span class="category">${store.categoryTitle }</span>
                                      <c:if test="${fn:length(store.phone1) > 0 }">
                                     	<div>
                                     		<span>

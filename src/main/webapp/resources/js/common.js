@@ -1,4 +1,9 @@
 $(function(){
+	// 메뉴 닫기
+	$("#gnb .bg").click(function(){
+		$("#bt_gnb").attr("checked", false);
+	});
+	
     // 지도 선택
     $(".popup_selectMap_opener").click(function(){
         $(".popup_selectMap_wrap").css("display","table");

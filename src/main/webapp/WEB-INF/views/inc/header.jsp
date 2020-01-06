@@ -13,36 +13,42 @@ $(function(){
 	</div>
 	<header>
 	    <div id="header">
-	        <h1 class="logo_wrap">
-	            <a href="/">
-	                <img src="/resources/img/comm/logo.png" alt="만성닷컴">
-	            </a>
-	        </h1>
+	    	<div class="top">
+		        <h1 class="logo_wrap">
+		            <a href="/">
+		                <img src="/resources/img/comm/logo.png" alt="만성닷컴">
+		            </a>
+		            <a href="/">
+		                <img src="/resources/img/comm/logo2_off.png" alt="만성인">
+		            </a>
+		        </h1>
+		        <div class="login_wrap">
+		            <a href="<c:url value="/member/login"/>" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
+		            <!--
+		            <a href="#" class="logout"><img src="/resources/img/comm/logout.png" alt="로그아웃"></a>
+		            -->
+		        </div>
+		        <div id="gnb_wrap">
+		            <input type="checkbox" id="bt_gnb">
+		            <label for="bt_gnb">메뉴</label>
+		            <div id="gnb">
+		            	<div class="bg"></div>
+		                <nav>
+		                    <ul>
+		                        <li><a href="#">만성닷컴 소개</a></li>
+		                        <li><a href="#">업체등록·정정신청</a></li>
+		                        <li><a href="#">만성닷컴 이용안내</a></li>
+		                        <li><a href="#">문의하기</a></li>
+		                        <li><a href="<c:url value="/admin/store"/>">관리자</a></li>
+		                        <li><a href="#">로그아웃</a></li>
+		                    </ul>
+		                </nav>
+		            </div>
+		        </div>
+		    </div>
 	        <div class="search_wrap">
-	            <input type="text" placeholder="검색어 입력">
+	            <input type="text" placeholder="검색어 입력" value="학원" onFocus="this.value='';return true;">
 	            <input type="button" value="검색">
-	        </div>
-	        <div class="login_wrap">
-	            <a href="<c:url value="/member/login"/>" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
-	            <!--
-	            <a href="#" class="logout"><img src="/resources/img/comm/logout.png" alt="로그아웃"></a>
-	            -->
-	        </div>
-	        <div id="gnb_wrap">
-	            <input type="checkbox" id="bt_gnb">
-	            <label for="bt_gnb">메뉴</label>
-	            <div id="gnb">
-	                <nav>
-	                    <ul>
-	                        <li><a href="#">만성닷컴 소개</a></li>
-	                        <li><a href="#">업체등록·정정신청</a></li>
-	                        <li><a href="#">만성닷컴 이용안내</a></li>
-	                        <li><a href="#">문의하기</a></li>
-	                        <li><a href="<c:url value="/admin/store"/>">관리자</a></li>
-	                        <li><a href="#">로그아웃</a></li>
-	                    </ul>
-	                </nav>
-	            </div>
 	        </div>
 	        <!--
 	        <div id="gnbWrap">
