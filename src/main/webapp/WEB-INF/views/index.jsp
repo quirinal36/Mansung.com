@@ -22,7 +22,6 @@
 								${category.title }
 							</a>
 						</c:forEach>
-						
                     </div>
                     <div class="bt_wrap">
                         <a href="http://naver.me/IgoZTYYM" target="_blank" class="bt4">업체등록·정정신청</a>
