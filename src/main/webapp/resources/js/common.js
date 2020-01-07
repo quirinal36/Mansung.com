@@ -14,6 +14,38 @@ $(function(){
     	$(".popup_selectShare_wrap").find("input[type='hidden']").val(shareURL);
         $(".popup_selectShare_wrap").css("display","table");
     });
+    // 만성인 불편해요, 괜찮아요
+    $(".bt_msg_hide + label").each(function(index, item){
+        if ($(item).parent().find("input").is(":checked") == true){
+        	$(item).html("괜찮아요");
+    	} else{
+        	$(item).html("불편해요 " + 1);
+    	}
+    });
+    
+    $(".bt_msg_hide + label").click(function(){
+    	if ($(this).parent().find("input").is(":checked") == true) {
+    		$(this).html("불편해요 " + 1);
+    	} else {
+    		$(this).html("괜찮아요");
+    	}
+    }); 
+    // 만성인 차단, 차단 해제
+    $(".bt_msg_out + label").each(function(index, item){
+        if ($(item).parent().find("input").is(":checked") == true){
+        	$(item).html("차단 해제");
+    	} else{
+        	$(item).html("차단");
+    	}
+    });
+    
+    $(".bt_msg_out + label").click(function(){
+    	if ($(this).parent().find("input").is(":checked") == true) {
+    		$(this).html("차단");
+    	} else {
+    		$(this).html("차단 해제");
+    	}
+    });
 });
 /**
  * 클립보드 복사 (전화번호/주소)
