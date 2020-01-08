@@ -364,6 +364,7 @@
 }
 
 .msg_wrap .comments_wrap .bt_msg_like + label,
+.msg_wrap .comments_wrap span,
 .msg_wrap .comments_wrap a {
 	display: inline-block;
 	vertical-align: middle;
@@ -379,10 +380,18 @@
 	cursor: pointer;
 }
 
+.msg_wrap .comments_wrap span,
 .msg_wrap .comments_wrap a {
 	font-size: 1.2rem;
-	font-weight: 600;
 	color: #777;
+}
+
+.msg_wrap .comments_wrap .left span {
+	margin-right: 10px;
+}
+
+.msg_wrap .comments_wrap a {
+	font-weight: 600;
 }
 
 .msg_wrap .comments_wrap .bt_msg_like:checked + label {
@@ -403,7 +412,8 @@
 
 .msg_wrap .comments_wrap .msg_out_wrap .bt_msg_out + label,
 .msg_wrap .comments_wrap .msg_hide_wrap .bt_msg_hide + label {
-	margin-left: 10px;
+	display: inline-block;
+	vertical-align: middle;
 	font-size: 1.2rem;
 	font-weight: 400;
 	color: #777;
@@ -411,10 +421,12 @@
 }
 
 .msg_wrap .comments_wrap .msg_out_wrap .bt_msg_out + label {
-	margin-left: 0;
+	margin-right: 10px;
 }
 
-
+.msg_wrap .comments_wrap .right span {
+	margin-right: 10px;
+}
 
 
 

@@ -33,9 +33,13 @@
 								</div>
 								<!-- input type checkbox의 아이디는 msg + 글번호 형태가 되어야 함, label의 for도 동일 -->
 								<div class="comments_wrap">
-									<input type="checkbox" id="msg1_like" class="bt_msg_like">
-									<label for="msg1_like">좋아요</label>
-									<a href="#">댓글 쓰기</a>
+									<div class="left">
+										<input type="checkbox" id="msg1_like" class="bt_msg_like">
+										<label for="msg1_like">좋아요</label>
+										<!-- 좋아요 갯수는 관리자만 노출 -->
+										<span>좋아요 3</span>
+										<a href="#">댓글 쓰기</a>
+									</div>
 									<div class="right">
 										<!-- 차단/차단해제, 관리자만 노출 -->
 										<div class="msg_out_wrap">
@@ -44,6 +48,7 @@
 										</div>
 										<!-- 불편해요/괜찮아요, 불편해요 숫자는 관리자만 노출 -->
 										<div class="msg_hide_wrap">
+											<span>불편해요 1</span>
 											<input type="checkbox" id="msg1_hide" class="bt_msg_hide">
 											<label for="msg1_hide"></label>
 										</div>
@@ -71,11 +76,6 @@
 									<label for="msg2_like">좋아요</label>
 									<a href="#">댓글 2개</a>
 									<div class="right">
-										<!-- 차단/차단해제, 관리자만 노출 -->
-										<div class="msg_out_wrap">
-											<input type="checkbox" id="msg2_out" class="bt_msg_out" checked>
-											<label for="msg2_out"></label>
-										</div>
 										<!-- 불편해요/괜찮아요 -->
 										<div class="msg_hide_wrap">
 											<input type="checkbox" id="msg2_hide" class="bt_msg_hide" checked>
