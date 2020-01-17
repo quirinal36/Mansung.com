@@ -333,7 +333,7 @@
 
 .msg_wrap .msg_tags a {
 	display: inline-block;
-	padding: 5px 8px 6px 8px;
+	padding: 7px 8px 8px 8px;
 	border-bottom: 1px solid #ddd;
 	border-radius: 20px;
 	background: #fff;
@@ -355,24 +355,78 @@
 }
 
 .msg_wrap .comments_wrap {
+	position: relative;
 	margin-top: 8px;
 }
 
+.msg_wrap .comments_wrap input[type="checkbox"] {
+	display: none;
+}
+
+.msg_wrap .comments_wrap .bt_msg_like + label,
+.msg_wrap .comments_wrap span,
+.msg_wrap .comments_wrap a {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.msg_wrap .comments_wrap .bt_msg_like + label {
+	width: 20px;
+	height: 18px;
+	margin-right: 5px;
+	background: url(/resources/img/msg/like.png) no-repeat 0 0 /20px;
+	text-indent: -300px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.msg_wrap .comments_wrap span,
 .msg_wrap .comments_wrap a {
 	font-size: 1.2rem;
-	font-weight: 600;
 	color: #777;
 }
 
+.msg_wrap .comments_wrap .left span {
+	margin-right: 10px;
+}
 
+.msg_wrap .comments_wrap a {
+	font-weight: 600;
+}
 
+.msg_wrap .comments_wrap .bt_msg_like:checked + label {
+	background-image: url(/resources/img/msg/like_on.png);
+}
 
+.msg_wrap .comments_wrap .right {
+	position:absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+}
 
+.msg_wrap .comments_wrap .msg_out_wrap,
+.msg_wrap .comments_wrap .msg_hide_wrap {
+	display: inline-block;
+}
 
+.msg_wrap .comments_wrap .msg_out_wrap .bt_msg_out + label,
+.msg_wrap .comments_wrap .msg_hide_wrap .bt_msg_hide + label {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #777;
+	cursor: pointer;
+}
 
+.msg_wrap .comments_wrap .msg_out_wrap .bt_msg_out + label {
+	margin-right: 10px;
+}
 
-
-
+.msg_wrap .comments_wrap .right span {
+	margin-right: 10px;
+}
 
 
 

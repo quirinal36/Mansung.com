@@ -31,82 +31,57 @@
 									<a href="#">코딩</a>
 									<a href="#">4차산업혁명</a>
 								</div>
-								<div class="bt_wrap">
-									<a href="#">수정</a>
-									<a href="#">삭제</a>
+								<!-- input type checkbox의 아이디는 msg + 글번호 형태가 되어야 함, label의 for도 동일 -->
+								<div class="comments_wrap">
+									<div class="left">
+										<input type="checkbox" id="msg1_like" class="bt_msg_like">
+										<label for="msg1_like">좋아요</label>
+										<!-- 좋아요 갯수는 관리자만 노출 -->
+										<span>좋아요 3</span>
+										<a href="#">댓글 쓰기</a>
+									</div>
+									<div class="right">
+										<!-- 차단/차단해제, 관리자만 노출 -->
+										<div class="msg_out_wrap">
+											<input type="checkbox" id="msg1_out" class="bt_msg_out">
+											<label for="msg1_out"></label>
+										</div>
+										<!-- 불편해요/괜찮아요, 불편해요 숫자는 관리자만 노출 -->
+										<div class="msg_hide_wrap">
+											<span>불편해요 1</span>
+											<input type="checkbox" id="msg1_hide" class="bt_msg_hide">
+											<label for="msg1_hide"></label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<div class="msg">
+								<div class="info">
+									<a href="#">루루</a>
+									<span class="date">2020-01-04 11:29:01 수정됨</span>
+								</div>
+								<p>
+									나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요.
+								</p>
+								<div class="msg_tags">
+									<a href="#">학원</a>
+									<a href="#">코딩</a>
+									<a href="#">4차산업혁명</a>
 								</div>
 								<div class="comments_wrap">
+									<input type="checkbox" id="msg2_like" class="bt_msg_like" checked>
+									<label for="msg2_like">좋아요</label>
 									<a href="#">댓글 2개</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
-							<div class="msg">
-								<div class="info">
-									<a href="#">티티</a>
-									<span class="date">2020-01-01 11:29:01</span>
-								</div>
-								<p>
-									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
-								</p>
-								<div class="msg_tags">
-									<a href="#">학원</a>
-									<a href="#">코딩</a>
-									<a href="#">4차산업혁명</a>
-								</div>
-								<div class="comments_wrap">
-									<a href="#">댓글 22개</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
-							<div class="msg">
-								<div class="info">
-									<a href="#">티티</a>
-									<span class="date">2020-01-01 11:29:01</span>
-								</div>
-								<p>
-									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
-								</p>
-								<div class="msg_tags">
-									<a href="#">학원</a>
-									<a href="#">코딩</a>
-									<a href="#">4차산업혁명</a>
-								</div>
-								<div class="comments_wrap">
-									<a href="#">댓글 22개</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
-							<div class="msg">
-								<div class="info">
-									<a href="#">티티</a>
-									<span class="date">2020-01-01 11:29:01</span>
-								</div>
-								<p>
-									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
-								</p>
-								<div class="comments_wrap">
-									<a href="#">댓글 22개</a>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/2.png);">루루</a>
-							<div class="msg">
-								<div class="info">
-									<a href="#">티티</a>
-									<span class="date">2020-01-01 11:29:01</span>
-								</div>
-								<p>
-									저는 콩나물국밥을 좋아해요. 너무너무너무너무!! 여러분들이 생각하시는 콩나물국밥 맛집 공유해주세요~^^
-								</p>
-								<div class="comments_wrap">
-									<a href="#">댓글 22개</a>
+									<div class="right">
+										<!-- 불편해요/괜찮아요 -->
+										<div class="msg_hide_wrap">
+											<input type="checkbox" id="msg2_hide" class="bt_msg_hide" checked>
+											<label for="msg2_hide"></label>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
