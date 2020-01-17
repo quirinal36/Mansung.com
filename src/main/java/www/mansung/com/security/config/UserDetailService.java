@@ -13,20 +13,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import www.mansung.com.dao.UserDAO;
 import www.mansung.com.vo.UserVO;
 
 @Service
 public class UserDetailService implements UserDetailsService { 
 	Logger logger = LoggerFactory.getLogger(UserDetailsService.class);
-	
+	@Autowired
+	private UserDAO dao;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		UserVO user = new UserVO();
-		user.setLogin(username);
+		user.setEmail(email);
+		user = dao.selectOne(user);
+		
 		GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole_name());
-		UserDetails userDetails = (UserDetails)new User(user.getLogin()
-				,user.getPassword(), Arrays.asList(authority));
+		UserDetails userDetails = (UserDetails)new User(user.getEmail(), "" /*PASSWORD*/, Arrays.asList(authority));
 				
 		return userDetails;
 	}

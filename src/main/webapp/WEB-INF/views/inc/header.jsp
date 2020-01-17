@@ -1,12 +1,26 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
+Kakao.init('${apiKey}');
 $(function(){
     // gnb 열기
     $(".menu_opener").click(function(){
         $(this).toggleClass("on");
     });
+    
+    $("#kakao-logout-btn").on('click', function(){
+		Kakao.Auth.logout(function(){
+			window.location.reload();
+		});
+	});
+    var accessToken = Kakao.Auth.getAccessToken();
+	console.log(accessToken);
 });
+function moveToLogin(){
+	var url = "/member/login";
+	window.location.replace(url);
+}
 </script>
 <div id="headerWrap">
 	<div id="msg-area">
@@ -23,10 +37,16 @@ $(function(){
 		            </a>
 		        </h1>
 		        <div class="login_wrap">
-		            <a href="<c:url value="/member/login"/>" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
-		            <!--
-		            <a href="#" class="logout"><img src="/resources/img/comm/logout.png" alt="로그아웃"></a>
-		            -->
+		        	<c:choose>
+		        		<c:when test="${empty user}">
+		        			<a href="#" onclick="javascript:moveToLogin();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
+		        		</c:when>
+		        		<c:otherwise>
+							<a href="<c:url value="/member/signup"/>" style="display: inline-block; width: 30px; height: 30px; border-radius: 100px; text-indent: -1000px; overflow: hidden; background: blue;">
+								<img src="${user.thumbnail_image_url }"/>
+							</a>		        		
+		        		</c:otherwise>
+					</c:choose>
 		        </div>
 		        <div id="gnb_wrap">
 		            <input type="checkbox" id="bt_gnb">
@@ -40,7 +60,7 @@ $(function(){
 		                        <li><a href="#">만성닷컴 이용안내</a></li>
 		                        <li><a href="#">문의하기</a></li>
 		                        <li><a href="<c:url value="/admin/store"/>">관리자</a></li>
-		                        <li><a href="#">로그아웃</a></li>
+		                        <li><a href="#" id="kakao-logout-btn">로그아웃</a></li>
 		                    </ul>
 		                </nav>
 		            </div>

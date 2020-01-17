@@ -4,7 +4,6 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	
 </head>
 <body>
 	<div id="wrap">
@@ -19,7 +18,6 @@
                             더 많은 서비스를 이용하실 수 있습니다.
                         </p>
                         <a class="bt4 bt_kakao" id="kakao-login-btn">카카오톡으로 로그인</a>
-                        <a class="bt4" id="kakao-logout-btn">로그아웃</a>
                     </div>
                 </div>
             </div>
@@ -30,28 +28,23 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
 	Kakao.init('${apiKey}');
-	$("#kakao-logout-btn").on('click', function(){		
-		Kakao.Auth.getStatus(function(result){
-			console.log(result);
-		});
-	});
 	
-	Kakao.Auth.createLoginButton({
+	Kakao.Auth.createLoginButton({ 
 		container : '#kakao-login-btn',
 		success : function(authObj) {
 			var url = "/member/signup";
 			var param = JSON.stringify(authObj);
+			console.log(authObj);
 			
 			$.ajax({
 				url : url,
 				data: param,
 				type: "POST",
-				dataType: "json"
+				dataType: "json",
+				contentType: 'application/json; charset=utf-8'
 			}).done(function(json){
-				if(json.result > 0){
-					
-				}else{
-					
+				if(json.id > 0){
+					window.location.replace("/member/signup");
 				}
 			});
 		},

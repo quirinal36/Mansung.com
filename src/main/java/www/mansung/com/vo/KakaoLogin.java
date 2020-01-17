@@ -4,13 +4,14 @@ import lombok.ToString;
 
 import lombok.Setter;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.json.JSONObject;
 
 import lombok.Getter;
 
 @Getter
 @Setter
-@ToString
 public class KakaoLogin {
 	String access_token;
 	String token_type;
@@ -31,5 +32,10 @@ public class KakaoLogin {
 		result.setScope(json.getString("scope"));
 		result.setRefresh_token_expires_in(json.getLong("refresh_token_expires_in"));
 		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
 	}
 }

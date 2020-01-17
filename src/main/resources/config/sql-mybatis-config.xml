@@ -7,5 +7,6 @@
 		<typeAlias type="www.mansung.com.vo.Board" alias="board"/>
 		<typeAlias type="www.mansung.com.vo.StoreInfo" alias="store"/>
 		<typeAlias type="www.mansung.com.vo.Category" alias="cate"/>
+		<typeAlias type="www.mansung.com.vo.UserVO" alias="user"/>
     </typeAliases>
 </configuration>

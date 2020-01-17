@@ -18,7 +18,7 @@
                             최대 6자까지 입력 가능하며 공백은 제외됩니다.
                         </p>
                         <form>
-                            <input type="text" placeholder="활동명 입력" class="ipt1">
+                            <input type="text" placeholder="활동명 입력" class="ipt1" value="${user.nickname }">
                             <input type="submit" value="저장" class="bt4">
                         </form>
                     </div>
