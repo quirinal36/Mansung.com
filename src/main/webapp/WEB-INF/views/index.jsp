@@ -93,77 +93,77 @@
                     </div>
 					<!-- index top : category -->
 					<div class="idx_category">
-						<a href="/index?category=1" class="restaurant">
+						<a href="/index?category=2" class="restaurant">
 							<span>icon</span> 식당
 						</a>
-						<a href="/index?category=2" class="cafe">
+						<a href="/index?category=3" class="cafe">
 							<span>icon</span> 카페·디저트
 						</a>
-						<a href="/index?category=3" class="hospital">
+						<a href="/index?category=4" class="hospital">
 							<span>icon</span> 의료
 						</a>
-						<a href="/index?category=4" class="mart">
+						<a href="/index?category=5" class="mart">
 							<span>icon</span> 마트·쇼핑
 						</a>
-						<a href="/index?category=5" class="beauty">
+						<a href="/index?category=6" class="beauty">
 							<span>icon</span> 미용·뷰티
 						</a>
-						<a href="/index?category=6" class="academy">
+						<a href="/index?category=7" class="academy">
 							<span>icon</span> 학원
 						</a>
-						<a href="/index?category=7" class="law">
+						<a href="/index?category=8" class="law">
 							<span>icon</span> 법률
 						</a>
-						<a href="/index?category=8" class="estate">
+						<a href="/index?category=9" class="estate">
 							<span>icon</span> 부동산
 						</a>
 	                    <div class="idx_category_more">
-							<a href="/index?category=10" class="construction">
+							<a href="/index?category=11" class="construction">
 								<span>icon</span> 건축·환경
 							</a>
-							<a href="/index?category=16" class="church">
+							<a href="/index?category=17" class="church">
 								<span>icon</span> 교회
 							</a>
-							<a href="/index?category=14" class="bank">
+							<a href="/index?category=15" class="bank">
 								<span>icon</span> 금융
 							</a>
-							<a href="/index?category=9" class="organization">
+							<a href="/index?category=10" class="organization">
 								<span>icon</span> 기관·단체
 							</a>
-							<a href="/index?category=21" class="plant">
+							<a href="/index?category=22" class="plant">
 								<span>icon</span> 꽃·식물
 							</a>
-							<a href="/index?category=17" class="catholic">
+							<a href="/index?category=18" class="catholic">
 								<span>icon</span> 성당
 							</a>
-							<a href="/index?category=20" class="tax">
+							<a href="/index?category=21" class="tax">
 								<span>icon</span> 세무·회계
 							</a>
-							<a href="/index?category=22" class="software">
+							<a href="/index?category=23" class="software">
 								<span>icon</span> 소프트웨어
 							</a>
-							<a href="/index?category=23" class="stenograph">
+							<a href="/index?category=24" class="stenograph">
 								<span>icon</span> 속기
 							</a>
-							<a href="/index?category=12" class="kids">
+							<a href="/index?category=13" class="kids">
 								<span>icon</span> 어린이
 							</a>
-							<a href="/index?category=13" class="health">
+							<a href="/index?category=14" class="health">
 								<span>icon</span> 운동·건강
 							</a>
-							<a href="/index?category=18" class="interior">
+							<a href="/index?category=19" class="interior">
 								<span>icon</span> 인테리어
 							</a>
-							<a href="/index?category=11" class="car">
+							<a href="/index?category=12" class="car">
 								<span>icon</span> 자동차
 							</a>
-							<a href="/index?category=15" class="entertainment">
+							<a href="/index?category=16" class="entertainment">
 								<span>icon</span> 취미·오락
 							</a>
-							<a href="/index?category=19" class="fashion">
+							<a href="/index?category=20" class="fashion">
 								<span>icon</span> 패션
 							</a>
-							<a href="/index?category=1" class="etc">
+							<a href="/index?category=0" class="etc">
 								<span>icon</span> 기타
 							</a>
 						</div>
