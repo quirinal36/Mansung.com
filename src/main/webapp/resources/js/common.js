@@ -85,14 +85,22 @@ function copyInnerHtml(button){
 	var text = div.innerHTML.trim();
 	
 	copyIntoClipboard(text);
-	
+	/*
 	var msg = document.getElementById("msg-area");
 	msg.innerHTML = "copied!";
 	$(msg).addClass("on");
 	setTimeout(function() {
 		$(msg).removeClass("on");
 	}, 1000);
+	*/
+	// 주석 부분 제이쿼리로 수정함
+	$("#msg-area").html("복사 완료!").slideDown();
+	setTimeout(function() {
+		$("#msg-area").slideUp();
+	}, 2000);
 }
+
+
 
 function copyToShare(){
 	var input = document.getElementsByClassName("popup_selectShare_wrap")[0].getElementsByTagName("input")[0];
