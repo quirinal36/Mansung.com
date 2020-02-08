@@ -163,7 +163,7 @@
 							<a href="/index?category=20" class="fashion">
 								<span>icon</span> 패션
 							</a>
-							<a href="/index?category=0" class="etc">
+							<a href="/index?category=1" class="etc">
 								<span>icon</span> 기타
 							</a>
 						</div>
