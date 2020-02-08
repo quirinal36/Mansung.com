@@ -1,4 +1,13 @@
+function saveTag() {
+	var txt = $("#ipt_tag").val();
+	if(txt != "") {
+		$(".tags").append(' <span>' + txt + ' <input type="button" value="삭제" onclick="deleteTag(this)"></span>');
+		$("#ipt_tag").val("");
+	}	
+}
+
 $(function(){
+/// Header
 	// 메뉴 닫기
 	$("#gnb .bg").click(function(){
 		$("#bt_gnb").attr("checked", false);
@@ -10,13 +19,12 @@ $(function(){
 	var autoWord = autoWordList[autoWordNum];
 	
 	
-	
 	$("#header_search_txt").val(autoWord);
 	$("#header_search_txt").focus(function(){
 		$("#header_search_txt").val("");
 	});
 	
-	
+/// Contents
     // 지도 선택
     $(".popup_selectMap_opener").click(function(){
         $(".popup_selectMap_wrap").css("display","table");
@@ -73,7 +81,36 @@ $(function(){
     $(".bt_popupClose").click(function(){
         $(".popupWrap").fadeOut();
     });
+    
+    // 태그 입력창에서 스페이스바, 쉼표 눌렀을 때
+    $("#ipt_tag").keydown(function(e){
+    	// console.log(e.keyCode);
+    	if(e.keyCode == 32 || e.keyCode == 188){
+    		e.preventDefault();
+    		saveTag();
+    	}
+    });
+    
+    // 태그 입력창에서 엔터 눌렀을 때
+    $("#ipt_tag").keyup(function(e){
+    	if(e.keyCode == 13){
+    		saveTag();
+    	}
+    });
+    
+    // 태그 입력창에서 벗어났을 때
+    $("#ipt_tag").focusout(function(e){
+    	if(e.keyCode == 13){
+    		saveTag();
+    	}
+    });
 });
+
+
+function deleteTag(bt) {
+	$(bt).parent().remove();
+}
+
 /**
  * 클립보드 복사 (전화번호/주소)
  * 

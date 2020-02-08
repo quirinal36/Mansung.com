@@ -77,8 +77,18 @@
     margin-left: 15px;
 }
 
+#header .login_wrap a {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 100px;
+	text-indent: -1000px;
+	overflow: hidden;
+}
+
 #header .login_wrap a img {
-    height: 24px;
+    width: 100%;
+    height: 100%;
 }
 
 #gnb_wrap #bt_gnb {

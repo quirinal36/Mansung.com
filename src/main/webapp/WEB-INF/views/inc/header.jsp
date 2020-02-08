@@ -42,7 +42,7 @@ function moveToLogin(){
 		        			<a href="#" onclick="javascript:moveToLogin();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
 		        		</c:when>
 		        		<c:otherwise>
-							<a href="<c:url value="/member/signup"/>" style="display: inline-block; width: 30px; height: 30px; border-radius: 100px; text-indent: -1000px; overflow: hidden; background: blue;">
+							<a href="<c:url value="/member/signup"/>">
 								<img src="${user.thumbnail_image_url }"/>
 							</a>		        		
 		        		</c:otherwise>

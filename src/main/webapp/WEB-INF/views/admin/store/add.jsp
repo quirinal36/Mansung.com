@@ -173,19 +173,9 @@
 	                                <tr>
 	                                    <th>키워드</th>
 	                                    <td>
-	                                        <input type="text" placeholder="키워드 입력" class="ipt1">
+	                                        <input type="text" placeholder="키워드 입력" id="ipt_tag" class="ipt1">
 	                                        <div class="tags">
-	                                            <a href="#">김밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">떡볶이 <input type="button" value="삭제"></a>
-	                                            <a href="#">쫄면 <input type="button" value="삭제"></a>
-	                                            <a href="#">우동 <input type="button" value="삭제"></a>
-	                                            <a href="#">돈까스 <input type="button" value="삭제"></a>
-	                                            <a href="#">라면 <input type="button" value="삭제"></a>
-	                                            <a href="#">오므라이스 <input type="button" value="삭제"></a>
-	                                            <a href="#">돌솥비빔밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">된장찌개 <input type="button" value="삭제"></a>
-	                                            <a href="#">볶음밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">잡채밥 <input type="button" value="삭제"></a>
+
 	                                        </div>
 	                                    </td>
 	                                </tr>
