@@ -77,8 +77,7 @@
 	                            </div>
                             </c:if>
                         </div>
-                        <!--
-                        <img src="/resources/img/store/1_1.png" alt="사진">
+                        <!-- 사진은 최대 3장까지 등록 가능 -->
                         <img src="/resources/img/store/1_1.png" alt="사진">
                         <img src="/resources/img/store/1_1.png" alt="사진">
                         <div class="tags">
@@ -95,7 +94,6 @@
                             <a href="#">볶음밥</a>
                             <a href="#">잡채밥</a>
                         </div>
-                        -->
                     </div>
                 </div>
             </div>

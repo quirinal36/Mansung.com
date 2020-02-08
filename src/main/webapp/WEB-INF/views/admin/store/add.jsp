@@ -158,6 +158,18 @@
 	                                        </ul>
 	                                    </td>
 	                                </tr>
+	                                <tr class="image">
+	                                    <th>와이드 배너</th>
+	                                    <td>
+	                                        <input type="button" value="사진 등록" class="bt2">
+	                                        <ul>
+	                                            <li>
+	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
+	                                                <input type="button" value="삭제" class="bt2">
+	                                            </li>
+	                                        </ul>
+	                                    </td>
+	                                </tr>
 	                                <tr>
 	                                    <th>키워드</th>
 	                                    <td>
