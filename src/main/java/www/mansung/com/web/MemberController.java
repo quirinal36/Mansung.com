@@ -58,7 +58,9 @@ public class MemberController {
 				JSONObject accountObj = response.getJSONObject("kakao_account");
 				JSONObject profileObj = accountObj.getJSONObject("profile");
 				UserVO user = new UserVO();
-				if(accountObj.getBoolean("has_email")) {
+				user.setKakaoId(String.valueOf(response.getInt("id")));
+				
+				if(accountObj.has("email")) {
 					user.setEmail(accountObj.getString("email"));
 				}
 				
@@ -82,11 +84,14 @@ public class MemberController {
 		RestUtil util = new RestUtil();
 		
 		JSONObject response = util.post("v2/user/me", kakao.getAccess_token());
-		
+		logger.info(response.toString());
 		JSONObject accountObj = response.getJSONObject("kakao_account");
+		logger.info(accountObj.toString());
+		
 		JSONObject profileObj = accountObj.getJSONObject("profile");
 		UserVO user = new UserVO();
-		if(accountObj.getBoolean("has_email")) {
+		user.setKakaoId(String.valueOf(response.getInt("id")));
+		if(accountObj.has("email")) {
 			user.setEmail(accountObj.getString("email"));
 		}
 		user.setNickname(profileObj.getString("nickname"));
@@ -95,11 +100,11 @@ public class MemberController {
 
 		UserVO selectUser = userService.selectOne(user);
 		if(selectUser != null) {
-			login(selectUser.getEmail(), "", request);
+			login(selectUser.getKakaoId(), "", request);
 			return selectUser.toString();
 		}else {
 			userService.insert(user);
-			login(user.getEmail(), "", request);
+			login(user.getKakaoId(), "", request);
 			return user.toString();
 		}
 	
@@ -114,15 +119,19 @@ public class MemberController {
 			
 			JSONObject response = util.post("v2/user/me", accessToken);
 			if(response != null) {
+				logger.info(response.toString());
+				
 				JSONObject accountObj = response.getJSONObject("kakao_account");
 				JSONObject profileObj = accountObj.getJSONObject("profile");
 				UserVO user = new UserVO();
 				user.setNickname(profileObj.getString("nickname"));
-				
-				if(accountObj.getBoolean("has_email")) {
-					user.setEmail(accountObj.getString("email"));
-					user = userService.selectOne(user);
+				if(response.has("id")) {
+					user.setKakaoId(String.valueOf(response.getInt("id")));
 				}
+				if(accountObj.has("email")) {
+					user.setEmail(accountObj.getString("email"));
+				}
+				user = userService.selectOne(user);
 				
 				user.setThumbnail_image_url(profileObj.getString("thumbnail_image_url"));
 				user.setProfile_image_url(profileObj.getString("profile_image_url"));

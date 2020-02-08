@@ -33,6 +33,7 @@ public class StoreInfo extends Paging{
 	int category;
 	String categoryTitle;
 	int wideBanner;
+	String wideBannerUrl;
 	
 	public static StoreInfo newInstance(int id) {
 		StoreInfo result = new StoreInfo();

@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
 Kakao.init('${apiKey}');
@@ -11,11 +12,10 @@ $(function(){
     
     $("#kakao-logout-btn").on('click', function(){
 		Kakao.Auth.logout(function(){
-			window.location.reload();
+			window.location.replace("/j_spring_security_logout");
 		});
 	});
     var accessToken = Kakao.Auth.getAccessToken();
-	console.log(accessToken);
 });
 function moveToLogin(){
 	var url = "/member/login";
@@ -59,8 +59,12 @@ function moveToLogin(){
 		                        <li><a href="#">업체등록·정정신청</a></li>
 		                        <li><a href="#">만성닷컴 이용안내</a></li>
 		                        <li><a href="#">문의하기</a></li>
-		                        <li><a href="<c:url value="/admin/store"/>">관리자</a></li>
-		                        <li><a href="#" id="kakao-logout-btn">로그아웃</a></li>
+		                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+		                        	<li><a href="<c:url value="/admin/store"/>">관리자</a></li>
+		                        </sec:authorize>
+		                        <sec:authorize access="isAuthenticated()">
+		                        	<li><a href="#" id="kakao-logout-btn">로그아웃</a></li>
+		                        </sec:authorize>
 		                    </ul>
 		                </nav>
 		            </div>

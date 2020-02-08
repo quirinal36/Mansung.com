@@ -50,11 +50,16 @@
 	<select id="select" parameterType="store" resultType="store">
 		SELECT 
 			s.*, 
-			c.title AS categoryTitle
+			c.title AS categoryTitle,
+			p.id AS wideBanner,
+			p.url AS wideBannerUrl
 		FROM 
 			StoreInfo s LEFT JOIN Category c 
-			ON
-			s.category = c.id
+				ON
+				s.category = c.id
+			LEFT JOIN PhotoInfo p
+				ON
+				s.wideBanner = p.id
 		<where>
 			<if test="category > 0">
 				s.category = ${category}

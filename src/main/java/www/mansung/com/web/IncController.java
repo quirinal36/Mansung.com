@@ -40,7 +40,7 @@ public class IncController {
 				JSONObject accountObj = response.getJSONObject("kakao_account");
 				JSONObject profileObj = accountObj.getJSONObject("profile");
 				UserVO user = new UserVO();
-				if(accountObj.getBoolean("has_email")) {
+				if(accountObj.has("email")) {
 					user.setEmail(accountObj.getString("email"));
 				}
 				user.setNickname(profileObj.getString("nickname"));

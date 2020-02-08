@@ -38,6 +38,7 @@
                         <form action="/member/edit" method="post" id="edit_form">
                             <input type="text" placeholder="활동명 입력" class="ipt1" value="${user.nickname }" name="nickname"/>
                             <input type="hidden" name="id" value="${user.id }"/>
+                            <input type="hidden" name="kakaoId" value="${user.kakaoId }"/>
                             <input type="button" value="저장" class="bt4" onclick="javascript:submitEdit();"/>
                         </form>
                     </div>

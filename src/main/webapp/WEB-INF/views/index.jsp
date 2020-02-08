@@ -131,9 +131,11 @@
                                     	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
                                     </div>
                                 </div>
-                                <div class="image_wrap">
-                                	<a href="#" target="_blank"><img src="/resources/img/banner/2.gif" alt="2020년 3월 자바 개강"></a>
-                                </div>
+                                <c:if test="${store.wideBanner > 0}">
+	                                <div class="image_wrap">
+	                                	<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="2020년 3월 자바 개강"></a>
+	                                </div>
+                                </c:if>
                                 <div class="bt_wrap">
                                     <a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
                                         <img src="/resources/img/comm/bt_view.png" alt="icon"> 상세

@@ -6,6 +6,7 @@
 	<insert id="insert" parameterType="user" keyProperty="id" useGeneratedKeys="true">
 		INSERT INTO users
 		(
+			kakaoId,
 			email,
 			thumbnail_image_url,
 			profile_image_url,
@@ -13,6 +14,7 @@
 		)
 		VALUES
 		(
+			'${kakaoId}',
 			'${email}',
 			'${thumbnail_image_url}',
 			'${profile_image_url}',
@@ -26,19 +28,18 @@
 			r.role_name
 		FROM users u LEFT JOIN roles r ON u.user_role = r.id
 		WHERE
-			u.email = '${email}'
+			u.kakaoId = '${kakaoId}'
 	</select>
 	
 	<update id="update" parameterType="user">
 		UPDATE users
 		<set>
-			<if test="@www.mansung.com.util.StringUtil@notEmpty(password)">
-				password = '${password}'
-			</if>
 			<if test="@www.mansung.com.util.StringUtil@notEmpty(nickname)">
 				nickname = '${nickname}'
 			</if>
 		</set>
-		
+		<where>
+			kakaoId = '${kakaoId}'
+		</where>
 	</update>
 </mapper>

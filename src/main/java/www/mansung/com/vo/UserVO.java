@@ -32,6 +32,7 @@ public class UserVO {
 	Date mdate;
 	
 	/* KAKAO LOGIN PROPERTIES */
+	String kakaoId;
 	String email;
 	String thumbnail_image_url;
 	String profile_image_url;
