@@ -103,6 +103,16 @@
                                         </ul>
                                     </td>
                                 </tr>
+                                <tr class="image">
+                                    <th>와이드 배너</th>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>키워드</th>
                                     <td>

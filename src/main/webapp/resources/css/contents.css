@@ -150,6 +150,10 @@
 .store_add .image ul li {
 	margin-top: 5px;
 }
+.store_add .image ul li:first-child {
+	margin-top: 0;
+}
+
 .store_add .tags ul li {
 	display: inline-block;
 	margin-top: 5px;
