@@ -43,6 +43,8 @@ public class HomeController {
 		mv.addObject("list", list);
 		List<Category> cateList = categoryService.select();
 		
+		mv.addObject("logo1", "");
+		mv.addObject("logo2", "_off");
 		mv.addObject("cateList", cateList);
 		mv.setViewName("index");
 		return mv;

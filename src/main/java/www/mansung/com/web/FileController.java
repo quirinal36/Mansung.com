@@ -37,6 +37,16 @@ import www.mansung.com.vo.UserVO;
 @Controller
 public class FileController extends MansungController {
 	
+	private String getImageUploadPath() {
+		String srcPath = System.getProperty("catalina.home");
+        File uploadDir = new File(srcPath + File.separator + "upload");
+        if(!uploadDir.exists()) {
+        	uploadDir.mkdirs();
+        }
+        
+        return uploadDir.getAbsolutePath();
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="/upload/file", method = {RequestMethod.GET, RequestMethod.POST})
 	public Map uploadFile(MultipartHttpServletRequest request, 
@@ -102,10 +112,9 @@ public class FileController extends MansungController {
             String originalFileExtension = mpf.getOriginalFilename().substring(mpf.getOriginalFilename().lastIndexOf("."));
             String newFilename = newFilenameBase + originalFileExtension;
             
-            String srcPath = new FileUtil().makeUserPath();
 			String contentType = mpf.getContentType();
 			
-			File newFile = new File(srcPath + File.separator + newFilename);
+			File newFile = new File(getImageUploadPath() + File.separator + newFilename);
 			
             try {
                 mpf.transferTo(newFile);
@@ -144,24 +153,29 @@ public class FileController extends MansungController {
 		// 저장된 원본파일로부터 BufferedImage 객체를 생성합니다.
 		// File originFile = new File(filePath);
 		BufferedImage srcImg = ImageIO.read(originFile); 
-		// 썸네일의 너비와 높이 입니다. 
-		int dw = 150, dh = 120; 
+		 
 		// 원본 이미지의 너비와 높이 입니다. 
 		int ow = srcImg.getWidth(); 
-		int oh = srcImg.getHeight(); 
+		int oh = srcImg.getHeight();
+		
+		// 썸네일의 너비와 높이 입니다. 
+		int dw = ow/2, dh = oh/2;
+		
 		// 원본 너비를 기준으로 하여 썸네일의 비율로 높이를 계산합니다. 
 		int nw = ow; 
-		int nh = (ow * dh) / dw; 
+		int nh = (ow * dh) / dw;
+		
 		// 계산된 높이가 원본보다 높다면 crop이 안되므로 
 		// 원본 높이를 기준으로 썸네일의 비율로 너비를 계산합니다. 
 		if(nh > oh) { 
 			nw = (oh * dw) / dh; 
 			nh = oh; 
 		}
-		// 계산된 크기로 원본이미지를 가운데에서 crop 합니다. 
-		BufferedImage cropImg = Scalr.crop(srcImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
 		
-		BufferedImage thumbnail = Scalr.resize(cropImg, dw, dh);
+		// 계산된 크기로 원본이미지를 가운데에서 crop 합니다. 
+		// BufferedImage cropImg = Scalr.crop(srcImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
+		
+		BufferedImage thumbnail = Scalr.resize(srcImg, dw, dh);
 		
         String thumbnailFilename = newFilenameBase + "-thumbnail.png";
         File thumbnailFile = new File(originFile.getParent() + "/" + thumbnailFilename);
@@ -180,9 +194,10 @@ public class FileController extends MansungController {
 		param.setId(id);
 
         PhotoInfo image = photoInfoService.selectOne(param);
-        String srcPath = new FileUtil().makeUserPath();
-        //request.getSession().getServletContext().getRealPath("/upload");
-        File imageFile = new File(srcPath+"/"+image.getNewFilename());
+        // String srcPath = new FileUtil().makeUserPath();
+        // request.getSession().getServletContext().getRealPath("/upload");
+        File imageFile = new File(getImageUploadPath()+File.separator+image.getNewFilename());
+        
         response.setContentType(image.getContentType());
         response.setContentLength(image.getSize());
         try {
@@ -197,13 +212,13 @@ public class FileController extends MansungController {
     		HttpServletResponse response, @PathVariable int id) {
 		PhotoInfo param = new PhotoInfo();
 		param.setId(id);
-		String srcPath = new FileUtil().makeUserPath(); 
+		// String srcPath = new FileUtil().makeUserPath(); 
 		//request.getSession().getServletContext().getRealPath("/upload");
 		
 		PhotoInfo image = photoInfoService.selectOne(param);
-        File imageFile = new File(srcPath+"/"+image.getThumbnailFilename());
+        File imageFile = new File(getImageUploadPath()+File.separator+image.getThumbnailFilename());
         response.setContentType(image.getContentType());
-        response.setContentLength(image.getSize());
+        response.setContentLength(image.getThumbnailSize());
 		
         try {
             InputStream is = new FileInputStream(imageFile);
@@ -212,6 +227,15 @@ public class FileController extends MansungController {
             logger.info("Could not show picture "+id +"/" + e.getLocalizedMessage());
         }
     }
+	
+	@ResponseBody
+	@RequestMapping(value="/upload/delete", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String deleteImage(PhotoInfo photo) {
+		JSONObject json = new JSONObject();
+		int result = photoInfoService.delete(photo);
+		json.put("result", result);
+		return json.toString();
+	}
 	
 	/**
 	 * 

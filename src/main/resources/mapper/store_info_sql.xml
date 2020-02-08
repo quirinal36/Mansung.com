@@ -21,7 +21,8 @@
 			blog,
 			time,
 			representImage,
-			category
+			category,
+			wideBanner
 		)
 		VALUES
 		(
@@ -42,7 +43,8 @@
 			'${blog}',
 			'${time}',
 			${representImage},
-			${category}
+			${category},
+			${wideBanner}
 		)
 	</insert>
 	<select id="select" parameterType="store" resultType="store">
@@ -82,7 +84,7 @@
 		<if test="category > 0">
 			<where>		
 				category = ${category}
-				<if test="@www.mansung.com.util.StringUtil@notEmpty(username)">
+				<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 					and (
 						s.title like '%${query}%' or
 						s.phone1 like '%${query}%' or
@@ -126,7 +128,8 @@
 			blog = '${blog}',
 			time = '${time}',
 			representImage = ${representImage},
-			category = ${category}
+			category = ${category},
+			wideBanner = ${wideBanner}
 		</set>
 		<where>
 			id=${id}

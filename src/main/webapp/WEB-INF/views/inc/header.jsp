@@ -30,10 +30,10 @@ function moveToLogin(){
 	    	<div class="top">
 		        <h1 class="logo_wrap">
 		            <a href="/">
-		                <img src="/resources/img/comm/logo.png" alt="만성닷컴">
+		                <img src="/resources/img/comm/logo1${logo1 }.png" alt="만성닷컴">
 		            </a>
-		            <a href="/">
-		                <img src="/resources/img/comm/logo2_off.png" alt="만성인">
+		            <a href="/talk/">
+		                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인">
 		            </a>
 		        </h1>
 		        <div class="login_wrap">

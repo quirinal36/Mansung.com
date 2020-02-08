@@ -6,8 +6,8 @@
 	<c:import url="/inc/head"></c:import>
 	<script type="text/javascript">
 		function editConfirm(){
-			var url = $("form").attr("action");
-			var param = $("form").serialize();
+			var url = $("#adminEditForm").attr("action");
+			var param = $("#adminEditForm").serialize();
 			
 			if(confirm("저장하시겠습니까?")){
 				$.ajax({
@@ -23,6 +23,20 @@
 				});
 			}
 		}
+		function delBannerClick(btn){
+			var id = $(btn).parent().find("input[type='hidden']").val();
+			var url = "/upload/delete";
+			var param = "id="+id;
+			
+			$.ajax({
+				url : url,
+				data: param,
+				type: "POST",
+				dataType: "json"
+			}).done(function(json){
+				$("#banner-li").find("#"+id).remove();				
+			});
+		}
 	</script>
 </head>
 <body>
@@ -33,7 +47,7 @@
 				<div id="contentsPrint">
                     <div class="store_add">
                         <div class="tit1">수정</div>
-                        <form action="<c:url value="/admin/store/edit"/>">
+                        <form id="adminEditForm" action="<c:url value="/admin/store/edit"/>">
 	                        <table class="tbl1">
 	                            <colgroup>
 	                                <col width="20%">
@@ -165,13 +179,19 @@
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>와이드 배너</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
+	                                    <td id="dropzone-img">
+	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록" class="bt2">
+	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="banner-li">
+	                                        	
+	                                        	<%--
 	                                            <li>
 	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
 	                                                <input type="button" value="삭제" class="bt2">
 	                                            </li>
+	                                             --%>
 	                                        </ul>
 	                                    </td>
 	                                </tr>
@@ -207,6 +227,48 @@
             </div>
         </div>
 		<c:import url="/inc/footer"></c:import>
-	</div>	
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#imageupload').fileupload({
+	    	imageCrop: true,
+	        dataType: 'json',
+	        done: function (e, data) {
+	        	var file = data.result.file;
+	        	console.log(file);
+	        	$("#banner-li").append(
+	        			$("<li>").append(
+	        				$("<img>").attr("src", file.thumbnailUrl)		
+	        			).append(
+	        				$("<input>")
+	        					.attr("type","button").addClass("bt2").val("삭제")
+	        					.attr("onclick", "delBannerClick(this);")
+	        				
+	        			).append(
+	        				$("<input>")
+	        					.attr("type","hidden").attr("name", "wideBanner").val(file.id)
+	        			).attr("id", file.id)
+	        	);
+	        },
+	        progressall: function (e, data) {
+	        	var progress = parseInt(data.loaded / data.total * 100, 10);
+	            
+	            $('#progress_img .progress-bar').css(
+	                'width',
+	                progress + '%'
+	            );
+	            if(progress == 100){
+	            	$('#progress_img .progress-bar').css('width','0');
+	            }
+	        },
+	        dropZone: $('#dropzone-img')
+		});
+	        
+	});
+	</script>
+<script src="<c:url value="/resources/js/jquery.ui.widget.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.iframe-transport.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.fileupload.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 </body>
 </html>

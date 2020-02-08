@@ -8,5 +8,6 @@
 		<typeAlias type="www.mansung.com.vo.StoreInfo" alias="store"/>
 		<typeAlias type="www.mansung.com.vo.Category" alias="cate"/>
 		<typeAlias type="www.mansung.com.vo.UserVO" alias="user"/>
+		<typeAlias type="www.mansung.com.vo.PhotoInfo" alias="photoinfo"/>
     </typeAliases>
 </configuration>

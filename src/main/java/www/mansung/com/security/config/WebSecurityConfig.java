@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutSuccessUrl("/")
 			.and()
 			.authorizeRequests()
-			// .antMatchers("/admin/**").hasRole("ADMIN")
+			.antMatchers("/admin/**").hasRole("ADMIN")
 			.antMatchers("/member/login", "/**").permitAll()
 			.anyRequest().authenticated()
 			.and()

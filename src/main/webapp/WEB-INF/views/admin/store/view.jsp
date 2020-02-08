@@ -107,9 +107,11 @@
                                     <th>와이드 배너</th>
                                     <td>
                                         <ul>
-                                            <li>
-                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-                                            </li>
+                                        	<c:if test="${not empty wideBanner }">
+	                                            <li>
+	                                                <img src="${wideBanner.url }">
+	                                            </li>
+                                            </c:if>
                                         </ul>
                                     </td>
                                 </tr>

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.service.CategoryService;
+import www.mansung.com.service.PhotoInfoService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.Category;
+import www.mansung.com.vo.PhotoInfo;
 import www.mansung.com.vo.StoreInfo;
 
 /**
@@ -31,6 +33,8 @@ public class AdminController {
 	private StoreInfoService service;
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	protected PhotoInfoService photoInfoService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());			
 	
@@ -67,6 +71,13 @@ public class AdminController {
 			@PathVariable(value="id", required = true)Integer id) {
 		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
 		mv.addObject("store", store);
+		
+		if(store.getWideBanner() > 0) {
+			PhotoInfo photoInfo = new PhotoInfo();
+			photoInfo.setId(store.getWideBanner());
+			PhotoInfo wideBanner = photoInfoService.selectOne(photoInfo);
+			mv.addObject("wideBanner", wideBanner);
+		}
 		
 		mv.setViewName("/admin/store/view");
 		return mv;
