@@ -43,8 +43,10 @@
 				dataType: "json",
 				contentType: 'application/json; charset=utf-8'
 			}).done(function(json){
+				console.log(json);
+				
 				if(json.id > 0){
-					window.location.replace("/member/signup");
+					window.location.replace("/member/login");
 				}
 			});
 		},

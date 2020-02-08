@@ -28,4 +28,17 @@
 		WHERE
 			u.email = '${email}'
 	</select>
+	
+	<update id="update" parameterType="user">
+		UPDATE users
+		<set>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(password)">
+				password = '${password}'
+			</if>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(nickname)">
+				nickname = '${nickname}'
+			</if>
+		</set>
+		
+	</update>
 </mapper>
