@@ -67,8 +67,16 @@
 	px;
 }
 
-.store_list .bt_wrap {
+.store_list .image_wrap {
+	font-size: 0;
+}
+
+.store_list .image_wrap img {
+	width: 100%;
 	margin-top: 20px;
+}
+
+.store_list .bt_wrap {
 	border-top: 1px solid #eee;
 	font-size: 0;
 }
@@ -244,11 +252,6 @@
 .member_wrap p {
 	margin-bottom: 20px;
 	font-size: 1.4rem;
-}
-
-.member_wrap .bt_kakao {
-	background: yellow;
-	color: #000;
 }
 
 .member_wrap.name_set form input[type="text"] {

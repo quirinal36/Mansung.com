@@ -68,39 +68,10 @@ function moveToLogin(){
 		    </div>
 			<div class="search_wrap">
 				<form action="/index">
-					<input type="text" placeholder="검색어 입력" name="query"> <input
-						type="button" value="검색" onclick="javascript:search(this);">
+					<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+					<input type="button" value="검색" onclick="javascript:search(this);">
 				</form>
 			</div>
-			<!--
-	        <div id="gnbWrap">
-	            <a href="javascript:void(0)" class="menu_opener">
-	                <span class="line1">메뉴</span>
-	                <span class="line2"></span>
-	                <span class="line3"></span>
-	            </a>
-	            <div id="gnb">
-	                <nav>
-	                    <ul>
-	                        <li><a href="#">만성닷컴 소개</a></li>
-	                        <li><a href="#">업체등록·정정신청</a></li>
-	                        <li><a href="#">만성닷컴 이용안내</a></li>
-	                        <li><a href="#">문의하기</a></li>
-	                    </ul>
-	                </nav>
-	                <a href="/login.html">관리자 로그인</a>
-	                <a href="/admin/search/dashboard.html">검색관리</a>
-	                <a href="/admin/store/list.html">업체관리</a>
-	                <a href="#">로그아웃</a>
-	            </div>
-	        </div>
-	        <div class="search">
-	            <form>
-	                <input type="text" placeholder="코딩">
-	                <input type="submit" value="검색">
-	            </form>
-	        </div>
-	        -->
 	    </div>
 	</header>
 </div>

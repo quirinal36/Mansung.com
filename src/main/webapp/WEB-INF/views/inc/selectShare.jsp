@@ -1,17 +1,6 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script type="text/javascript">
-    // 팝업 닫기
-    $(".bt_popupClose").click(function(){
-        $("#popupWrap").fadeOut();
-    });
-   
-</script>
-<div class="bt_wrap">
-    <input type="button" value="닫기" class="bt1 bt_popupClose">
-</div>
-
-<div id="popupWrap" class="popup_selectShare_wrap">
+<div class="popupWrap popup_selectShare_wrap">
 	<div class="popup">
 		<div class="popup_selectShare">
 			<strong>공유</strong>

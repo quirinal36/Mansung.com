@@ -19,10 +19,9 @@
                         <ul>
                             <li>
                                 <div class="info">
-                                	<div>${store.categoryTitle }</div>
-                                    <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a>
-                                    <a href="javascript:void(0)" class="name">${store.title }</a>
-                                    <c:if test="${fn:length(store.phone1) > 0 }">
+                                    <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+                                	<span class="category">${store.categoryTitle }</span>
+                                     <c:if test="${fn:length(store.phone1) > 0 }">
                                     	<div>
                                     		<span>
                                     			${store.phone1 }
@@ -31,9 +30,14 @@
                                     	</div>
                                     </c:if>
                                     <div>
-                                    	<span>${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }</span> 
+                                    	<span>
+	                                    	${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
+                                    	</span> 
                                     	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
                                     </div>
+                                </div>
+                                <div class="image_wrap">
+                                	<a href="#" target="_blank"><img src="/resources/img/banner/2.gif" alt="2020년 3월 자바 개강"></a>
                                 </div>
                                 <div class="bt_wrap item3">
                                     <a href="tel:${store.phone1 }" class="bt_call">

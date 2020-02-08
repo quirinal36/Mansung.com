@@ -4,16 +4,31 @@ $(function(){
 		$("#bt_gnb").attr("checked", false);
 	});
 	
+	// 검색어 자동입력
+	var autoWordList = ["코딩", "분식", "치킨", "세탁소", "미용실", "변호사", "부동산"];
+	var autoWordNum = Math.floor(Math.random() * autoWordList.length);
+	var autoWord = autoWordList[autoWordNum];
+	
+	
+	
+	$("#header_search_txt").val(autoWord);
+	$("#header_search_txt").focus(function(){
+		$("#header_search_txt").val("");
+	});
+	
+	
     // 지도 선택
     $(".popup_selectMap_opener").click(function(){
         $(".popup_selectMap_wrap").css("display","table");
     });
+    
     // 공유방법 선택
     $(".popup_selectShare_opener").click(function(e){
     	var shareURL = $(this).find("input").val();
     	$(".popup_selectShare_wrap").find("input[type='hidden']").val(shareURL);
         $(".popup_selectShare_wrap").css("display","table");
     });
+    
     // 만성인 불편해요, 괜찮아요
     $(".bt_msg_hide + label").each(function(index, item){
         if ($(item).parent().find("input").is(":checked") == true){
@@ -23,6 +38,7 @@ $(function(){
     	}
     });
     
+    // 불편해요, 괜찮아요
     $(".bt_msg_hide + label").click(function(){
     	if ($(this).parent().find("input").is(":checked") == true) {
     		$(this).html("불편해요");
@@ -51,6 +67,11 @@ $(function(){
     $(".msg_tags a, .tags a").click(function(){
     	var searchWord = $(this).html();
     	$(location).attr("href", "/index?query=" + searchWord);
+    });
+    
+    // 팝업 닫기
+    $(".bt_popupClose").click(function(){
+        $(".popupWrap").fadeOut();
     });
 });
 /**

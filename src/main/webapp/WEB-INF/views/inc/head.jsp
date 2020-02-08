@@ -26,4 +26,3 @@
 <script src="<c:url value="/resources/js/jquery-1.12.1.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery.bxslider.min.js"/>"></script>
 <script src="<c:url value="/resources/js/common.js"/>"></script>
-<script src="<c:url value="/resources/js/index.js"/>"></script>

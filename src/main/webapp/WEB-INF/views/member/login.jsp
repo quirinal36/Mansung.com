@@ -17,7 +17,7 @@
                             만성닷컴에 로그인하시면<br>
                             더 많은 서비스를 이용하실 수 있습니다.
                         </p>
-                        <a class="bt4 bt_kakao" id="kakao-login-btn">카카오톡으로 로그인</a>
+                        <a id="kakao-login-btn"></a>
                     </div>
                 </div>
             </div>
