@@ -26,6 +26,7 @@
 			}
 		}
 	</script>
+	<script src="<c:url value="/resources/js/tag.js"/>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -173,10 +174,18 @@
 	                                <tr>
 	                                    <th>키워드</th>
 	                                    <td>
-	                                        <input type="text" placeholder="키워드 입력" id="ipt_tag" class="ipt1">
-	                                        <div class="tags">
-
-	                                        </div>
+											<div class="tag_area">
+												<div class="add">
+													<input type="text" placeholder="태그 입력(최대 10개)" id="ipt_tag" class="ipt1">
+													<input type="button" value="추가" onclick="addTag();">
+												</div>
+												<div class="preview">
+													<strong>태그 미리보기</strong>
+													<div class="tags">
+								
+													</div>
+												</div>
+											</div>
 	                                    </td>
 	                                </tr>
 	                            </tbody>

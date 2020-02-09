@@ -82,6 +82,15 @@ input.bt4.on {
     color: #fff;
 }
 
+textarea.txtbox {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	font-size: 1.4rem;
+	resize: none;
+}
+
 .tbl1 {
     width: 100%;
     margin: 10px 0;
@@ -124,8 +133,8 @@ input.bt4.on {
     margin-top: 10px;
     padding: 5px 10px;
     border-radius: 100px;
-    background: #f5f6f7;
-    font-size: 1.2rem;
+    background: #fff;
+    font-size: 1.4rem;
     letter-spacing: 0;
 }
 

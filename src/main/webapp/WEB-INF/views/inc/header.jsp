@@ -36,17 +36,19 @@ function moveToLogin(){
 		                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인">
 		            </a>
 		        </h1>
-		        <div class="login_wrap">
+		        <div class="icons">
 		        	<c:choose>
 		        		<c:when test="${empty user}">
 		        			<a href="#" onclick="javascript:moveToLogin();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
 		        		</c:when>
 		        		<c:otherwise>
-							<a href="<c:url value="/member/signup"/>">
+							<a href="<c:url value="/member/signup"/>" class="profileImg">
 								<img src="${user.thumbnail_image_url }"/>
 							</a>		        		
 		        		</c:otherwise>
 					</c:choose>
+		        	<!-- 글쓰기 버튼은 만성인에서만 보임 -->
+		        	<a href="/talk/write" class="write"><img src="/resources/img/comm/bt_write.png" alt="글쓰기"></a>
 		        </div>
 		        <div id="gnb_wrap">
 		            <input type="checkbox" id="bt_gnb">

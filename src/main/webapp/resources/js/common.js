@@ -1,11 +1,3 @@
-function saveTag() {
-	var txt = $("#ipt_tag").val();
-	if(txt != "") {
-		$(".tags").append(' <span>' + txt + ' <input type="button" value="삭제" onclick="deleteTag(this)"></span>');
-		$("#ipt_tag").val("");
-	}	
-}
-
 $(function(){
 /// Header
 	// 메뉴 닫기
@@ -17,12 +9,21 @@ $(function(){
 	var autoWordList = ["코딩", "분식", "치킨", "세탁소", "미용실", "변호사", "부동산"];
 	var autoWordNum = Math.floor(Math.random() * autoWordList.length);
 	var autoWord = autoWordList[autoWordNum];
-	
-	
 	$("#header_search_txt").val(autoWord);
 	$("#header_search_txt").focus(function(){
 		$("#header_search_txt").val("");
 	});
+	
+	// 대화주제 자동입력
+	var talkList = [
+		"오늘 만성동의 날씨는 어떤가요?",
+		"내가 만성동에서 가장 좋아하는 곳은?",
+		"갑자기 생각나는 음식이 있나요?",
+		"서로에게 힘이 되는 글을 작성해주세요."
+	]
+	var talkListMsg = talkList[autoWordNum];
+	$(".talk_write_wrap .msg_area textarea").prop("placeholder", talkListMsg);
+	
 	
 /// Contents
     // 지도 선택
@@ -71,45 +72,14 @@ $(function(){
     	}
     });
     
-    // 태그 누르면 검색하기
-    $(".msg_tags a, .tags a").click(function(){
-    	var searchWord = $(this).html();
-    	$(location).attr("href", "/index?query=" + searchWord);
-    });
-    
     // 팝업 닫기
     $(".bt_popupClose").click(function(){
         $(".popupWrap").fadeOut();
     });
-    
-    // 태그 입력창에서 스페이스바, 쉼표 눌렀을 때
-    $("#ipt_tag").keydown(function(e){
-    	// console.log(e.keyCode);
-    	if(e.keyCode == 32 || e.keyCode == 188){
-    		e.preventDefault();
-    		saveTag();
-    	}
-    });
-    
-    // 태그 입력창에서 엔터 눌렀을 때
-    $("#ipt_tag").keyup(function(e){
-    	if(e.keyCode == 13){
-    		saveTag();
-    	}
-    });
-    
-    // 태그 입력창에서 벗어났을 때
-    $("#ipt_tag").focusout(function(e){
-    	if(e.keyCode == 13){
-    		saveTag();
-    	}
-    });
 });
 
 
-function deleteTag(bt) {
-	$(bt).parent().remove();
-}
+
 
 /**
  * 클립보드 복사 (전화번호/주소)
