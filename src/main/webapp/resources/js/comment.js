@@ -13,6 +13,41 @@ var txtList = [
 	"혀 아래 도끼 들었다."
 ]
 
+function eChk(label) {
+	var isChked = $(label).parent().find("input").is(":checked");
+	if( isChked ) {
+		$(".emoticon_area .selected").slideUp();
+	} else {
+		// 다른 이모티콘 선택해제
+    	$(".emoticon_area .list input").prop("checked", false);
+		// 선택한 이모티콘 표시
+		var imgSrc = $(label).parent().find("input").prop("id");
+		if( imgSrc == "e1" || imgSrc == "e2" || imgSrc == "e3" || imgSrc == "e4" ) {
+			$(".emoticon_area .selected img").attr("src", "/resources/img/emoticon/" + imgSrc + ".gif");
+		} else {
+			$(".emoticon_area .selected img").attr("src", "/resources/img/emoticon/" + imgSrc + ".png");
+		}
+		// 선택된 이모티콘창 열림
+		$(".emoticon_area .selected").slideDown();
+	}
+}
+
+// 이모티콘 선택창 열림
+var eListStatus = 0;
+function eList(bt) {
+	if(eListStatus == 0) {
+		$(bt).addClass("open");
+		$(".emoticon_area").show();
+		eListStatus ++;
+	} else {
+		$(bt).removeClass("open");
+		$(".emoticon_area").hide();
+		eListStatus --;
+    	$('.emoticon_area .list input').prop("checked", false);
+		$(".emoticon_area .selected").hide();
+	}
+}
+
 $(function(){
     // 댓글 작성 창 열기
     $(".bt_comment_write, .bt_reply").click(function(){
@@ -31,8 +66,9 @@ $(function(){
     	}, 100);
     });
     
-    // 이모티콘 선택
-    $(".bt_emoticon").click(function(){
-    	
+    // 이모티콘 선택 해제
+    $(".emoticon_area .bt_close").click(function(){
+    	$(".emoticon_area .selected").slideUp();
+    	$(".emoticon_area .list input").prop("checked", false);
     });
 });

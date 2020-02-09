@@ -626,7 +626,13 @@
 
 .talk_wrap .comment_write_area .comment_write .bt_emoticon {
 	right: 56px;
-	background: #AEE317;
+	background: #ccc url(/resources/img/comm/bt_emoticon.png) no-repeat 50% 50% /26px;
+	text-indent: -1000px;
+	overflow: hidden;
+}
+
+.talk_wrap .comment_write_area .comment_write .bt_emoticon.open {
+	background-color: #aee317;
 }
 
 .talk_wrap .comment_write_area .comment_write .bt_submit {
@@ -634,9 +640,37 @@
 	background: #174797;
 }
 
+.talk_wrap .emoticon_area {
+	position: fixed;
+	bottom: 56px;
+	left: 0;
+	display: none;
+	width: 100%;
+}
+
 .talk_wrap .emoticon_area .selected {
+	position: relative;
+	display: none;
 	padding: 15px 0;
 	background: rgba(0, 0, 0, 0.2);
+}
+
+.talk_wrap .emoticon_area .selected img {
+	display: block;
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.talk_wrap .emoticon_area .selected .bt_close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(/resources/img/comm/bt_close.png) no-repeat 0 0 /20px;
+	text-indent: -1000px;
+	overflow: hidden;
 }
 
 .talk_wrap .emoticon_area .list {
@@ -654,7 +688,7 @@
 }
 
 .talk_wrap .emoticon_area .list ul {
-	width: 1000px;
+	width: 1286px;
 }
 
 .talk_wrap .emoticon_area .list li {
@@ -666,31 +700,23 @@
 	margin-left: 0;
 }
 
-.talk_wrap .emoticon_area .list input[type="radio"] {
+.talk_wrap .emoticon_area .list input {
 	display: none;
 }
 
-.talk_wrap .emoticon_area .list input[type="radio"] + label {
+.talk_wrap .emoticon_area .list input + label {
 	cursor: pointer;
 }
 
-.talk_wrap .emoticon_area .list input[type="radio"] + label img {
-	width: 40px;
-	height: 40px;
+.talk_wrap .emoticon_area .list input + label img {
+	width: 36px;
+	height: 36px;
 	box-sizing: border-box;
 }
 
-.talk_wrap .emoticon_area .list input[type="radio"]:checked + label img {
-	border: 2px solid #174797;
+.talk_wrap .emoticon_area .list input:checked + label img {
+	border: 2px solid gold;
 }
-
-.talk_wrap .emoticon_area .selected img {
-	display: block;
-	width: 100px;
-	height: 100px;
-	margin: 0 auto;
-}
-
 
 
 
