@@ -8,7 +8,7 @@
 <head>
 	<c:import url="/inc/head"></c:import>
 	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>">
-	<script src="<c:url value="/resources/js/reply.js"/>"></script>
+	<script src="<c:url value="/resources/js/comment.js"/>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -87,8 +87,100 @@
 			<div class="comment_write_area">
 				<div class="bg"></div>
 				<div class="comment_write">
+					<div class="emoticon_area">
+						<div class="selected">
+							<img src="/resources/img/emoticon/e1.png" alt="이모티콘">
+						</div>
+						<div class="list">
+							<div>
+								<ul>
+									<li>
+										<input type="radio" id="e1" name="emoticon">
+										<label for="e1"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e2" name="emoticon">
+										<label for="e2"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e3" name="emoticon">
+										<label for="e3"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e4" name="emoticon">
+										<label for="e4"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e5" name="emoticon">
+										<label for="e5"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e6" name="emoticon">
+										<label for="e6"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e7" name="emoticon">
+										<label for="e7"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e8" name="emoticon">
+										<label for="e8"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e9" name="emoticon">
+										<label for="e9"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e10" name="emoticon">
+										<label for="e10"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e11" name="emoticon">
+										<label for="e11"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e12" name="emoticon">
+										<label for="e12"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e13" name="emoticon">
+										<label for="e13"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e14" name="emoticon">
+										<label for="e14"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e15" name="emoticon">
+										<label for="e15"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e16" name="emoticon">
+										<label for="e16"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e17" name="emoticon">
+										<label for="e17"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e18" name="emoticon">
+										<label for="e18"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e19" name="emoticon">
+										<label for="e19"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+									<li>
+										<input type="radio" id="e20" name="emoticon">
+										<label for="e20"><img src="/resources/img/emoticon/e1.png" alt="이모티콘"></label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 					<input type="text" placeholder="">
-					<input type="button" value="등록">
+					<input type="button" class="bt_emoticon" value="선택">
+					<input type="button" class="bt_submit" value="등록">
 				</div>
 			</div>
 		</div>

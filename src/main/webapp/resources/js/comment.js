@@ -31,5 +31,8 @@ $(function(){
     	}, 100);
     });
     
-
+    // 이모티콘 선택
+    $(".bt_emoticon").click(function(){
+    	
+    });
 });

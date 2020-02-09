@@ -524,7 +524,7 @@
     min-height: 40px;
     padding: 15px 20px 15px 72px;
     border-bottom: 1px solid #eee;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .talk_wrap .comment_area .item .reply {
@@ -617,17 +617,79 @@
 
 .talk_wrap .comment_write_area .comment_write input[type="button"] {
 	position: absolute;
-	top: 0;
-	right: 0;
+	bottom: 1px;
 	width: 56px;
-	height: 100%;
-	background: #174797;
+	height: 56px;
 	font-size: 1.4rem;
 	color: #fff;
 }
 
+.talk_wrap .comment_write_area .comment_write .bt_emoticon {
+	right: 56px;
+	background: #AEE317;
+}
 
+.talk_wrap .comment_write_area .comment_write .bt_submit {
+	right: 0;
+	background: #174797;
+}
 
+.talk_wrap .emoticon_area .selected {
+	padding: 15px 0;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.talk_wrap .emoticon_area .list {
+	height: 70px;
+	padding: 15px 10px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.5);
+	font-size: 0;
+	overflow: hidden;
+}
+
+.talk_wrap .emoticon_area .list > div {
+	height: 200px;
+	overflow-x: auto;
+}
+
+.talk_wrap .emoticon_area .list ul {
+	width: 1000px;
+}
+
+.talk_wrap .emoticon_area .list li {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.talk_wrap .emoticon_area .list li:first-child {
+	margin-left: 0;
+}
+
+.talk_wrap .emoticon_area .list input[type="radio"] {
+	display: none;
+}
+
+.talk_wrap .emoticon_area .list input[type="radio"] + label {
+	cursor: pointer;
+}
+
+.talk_wrap .emoticon_area .list input[type="radio"] + label img {
+	width: 40px;
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.talk_wrap .emoticon_area .list input[type="radio"]:checked + label img {
+	border: 2px solid #174797;
+}
+
+.talk_wrap .emoticon_area .selected img {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
 
 
 
