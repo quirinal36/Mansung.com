@@ -33,132 +33,108 @@
 	background-color: #f5f6f7;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	background-size: 26px;
 	text-indent: -100px;
 	overflow: hidden;
 }
 
 .idx_category .restaurant span {
 	background-image: url(/resources/img/index/restaurant.png);
-	background-size: 14px;
 }
 
 .idx_category .cafe span {
 	background-image: url(/resources/img/index/cafe.png);
-	background-size: 16px;
 }
 
 .idx_category .hospital span {
 	background-image: url(/resources/img/index/hospital.png);
-	background-size: 22px;
 }
 
 .idx_category .mart span {
 	background-image: url(/resources/img/index/mart.png);
-	background-size: 20px;
 }
 
 .idx_category .beauty span {
 	background-image: url(/resources/img/index/beauty.png);
-	background-size: 14px;
 }
 
 .idx_category .academy span {
 	background-image: url(/resources/img/index/academy.png);
-	background-size: 16px;
 }
 
 .idx_category .law span {
 	background-image: url(/resources/img/index/law.png);
-	background-size: 24px;
 }
 
 .idx_category .estate span {
 	background-image: url(/resources/img/index/estate.png);
-	background-size: 20px;
 }
 
 
 .idx_category .organization span {
 	background-image: url(/resources/img/index/organization.png);
-	background-size: 20px;
 }
 
 
 .idx_category .construction span {
 	background-image: url(/resources/img/index/construction.png);
-	background-size: 22px;
 }
-
 
 .idx_category .car span {
 	background-image: url(/resources/img/index/car.png);
-	background-size: 21px;
 }
 
 .idx_category .kids span {
 	background-image: url(/resources/img/index/kids.png);
-	background-size: 24px;
 }
 
 .idx_category .health span {
 	background-image: url(/resources/img/index/health.png);
-	background-size: 22px;
 }
 
 .idx_category .bank span {
 	background-image: url(/resources/img/index/bank.png);
-	background-size: 22px;
 }
 
 .idx_category .entertainment span {
 	background-image: url(/resources/img/index/entertainment.png);
-	background-size: 22px;
 }
 
 
 .idx_category .church span {
 	background-image: url(/resources/img/index/church.png);
-	background-size: 20px;
 }
 
 .idx_category .catholic span {
 	background-image: url(/resources/img/index/catholic.png);
-	background-size: 20px;
 }
 
 .idx_category .interior span {
 	background-image: url(/resources/img/index/interior.png);
-	background-size: 20px;
 }
 
 .idx_category .fashion span {
 	background-image: url(/resources/img/index/fashion.png);
-	background-size: 20px;
 }
 
 .idx_category .tax span {
 	background-image: url(/resources/img/index/tax.png);
-	background-size: 18px;
 }
 
 .idx_category .plant span {
 	background-image: url(/resources/img/index/plant.png);
-	background-size: 20px;
 }
 
 .idx_category .software span {
 	background-image: url(/resources/img/index/software.png);
-	background-size: 22px;
 }
 
 .idx_category .stenograph span {
 	background-image: url(/resources/img/index/stenograph.png);
-	background-size: 22px;
 }
 
 .idx_category .etc span {
 	background-image: url(/resources/img/index/etc.png);
-	background-size: 18px;
 }
 
 #contentsPrint > .bt_wrap {
