@@ -1,7 +1,8 @@
 $(function(){
-	txt = 0;
+	var txt = 0;
+	console.log(txt);
 	$(".bt_cMore").click(function(){
-		// console.log(txt);
+		console.log(txt);
 		if(txt == 0) {
 			txt ++;
 			$(this).text("카테고리 접기");

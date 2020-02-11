@@ -549,26 +549,20 @@
     border-radius: 10px;
     background-repeat: no-repeat;
     background-position: 50% 100%;
-    background-size: 36px;
+    background-size: 38px;
     text-indent: -100px;
     overflow: hidden;
 }
 
-.pImg.type1 {
-    background-image: url(/resources/img/member/p1.png);
-}
-
-.pImg.type2 {
-    background-image: url(/resources/img/member/p2.png);
-}
-
-.pImg.type3 {
-    background-image: url(/resources/img/member/p3.png);
-}
-
-.pImg.type4 {
-    background-image: url(/resources/img/member/p4.png);
-}
+.pImg.type1 { background-image: url(/resources/img/member/p1.png); }
+.pImg.type2 { background-image: url(/resources/img/member/p2.png); }
+.pImg.type3 { background-image: url(/resources/img/member/p3.png); }
+.pImg.type4 { background-image: url(/resources/img/member/p4.png); }
+.pImg.type5 { background-image: url(/resources/img/member/p5.png); }
+.pImg.type6 { background-image: url(/resources/img/member/p6.png); }
+.pImg.type7 { background-image: url(/resources/img/member/p7.png); }
+.pImg.type8 { background-image: url(/resources/img/member/p8.png); }
+.pImg.type9 { background-image: url(/resources/img/member/p9.png); }
 
 .talk_wrap .comment_area .item .writer {
 	display: inline-block;
@@ -578,7 +572,6 @@
 
 .talk_wrap .comment_area .item .info {
 	position: relative;
-	margin-top: 5px;
 	font-size: 1.2rem;
 	color: #999;
 }

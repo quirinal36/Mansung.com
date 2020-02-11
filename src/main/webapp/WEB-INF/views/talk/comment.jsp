@@ -22,12 +22,12 @@
 				<div class="item">
 					<div class="original">
 						<div class="cont">
-							<a href="#" class="pImg type1 image">루루</a>
-							<a href="#" class="writer">루루</a>
+							<a href="#" class="pImg type1">미미짱</a>
+							<a href="#" class="writer">미미짱</a>
 							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 						</div>
 						<div class="info">
-							<span class="date">2020-01-04 11:29:01 수정됨</span>
+							<span class="date">2020-01-04 11:29:01</span>
 							<div class="right">
 								<a href="/talk/edit" class="bt_edit">수정</a>
 								<a href="#" class="bt_del">삭제</a>
@@ -38,9 +38,9 @@
 					<div class="reply">
 						<div class="reply_item">
 							<div class="cont">
-							<a href="#" class="pImg type2 image">루루</a>
-								<a href="#" class="writer">루루</a>
-								저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
+							<a href="#" class="pImg type2">고수</a>
+								<a href="#" class="writer">고수</a>
+								저도 전주코딩학원 다녀용!
 							</div>
 							<div class="info">
 								<span class="date">2020-01-04 11:29:01 수정됨</span>
@@ -52,12 +52,12 @@
 						</div>
 						<div class="reply_item">
 							<div class="cont">
-							<a href="#" class="pImg type3 image">루루</a>
-								<a href="#" class="writer">루루</a>
-								저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
+							<a href="#" class="pImg type3">그림천재</a>
+								<a href="#" class="writer">그림천재</a>
+								저도 전주코딩학원 다녀용!
 							</div>
 							<div class="info">
-								<span class="date">2020-01-04 11:29:01 수정됨</span>
+								<span class="date">2020-01-04 11:29:01</span>
 								<div class="right">
 									<a href="/talk/edit" class="bt_edit">수정</a>
 									<a href="#" class="bt_del">삭제</a>
@@ -69,9 +69,94 @@
 				<div class="item">
 					<div class="original">
 						<div class="cont">
-							<a href="#" class="pImg type4 image">루루</a>
-							<a href="#" class="writer">루루</a>
-							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
+							<a href="#" class="pImg type4">미미언니</a>
+							<a href="#" class="writer">미미언니</a>
+								저도 전주코딩학원 다녀용!
+						</div>
+						<div class="info">
+							<span class="date">2020-01-04 11:29:01 수정됨</span>
+							<div class="right">
+								<a href="/talk/edit" class="bt_edit">수정</a>
+								<a href="#" class="bt_del">삭제</a>
+								<a href="#" class="bt_reply">답글</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="original">
+						<div class="cont">
+							<a href="#" class="pImg type5">쌉가능</a>
+							<a href="#" class="writer">쌉가능</a>
+								저도 전주코딩학원 다녀용!
+						</div>
+						<div class="info">
+							<span class="date">2020-01-04 11:29:01</span>
+							<div class="right">
+								<a href="/talk/edit" class="bt_edit">수정</a>
+								<a href="#" class="bt_del">삭제</a>
+								<a href="#" class="bt_reply">답글</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="original">
+						<div class="cont">
+							<a href="#" class="pImg type6">일러스트</a>
+							<a href="#" class="writer">일러스트</a>
+								저도 전주코딩학원 다녀용!
+						</div>
+						<div class="info">
+							<span class="date">2020-01-04 11:29:01 수정됨</span>
+							<div class="right">
+								<a href="/talk/edit" class="bt_edit">수정</a>
+								<a href="#" class="bt_del">삭제</a>
+								<a href="#" class="bt_reply">답글</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="original">
+						<div class="cont">
+							<a href="#" class="pImg type7">5분컷</a>
+							<a href="#" class="writer">5분컷</a>
+								저도 전주코딩학원 다녀용!
+						</div>
+						<div class="info">
+							<span class="date">2020-01-04 11:29:01 수정됨</span>
+							<div class="right">
+								<a href="/talk/edit" class="bt_edit">수정</a>
+								<a href="#" class="bt_del">삭제</a>
+								<a href="#" class="bt_reply">답글</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="original">
+						<div class="cont">
+							<a href="#" class="pImg type8">각성모드</a>
+							<a href="#" class="writer">각성모드</a>
+								저도 전주코딩학원 다녀용!
+						</div>
+						<div class="info">
+							<span class="date">2020-01-04 11:29:01 수정됨</span>
+							<div class="right">
+								<a href="/talk/edit" class="bt_edit">수정</a>
+								<a href="#" class="bt_del">삭제</a>
+								<a href="#" class="bt_reply">답글</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="original">
+						<div class="cont">
+							<a href="#" class="pImg type9">미미누나</a>
+							<a href="#" class="writer">미미누나</a>
+								저도 전주코딩학원 다녀용!
 						</div>
 						<div class="info">
 							<span class="date">2020-01-04 11:29:01 수정됨</span>

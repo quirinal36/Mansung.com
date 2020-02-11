@@ -5,11 +5,16 @@ $(function(){
 		$("#bt_gnb").attr("checked", false);
 	});
 	
+	/*
+	 * 검색어 자동입력 기능은 사용자가 헷갈릴 수 있어서 사용하지 않음
+	 * 
 	// 검색어 자동입력
 	var autoWordList = ["코딩", "분식", "치킨", "세탁소", "미용실", "변호사", "부동산"];
 	var autoWordNum = Math.floor(Math.random() * autoWordList.length);
 	var autoWord = autoWordList[autoWordNum];
 	$("#header_search_txt").val(autoWord);
+	*/
+	
 	$("#header_search_txt").focus(function(){
 		$("#header_search_txt").val("");
 	});
