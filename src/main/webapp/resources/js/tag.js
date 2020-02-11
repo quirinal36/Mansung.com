@@ -13,11 +13,17 @@ function addTag() {
 	}
 }
 
+// 페이지 가장 하단으로 스크롤
+function scrollBottom() {
+	$('html, body').scrollTop( $(document).height() );
+}
+
 $(function(){
 	// 태그 입력창에서 엔터 눌렀을 때
 	$("#ipt_tag").keyup(function(e){
 		if(e.keyCode == 13){
 			addTag();
+			scrollBottom();
 		}
 	});
 	

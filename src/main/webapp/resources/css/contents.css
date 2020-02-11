@@ -535,19 +535,39 @@
     border-top: 1px solid #eee;
 }
 
-.talk_wrap .comment_area .item .image {
+.talk_wrap .comment_area .item .pImg {
 	position: absolute;
     top: 15px;
     left: 20px;
+}
+
+.pImg {
     width: 40px;
     height: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px #ddd;
     border-radius: 10px;
-    background-color: #ddd;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+    background-position: 50% 100%;
+    background-size: 36px;
     text-indent: -100px;
     overflow: hidden;
+}
+
+.pImg.type1 {
+    background-image: url(/resources/img/member/p1.png);
+}
+
+.pImg.type2 {
+    background-image: url(/resources/img/member/p2.png);
+}
+
+.pImg.type3 {
+    background-image: url(/resources/img/member/p3.png);
+}
+
+.pImg.type4 {
+    background-image: url(/resources/img/member/p4.png);
 }
 
 .talk_wrap .comment_area .item .writer {
@@ -590,6 +610,7 @@
 	position: absolute;
 	top: 16px;
 	right: 20px;
+	background: transparent;
 	font-size: 1.6rem;
 	font-weight: normal;
 	color: #fff;
@@ -685,10 +706,6 @@
 .talk_wrap .emoticon_area .list > div {
 	height: 200px;
 	overflow-x: auto;
-}
-
-.talk_wrap .emoticon_area .list ul {
-	width: 1286px;
 }
 
 .talk_wrap .emoticon_area .list li {

@@ -106,7 +106,7 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <th onclick="javascript:editConfirm();">X좌표</th>
+	                                    <th>X좌표</th>
 	                                    <td>
 	                                        <input type="text" value="${store.XPosition }" placeholder="X좌표 입력" class="ipt1" name="xPosition">
 	                                    </td>
@@ -214,12 +214,16 @@
 	                                        </div>
 	                                    </td>
 	                                </tr>
+	                            	<tr>
+	                                    <th>메인 노출순서</th>
+	                                    <td><input type="number" value="1" placeholder="노출순서 입력" class="ipt1"></td>
+	                                </tr>
 	                            </tbody>
 	                        </table>
 	                        <input type="hidden" name="id" value="${store.id }"/>
                         </form>
                         <div class="bt_wrap">
-                            <!-- <a href="javascript:editConfirm();" class="bt1 on">수정</a> -->
+                            <a href="javascript:editConfirm();" class="bt1 on">수정</a>
                             <a href="<c:url value="/admin/store"/>" class="bt1">취소</a>
                         </div>
                     </div>
