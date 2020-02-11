@@ -16,13 +16,13 @@
 			<div class="top">
 				<a href="javascript:history.back();" class="bt_prev"><img src="/resources/img/comm/bt_prev.png" alt="이전"></a>
 				<strong>댓글</strong>
-				<a href="#" class="bt_comment_write">쓰기</a>
+				<input type="button" value="쓰기" class="bt_comment_write">
 			</div>
 			<div class="comment_area">
 				<div class="item">
 					<div class="original">
 						<div class="cont">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<a href="#" class="pImg type1 image">루루</a>
 							<a href="#" class="writer">루루</a>
 							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 						</div>
@@ -38,7 +38,7 @@
 					<div class="reply">
 						<div class="reply_item">
 							<div class="cont">
-								<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<a href="#" class="pImg type2 image">루루</a>
 								<a href="#" class="writer">루루</a>
 								저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 							</div>
@@ -52,7 +52,7 @@
 						</div>
 						<div class="reply_item">
 							<div class="cont">
-								<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<a href="#" class="pImg type3 image">루루</a>
 								<a href="#" class="writer">루루</a>
 								저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 							</div>
@@ -69,7 +69,7 @@
 				<div class="item">
 					<div class="original">
 						<div class="cont">
-							<a href="#" class="image" style="background-image: url(/resources/img/temp/1.png);">루루</a>
+							<a href="#" class="pImg type4 image">루루</a>
 							<a href="#" class="writer">루루</a>
 							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 						</div>
@@ -193,10 +193,6 @@
 								<li>
 									<input type="checkbox" id="e25" name="emoticon">
 									<label for="e25" onclick="eChk(this);"><img src="/resources/img/emoticon/e25.png" alt="이모티콘"></label>
-								</li>
-								<li>
-									<input type="checkbox" id="e26" name="emoticon">
-									<label for="e26" onclick="eChk(this);"><img src="/resources/img/emoticon/e26.png" alt="이모티콘"></label>
 								</li>
 							</ul>
 						</div>

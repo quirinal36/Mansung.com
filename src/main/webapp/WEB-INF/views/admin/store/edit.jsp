@@ -185,6 +185,10 @@
 	                                        </div>
 	                                    </td>
 	                                </tr>
+	                            	<tr>
+	                                    <th>메인 노출순서</th>
+	                                    <td><input type="number" value="1" placeholder="노출순서 입력" class="ipt1"></td>
+	                                </tr>
 	                            </tbody>
 	                        </table>
 	                        <input type="hidden" name="id" value="${store.id }"/>

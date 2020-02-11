@@ -66,6 +66,12 @@ $(function(){
     	}, 100);
     });
     
+    // 이모티콘 목록 가로길이
+    var eLength = $(".talk_wrap .emoticon_area .list ul li").length;
+    $(".talk_wrap .emoticon_area .list ul").width( 36 * eLength + (10 * eLength - 10));
+    
+    
+    
     // 이모티콘 선택 해제
     $(".emoticon_area .bt_close").click(function(){
     	$(".emoticon_area .selected").slideUp();

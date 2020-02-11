@@ -133,6 +133,10 @@
 										</div>
                                     </td>
                                 </tr>
+                            	<tr>
+                                    <th>메인 노출순서</th>
+                                    <td>1</td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="bt_wrap">
