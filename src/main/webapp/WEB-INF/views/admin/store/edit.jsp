@@ -4,40 +4,11 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<script type="text/javascript">
-		function editConfirm(){
-			var url = $("#adminEditForm").attr("action");
-			var param = $("#adminEditForm").serialize();
-			
-			if(confirm("저장하시겠습니까?")){
-				$.ajax({
-					url : url,
-					data: param,
-					type: "POST",
-					dataType: "json"
-				}).done(function(json){
-					if(json.result > 0){
-						alert("수정되었습니다.");
-						window.location.replace("/admin/store/list");
-					}
-				});
-			}
-		}
-		function delBannerClick(btn){
-			var id = $(btn).parent().find("input[type='hidden']").val();
-			var url = "/upload/delete";
-			var param = "id="+id;
-			
-			$.ajax({
-				url : url,
-				data: param,
-				type: "POST",
-				dataType: "json"
-			}).done(function(json){
-				$("#banner-li").find("#"+id).remove();				
-			});
-		}
-	</script>
+	<script src="<c:url value="/resources/js/jquery.ui.widget.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.iframe-transport.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.fileupload.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/store.js"/>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -106,7 +77,7 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <th onclick="javascript:editConfirm();">X좌표</th>
+	                                    <th>X좌표</th>
 	                                    <td>
 	                                        <input type="text" value="${store.XPosition }" placeholder="X좌표 입력" class="ipt1" name="xPosition">
 	                                    </td>
@@ -219,7 +190,7 @@
 	                        <input type="hidden" name="id" value="${store.id }"/>
                         </form>
                         <div class="bt_wrap">
-                            <!-- <a href="javascript:editConfirm();" class="bt1 on">수정</a> -->
+                            <a href="javascript:editConfirm();" class="bt1 on">수정</a>
                             <a href="<c:url value="/admin/store"/>" class="bt1">취소</a>
                         </div>
                     </div>
@@ -228,47 +199,5 @@
         </div>
 		<c:import url="/inc/footer"></c:import>
 	</div>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$('#imageupload').fileupload({
-	    	imageCrop: true,
-	        dataType: 'json',
-	        done: function (e, data) {
-	        	var file = data.result.file;
-	        	console.log(file);
-	        	$("#banner-li").append(
-	        			$("<li>").append(
-	        				$("<img>").attr("src", file.thumbnailUrl)		
-	        			).append(
-	        				$("<input>")
-	        					.attr("type","button").addClass("bt2").val("삭제")
-	        					.attr("onclick", "delBannerClick(this);")
-	        				
-	        			).append(
-	        				$("<input>")
-	        					.attr("type","hidden").attr("name", "wideBanner").val(file.id)
-	        			).attr("id", file.id)
-	        	);
-	        },
-	        progressall: function (e, data) {
-	        	var progress = parseInt(data.loaded / data.total * 100, 10);
-	            
-	            $('#progress_img .progress-bar').css(
-	                'width',
-	                progress + '%'
-	            );
-	            if(progress == 100){
-	            	$('#progress_img .progress-bar').css('width','0');
-	            }
-	        },
-	        dropZone: $('#dropzone-img')
-		});
-	        
-	});
-	</script>
-<script src="<c:url value="/resources/js/jquery.ui.widget.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.iframe-transport.js"/>"></script>
-<script src="<c:url value="/resources/js/jquery.fileupload.js"/>"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 </body>
 </html>

@@ -4,28 +4,11 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<script type="text/javascript">
-		function submitStore(){
-			var url = $("form").attr("action");
-			var param = $("form").serialize();
-			
-			console.log(param);
-			
-			if(confirm("저장하시겠습니까?")){
-				$.ajax({
-					url : url,
-					data: param,
-					type: "POST",
-					dataType: "json"
-				}).done(function(json){
-					if(json.result > 0){
-						alert("등록되었습니다.");
-						window.location.replace("/admin/store/list");
-					}
-				});
-			}
-		}
-	</script>
+	<script src="<c:url value="/resources/js/jquery.ui.widget.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.iframe-transport.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.fileupload.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/store.js"/>"></script>
 	<script src="<c:url value="/resources/js/tag.js"/>"></script>
 </head>
 <body>
@@ -161,13 +144,13 @@
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>와이드 배너</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
+	                                    <td id="dropzone-img">
+	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록" class="bt2">
+	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="banner-li">
+	                                           
 	                                        </ul>
 	                                    </td>
 	                                </tr>
@@ -200,6 +183,6 @@
             </div>
         </div>
 		<c:import url="/inc/footer"></c:import>
-	</div>	
+	</div>
 </body>
 </html>
