@@ -44,7 +44,6 @@ public class PhotoInfoDAO implements DataAccess<PhotoInfo> {
 	}
 	@Override
 	public PhotoInfo selectOne(PhotoInfo input) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace + ".select_one", input);
 	}
 	@Override

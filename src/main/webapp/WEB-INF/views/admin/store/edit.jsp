@@ -157,12 +157,6 @@
 										    </div>
 	                                        <ul id="banner-li">
 	                                        	
-	                                        	<%--
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
-	                                             --%>
 	                                        </ul>
 	                                    </td>
 	                                </tr>
