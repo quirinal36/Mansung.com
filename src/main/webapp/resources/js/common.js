@@ -1,19 +1,9 @@
 $(function(){
-/// Header
+	/// Header
 	// 메뉴 닫기
 	$("#gnb .bg").click(function(){
 		$("#bt_gnb").attr("checked", false);
 	});
-	
-	/*
-	 * 검색어 자동입력 기능은 사용자가 헷갈릴 수 있어서 사용하지 않음
-	 * 
-	// 검색어 자동입력
-	var autoWordList = ["코딩", "분식", "치킨", "세탁소", "미용실", "변호사", "부동산"];
-	var autoWordNum = Math.floor(Math.random() * autoWordList.length);
-	var autoWord = autoWordList[autoWordNum];
-	$("#header_search_txt").val(autoWord);
-	*/
 	
 	$("#header_search_txt").focus(function(){
 		$("#header_search_txt").val("");
@@ -26,11 +16,12 @@ $(function(){
 		"갑자기 생각나는 음식이 있나요?",
 		"서로에게 힘이 되는 글을 작성해주세요."
 	]
+	var autoWordNum = Math.floor(Math.random() * talkList.length);
 	var talkListMsg = talkList[autoWordNum];
-	$(".talk_write_wrap .msg_area textarea").prop("placeholder", talkListMsg);
+	$(".talk_wrap .msg_area textarea").prop("placeholder", talkListMsg);
+
 	
-	
-/// Contents
+	/// Contents
     // 지도 선택
     $(".popup_selectMap_opener").click(function(){
         $(".popup_selectMap_wrap").css("display","table");
@@ -106,17 +97,16 @@ function copyInnerHtml(button){
 	}, 1000);
 	*/
 	// 주석 부분 제이쿼리로 수정함
-	$("#msg-area").html("복사 완료!").slideDown();
+	$("#msg-area").html("복사완료!").fadeIn(200);
 	setTimeout(function() {
-		$("#msg-area").slideUp();
-	}, 2000);
+		$("#msg-area").fadeOut(200);
+	}, 1000);
 }
 
 
 
 function copyToShare(){
 	var input = document.getElementsByClassName("popup_selectShare_wrap")[0].getElementsByTagName("input")[0];
-	
 	copyIntoClipboard(input.value);
 }
 
