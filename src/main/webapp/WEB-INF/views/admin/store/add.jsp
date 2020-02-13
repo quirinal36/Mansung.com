@@ -112,33 +112,25 @@
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>대표이미지</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
+	                                    <td id="dropzone-img-rep">
+	                                        <input id="image-upload-btn" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <div id="progress_rep_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="rep-image">
+	                                        	
 	                                        </ul>
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>상세이미지</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
-	                                            <li>
-	                                                <a href="/resources/img/temp/2.png" target="_blank">/resources/img/temp/2.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
-	                                            <li>
-	                                                <a href="/resources/img/temp/3.png" target="_blank">/resources/img/temp/3.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
+	                                    <td id="dropzone-img-det">
+	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <div id="progress_det_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="det-image">
+	                                            
 	                                        </ul>
 	                                    </td>
 	                                </tr>
