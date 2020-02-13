@@ -167,6 +167,10 @@
 	                                    <th>메인 노출순서</th>
 	                                    <td><input type="number" value="" placeholder="노출순서 입력" class="ipt1"></td>
 	                                </tr>
+	                            	<tr>
+	                                    <th>텍스트 광고</th>
+	                                    <td><input type="number" value="" placeholder="문구 입력" class="ipt1"></td>
+	                                </tr>
 	                            </tbody>
 	                        </table>
                         </form>

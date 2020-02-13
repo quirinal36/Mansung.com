@@ -1,6 +1,6 @@
 function addTag() {
 	var num = $(".tags a").length;
-	if( num < 10 ) {
+	if( num < 100 ) {
 		var txt = $("#ipt_tag").val();
 		txt = txt.replace(/\s/gi, ""); // 모든 공백 제거
 		txt = txt.replace(/,/g, ''); // 쉼표 제거

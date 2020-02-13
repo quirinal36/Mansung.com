@@ -204,3 +204,59 @@ strong.title {
 .pImg.type14 { background-image: url(/resources/img/member/p14.png); }
 .pImg.type15 { background-image: url(/resources/img/member/p15.png); }
 .pImg.type16 { background-image: url(/resources/img/member/p16.png); }
+
+.tag_area {
+	border-top: 1px solid #ddd;
+}
+
+.tag_area .add {
+	position: relative;
+}
+
+.tag_area .add input[type="button"] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 52px;
+	height: 100%;
+	background: transparent url(/resources/img/comm/bt_add.png) no-repeat 50% 50% /16px;
+	text-indent: -100px;
+	overflow: hidden;
+}
+
+.tag_area .preview {
+	padding: 18px 17px 17px 17px;
+	border-bottom: 1px solid #ddd;
+	background: #f5f6f7;
+}
+
+.tag_area .preview strong {
+	font-size: 1.2rem;
+	font-weight: normal;
+	color: #777;
+}
+
+.tag_area input[type="text"] {
+	padding: 17px;
+	border: 0;
+}
+
+.tags strong {
+	display: block;
+	margin-bottom: 3px;
+	font-size: 1.4rem;
+	letter-spacing: 0;
+}
+
+.tags a {
+	display: inline-block;
+	padding: 7px 8px 8px 8px;
+	border-radius: 20px;
+	background: #fff;
+	line-height: 100%;
+	font-size: 1.3rem;
+}
+
+.tags a::before {
+	content: "#";
+}
