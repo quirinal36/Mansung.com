@@ -18,27 +18,36 @@
                     <div class="store_list">
                         <ul>
                             <li>
-                                <div class="info">
-                                    <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
-                                	<span class="category">${store.categoryTitle }</span>
-                                     <c:if test="${fn:length(store.phone1) > 0 }">
-                                    	<div>
-                                    		<span>
-                                    			${store.phone1 }
-                                    		</span> 
-                                    		<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
-                                    	</div>
-                                    </c:if>
-                                    <div>
-                                    	<span>
-	                                    	${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
-                                    	</span> 
-                                    	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
-                                    </div>
-                                </div>
-                                <div class="image_wrap">
-                                	<a href="#" target="_blank"><img src="/resources/img/banner/2.gif" alt="2020년 3월 자바 개강"></a>
-                                </div>
+								<div class="info">
+									<!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
+									<a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+									<span class="category">${store.categoryTitle }</span>
+									 <c:if test="${fn:length(store.phone1) > 0 }">
+										<div>
+											<span>
+												${store.phone1 }
+											</span> 
+											<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+										</div>
+									</c:if>
+									<div>
+										<span>
+											${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
+										</span> 
+										<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+									</div>
+								</div>
+								<c:if test="${store.wideBanner > 0}">
+									<div class="banner_wrap imgType">
+										<!--
+										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="2020년 3월 자바 개강"></a>
+										-->
+										<a href="#" target="_blank"><img src="http://만성.com/picture/455" alt="2020년 3월 자바 개강"></a>
+									</div>
+									<div class="banner_wrap txtType cornflowerblue">
+										<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
+									</div>
+								</c:if>
                                 <div class="bt_wrap item3">
                                     <a href="tel:${store.phone1 }" class="bt_call">
                                         <img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
@@ -81,7 +90,7 @@
                         <img src="/resources/img/store/1_1.png" alt="사진">
                         <img src="/resources/img/store/1_1.png" alt="사진">
                         <div class="tags">
-                            <strong>관련 태그</strong>
+                            <strong>태그</strong>
                             <a href="#">김밥</a>
                             <a href="#">떡볶이</a>
                             <a href="#">쫄면</a>

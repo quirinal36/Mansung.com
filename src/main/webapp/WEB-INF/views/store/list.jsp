@@ -13,7 +13,7 @@
 		<c:import url="/inc/header"></c:import>
 		<div id="containerWrap">
 			<div id="container">
-				<div id="contentsPrint">
+				<div id="contentsPrint" style="display: none;">
                     <!-- store list -->
 					<div class="store_list">
                         <ul>

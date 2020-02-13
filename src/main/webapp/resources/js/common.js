@@ -38,6 +38,7 @@ $(function(){
     $(".bt_msg_hide + label").each(function(index, item){
         if ($(item).parent().find("input").is(":checked") == true){
         	$(item).html("괜찮아요");
+        	$(this).closest(".item").find(".msg").hide();
     	} else{
         	$(item).html("불편해요");
     	}
@@ -47,11 +48,14 @@ $(function(){
     $(".bt_msg_hide + label").click(function(){
     	if ($(this).parent().find("input").is(":checked") == true) {
     		$(this).html("불편해요");
+        	$(this).closest(".item").find(".msg").slideDown();
     	} else {
     		$(this).html("괜찮아요");
+        	$(this).closest(".item").find(".msg").slideUp();
     	}
     }); 
-    // 만성인 차단, 차단 해제
+    
+    // 차단, 차단 해제
     $(".bt_msg_out + label").each(function(index, item){
         if ($(item).parent().find("input").is(":checked") == true){
         	$(item).html("차단 해제");

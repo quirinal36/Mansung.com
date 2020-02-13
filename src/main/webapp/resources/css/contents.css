@@ -1,13 +1,50 @@
+.search_tab {
+	margin-bottom: 20px;
+	padding: 0 17px;
+	font-size: 0;
+}
+
+.search_tab a {
+	display: inline-block;
+	width: 20%;
+	height: 35px;
+	padding-top: 6px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-left: 0;
+	text-align: center;
+	font-size: 1.4rem;
+	letter-spacing: -0.5px;
+}
+
+.search_tab a:first-child {
+	border-left: 1px solid #ddd;
+	border-radius: 4px 0 0 4px;
+}
+
+.search_tab a:last-child {
+	border-radius: 0 4px 4px 0;
+}
+
+.search_tab a.on {
+	border-color: #174797;
+	background: #174797;
+	color: #fff;
+}
+
 .store_list {
-	padding: 0 20px 20px 20px;
+	margin-bottom: 20px;
+	padding: 10px 0;
+	background: #f5f6f7;
 }
 .store_list ul li {
 	position: relative;
-	margin-top: 20px;
-	padding-top: 16px;
-	border: 1px solid #eee;
-	border-bottom: 2px solid #eee;
-	border-radius: 2px;
+	margin-top: 10px;
+	padding-top: 15px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	border-radius: 4px;
+	background: #fff;
 	overflow: hidden;
 }
 .store_list ul li:first-child {
@@ -15,7 +52,7 @@
 }
 
 .store_list .info {
-	padding: 0 20px 20px 20px;
+	padding: 0 17px 17px 17px;
 }
 
 .store_list .info .thumbnail {
@@ -53,7 +90,7 @@
 
 .store_list .info div {
 	display: block;
-	margin-top: 10px;
+	margin-top: 7px;
 	line-height: 160%;
 	font-size: 1.4rem;
 }
@@ -67,12 +104,38 @@
 	px;
 }
 
-.store_list .image_wrap {
+.store_list .banner_wrap.imgType {
 	font-size: 0;
 }
 
-.store_list .image_wrap img {
+.store_list .banner_wrap.imgType img {
 	width: 100%;
+}
+
+.store_list .banner_wrap.txtType a {
+	display: block;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: -1px;
+	color: #fff;
+}
+
+.store_list .banner_wrap.txtType.cadetblue {
+	background: #5f9ea0;
+}
+
+.store_list .banner_wrap.txtType.cornflowerblue {
+	background: #6494ed;
+}
+
+.store_list .banner_wrap.txtType.steelblue {
+	background: #4582b4;
+}
+
+.store_list .banner_wrap.txtType.mediumpurple {
+	background: #936fdb;
 }
 
 .store_list .bt_wrap {
@@ -86,7 +149,6 @@
 	padding: 7px 0;
 	box-sizing: border-box;
 	border-left: 1px solid #eee;
-	background: #f5f5f5;
 	text-align: center;
 	font-size: 1.4rem;
 }
@@ -106,14 +168,15 @@
 }
 
 .storeView {
-	padding: 10px 20px;
+	margin-bottom: 20px;
 }
 .storeView .text {
+	padding: 0 17px;
 	font-size: 1.4rem;
 }
 
 .storeView .text div {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .storeView .text div a {
@@ -127,19 +190,32 @@
 .storeView img {
 	display: block;
 	width: 100%;
-	margin-top: 30px;
-	border-radius: 5px;
+	margin-top: 20px;
 }
 
 .storeView .tags {
-	margin-top: 30px;
+	margin-top: 20px;
+	padding: 0 17px;
 }
 
-.storeView .tags strong {
+.tags strong {
 	display: block;
 	margin-bottom: 3px;
 	font-size: 1.4rem;
 	letter-spacing: 0;
+}
+
+.tags a {
+	display: inline-block;
+	padding: 7px 8px 8px 8px;
+	border-radius: 20px;
+	background: #f5f6f7;
+	line-height: 100%;
+	font-size: 1.3rem;
+}
+
+.tags a::before {
+	content: "#";
 }
 
 .store_add { padding: 20px; }
@@ -255,7 +331,7 @@
 }
 
 .member_wrap {
-	padding: 0 20px 20px 20px;
+	padding: 0 17px 20px 17px;
 }
 
 .member_wrap .guide {
@@ -326,24 +402,15 @@
 .msg_wrap .top {
 	position: relative;
 	height: 40px;
-	padding: 15px 20px 15px 72px;
+	padding: 15px 17px 15px 70px;
 	border-top: 1px solid #eee;
 	border-bottom: 1px dotted #eee;
 }
 
-.msg_wrap .top .image {
+.msg_wrap .top .pImg {
 	position: absolute; 
 	top: 15px;
-	left: 20px;
-	width: 40px;
-	height: 40px;
-	border-radius: 10px;
-	background-color: #ddd;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	background-size: cover;
-	text-indent: -100px;
-	overflow: hidden;
+	left: 17px;
 }
 
 .msg_wrap .top .info .writer {
@@ -362,8 +429,12 @@
 }
 
 .msg_wrap .msg {
-	padding: 15px 20px;
+	padding: 12px 17px 15px 17px;
 	border-bottom: 1px dotted #eee;
+}
+
+.msg_wrap .msg.hide {
+	display: none;
 }
 
 .msg_wrap .msg p {
@@ -372,23 +443,6 @@
 
 .msg_wrap .bt_wrap {
 	text-align: left;
-}
-
-.msg_wrap .msg_tags {
-	margin-top: 10px;
-}
-
-.msg_wrap .msg_tags a {
-	display: inline-block;
-	padding: 7px 8px 8px 8px;
-	border-radius: 20px;
-	background: #f5f6f7;
-	line-height: 100%;
-	font-size: 1.3rem;
-}
-
-.msg_wrap .msg_tags a::before {
-	content: "#";
 }
 
 .msg_wrap .bt_wrap a {
@@ -402,7 +456,7 @@
 
 .msg_wrap .bottom_wrap {
 	position: relative;
-	padding: 15px 20px;
+	padding: 15px 17px;
 	border-bottom: 1px solid #eee;
 }
 
@@ -428,7 +482,9 @@
 }
 
 .msg_wrap .bottom_wrap span,
-.msg_wrap .bottom_wrap a {
+.msg_wrap .bottom_wrap a,
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
 	font-size: 1.2rem;
 	color: #777;
 }
@@ -437,7 +493,9 @@
 	margin-right: 10px;
 }
 
-.msg_wrap .bottom_wrap a {
+.msg_wrap .bottom_wrap a,
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
 	font-weight: 600;
 }
 
@@ -448,7 +506,7 @@
 .msg_wrap .bottom_wrap .right {
 	position:absolute;
 	top: 15px;
-	right: 20px;
+	right: 15px;
 	text-align: right;
 }
 
@@ -468,17 +526,39 @@
 }
 
 .msg_wrap .bottom_wrap .msg_out_wrap .bt_msg_out + label {
+	margin-left: 10px;
+}
+
+.msg_wrap .bottom_wrap .msg_hide_wrap span {
+	height: 20px;
+	margin-right: 10px;
+	padding-left: 25px;
+	background: url(/resources/img/msg/msg_hide_count.png) no-repeat 0 0 /20px;
+	line-height: 170%;
+}
+
+.msg_wrap .bottom_wrap .msg_out_wrap span {
 	margin-right: 10px;
 }
 
 .msg_wrap .bottom_wrap .bt_edit,
-.msg_wrap .bottom_wrap .bt_del {
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
 	margin-left: 10px;
+}
+
+
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
+	vertical-align: middle;
+	background: transparent;
 }
 
 .talk_wrap .top {
 	position: relative;
-	padding: 14px 20px;
+	height: 56px;
+	padding: 14px 17px 0 17px;
+	box-sizing: border-box;
 	background: #174797;
 	font-size: 0;
 }
@@ -506,7 +586,7 @@
 .talk_wrap .top .bt_write {
 	position: absolute;
 	top: 16px;
-	right: 20px;
+	right: 17px;
 	font-size: 1.6rem;
 	font-weight: normal;
 	color: #fff;
@@ -519,7 +599,7 @@
 
 .talk_wrap .msg_area textarea  {
 	height: 240px;
-	padding: 18px 20px;
+	padding: 15px 17px;
 	font-size: 1.6rem;
 }
 
@@ -539,7 +619,7 @@
 }
 
 .talk_wrap .tag_area .preview {
-	padding: 19px 20px 18px 20px;
+	padding: 18px 17px 17px 17px;
 	border-bottom: 1px solid #ddd;
 	background: #f5f6f7;
 }
@@ -551,7 +631,7 @@
 }
 
 .talk_wrap .tag_area input[type="text"] {
-	padding: 18px;
+	padding: 17px;
 	border: 0;
 }
 
@@ -563,7 +643,7 @@
 .talk_wrap .comment_area .item .reply_item {
 	position: relative;
     min-height: 40px;
-    padding: 15px 20px 15px 72px;
+    padding: 15px 17px 15px 69px;
     border-bottom: 1px solid #eee;
     font-size: 1.3rem;
 }
@@ -579,7 +659,7 @@
 .talk_wrap .comment_area .item .pImg {
 	position: absolute;
     top: 15px;
-    left: 20px;
+    left: 17px;
 }
 
 .talk_wrap .comment_area .item .writer {
@@ -592,6 +672,15 @@
 	position: relative;
 	font-size: 1.2rem;
 	color: #999;
+}
+
+.talk_wrap .comment_area .item .eImg {
+	margin: 10px 0;
+	font-size: 0;
+}
+
+.talk_wrap .comment_area .item .eImg img {
+	width: 100px;
 }
 
 .talk_wrap .comment_area .item .info .right {
@@ -643,7 +732,7 @@
 .talk_wrap .comment_write_area .comment_write input[type="text"] {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 18px;
+	padding: 18px 17px;
 	font-size: 1.4rem;
 }
 
@@ -696,8 +785,8 @@
 
 .talk_wrap .emoticon_area .selected .bt_close {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 17px;
+	right: 17px;
 	width: 20px;
 	height: 20px;
 	background: transparent url(/resources/img/comm/bt_close.png) no-repeat 0 0 /20px;

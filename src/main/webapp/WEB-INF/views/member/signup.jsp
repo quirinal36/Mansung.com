@@ -78,8 +78,7 @@
 							<strong class="title">활동명</strong>
 							<p>
 								만성닷컴에서 활동하실 이름을 입력해주세요.<br>
-								최대 8자까지 입력 가능하며 공백은 제외됩니다.<br>
-								적절하지 않은 활동명을 사용하실 경우 임의로 변경될 수 있습니다. (예. 날으는멧돼지)
+								최대 8자까지 입력 가능하며 공백은 제외됩니다.
 							</p>
 							<form action="/member/edit" method="post" id="edit_form">
 								<input type="text" placeholder="활동명 입력" class="ipt1" id="nickname" value="${user.nickname }" name="nickname" />

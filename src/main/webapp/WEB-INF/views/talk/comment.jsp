@@ -25,6 +25,9 @@
 							<a href="#" class="pImg type1">미미짱</a>
 							<a href="#" class="writer">미미짱</a>
 							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
+							<div class="eImg">
+								<img src="/resources/img/emoticon/e4.gif" alt="신난다">
+							</div>
 						</div>
 						<div class="info">
 							<span class="date">2020-01-04 11:29:01</span>
@@ -41,6 +44,9 @@
 							<a href="#" class="pImg type2">고수</a>
 								<a href="#" class="writer">고수</a>
 								저도 전주코딩학원 다녀용!
+								<div class="eImg">
+									<img src="/resources/img/emoticon/e14.png" alt="신난다">
+								</div>
 							</div>
 							<div class="info">
 								<span class="date">2020-01-04 11:29:01 수정됨</span>
@@ -54,7 +60,9 @@
 							<div class="cont">
 							<a href="#" class="pImg type3">그림천재</a>
 								<a href="#" class="writer">그림천재</a>
-								저도 전주코딩학원 다녀용!
+								<div class="eImg">
+									<img src="/resources/img/emoticon/e17.png" alt="신난다">
+								</div>
 							</div>
 							<div class="info">
 								<span class="date">2020-01-04 11:29:01</span>

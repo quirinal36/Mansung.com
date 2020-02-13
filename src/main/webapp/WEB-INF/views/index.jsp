@@ -16,9 +16,9 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-                    <div class="bt_wrap">
-                        <a href="http://naver.me/IgoZTYYM" target="_blank" class="bt4 on">업체등록·정정신청</a>
-                    </div>
+					<div class="bt_wrap">
+						<a href="http://naver.me/IgoZTYYM" target="_blank" class="bt4 on">업체등록·정정신청</a>
+					</div>
 					<!-- index top : category -->
 					<div class="idx_category">
 						<a href="/index?category=2" class="restaurant">
@@ -45,7 +45,8 @@
 						<a href="/index?category=9" class="estate">
 							<span>icon</span> 부동산
 						</a>
-	                    <div class="idx_category_more">
+						<!-- 숨은 카테고리 -->
+						<div class="idx_category_more">
 							<a href="/index?category=11" class="construction">
 								<span>icon</span> 건축·환경
 							</a>
@@ -95,9 +96,9 @@
 								<span>icon</span> 기타
 							</a>
 						</div>
-	                    <div class="bt_wrap">
-	                        <a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기</a>
-	                    </div>
+						<div class="bt_wrap">
+							<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기</a>
+						</div>
 						<!--
 						<c:forEach items="${cateList }" var="category">
 							<a href="<c:url value="/index?category=${category.id }"/>">
@@ -106,59 +107,96 @@
 							</a>
 						</c:forEach>
 						-->
-                    </div>
-                    <!-- store list -->
+					</div>
+					<div class="search_tab">
+						<a href="#" class="on">통합검색</a>
+						<a href="#">업체명</a>
+						<a href="#">태그</a>
+						<a href="#">주소</a>
+						<a href="#">전화번호</a>
+					</div>
+					<!-- store list -->
 					<div class="store_list">
-                        <ul>
-                        	<c:forEach items="${list }" var="store">
-                            <li id="store-${store.id }">
-                                <div class="info">
-                                    <!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
-                                    <a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
-                                	<span class="category">${store.categoryTitle }</span>
-                                     <c:if test="${fn:length(store.phone1) > 0 }">
-                                    	<div>
-                                    		<span>
-                                    			${store.phone1 }
-                                    		</span> 
-                                    		<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
-                                    	</div>
-                                    </c:if>
-                                    <div>
-                                    	<span>
-	                                    	${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
-                                    	</span> 
-                                    	<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
-                                    </div>
-                                </div>
-                                <c:if test="${store.wideBanner > 0}">
-	                                <div class="image_wrap">
-	                                	<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="2020년 3월 자바 개강"></a>
-	                                </div>
-                                </c:if>
-                                <div class="bt_wrap">
-                                    <a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
-                                        <img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
-                                    </a>
-                                    <a href="tel:${store.phone1 }" class="bt_call">
-                                        <img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
-                                        <img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
-                                    </a>
-                                    <a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
-                                    	<c:set var="fullURL" value="${pageContext.request.requestURL }"></c:set>
-                                    	<c:set var="pathURL" value="${pageContext.request.requestURI }"></c:set>
-                                    	<c:set var="baseURL" value="${fn:replace(fullURL, pathURL, '')}"></c:set>
-                                    	
-                                    	<input type="hidden" value="<c:url value="${baseURL }/store/view/${store.id }"/>"/>
-                                        <img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
-                                    </a>
-                                </div>
-                            </li>
-                            </c:forEach>
-                        </ul>
-                    </div>
+						<ul>
+							<c:forEach items="${list }" var="store">
+							<li id="store-${store.id }">
+								<div class="info">
+									<!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
+									<a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+									<span class="category">${store.categoryTitle }</span>
+									 <c:if test="${fn:length(store.phone1) > 0 }">
+										<div>
+											<span>
+												${store.phone1 }
+											</span> 
+											<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+										</div>
+									</c:if>
+									<div>
+										<span>
+											${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
+										</span> 
+										<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+									</div>
+								</div>
+								<!-- 
+								<c:if test="${store.wideBanner > 0}">
+									<div class="banner_wrap imgType">
+										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+									</div>
+								</c:if>
+								 -->
+								<c:choose>
+									<c:when test="${ store.wideBanner > 0 }">
+										<div class="banner_wrap imgType">
+											<a href="#" target="_blank"><img src="/resources/img/temp/4.jpg" alt="${store.title }"></a>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="banner_wrap txtType cornflowerblue">
+											<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
+										</div>
+									</c:otherwise>
+								</c:choose>
+
+								<!--
+								<div class="banner_wrap txtType cadetblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
+								</div>
+								<div class="banner_wrap txtType cornflowerblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내1</a>
+								</div>
+								<div class="banner_wrap txtType steelblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내4</a>
+								</div>
+								<div class="banner_wrap txtType mediumpurple">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내14</a>
+								</div>
+								-->
+								
+								<div class="bt_wrap">
+									<a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
+										<img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
+									</a>
+									<a href="tel:${store.phone1 }" class="bt_call">
+										<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
+									</a>
+									<a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
+										<img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
+									</a>
+									<a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
+										<c:set var="fullURL" value="${pageContext.request.requestURL }"></c:set>
+										<c:set var="pathURL" value="${pageContext.request.requestURI }"></c:set>
+										<c:set var="baseURL" value="${fn:replace(fullURL, pathURL, '')}"></c:set>
+										
+										<input type="hidden" value="<c:url value="${baseURL }/store/view/${store.id }"/>"/>
+										<img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
+									</a>
+								</div>
+							</li>
+							</c:forEach>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

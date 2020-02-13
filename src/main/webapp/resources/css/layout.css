@@ -21,7 +21,7 @@
 }
 
 #header .top {
-	padding: 0 20px;
+	padding: 0 19px;
 }
 
 #header .logo_wrap {
@@ -61,24 +61,10 @@
 	height: 24px;
 }
 
-#header .icons .profileImg {
-	width: 30px;
-	height: 30px;
-	border-radius: 100px;
-	box-shadow: 0 0 3px #ddd;
-	text-indent: -1000px;
-	overflow: hidden;
-}
-
-#header .icons .profileImg img {
-    width: 100%;
-    height: 100%;
-}
-
 #header .search_wrap {
     position: relative;
     margin-top: 20px;
-    padding: 0 20px;
+    padding: 0 17px;
     text-align: left;
 }
 
@@ -188,17 +174,18 @@
     top: 50%;
     left: 50%;
     display: none;
-    width: 100px;
-    height: 100px;
-    margin: -50px 0 0 -50px;
-    padding-top: 66px;
+    width: 130px;
+    height: 130px;
+    margin: -65px 0 0 -65px;
+    padding-top: 92px;
     box-sizing: border-box;
-    background: #fff url(/resources/img/comm/msg-area.png) no-repeat 40% 30% /50px;
+    background: #fff url(/resources/img/comm/msg-area.png) no-repeat 40% 30% /75px;
     border-radius: 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #000;
+    font-style: italic;
 }
 
 #containerWrap {
@@ -227,6 +214,7 @@
 	width: 100%;
     text-align: center;
     transition: 0.5s;
+    font-size: 0;
 }
 
 #fixedBanner a {
@@ -234,13 +222,12 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    height: 60px;
 }
 
 #fixedBanner a img {
-    height: 60px;
+    width: 100%;
+    max-width: 400px;
 }
-
 
 .popupWrap {
     display: none;
@@ -250,6 +237,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
+    z-index: 3;
 }
 .popupWrap .popup {
     position: relative;
