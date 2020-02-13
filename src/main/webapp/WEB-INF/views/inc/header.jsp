@@ -17,7 +17,7 @@ $(function(){
 	});
     var accessToken = Kakao.Auth.getAccessToken();
 });
-function moveToLogin(){
+// function moveToLogin(){
 	var url = "/member/login";
 	window.location.replace(url);
 }

@@ -128,6 +128,13 @@
 .store_list .banner_wrap.txtType.steelblue { background: #4582b4; }
 .store_list .banner_wrap.txtType.mediumpurple { background: #936fdb; }
 
+@media ( max-width: 380px ) {
+	.store_list .banner_wrap.txtType a {
+		padding: 7px 0;
+		font-size: 16px;
+	}
+}
+
 .store_list .bt_wrap {
 	border-top: 1px solid #eee;
 	font-size: 0;

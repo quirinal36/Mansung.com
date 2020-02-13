@@ -37,17 +37,43 @@
 										<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
 									</div>
 								</div>
+								<!-- 
 								<c:if test="${store.wideBanner > 0}">
 									<div class="banner_wrap imgType">
-										<!--
-										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="2020년 3월 자바 개강"></a>
-										-->
-										<a href="#" target="_blank"><img src="http://만성.com/picture/455" alt="2020년 3월 자바 개강"></a>
-									</div>
-									<div class="banner_wrap txtType cornflowerblue">
-										<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
+										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 									</div>
 								</c:if>
+								 -->
+								 
+								 
+								<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
+								<c:choose>
+									<c:when test="${ store.wideBanner > 0 }">
+										<div class="banner_wrap imgType">
+											<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+										</div>
+										<div class="banner_wrap txtType cornflowerblue">
+											<a href="#">전주코딩학원 학생이 EBS 뉴스에 나왔어요!</a>
+										</div>
+									</c:when>
+									<c:otherwise>
+									</c:otherwise>
+								</c:choose>
+
+								<!--
+								<div class="banner_wrap txtType cadetblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
+								</div>
+								<div class="banner_wrap txtType cornflowerblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내1</a>
+								</div>
+								<div class="banner_wrap txtType steelblue">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내4</a>
+								</div>
+								<div class="banner_wrap txtType mediumpurple">
+									<a href="#">만성닷컴 배너 무료 등록기간 운영안내14</a>
+								</div>
+								-->
 								<div class="bt_wrap item3">
 									<a href="tel:${store.phone1 }" class="bt_call">
 										<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
