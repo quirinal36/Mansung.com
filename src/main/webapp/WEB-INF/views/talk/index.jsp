@@ -184,10 +184,10 @@
 								<a href="#" class="image pImg type5">루루</a>
 								<div class="info">
 									<a href="#" class="writer">차단된 글</a><br>
-									<span class="date">2020-01-04 11:29:01</span>
+									<span class="date">2020-01-04 11:29:01 차단됨</span>
 								</div>
 							</div>
-							<div class="msg">
+							<div class="msg out">
 								<p>
 									관리자가 차단하거나 불편해요가 20개 이상이면 차단됨 상태로 변경됨<br>
 									차단된 글은 댓글 페이지도 접근 불가<br>
@@ -208,9 +208,6 @@
 								</div>
 								<div class="right">
 									<!-- 불편해요/괜찮아요, 불편해요 숫자는 관리자만 노출 -->
-									<div class="msg_out_wrap">
-										<span>차단됨</span>
-									</div>
 									<div class="msg_hide_wrap">
 										<input type="checkbox" id="msg5_hide" class="bt_msg_hide">
 										<label for="msg5_hide"></label>
