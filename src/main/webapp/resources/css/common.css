@@ -1,4 +1,12 @@
-.tit1 { font-size: 20px; font-weight: 600; }
+.mt-5 {
+	margin-top: 5px;
+}
+
+.tit1 {
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
 .bt_wrap { text-align: center; }
 a.bt1,
 input.bt1 {
@@ -93,7 +101,6 @@ textarea.txtbox {
 
 .tbl1 {
     width: 100%;
-    margin: 10px 0;
     border-top: 1px solid #16356f;
 }
 .tbl1 tr {
@@ -118,7 +125,7 @@ textarea.txtbox {
 }
 .tbl2 th,
 .tbl2 td {
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
     font-size: 1.4rem;
 }
@@ -157,7 +164,7 @@ input.ipt1,
 textarea.ipt1 {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ddd;
     font-size: 1.4rem;
 }

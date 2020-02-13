@@ -11,12 +11,12 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-                    <div class="store_add">
+                    <div class="admin_wrap admin_store_add">
                         <div class="tit1">상세보기</div>
                         <table class="tbl1">
                             <colgroup>
-                                <col width="20%">
-                                <col width="80%">
+                                <col width="25%">
+                                <col width="75%">
                             </colgroup>
                             <tbody>
                             	<tr>

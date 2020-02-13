@@ -40,7 +40,8 @@ textarea {
 	resize: none;
 }
 
-input {
+input,
+select {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
 }
@@ -57,3 +58,9 @@ label {
 	cursor: pointer;
 }
 
+select {
+	padding: 8px 28px 8px 8px;
+	border: 1px solid #ddd;
+	background: transparent url(/resources/img/comm/select_arrow.png) no-repeat 100% 50% /20px;
+	font-size: 14px;
+}
