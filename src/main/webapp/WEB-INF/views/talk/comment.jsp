@@ -66,12 +66,10 @@
 							<div class="cont">
 							<a href="#" class="pImg type3">그림천재</a>
 								<a href="#" class="writer">그림천재</a>
-								<div class="eImg">
-									<img src="/resources/img/emoticon/e17.png" alt="신난다">
-								</div>
+								비밀글입니다.
 							</div>
 							<div class="info">
-								<span class="date">2020-01-04 11:29:01</span>
+								<span class="date">2020-01-04 11:29:01 비밀글</span>
 								<div class="right">
 									<a href="/talk/edit" class="bt_edit">수정</a>
 									<a href="#" class="bt_del">삭제</a>
@@ -83,29 +81,12 @@
 				<div class="item">
 					<div class="original">
 						<div class="cont">
-							<a href="#" class="pImg type4">미미언니</a>
-							<a href="#" class="writer">미미언니</a>
-								저도 전주코딩학원 다녀용!
-						</div>
-						<div class="info">
-							<span class="date">2020-01-04 11:29:01 수정됨</span>
-							<div class="right">
-								<a href="/talk/edit" class="bt_edit">수정</a>
-								<a href="#" class="bt_del">삭제</a>
-								<a href="#" class="bt_reply">답글</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="original">
-						<div class="cont">
 							<a href="#" class="pImg type5">쌉가능</a>
 							<a href="#" class="writer">쌉가능</a>
-								저도 전주코딩학원 다녀용!
+							비밀글입니다.
 						</div>
 						<div class="info">
-							<span class="date">2020-01-04 11:29:01</span>
+							<span class="date">2020-01-04 11:29:01 비밀글 수정됨</span>
 							<div class="right">
 								<a href="/talk/edit" class="bt_edit">수정</a>
 								<a href="#" class="bt_del">삭제</a>
@@ -115,6 +96,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="bottom"></div>
 			<div class="comment_write_area">
 				<div class="bg"></div>
 				<div class="emoticon_area">
@@ -231,7 +213,9 @@
 				</div>
 				<div class="comment_write">
 					<input type="text" placeholder="댓글 입력">
-					<input type="button" class="bt_emoticon" value="선택" onclick="eList(this);">
+					<input type="button" class="bt_emoticon" value="이모티콘 선택" onclick="eList(this);">
+					<input type="checkbox" id="chk_hide" class="bt_hide">
+					<label for="chk_hide">비밀글</label>
 					<input type="button" class="bt_submit" value="등록">
 				</div>
 			</div>

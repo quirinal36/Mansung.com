@@ -20,8 +20,6 @@
 				alert("저장되었습니다.");
 			}
 		});
-		
-		
 	}
 	
 	$(function(){
@@ -73,6 +71,99 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
+					<div class="tab_wrap item3">
+						<a href="#" class="on">내 글에 댓글</a>
+						<a href="#">좋아하는 글</a>
+						<a href="#">내가 쓴 글</a>
+					</div>
+					<div class="mypage_feed_wrap">
+						<div class="comment_area">
+							<div class="item">
+								<div class="original">
+									<div class="cont">
+										<a href="#" class="pImg type1">내가 쓴 댓글</a>
+										<a href="#" class="writer">내가 쓴 댓글</a>
+										내가 쓴 댓글 / 내 글에 댓글
+										<div class="eImg">
+											<img src="/resources/img/emoticon/e4.gif" alt="신난다">
+										</div>
+									</div>
+									<div class="info">
+										<span class="date">2020-01-04 11:29:01</span>
+										<div class="right">
+											<a href="/talk/edit" class="bt_edit">수정</a>
+											<a href="#" class="bt_del">삭제</a>
+											<a href="#" class="bt_reply">답글</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="original">
+									<div class="cont">
+										<a href="#" class="pImg type5">내가 쓴 답글</a>
+										<a href="#" class="writer">내가 쓴 답글</a>
+										내가 쓴 답글 / 내 글에 답글
+									</div>
+									<div class="info">
+										<span class="date">2020-01-04 11:29:01 비밀글 수정됨</span>
+										<div class="right">
+											<a href="/talk/edit" class="bt_edit">수정</a>
+											<a href="#" class="bt_del">삭제</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="msg_wrap">
+							<div class="item">
+								<div class="top">
+									<a href="#" class="image pImg type1">내가 쓴 글</a>
+									<div class="info">
+										<a href="#" class="writer">내가 쓴 글</a><br>
+										<span class="date">2020-01-04 11:29:01 수정됨</span>
+									</div>
+								</div>
+								<div class="msg">
+									<p>
+										내가 쓴 글 / 내가 좋아하는 글
+									</p>
+									<div class="tags">
+										<a href="#">학원</a>
+										<a href="#">코딩</a>
+										<a href="#">4차산업혁명</a>
+									</div>
+								</div>
+								<!-- input type checkbox의 아이디는 msg + 글번호 형태가 되어야 함, label의 for도 동일 -->
+								<div class="bottom_wrap">
+									<div class="left">
+										<input type="checkbox" id="msg1_like" class="bt_msg_like">
+										<label for="msg1_like">좋아요</label>
+										<!-- 좋아요 갯수는 관리자만 노출 -->
+										<span>3</span>
+										<a href="/talk/comment">댓글 쓰기</a>
+									</div>
+									<div class="right">
+										<!-- 불편해요/괜찮아요, 불편해요 숫자는 관리자만 노출 -->
+										<div class="msg_hide_wrap">
+											<span class="msg_hide_count">1</span>
+											<input type="checkbox" id="msg1_hide" class="bt_msg_hide">
+											<label for="msg1_hide"></label>
+										</div>
+										<!-- 차단/차단해제, 관리자만 노출 -->
+										<div class="msg_out_wrap">
+											<input type="checkbox" id="msg1_out" class="bt_msg_out">
+											<label for="msg1_out"></label>
+										</div>
+										<!-- 수정/삭제/공유 -->
+										<a href="/talk/edit" class="bt_edit">수정</a>
+										<input type="button" value="삭제" class="bt_del">
+										<input type="button" value="공유" class="bt_share">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="member_wrap">
 						<div class="name_set">
 							<strong class="title">활동명</strong>

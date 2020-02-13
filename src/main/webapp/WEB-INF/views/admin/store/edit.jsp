@@ -17,13 +17,13 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-                    <div class="store_add">
+                    <div class="admin_wrap admin_store_add">
                         <div class="tit1">수정</div>
                         <form id="adminEditForm" action="<c:url value="/admin/store/edit"/>">
 	                        <table class="tbl1">
 	                            <colgroup>
-	                                <col width="20%">
-	                                <col width="80%">
+	                                <col width="25%">
+	                                <col width="75%">
 	                            </colgroup>
 	                            <tbody>
 	                            	<tr>
@@ -187,13 +187,21 @@
 	                            	<tr>
 	                                    <th>텍스트 광고</th>
 	                                    <td>
-	                                    	<input type="number" value="" placeholder="문구 입력" class="ipt1">
-	                                    	<select>
-	                                    		<option>cadetblue</option>
-	                                    		<option>cornflowerblue</option>
-	                                    		<option>steelblue</option>
-	                                    		<option>mediumpurple</option>
-	                                    	</select>
+	                                    	<div class="colorSelect">
+		                                    	<select>
+		                                    		<option>① cadetblue</option>
+		                                    		<option>② cornflowerblue</option>
+		                                    		<option>③ steelblue</option>
+		                                    		<option>④ mediumpurple</option>
+		                                    	</select>
+		                                    	<div class="list">
+		                                    		<span class="cadetblue">1</span>
+		                                    		<span class="cornflowerblue">2</span>
+		                                    		<span class="steelblue">3</span>
+		                                    		<span class="mediumpurple">4</span>
+		                                    	</div>
+	                                    	</div>
+	                                    	<input type="number" value="" placeholder="문구 입력" class="ipt1 mt-5">
 	                                    </td>
 	                                </tr>
 	                            </tbody>

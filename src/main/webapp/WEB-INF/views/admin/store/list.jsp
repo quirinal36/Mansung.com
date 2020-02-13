@@ -14,11 +14,10 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-					
-                    <div class="section_type1">
-                        <strong>업체 목록</strong>
+                    <div class="admin_wrap admin_store_list">
+                        <div class="tit1">업체 목록</div>
                         <div class="bt_wrap">
-							<a href="<c:url value="/admin/store/add"/>" class="bt1 on">등록</a>
+							 <a href="<c:url value="/admin/store/add"/>" class="bt1 on" style="position: absolute; top: 0; right: 17px;">등록</a>
 						</div>
                         <table class="tbl2">
 							<colgroup>
@@ -38,7 +37,7 @@
                             <tbody>
                             	<c:forEach items="${list }" var="item">
                             		<tr>
-										<td><a href="<c:url value="/admin/store/view/${item.id }"/>">${item.title }</a></td>
+										<td class="name"><a href="<c:url value="/admin/store/view/${item.id }"/>">${item.title }</a></td>
 										<td>100</td>
 										<td>15</td>
 										<td><fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd" /></td>

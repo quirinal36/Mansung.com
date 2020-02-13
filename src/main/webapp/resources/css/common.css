@@ -1,4 +1,12 @@
-.tit1 { font-size: 20px; font-weight: 600; }
+.mt-5 {
+	margin-top: 5px;
+}
+
+.tit1 {
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
 .bt_wrap { text-align: center; }
 a.bt1,
 input.bt1 {
@@ -93,7 +101,6 @@ textarea.txtbox {
 
 .tbl1 {
     width: 100%;
-    margin: 10px 0;
     border-top: 1px solid #16356f;
 }
 .tbl1 tr {
@@ -118,7 +125,7 @@ textarea.txtbox {
 }
 .tbl2 th,
 .tbl2 td {
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
     font-size: 1.4rem;
 }
@@ -157,7 +164,7 @@ input.ipt1,
 textarea.ipt1 {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ddd;
     font-size: 1.4rem;
 }
@@ -263,4 +270,50 @@ strong.title {
 
 .tags a::before {
 	content: "#";
+}
+
+.tab_wrap {
+	padding: 12px 17px 0 17px;
+	background: #f5f6f7;
+	font-size: 0;
+}
+
+.tab_wrap a {
+	display: inline-block;
+	height: 40px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-left: 0;
+	background: #fff;
+	text-align: center;
+	font-size: 1.4rem;
+	letter-spacing: -0.5px;
+}
+
+.tab_wrap.item5 a {
+	width: 20%;
+}
+
+.tab_wrap.item3 a {
+	width: 33%;
+}
+
+.tab_wrap.item3 a:nth-child(2) {
+	width: 34%;
+}
+
+.tab_wrap a:first-child {
+	border-left: 1px solid #ddd;
+	border-radius: 4px 0 0 4px;
+}
+
+.tab_wrap a:last-child {
+	border-radius: 0 4px 4px 0;
+}
+
+.tab_wrap a.on {
+	border-color: #174797;
+	background: #174797;
+	color: #fff;
 }

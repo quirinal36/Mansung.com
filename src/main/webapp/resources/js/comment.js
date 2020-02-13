@@ -10,7 +10,8 @@ var txtList = [
 	"아 해 다르고 어 해 다르다.",
 	"말은 꿀벌과 같아서 꿀과 침을 가졌다.",
 	"말에 실수가 없는 자면 곧 온전한 사람이다.",
-	"혀 아래 도끼 들었다."
+	"혀 아래 도끼 들었다.",
+	"눈 모양 아이콘을 클릭하면 비밀글~"
 ]
 
 function eChk(label) {
@@ -51,6 +52,7 @@ function eList(bt) {
 $(function(){
     // 댓글 작성 창 열기
     $(".bt_comment_write, .bt_reply").click(function(){
+    	$(".bottom").addClass("on");
     	$(".comment_write_area").fadeIn();
     	var msgNum = Math.floor(Math.random() * txtList.length);
     	// 댓글 작성창 자동입력
@@ -60,6 +62,7 @@ $(function(){
     
     // 댓글 작성 창 닫기, 작성내용 초기화
     $(".comment_write_area .bg").click(function(){
+    	$(".bottom").removeClass("on");
     	$(".comment_write_area").fadeOut(100);
     	setTimeout(function(){
     		$('.comment_write input[type="text"]').val("");
