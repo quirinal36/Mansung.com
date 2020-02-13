@@ -162,7 +162,7 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
-	                                    <th>키워드</th>
+	                                    <th>태그</th>
 	                                    <td>
 											<div class="tag_area">
 												<div class="add">
