@@ -198,24 +198,34 @@
 	padding: 0 17px;
 }
 
-.storeView .tags a {
-	background: #f5f6f7;
+.store_add {
+	padding: 20px;
 }
 
-.store_add { padding: 20px; }
-.store_add input[type="text"] { margin-top: 5px; }
-.store_add input[type="text"]:first-child { margin-top: 0; }
-.store_add textarea { min-height: 200px; resize: vertical; }
+.store_add input[type="text"] {
+	margin-top: 5px;
+}
+
+.store_add input[type="text"]:first-child {
+	margin-top: 0;
+}
+
+.store_add textarea {
+	min-height: 200px;
+	resize: vertical;
+}
+
 .store_add .image ul li {
 	margin-top: 5px;
 }
+
 .store_add .image ul li:first-child {
 	margin-top: 0;
 }
 
-.store_add #ipt_tag {
-
-	}
+.store_add .image img {
+	max-width: 100%;
+}
 
 .store_add .tags ul li {
 	display: inline-block;
