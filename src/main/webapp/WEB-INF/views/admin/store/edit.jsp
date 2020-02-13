@@ -186,7 +186,15 @@
 	                                </tr>
 	                            	<tr>
 	                                    <th>텍스트 광고</th>
-	                                    <td><input type="text" value="만성닷컴 텍스트광고" placeholder="문구 입력" class="ipt1"></td>
+	                                    <td>
+	                                    	<input type="number" value="" placeholder="문구 입력" class="ipt1">
+	                                    	<select>
+	                                    		<option>cadetblue</option>
+	                                    		<option>cornflowerblue</option>
+	                                    		<option>steelblue</option>
+	                                    		<option>mediumpurple</option>
+	                                    	</select>
+	                                    </td>
 	                                </tr>
 	                            </tbody>
 	                        </table>
