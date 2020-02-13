@@ -14,8 +14,12 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
+					
                     <div class="section_type1">
                         <strong>업체 목록</strong>
+                        <div class="bt_wrap">
+							<a href="<c:url value="/admin/store/add"/>" class="bt1 on">등록</a>
+						</div>
                         <table class="tbl2">
 							<colgroup>
 								<col width="40%">
@@ -43,9 +47,7 @@
 								
                             </tbody>
 						</table>
-						<div class="bt_wrap">
-							<a href="<c:url value="/admin/store/add"/>" class="bt1 on">등록</a>
-						</div>
+						
                     </div>
                 </div>
             </div>

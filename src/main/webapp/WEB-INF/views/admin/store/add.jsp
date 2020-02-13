@@ -19,7 +19,7 @@
 				<div id="contentsPrint">
                     <div class="store_add">
                         <div class="tit1">등록</div>
-                        <form action="<c:url value="/admin/store/add"/>">
+                        <form id="admin-store-add-form" action="<c:url value="/admin/store/add"/>">
 	                        <table class="tbl1">
 	                            <colgroup>
 	                                <col width="20%">
