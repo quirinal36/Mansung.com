@@ -9,6 +9,7 @@
 	<script src="<c:url value="/resources/js/jquery.fileupload.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/store.js"/>"></script>
+	<script src="<c:url value="/resources/js/tag.js"/>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -163,25 +164,29 @@
 	                                <tr>
 	                                    <th>키워드</th>
 	                                    <td>
-	                                        <input type="text" placeholder="키워드 입력" class="ipt1">
-	                                        <div class="tags">
-	                                            <a href="#">김밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">떡볶이 <input type="button" value="삭제"></a>
-	                                            <a href="#">쫄면 <input type="button" value="삭제"></a>
-	                                            <a href="#">우동 <input type="button" value="삭제"></a>
-	                                            <a href="#">돈까스 <input type="button" value="삭제"></a>
-	                                            <a href="#">라면 <input type="button" value="삭제"></a>
-	                                            <a href="#">오므라이스 <input type="button" value="삭제"></a>
-	                                            <a href="#">돌솥비빔밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">된장찌개 <input type="button" value="삭제"></a>
-	                                            <a href="#">볶음밥 <input type="button" value="삭제"></a>
-	                                            <a href="#">잡채밥 <input type="button" value="삭제"></a>
-	                                        </div>
+											<div class="tag_area">
+												<div class="add">
+													<input type="text" placeholder="태그 입력(최대 10개)" id="ipt_tag" class="ipt1">
+													<input type="button" value="추가" onclick="addTag();">
+												</div>
+												<div class="preview">
+													<strong>태그 미리보기</strong>
+													<div class="tags">
+														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
+														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
+														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
+													</div>
+												</div>
+											</div>
 	                                    </td>
 	                                </tr>
 	                            	<tr>
 	                                    <th>메인 노출순서</th>
 	                                    <td><input type="number" value="1" placeholder="노출순서 입력" class="ipt1"></td>
+	                                </tr>
+	                            	<tr>
+	                                    <th>텍스트 광고</th>
+	                                    <td><input type="text" value="만성닷컴 텍스트광고" placeholder="문구 입력" class="ipt1"></td>
 	                                </tr>
 	                            </tbody>
 	                        </table>

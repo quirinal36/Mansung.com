@@ -198,24 +198,8 @@
 	padding: 0 17px;
 }
 
-.tags strong {
-	display: block;
-	margin-bottom: 3px;
-	font-size: 1.4rem;
-	letter-spacing: 0;
-}
-
-.tags a {
-	display: inline-block;
-	padding: 7px 8px 8px 8px;
-	border-radius: 20px;
+.storeView .tags a {
 	background: #f5f6f7;
-	line-height: 100%;
-	font-size: 1.3rem;
-}
-
-.tags a::before {
-	content: "#";
 }
 
 .store_add { padding: 20px; }
@@ -594,45 +578,12 @@
 
 .talk_wrap .msg_area {
 	font-size: 0;
-	border-bottom: 1px solid #ddd;
 }
 
 .talk_wrap .msg_area textarea  {
 	height: 240px;
 	padding: 15px 17px;
 	font-size: 1.6rem;
-}
-
-.talk_wrap .tag_area .add {
-	position: relative;
-}
-
-.talk_wrap .tag_area .add input[type="button"] {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 52px;
-	height: 100%;
-	background: transparent url(/resources/img/comm/bt_add.png) no-repeat 50% 50% /16px;
-	text-indent: -100px;
-	overflow: hidden;
-}
-
-.talk_wrap .tag_area .preview {
-	padding: 18px 17px 17px 17px;
-	border-bottom: 1px solid #ddd;
-	background: #f5f6f7;
-}
-
-.talk_wrap .tag_area .preview strong {
-	font-size: 1.2rem;
-	font-weight: normal;
-	color: #777;
-}
-
-.talk_wrap .tag_area input[type="text"] {
-	padding: 17px;
-	border: 0;
 }
 
 .talk_wrap .comment_area {
