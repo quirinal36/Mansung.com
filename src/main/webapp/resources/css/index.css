@@ -146,6 +146,8 @@
 	padding: 0 10px;
 }
 
-.idx_catogory .bt_cMore:: {
-	
+.idx_category .bt_cMore img {
+	width: 12px;
+	margin: 4px 0 0 2px;
+	vertical-align: top;
 }

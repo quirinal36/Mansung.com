@@ -97,7 +97,7 @@
 							</a>
 						</div>
 						<div class="bt_wrap">
-							<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기</a>
+							<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기 <img src="/resources/img/comm/arrow_down.png" alt="아이콘"></a>
 						</div>
 						<!--
 						<c:forEach items="${cateList }" var="category">
