@@ -49,7 +49,27 @@ $(function(){
 });
 
 function deleteTag(bt) {
-	$(bt).parent().remove();
+	var storeId = $("#adminEditForm").find("input[name='id']").val();
+	
+	if(storeId > 0){
+		var tagId = $(bt).parent().find("input[name='tagId']").val();
+		
+		var url = "/admin/store/tag/delete";
+		var param = "hashId="+tagId +"&storeId="+storeId;
+		console.log(url);
+		console.log(param);
+		
+		$.ajax({
+			url : url,
+			data: param,
+			type: "POST",
+			dataType: "json"
+		}).done(function(json){
+			$(bt).parent().remove();
+		});
+	}else{
+		$(bt).parent().remove();
+	}
 }
 
 /*

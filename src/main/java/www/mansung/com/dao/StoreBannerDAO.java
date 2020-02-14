@@ -21,8 +21,7 @@ public class StoreBannerDAO implements DataAccess<StoreBanner> {
 
 	@Override
 	public int update(StoreBanner input) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(namespace +".update", input);
 	}
 
 	@Override

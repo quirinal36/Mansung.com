@@ -29,4 +29,21 @@
 			${elem.hashId}
 		</foreach>
 	</insert>
+	
+	<select id="select" parameterType="store" resultType="hashtag">
+		SELECT * FROM 
+			HashTag 
+		<where>
+			id IN (SELECT hashId FROM StoreHash WHERE storeId = ${id}) 
+		</where>
+	</select>
+	
+	<delete id="delete" parameterType="storehash">
+		DELETE FROM StoreHash
+		<where>
+			storeId = ${storeId}
+			and
+			hashId = ${hashId}
+		</where>
+	</delete>
 </mapper>

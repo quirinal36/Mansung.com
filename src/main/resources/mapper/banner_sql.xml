@@ -23,5 +23,14 @@
 			storeId = ${storeId}
 		</where>
 	</select>
-	
+	<update id="update" parameterType="banner">
+		UPDATE StoreBanner
+		<set>
+			bannerColor = ${bannerColor},
+			bannerText = '${bannerText}'
+		</set>
+		<where>
+			storeId = ${storeId}
+		</where>
+	</update>
 </mapper>

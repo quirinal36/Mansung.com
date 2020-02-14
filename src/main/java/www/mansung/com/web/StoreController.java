@@ -2,6 +2,7 @@ package www.mansung.com.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.Config;
+import www.mansung.com.service.HashTagService;
 import www.mansung.com.service.StoreInfoService;
+import www.mansung.com.vo.HashTag;
 import www.mansung.com.vo.StoreInfo;
 
 @Controller
@@ -21,6 +24,8 @@ import www.mansung.com.vo.StoreInfo;
 public class StoreController {
 	@Autowired
 	private StoreInfoService service;
+	@Autowired
+	private HashTagService hashTagService;
 	
 	@RequestMapping(value="/view/{id}", method = RequestMethod.GET)
 	public ModelAndView getDetailView(ModelAndView mv,
@@ -29,7 +34,11 @@ public class StoreController {
 		String apiKey = FileUtils.readFileToString(file, Config.ENCODING);
 		mv.addObject("apiKey", apiKey);
 		
-		mv.addObject("store", service.selectOne(StoreInfo.newInstance(id)));
+		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
+		mv.addObject("store", store);
+		
+		List<HashTag> tags = hashTagService.select(store);
+		mv.addObject("tags", tags);
 		
 		mv.setViewName("/store/view");
 		return mv;

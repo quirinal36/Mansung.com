@@ -3,6 +3,8 @@ package www.mansung.com.vo;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -38,6 +40,9 @@ public class StoreInfo extends Paging{
 	List<HashTag> hashTag;
 	int bannerColor;
 	String bannerText;
+	String bannerColorTxt;
+	
+	int priority;
 	
 	public static StoreInfo newInstance(int id) {
 		StoreInfo result = new StoreInfo();

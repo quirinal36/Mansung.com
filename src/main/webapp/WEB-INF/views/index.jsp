@@ -154,11 +154,14 @@
 										<div class="banner_wrap imgType">
 											<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 										</div>
-										<div class="banner_wrap txtType cornflowerblue">
-											<a href="#">전주코딩학원 텍스트배너</a>
+									</c:when>
+									<c:when test="${store.bannerColor > 0 }">
+										<div class="banner_wrap txtType ${store.bannerColorTxt }">
+											<a href="${store.bannerColor}">${store.bannerText}</a>
 										</div>
 									</c:when>
 									<c:otherwise>
+										
 									</c:otherwise>
 								</c:choose>
 

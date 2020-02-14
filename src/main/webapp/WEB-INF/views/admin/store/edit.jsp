@@ -118,34 +118,26 @@
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
-	                                    <th>썸네일</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
+	                                    <th>대표이미지</th>
+	                                    <td id="dropzone-img-rep">
+	                                        <input id="image-upload-btn" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <div id="progress_rep_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="rep-image">
+	                                        	
 	                                        </ul>
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>상세이미지</th>
-	                                    <td>
-	                                        <input type="button" value="사진 등록" class="bt2">
-	                                        <ul>
-	                                            <li>
-	                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
-	                                            <li>
-	                                                <a href="/resources/img/temp/2.png" target="_blank">/resources/img/temp/2.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
-	                                            <li>
-	                                                <a href="/resources/img/temp/3.png" target="_blank">/resources/img/temp/3.png</a>
-	                                                <input type="button" value="삭제" class="bt2">
-	                                            </li>
+	                                    <td id="dropzone-img-det">
+	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <div id="progress_det_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="det-image">
+	                                            
 	                                        </ul>
 	                                    </td>
 	                                </tr>
@@ -172,9 +164,12 @@
 												<div class="preview">
 													<strong>태그 미리보기</strong>
 													<div class="tags">
-														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
-														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
-														<a href="javascript:void(0);">a <input type="button" value="삭제" onclick="deleteTag(this)"></a>
+														<c:forEach items="${tags }" var="item">
+															<a href="javascript:void(0);">${item.name }
+																<input type="button" value="삭제" onclick="deleteTag(this)">
+																<input type="hidden" value="${item.id }" name="tagId"/>
+															</a>
+														</c:forEach>
 													</div>
 												</div>
 											</div>
@@ -182,17 +177,19 @@
 	                                </tr>
 	                            	<tr>
 	                                    <th>메인 노출순서</th>
-	                                    <td><input type="number" value="1" placeholder="노출순서 입력" class="ipt1"></td>
+	                                    <td>
+	                                    	<input type="number" value="${store.priority }" placeholder="노출순서 입력" class="ipt1" name="priority">
+	                                    </td>
 	                                </tr>
 	                            	<tr>
 	                                    <th>텍스트 광고</th>
 	                                    <td>
 	                                    	<div class="colorSelect">
-		                                    	<select>
-		                                    		<option>① cadetblue</option>
-		                                    		<option>② cornflowerblue</option>
-		                                    		<option>③ steelblue</option>
-		                                    		<option>④ mediumpurple</option>
+		                                    	<select name="bannerColor">
+		                                    		<option value="1" <c:if test="${store.bannerColor eq 1}">selected</c:if>>① cadetblue</option>
+		                                    		<option value="2" <c:if test="${store.bannerColor eq 2}">selected</c:if>>② cornflowerblue</option>
+		                                    		<option value="3" <c:if test="${store.bannerColor eq 3}">selected</c:if>>③ steelblue</option>
+		                                    		<option value="4" <c:if test="${store.bannerColor eq 4}">selected</c:if>>④ mediumpurple</option>
 		                                    	</select>
 		                                    	<div class="list">
 		                                    		<span class="cadetblue">1</span>
@@ -201,7 +198,7 @@
 		                                    		<span class="mediumpurple">4</span>
 		                                    	</div>
 	                                    	</div>
-	                                    	<input type="number" value="" placeholder="문구 입력" class="ipt1 mt-5">
+	                                    	<input type="text" value="${store.bannerText}" placeholder="문구 입력" class="ipt1 mt-5" name="bannerText">
 	                                    </td>
 	                                </tr>
 	                            </tbody>

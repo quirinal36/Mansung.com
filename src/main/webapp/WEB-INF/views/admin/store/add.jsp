@@ -165,7 +165,7 @@
 	                                </tr>
 	                            	<tr>
 	                                    <th>메인 노출순서</th>
-	                                    <td><input type="number" value="" placeholder="노출순서 입력" class="ipt1"></td>
+	                                    <td><input type="number" value="" placeholder="노출순서 입력" class="ipt1" name="priority"></td>
 	                                </tr>
 	                            	<tr>
 	                                    <th>텍스트 광고</th>

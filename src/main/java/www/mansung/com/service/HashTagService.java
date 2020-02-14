@@ -30,7 +30,9 @@ public class HashTagService implements DataService<HashTag> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	public int delete(StoreHash input) {
+		return dao.delete(input);
+	}
 	@Override
 	public List<HashTag> select() {
 		// TODO Auto-generated method stub
@@ -42,7 +44,10 @@ public class HashTagService implements DataService<HashTag> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public List<HashTag> select(StoreInfo input) {
+		return dao.select(input);
+	}
+	
 	@Override
 	public HashTag selectOne(HashTag input) {
 		return dao.selectOne(input);

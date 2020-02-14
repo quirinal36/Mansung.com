@@ -20,8 +20,7 @@ public class StoreBannerService implements DataService<StoreBanner> {
 
 	@Override
 	public int update(StoreBanner input) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.update(input);
 	}
 
 	@Override

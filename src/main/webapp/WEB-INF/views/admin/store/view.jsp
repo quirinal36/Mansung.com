@@ -119,23 +119,18 @@
                                     <th>키워드</th>
                                     <td>
 										<div class="tags">
-											<a href="#">김밥</a>
-											<a href="#">떡볶이</a>
-											<a href="#">쫄면</a>
-											<a href="#">우동</a>
-											<a href="#">돈까스</a>
-											<a href="#">라면</a>
-											<a href="#">오므라이스</a>
-											<a href="#">돌솥비빔밥</a>
-											<a href="#">된장찌개</a>
-											<a href="#">볶음밥</a>
-											<a href="#">잡채밥</a>
+											<c:forEach items="${tags }" var="item">
+												<a href="#">${item.name }</a>
+											</c:forEach>
+											
 										</div>
                                     </td>
                                 </tr>
                             	<tr>
                                     <th>메인 노출순서</th>
-                                    <td>1</td>
+                                    <td>
+                                    	${store.priority }
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -10,6 +10,7 @@
 	<meta name="robots" content="index,follow">
 	<title>만성닷컴 로그인</title>
 	<link rel="stylesheet" href="/resources/css/login.css">
+	<script src="<c:url value="/resources/js/jquery-1.12.1.min.js"/>"></script>
 </head>
 <body>
     <div class="login_wrap">
@@ -22,56 +23,39 @@
             <span>- 생텍쥐페리</span>
         </div>
         <div class="bt_login_wrap">
-            <a href="#">카카오톡<br> 로그인</a>
+            <a href="#" onclick="login();">카카오톡<br> 로그인</a>
         </div>
     </div>
-	<div id="wrap" style="display: none;">
-		<c:import url="/inc/header"></c:import>
-		<div id="containerWrap">
-			<div id="container">
-				<div id="contentsPrint">
-                    <div class="member_wrap">
-                        <strong class="title">로그인</strong>
-                        <p>
-                            만성닷컴에 로그인하시면<br>
-                            더 많은 서비스를 이용하실 수 있습니다.
-                        </p>
-                        <a id="kakao-login-btn"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <c:import url="/inc/footer"></c:import>
-	</div>	
 </body>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
 	Kakao.init('${apiKey}');
 	
-	Kakao.Auth.createLoginButton({ 
-		container : '#kakao-login-btn',
-		success : function(authObj) {
-			var url = "/member/signup";
-			var param = JSON.stringify(authObj);
-			console.log(authObj);
-			
-			$.ajax({
-				url : url,
-				data: param,
-				type: "POST",
-				dataType: "json",
-				contentType: 'application/json; charset=utf-8'
-			}).done(function(json){
-				console.log(json);
+	function login(){
+		Kakao.Auth.login({ 
+			success : function(authObj) {
+				var url = "/member/signup";
+				var param = JSON.stringify(authObj);
+				console.log(authObj);
 				
-				if(json.id > 0){
-					window.location.replace("/member/login");
-				}
-			});
-		},
-		fail : function(err) {
-			alert("로그인에 실패했습니다.");
-		}
-	});
+				$.ajax({
+					url : url,
+					data: param,
+					type: "POST",
+					dataType: "json",
+					contentType: 'application/json; charset=utf-8'
+				}).done(function(json){
+					console.log(json);
+					
+					if(json.id > 0){
+						window.location.replace("/member/login");
+					}
+				});
+			},
+			fail : function(err) {
+				alert("로그인에 실패했습니다.");
+			}
+		});
+	}
 </script>
 </html>

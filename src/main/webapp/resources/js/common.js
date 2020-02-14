@@ -116,6 +116,8 @@ function copyInnerHtml(button){
 function copyPhoneMsg(button) {
 	var div = button.parentNode.getElementsByTagName("span")[0];
 	var text = div.innerHTML.trim();
+	
+	copyIntoClipboard(text);
 	$("#msg-area").html("<span>전화번호가 복사되었습니다.</span>").fadeIn(200);
 	setTimeout(function() {
 		$("#msg-area").fadeOut(200);
@@ -125,6 +127,8 @@ function copyPhoneMsg(button) {
 function copyAddressMsg(button) {
 	var div = button.parentNode.getElementsByTagName("span")[0];
 	var text = div.innerHTML.trim();
+	
+	copyIntoClipboard(text);
 	$("#msg-area").html("<span>주소가 복사되었습니다.</span>").fadeIn(200);
 	setTimeout(function() {
 		$("#msg-area").fadeOut(200);

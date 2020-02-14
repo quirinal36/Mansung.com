@@ -31,7 +31,9 @@ public class HashTagDAO implements DataAccess<HashTag> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	public int delete(StoreHash input) {
+		return sqlSession.delete(namespace +".delete", input);
+	}
 	@Override
 	public List<HashTag> select() {
 		// TODO Auto-generated method stub
@@ -40,10 +42,11 @@ public class HashTagDAO implements DataAccess<HashTag> {
 
 	@Override
 	public List<HashTag> select(HashTag input) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public List<HashTag> select(StoreInfo input) {
+		return sqlSession.selectList(namespace +".select", input);
+	}
 	@Override
 	public HashTag selectOne(HashTag input) {
 		return sqlSession.selectOne(namespace +".select_one", input);

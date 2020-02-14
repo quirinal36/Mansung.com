@@ -15,6 +15,7 @@ function delImageClick(btn){
 function editConfirm(){
 	var url = $("#adminEditForm").attr("action");
 	var param = $("#adminEditForm").serialize();
+	console.log(param);
 	
 	if(confirm("저장하시겠습니까?")){
 		$.ajax({
@@ -32,9 +33,25 @@ function editConfirm(){
 }
 function submitStore(){
 	var url = $("#admin-store-add-form").attr("action");
-	var param = $("#admin-store-add-form").serialize();
 	
 	console.log(url);
+	
+	var dataObj = {};
+	$($("#admin-store-add-form").serializeArray()).each(function (i,field){
+		dataObj[field.name] = field.value;
+	});
+	if(dataObj['priority'] == '' || dataObj['priority'] < 0){
+		console.log("remove priority");
+		$("#admin-store-add-form").find("input[name='priority']").remove();
+	}
+	
+	if(dataObj['bannerText'] == ''){
+		console.log("remove bannerColor");
+		$("#admin-store-add-form").find("input[name='bannerColor']").remove();
+		$("#admin-store-add-form").find("input[name='bannerText']").remove();
+	}
+	
+	var param = $("#admin-store-add-form").serialize();
 	console.log(param);
 	
 	if(confirm("저장하시겠습니까?")){
@@ -71,6 +88,8 @@ $(document).ready(function(){
 		imageCrop: true,
         dataType: 'json',
         done: function (e, data) {
+        	console.log(data);
+        	
         	var file = data.result.file;
         	var name = '';
         	if(e.target.id == 'image-upload-btn'){

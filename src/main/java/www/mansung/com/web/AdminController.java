@@ -58,23 +58,34 @@ public class AdminController {
 		return mv;
 	}
 	
+	private int mappingHashTags(List<Integer> tagIds, StoreInfo info) {
+		int result = 0;
+		List<StoreHash> hashTags = new ArrayList<StoreHash>();
+		for(Integer tag: tagIds) {
+			hashTags.add(StoreHash.newInstance(tag, info.getId()));
+		}
+		if(hashTags.size() > 0) {
+			result = hashTagService.mappingTags(hashTags);
+		}
+		return result;
+	}
+	private int insertBanners(StoreInfo info) {
+		StoreBanner banner = StoreBanner.newInstance(info.getId());
+		banner.setBannerColor(info.getBannerColor());
+		banner.setBannerText(info.getBannerText());
+		int result = bannerService.insert(banner);
+		return result;
+	}
 	@ResponseBody
 	@RequestMapping(value="/store/add", method = RequestMethod.POST, produces = "application/json; charset=utf8")
-	public String postStoreAdd(StoreInfo info, @RequestParam(value="tagId")List<Integer>tagIds) {
+	public String postStoreAdd(StoreInfo info, @RequestParam(value="tagId", required = false)List<Integer>tagIds) {
 		int result = service.insert(info);
 		if(info.getId() > 0) {
-			List<StoreHash> hashTags = new ArrayList<StoreHash>();
-			for(Integer tag: tagIds) {
-				hashTags.add(StoreHash.newInstance(tag, info.getId()));
+			if(tagIds != null && tagIds.size() > 0) {
+				mappingHashTags(tagIds, info);
 			}
-			if(hashTags.size() > 0) {
-				hashTagService.mappingTags(hashTags);
-			}
-			if(result > 0) {
-				StoreBanner banner = StoreBanner.newInstance(info.getId());
-				banner.setBannerColor(info.getBannerColor());
-				banner.setBannerText(info.getBannerText());
-				bannerService.insert(banner);
+			if(info.getBannerColor() > 0) {
+				insertBanners(info);
 			}
 		}
 		
@@ -98,6 +109,9 @@ public class AdminController {
 		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
 		mv.addObject("store", store);
 		
+		List<HashTag> tags = hashTagService.select(store);
+		mv.addObject("tags", tags);
+		
 		if(store.getWideBanner() > 0) {
 			PhotoInfo photoInfo = new PhotoInfo();
 			photoInfo.setId(store.getWideBanner());
@@ -117,16 +131,33 @@ public class AdminController {
 		StoreInfo store = service.selectOne(StoreInfo.newInstance(id));
 		mv.addObject("store", store);
 		
+		List<HashTag> tags = hashTagService.select(store);
+		mv.addObject("tags", tags);
+		
 		mv.setViewName("/admin/store/edit");
 		return mv;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/store/edit", method = RequestMethod.POST, produces = "application/json; charset=utf8")
-	public String postStoreEdit(StoreInfo info) {
+	public String postStoreEdit(StoreInfo info, @RequestParam(value="tagId")List<Integer>tagIds) {
 		JSONObject json = new JSONObject(); 
 		
 		int result = service.update(info);
+		
+		mappingHashTags(tagIds, info);
+		
+		StoreBanner banner = StoreBanner.newInstance(info.getId());
+		banner.setBannerColor(info.getBannerColor());
+		banner.setBannerText(info.getBannerText());
+		
+		StoreBanner existBanner = bannerService.selectOne(banner);
+		if(existBanner != null && existBanner.getId()>0) {
+			bannerService.update(banner);
+		}else {
+			bannerService.insert(banner);
+		}
+		
 		json.put("result", result);
 		
 		return json.toString();
@@ -145,5 +176,14 @@ public class AdminController {
 		}else {
 			return selectTag.toString();
 		}		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/store/tag/delete", method = RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String removeStoreHash(StoreHash item) {
+		int result = hashTagService.delete(item);
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
 	}
 }
