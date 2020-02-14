@@ -353,7 +353,15 @@
 
 .pImg_set .list label {
 	display: inline-block;
+	width: auto;
+	height: auto;
 	margin: 10px 0 0 2%;
+	background: none;
+	text-indent: 0;
+}
+
+.pImg_set .list label img {
+	width: 100%;
 }
 
 .pImg_set .list label:nth-of-type(6n-5) {
@@ -426,8 +434,36 @@
 	opacity: 0.2;
 }
 
-.msg_wrap .msg p {
+.msg_wrap .msg .txt {
+	
+}
+
+.msg_wrap .msg .txt > div {
+	
+}
+
+.msg_wrap .msg .txt p {
+	max-height: 112px;
+	line-height: 160%;
 	font-size: 1.4rem;
+	overflow: hidden;
+}
+
+.msg_wrap .msg .txt p.on {
+	max-height: unset;
+}
+
+.msg_wrap .msg .txt .bt_more {
+	display: block;
+	margin-top: 2px;
+	background: transparent;
+	font-size: 1.4rem;
+	font-weight: 400;
+	color: #888;
+}
+
+.msg_wrap .msg .tags {
+	margin-top: 2px;
 }
 
 .msg_wrap .bt_wrap {
@@ -514,37 +550,15 @@
 	cursor: pointer;
 }
 
-.msg_wrap .bottom_wrap .msg_out_wrap .bt_msg_out + label {
-	margin-left: 10px;
-}
-
-.msg_wrap .bottom_wrap .msg_hide_wrap span {
-	height: 20px;
-	margin-right: 10px;
-	padding-left: 25px;
-	background: url(/resources/img/msg/msg_hide_count.png) no-repeat 0 0 /20px;
-	line-height: 170%;
-}
-
-.msg_wrap .bottom_wrap .msg_out_wrap span {
-	margin-right: 10px;
-}
-
-.msg_wrap .bottom_wrap .bt_edit,
-.msg_wrap .bottom_wrap .bt_del,
-.msg_wrap .bottom_wrap .bt_share {
-	margin-left: 10px;
-}
-
-
-.msg_wrap .bottom_wrap .bt_del,
-.msg_wrap .bottom_wrap .bt_share {
-	vertical-align: middle;
-	background: transparent;
+.talk_wrap {
+	position: relative;
 }
 
 .talk_wrap .top {
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 56px;
 	padding: 14px 17px 0 17px;
 	box-sizing: border-box;
@@ -581,18 +595,30 @@
 	color: #fff;
 }
 
-.talk_wrap .bottom.on {
-	height: 56px;
-}
-
 .talk_wrap .msg_area {
+	padding-top: 56px;
+	box-sizing: border-box;
 	font-size: 0;
 }
 
 .talk_wrap .msg_area textarea  {
-	height: 240px;
+	height: 100%;
 	padding: 15px 17px;
 	font-size: 1.6rem;
+}
+
+.talk_wrap .tag_area {
+
+}
+
+/* 만성톡 댓글 */
+
+.talk_wrap .bottom.on {
+	height: 56px;
+}
+
+.talk_wrap .comment_area {
+	padding-top: 56px;
 }
 
 .talk_wrap.out .comment_area .msg {
@@ -751,7 +777,7 @@
 
 .talk_wrap .emoticon_area {
 	position: fixed;
-	bottom: 56px;
+	bottom: 49px;
 	left: 0;
 	display: none;
 	width: 100%;
@@ -821,6 +847,35 @@
 
 .talk_wrap .emoticon_area .list input:checked + label img {
 	border: 2px solid gold;
+}
+
+.msg_wrap .bottom_wrap .msg_out_wrap .bt_msg_out + label {
+	margin-left: 10px;
+}
+
+.msg_wrap .bottom_wrap .msg_hide_wrap span {
+	height: 20px;
+	margin-right: 10px;
+	padding-left: 25px;
+	background: url(/resources/img/msg/msg_hide_count.png) no-repeat 0 0 /20px;
+	line-height: 170%;
+}
+
+.msg_wrap .bottom_wrap .msg_out_wrap span {
+	margin-right: 10px;
+}
+
+.msg_wrap .bottom_wrap .bt_edit,
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
+	margin-left: 10px;
+}
+
+
+.msg_wrap .bottom_wrap .bt_del,
+.msg_wrap .bottom_wrap .bt_share {
+	vertical-align: middle;
+	background: transparent;
 }
 
 .mypage_feed_wrap {

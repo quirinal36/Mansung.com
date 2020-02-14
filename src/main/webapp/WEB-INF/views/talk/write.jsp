@@ -7,8 +7,20 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>">
 	<script src="<c:url value="/resources/js/tag.js"/>"></script>
+	<script>
+	function msg_area_height() {
+		var bodyHeight = $(window).height();
+		$(".talk_wrap .msg_area").height(bodyHeight - 56 - 109);
+	}
+	$(function(){
+		msg_area_height();
+	});
+	
+	$(window).resize(function(){
+		msg_area_height();
+	});
+	</script>
 </head>
 <body>
 	<div id="wrap">

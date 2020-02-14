@@ -169,6 +169,7 @@
     font-size: 1.6rem;
 }
 
+/* 복사완료 이모티콘
 #msg-area {
     position: fixed;
     top: 50%;
@@ -186,6 +187,26 @@
     font-size: 1.3rem;
     color: #000;
     font-style: italic;
+}
+*/
+
+#msg-area {
+	position: fixed;
+	bottom: 10%;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#msg-area span {
+	display: inline-block;
+	text-align: center;
+	padding: 10px 20px;
+	border-radius: 50px;
+	background: rgba(0, 0, 0, 0.5);
+	font-size: 1.4rem;
+	color: #fff;
 }
 
 #containerWrap {
@@ -205,6 +226,11 @@
     text-align: center;
     font-size: 1.2rem;
     color: #777;
+}
+
+#footer a {
+	font-weight: 600;
+	text-decoration: underline;
 }
 
 #fixedBanner {
@@ -227,6 +253,7 @@
 #fixedBanner a img {
     width: 100%;
     max-width: 400px;
+    max-height: 60px;
 }
 
 .popupWrap {

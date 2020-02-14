@@ -19,7 +19,7 @@
 				<div id="contentsPrint">
 					<!-- 커뮤니티 view -->
 					<div class="msg_wrap">
-						<div class="item">
+						<div class="item" id="abc123">
 							<div class="top">
 								<a href="#" class="image pImg type1">루루</a>
 								<div class="info">
@@ -28,12 +28,25 @@
 								</div>
 							</div>
 							<div class="msg">
-								<p>
-									아래 항목은 관리자만 볼 수 있음<br>
-									- 좋아요 갯수<br>
-									- 불편해요 갯수<br>
-									- 차단 버튼
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											아래 항목은 관리자만 볼 수 있음<br>
+											- 좋아요 갯수<br>
+											- 불편해요 갯수<br>
+											- 차단 버튼<br>
+											- 불편해요 갯수<br>
+											- 차단 버튼<br>
+											- 불편해요 갯수<br>
+											- 차단 버튼<br>
+											- 불편해요 갯수<br>
+											- 차단 버튼<br>
+											- 불편해요 갯수<br>
+											- 차단 버튼
+										</p>
+									</div>
+									<input type="button" value="더 보기" class="bt_more">
+								</div>
 								<div class="tags">
 									<a href="#">학원</a>
 									<a href="#">코딩</a>
@@ -77,9 +90,13 @@
 								</div>
 							</div>
 							<div class="msg">
-								<p>
-									작성자 본인일 경우 수정/삭제 버튼 노출
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											작성자 본인일 경우 수정/삭제 버튼 노출
+										</p>
+									</div>
+								</div>
 								<div class="tags">
 									<a href="#">학원</a>
 									<a href="#">코딩</a>
@@ -115,13 +132,17 @@
 								</div>
 							</div>
 							<div class="msg">
-								<p>
-									수정 이력이 없을 때 : 작성일 옆에 [수정됨] 표시 없음<br>
-									좋아요 누르기 전 : 하트가 회색으로 보임<br>
-									등록된 댓글이 없을 때 : [댓글 쓰기]로 보임<br>
-									불편해요 누르기 전 : [불편해요] 버튼 노출<br>
-									등록한 태그가 없을 때 : div.tags 자체가 안보임
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											수정 이력이 없을 때 : 작성일 옆에 [수정됨] 표시 없음<br>
+											좋아요 누르기 전 : 하트가 회색으로 보임<br>
+											등록된 댓글이 없을 때 : [댓글 쓰기]로 보임<br>
+											불편해요 누르기 전 : [불편해요] 버튼 노출<br>
+											등록한 태그가 없을 때 : div.tags 자체가 안보임
+										</p>
+									</div>
+								</div>
 							</div>
 							<!-- input type checkbox의 아이디는 msg + 글번호 형태가 되어야 함, label의 for도 동일 -->
 							<div class="bottom_wrap">
@@ -149,13 +170,17 @@
 								</div>
 							</div>
 							<div class="msg">
-								<p>
-									수정 이력이 있을 때 : 작성일 옆에 [수정됨] 표시<br>
-									좋아요 누른 상태 : 하트가 파란색으로 보임<br>
-									등록된 댓글이 있을 때 : [댓글 2] 형식으로 보임<br>
-									불편해요 누른 상태 : [괜찮아요] 버튼 노출<br>
-									등록한 태그가 없을 때 : div.tags가 보임
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											수정 이력이 있을 때 : 작성일 옆에 [수정됨] 표시<br>
+											좋아요 누른 상태 : 하트가 파란색으로 보임<br>
+											등록된 댓글이 있을 때 : [댓글 2] 형식으로 보임<br>
+											불편해요 누른 상태 : [괜찮아요] 버튼 노출<br>
+											등록한 태그가 없을 때 : div.tags가 보임
+										</p>
+									</div>
+								</div>
 								<div class="tags">
 									<a href="#">학원</a>
 									<a href="#">코딩</a>
@@ -188,11 +213,15 @@
 								</div>
 							</div>
 							<div class="msg out">
-								<p>
-									관리자가 차단하거나 불편해요가 20개 이상이면 차단됨 상태로 변경됨<br>
-									차단된 글은 댓글 페이지도 접근 불가<br>
-									차단된 글은 작성자와 관리자만 볼 수 있음
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											관리자가 차단하거나 불편해요가 20개 이상이면 차단됨 상태로 변경됨<br>
+											차단된 글은 댓글 페이지도 접근 불가<br>
+											차단된 글은 작성자와 관리자만 볼 수 있음
+										</p>
+									</div>
+								</div>
 								<div class="tags">
 									<a href="#">학원</a>
 									<a href="#">코딩</a>
@@ -225,9 +254,13 @@
 								</div>
 							</div>
 							<div class="msg hide">
-								<p>
-									불편해요 누르면 해당 글의 div.msg가 hide됨
-								</p>
+								<div class="txt">
+									<div>
+										<p>
+											불편해요 누르면 해당 글의 div.msg가 hide됨
+										</p>
+									</div>
+								</div>
 								<div class="tags">
 									<a href="#">학원</a>
 									<a href="#">코딩</a>

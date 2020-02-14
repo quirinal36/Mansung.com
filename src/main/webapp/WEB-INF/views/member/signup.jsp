@@ -47,22 +47,6 @@
 			}
 		});
 	});
-	
-	
-	
-	// 프로필 이미지 세로길이 1:1 비율로 조정
-	function pImgheight() {
-		var pImg_width = $(".pImg").width();
-		$(".pImg").height(pImg_width);
-	}
-	
-	$(function(){
-		pImgheight();
-	});
-	
-	$(window).resize(function(){
-		pImgheight();
-	});
 	</script>
 </head>
 <body>
@@ -94,6 +78,7 @@
 											<a href="/talk/edit" class="bt_edit">수정</a>
 											<a href="#" class="bt_del">삭제</a>
 											<a href="#" class="bt_reply">답글</a>
+											<a href="#" class="bt_original">원문</a>
 										</div>
 									</div>
 								</div>
@@ -108,8 +93,7 @@
 									<div class="info">
 										<span class="date">2020-01-04 11:29:01 비밀글 수정됨</span>
 										<div class="right">
-											<a href="/talk/edit" class="bt_edit">수정</a>
-											<a href="#" class="bt_del">삭제</a>
+											<a href="#" class="bt_original">원문</a>
 										</div>
 									</div>
 								</div>
@@ -125,9 +109,13 @@
 									</div>
 								</div>
 								<div class="msg">
-									<p>
-										내가 쓴 글 / 내가 좋아하는 글
-									</p>
+									<div class="txt">
+										<div>
+											<p>
+												내가 쓴 글 / 내가 좋아하는 글
+											</p>
+										</div>
+									</div>
 									<div class="tags">
 										<a href="#">학원</a>
 										<a href="#">코딩</a>
@@ -155,9 +143,7 @@
 											<input type="checkbox" id="msg1_out" class="bt_msg_out">
 											<label for="msg1_out"></label>
 										</div>
-										<!-- 수정/삭제/공유 -->
-										<a href="/talk/edit" class="bt_edit">수정</a>
-										<input type="button" value="삭제" class="bt_del">
+										<!-- 공유 -->
 										<input type="button" value="공유" class="bt_share">
 									</div>
 								</div>
@@ -184,37 +170,37 @@
 							<div class="list">
 								<form>
 									<input type="radio" name="type" id="type1" checked>
-									<label for="type1" class="pImg type1">type1</label>
+									<label for="type1" class="pImg type1"><img src="/resources/img/member/p1.png"></label>
 									<input type="radio" name="type" id="type2">
-									<label for="type2" class="pImg type2">type2</label>
+									<label for="type2" class="pImg type2"><img src="/resources/img/member/p2.png"></label>
 									<input type="radio" name="type" id="type3">
-									<label for="type3" class="pImg type3">type3</label>
+									<label for="type3" class="pImg type3"><img src="/resources/img/member/p3.png"></label>
 									<input type="radio" name="type" id="type4">
-									<label for="type4" class="pImg type4">type4</label>
+									<label for="type4" class="pImg type4"><img src="/resources/img/member/p4.png"></label>
 									<input type="radio" name="type" id="type5">
-									<label for="type5" class="pImg type5">type5</label>
+									<label for="type5" class="pImg type5"><img src="/resources/img/member/p5.png"></label>
 									<input type="radio" name="type" id="type6">
-									<label for="type6" class="pImg type6">type6</label>
+									<label for="type6" class="pImg type6"><img src="/resources/img/member/p6.png"></label>
 									<input type="radio" name="type" id="type7">
-									<label for="type7" class="pImg type7">type7</label>
+									<label for="type7" class="pImg type7"><img src="/resources/img/member/p7.png"></label>
 									<input type="radio" name="type" id="type8">
-									<label for="type8" class="pImg type8">type8</label>
+									<label for="type8" class="pImg type8"><img src="/resources/img/member/p8.png"></label>
 									<input type="radio" name="type" id="type9">
-									<label for="type9" class="pImg type9">type9</label>
+									<label for="type9" class="pImg type9"><img src="/resources/img/member/p9.png"></label>
 									<input type="radio" name="type" id="type10">
-									<label for="type10" class="pImg type10">type10</label>
+									<label for="type10" class="pImg type10"><img src="/resources/img/member/p10.png"></label>
 									<input type="radio" name="type" id="type11">
-									<label for="type11" class="pImg type11">type11</label>
+									<label for="type11" class="pImg type11"><img src="/resources/img/member/p11.png"></label>
 									<input type="radio" name="type" id="type12">
-									<label for="type12" class="pImg type12">type12</label>
+									<label for="type12" class="pImg type12"><img src="/resources/img/member/p12.png"></label>
 									<input type="radio" name="type" id="type13">
-									<label for="type13" class="pImg type13">type13</label>
+									<label for="type13" class="pImg type13"><img src="/resources/img/member/p13.png"></label>
 									<input type="radio" name="type" id="type14">
-									<label for="type14" class="pImg type14">type14</label>
+									<label for="type14" class="pImg type14"><img src="/resources/img/member/p14.png"></label>
 									<input type="radio" name="type" id="type15">
-									<label for="type15" class="pImg type15">type15</label>
+									<label for="type15" class="pImg type15"><img src="/resources/img/member/p15.png"></label>
 									<input type="radio" name="type" id="type16">
-									<label for="type16" class="pImg type16">type16</label>
+									<label for="type16" class="pImg type16"><img src="/resources/img/member/p16.png"></label>
 								</form>
 							</div>
 							<input type="button" value="저장" class="bt4">

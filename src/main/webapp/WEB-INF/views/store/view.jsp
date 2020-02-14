@@ -78,7 +78,7 @@
 									<a href="tel:${store.phone1 }" class="bt_call">
 										<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
 									</a>
-									<a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
+									<a href="#map" class="bt_map <!--popup_selectMap_opener-->">
 										<img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
 									</a>
 									<a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
@@ -89,36 +89,36 @@
 						</ul>
 					</div>
 					<div class="storeView">
-					<div class="text">
-						<c:if test="${fn:length(store.information) > 0 }">
-													${store.information }
-												</c:if>
-												<c:if test="${fn:length(store.time) > 0 }">
-						<div>
-						<strong>영업시간</strong>
-														${store.time }
+						<div class="text">
+							<c:if test="${fn:length(store.information) > 0 }">
+														${store.information }
+													</c:if>
+													<c:if test="${fn:length(store.time) > 0 }">
+							<div>
+							<strong>영업시간</strong>
+															${store.time }
+							</div>
+						</c:if>
+						<c:if test="${fn:length(store.website) > 0 }">
+							<div>
+							<strong>웹사이트</strong>
+							<a href="${store.website }" target="_blank">${store.website }</a>
+							</div>
+						</c:if>
+						<c:if test="${fn:length(store.blog) > 0 }">
+							<div>
+							<strong>블로그</strong>
+							<a href="${store.blog }" target="_blank">${store.blog }</a>
+							</div>
+						</c:if>
 						</div>
-					</c:if>
-					<c:if test="${fn:length(store.website) > 0 }">
-						<div>
-						<strong>웹사이트</strong>
-						<a href="${store.website }" target="_blank">${store.website }</a>
-						</div>
-					</c:if>
-					<c:if test="${fn:length(store.blog) > 0 }">
-						<div>
-						<strong>블로그</strong>
-						<a href="${store.blog }" target="_blank">${store.blog }</a>
-						</div>
-					</c:if>
-					</div>
-					<!-- 사진은 최대 3장까지 등록 가능 -->
-					<img src="/resources/img/store/1_1.png" alt="사진">
-					<img src="/resources/img/store/1_1.png" alt="사진">
+						<!-- 사진은 최대 3장까지 등록 가능 -->
+						<img src="/resources/img/store/1_1.png" alt="사진">
+						<img src="/resources/img/store/1_1.png" alt="사진">
+						
 					
-					
-					<!-- 지도 -->
-					<div id="map" style="width:100%; height:260px;"></div>
+						<!-- 지도 -->
+						<div id="map" style="width:100%; height:260px;"></div>
 						<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey }"></script>
 						<script>
 						// 지도를 표시할 div

@@ -34,6 +34,12 @@ $(function(){
         $(".popup_selectShare_wrap").css("display","table");
     });
     
+    // 만성톡 긴 글 전체보기
+    $(".msg_wrap .bt_more").click(function(){
+    	$(this).hide();
+    	$(this).parent().find("p").addClass("on");
+    });
+    
     // 만성인 불편해요, 괜찮아요
     $(".bt_msg_hide + label").each(function(index, item){
         if ($(item).parent().find("input").is(":checked") == true){
@@ -101,13 +107,29 @@ function copyInnerHtml(button){
 	}, 1000);
 	*/
 	// 주석 부분 제이쿼리로 수정함
-	$("#msg-area").html("복사완료!").fadeIn(200);
+	$("#msg-area").html("<span>복사 완료!</span>").fadeIn(200);
 	setTimeout(function() {
 		$("#msg-area").fadeOut(200);
 	}, 1000);
 }
 
+function copyPhoneMsg(button) {
+	var div = button.parentNode.getElementsByTagName("span")[0];
+	var text = div.innerHTML.trim();
+	$("#msg-area").html("<span>전화번호가 복사되었습니다.</span>").fadeIn(200);
+	setTimeout(function() {
+		$("#msg-area").fadeOut(200);
+	}, 1000);
+}
 
+function copyAddressMsg(button) {
+	var div = button.parentNode.getElementsByTagName("span")[0];
+	var text = div.innerHTML.trim();
+	$("#msg-area").html("<span>주소가 복사되었습니다.</span>").fadeIn(200);
+	setTimeout(function() {
+		$("#msg-area").fadeOut(200);
+	}, 1000);
+}
 
 function copyToShare(){
 	var input = document.getElementsByClassName("popup_selectShare_wrap")[0].getElementsByTagName("input")[0];

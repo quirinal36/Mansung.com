@@ -17,7 +17,7 @@ $(window).scroll(function(){
 <div id="footerWrap">
 	<footer>
 		<div id="footer">
-	    	<p>Copyright 룩앳세븐. All Rights Reserved.</p>
+	    	<p>Copyright <a href="http://pf.kakao.com/_mxhnxnT" target="_blank">룩앳세븐</a>. All Rights Reserved.</p>
 		</div>
 	</footer>
 	<div id="fixedBanner">

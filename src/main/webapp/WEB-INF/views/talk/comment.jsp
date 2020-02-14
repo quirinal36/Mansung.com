@@ -7,7 +7,6 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>">
 	<script src="<c:url value="/resources/js/comment.js"/>"></script>
 </head>
 <body>
@@ -32,7 +31,7 @@
 							<a href="#" class="writer">미미짱</a>
 							저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ 저도 전주코딩학원 다녀용! ㅋㅋㅋㅋ
 							<div class="eImg">
-								<img src="/resources/img/emoticon/e4.gif" alt="신난다">
+								<img src="/resources/img/emoticon/e14.png" alt="신난다">
 							</div>
 						</div>
 						<div class="info">
@@ -51,7 +50,7 @@
 								<a href="#" class="writer">고수</a>
 								저도 전주코딩학원 다녀용!
 								<div class="eImg">
-									<img src="/resources/img/emoticon/e14.png" alt="신난다">
+									<img src="/resources/img/emoticon/e1.gif" alt="신난다">
 								</div>
 							</div>
 							<div class="info">
@@ -66,7 +65,7 @@
 							<div class="cont">
 							<a href="#" class="pImg type3">그림천재</a>
 								<a href="#" class="writer">그림천재</a>
-								비밀글입니다.
+								비밀 댓글입니다.
 							</div>
 							<div class="info">
 								<span class="date">2020-01-04 11:29:01 비밀글</span>
@@ -83,7 +82,7 @@
 						<div class="cont">
 							<a href="#" class="pImg type5">쌉가능</a>
 							<a href="#" class="writer">쌉가능</a>
-							비밀글입니다.
+							비밀 댓글입니다.
 						</div>
 						<div class="info">
 							<span class="date">2020-01-04 11:29:01 비밀글 수정됨</span>

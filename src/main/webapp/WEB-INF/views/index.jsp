@@ -129,14 +129,14 @@
 											<span>
 												${store.phone1 }
 											</span> 
-											<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+											<input type="button" value="복사" class="bt2" onclick="javascript:copyPhoneMsg(this);">
 										</div>
 									</c:if>
 									<div>
 										<span>
 											${fn:trim(store.address2) }<c:if test="${fn:length(store.address3) > 0 or fn:length(store.address4) > 0}">, </c:if>${fn:trim(store.address3) } ${fn:trim(store.address4) } ${fn:trim(store.address5) }
 										</span> 
-										<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
+										<input type="button" value="복사" class="bt2" onclick="javascript:copyAddressMsg(this);">
 									</div>
 								</div>
 								<!-- 
@@ -155,7 +155,7 @@
 											<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 										</div>
 										<div class="banner_wrap txtType cornflowerblue">
-											<a href="#">전주코딩학원 학생이 EBS 뉴스에 나왔어요!</a>
+											<a href="#">전주코딩학원 텍스트배너</a>
 										</div>
 									</c:when>
 									<c:otherwise>
@@ -163,6 +163,7 @@
 								</c:choose>
 
 								<!--
+								색상 클래스는 관리자에서 선택한 색상 값과 동일합니다.
 								<div class="banner_wrap txtType cadetblue">
 									<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
 								</div>
@@ -184,7 +185,7 @@
 									<a href="tel:${store.phone1 }" class="bt_call">
 										<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
 									</a>
-									<a href="javascript:void(0);" class="bt_map popup_selectMap_opener">
+									<a href="<c:url value="/store/view/${store.id }#map"/>" class="bt_map <!--popup_selectMap_opener-->">
 										<img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
 									</a>
 									<a href="javascript:void(0);" class="bt_share popup_selectShare_opener">
