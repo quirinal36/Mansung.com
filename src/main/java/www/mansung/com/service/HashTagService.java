@@ -61,4 +61,10 @@ public class HashTagService implements DataService<HashTag> {
 	public int mappingTags(List<StoreHash> list) {
 		return dao.mappingTags(list);
 	}
+	public List<StoreHash> selectByStoreId(StoreInfo input){
+		return dao.selectByStoreId(input);
+	}
+	public int deleteList(List<StoreHash> list) {
+		return dao.deleteList(list);
+	}
 }

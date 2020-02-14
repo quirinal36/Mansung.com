@@ -46,4 +46,23 @@
 			hashId = ${hashId}
 		</where>
 	</delete>
+	
+	<select id="select_by_storeid" parameterType="store" resultType="storehash">
+		SELECT * 
+		FROM StoreHash
+		<where>
+			storeId = ${id}
+		</where>
+	</select>
+	
+	<delete id="delete_list" parameterType="storehash">
+		DELETE FROM StoreHash
+		<where>
+		id IN
+		<foreach collection="list" item="elem" index="i" open="(" separator="),(" close=")">
+			${elem.storeId},
+			${elem.hashId}
+		</foreach>
+		</where>
+	</delete>
 </mapper>

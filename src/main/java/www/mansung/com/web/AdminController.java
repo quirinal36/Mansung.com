@@ -2,6 +2,8 @@ package www.mansung.com.web;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -28,7 +30,7 @@ import www.mansung.com.vo.StoreHash;
 import www.mansung.com.vo.StoreInfo;
 
 /**
- * 관리자 페이지
+ * 愿�由ъ옄 �럹�씠吏�
  * 
  * @author turbo
  *
@@ -57,8 +59,36 @@ public class AdminController {
 		mv.setViewName("/admin/store/add");
 		return mv;
 	}
-	
-	private int mappingHashTags(List<Integer> tagIds, StoreInfo info) {
+	private int updateHashTags(List<Integer> tagIds, StoreInfo info) {		
+		int result = 0;
+		List<StoreHash> existTags = hashTagService.selectByStoreId(info);
+		if(existTags!=null && existTags.size()>0) {
+			Map<Integer, StoreHash> existMap = existTags.stream().collect(Collectors.toMap(StoreHash::getHashId, storeHash->storeHash));
+			List<StoreHash> deleteList = new ArrayList<StoreHash>();
+			List<StoreHash> insertList = new ArrayList<StoreHash>();
+			//List<StoreHash> hashTags = new ArrayList<StoreHash>();
+			for(Integer tag: tagIds) {
+				// 이미 있으면 deleteList에 추가 -> 추후 남은것들만 삭제할것
+				// 없으면 insert
+				if(existMap.containsKey(tag)) {
+					deleteList.add(existMap.get(tag));
+				}else {
+					insertList.add(StoreHash.newInstance(tag, info.getId()));
+				}
+			}
+			// insert, delete 작업
+			if(insertList.size() > 0) {
+				result = hashTagService.mappingTags(insertList);
+			}
+			if(deleteList.size() > 0) {
+				result = hashTagService.deleteList(deleteList);
+			}
+		}else {
+			mappingHashTags(tagIds, info);
+		}
+		return result;
+	}
+	private int mappingHashTags(List<Integer> tagIds, StoreInfo info) {		
 		int result = 0;
 		List<StoreHash> hashTags = new ArrayList<StoreHash>();
 		for(Integer tag: tagIds) {
@@ -145,7 +175,7 @@ public class AdminController {
 		
 		int result = service.update(info);
 		
-		mappingHashTags(tagIds, info);
+		updateHashTags(tagIds, info);
 		
 		StoreBanner banner = StoreBanner.newInstance(info.getId());
 		banner.setBannerColor(info.getBannerColor());
