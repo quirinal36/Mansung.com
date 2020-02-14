@@ -9,5 +9,8 @@
 		<typeAlias type="www.mansung.com.vo.Category" alias="cate"/>
 		<typeAlias type="www.mansung.com.vo.UserVO" alias="user"/>
 		<typeAlias type="www.mansung.com.vo.PhotoInfo" alias="photoinfo"/>
+		<typeAlias type="www.mansung.com.vo.HashTag" alias="hashtag"/>
+		<typeAlias type="www.mansung.com.vo.StoreHash" alias="storehash"/>
+		<typeAlias type="www.mansung.com.vo.StoreBanner" alias="banner"/>
     </typeAliases>
 </configuration>

@@ -171,11 +171,11 @@
 	                                    <th>텍스트 광고</th>
 	                                    <td>
 	                                    	<div class="colorSelect">
-		                                    	<select>
-		                                    		<option>① cadetblue</option>
-		                                    		<option>② cornflowerblue</option>
-		                                    		<option>③ steelblue</option>
-		                                    		<option>④ mediumpurple</option>
+		                                    	<select name="bannerColor">
+		                                    		<option value="1">① cadetblue</option>
+		                                    		<option value="2">② cornflowerblue</option>
+		                                    		<option value="3">③ steelblue</option>
+		                                    		<option value="4">④ mediumpurple</option>
 		                                    	</select>
 		                                    	<div class="list">
 		                                    		<span class="cadetblue">1</span>
@@ -184,7 +184,7 @@
 		                                    		<span class="mediumpurple">4</span>
 		                                    	</div>
 	                                    	</div>
-	                                    	<input type="number" value="" placeholder="문구 입력" class="ipt1 mt-5">
+	                                    	<input type="text" value="" placeholder="문구 입력" class="ipt1 mt-5" name="bannerText">
 	                                    </td>
 	                                </tr>
 	                            </tbody>

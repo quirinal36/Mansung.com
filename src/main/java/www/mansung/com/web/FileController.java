@@ -94,24 +94,50 @@ public class FileController extends MansungController {
 	}
 	
 	@ResponseBody 
-	@RequestMapping(value = "/upload/image", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/upload/sized/image", method = {RequestMethod.POST})
+    public Map uploadSizedImage(MultipartHttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		Iterator<String> itr = request.getFileNames();
+        if (itr.hasNext()) {
+        	MultipartFile mpf = request.getFile(itr.next());
+        	PhotoInfo photo = PhotoInfo.newInstance(mpf);
+        	
+        	File newFile = new File(getImageUploadPath() + File.separator + photo.getNewFilename());
+        	try {
+				mpf.transferTo(newFile);
+				File thumbnailFile = new FileUtil().resizeTo(newFile);
+    			photo.setThumbnailFilename(thumbnailFile.getName());
+    			photo.setThumbnailSize((int)thumbnailFile.length());
+    			
+    			int result = photoInfoService.insert(photo);
+            	if(result > 0) {
+            		photo.setUrl(getWebappDir(request) +"/picture/"+photo.getId());
+                    photo.setThumbnailUrl(getWebappDir(request) + "/thumbnail/"+photo.getId());
+                    
+                    result = photoInfoService.update(photo);
+            	}
+            	
+            	map.put("file", photo);
+			} catch (IllegalStateException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+        }
+		return map;
+	}
+	@ResponseBody 
+	@RequestMapping(value = "/upload/image", method = {RequestMethod.POST})
     public Map uploadImage(MultipartHttpServletRequest request, 
     		HttpServletResponse response) {
-		UserVO user = null;
-		if(request.isUserInRole("ROLE_ADMIN") || request.isUserInRole("ROLE_USER")) {
-			user = getUser();
-		}
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		Iterator<String> itr = request.getFileNames();
-        MultipartFile mpf;
         if (itr.hasNext()) {
-            mpf = request.getFile(itr.next());
+        	MultipartFile mpf = request.getFile(itr.next());
             String newFilenameBase = UUID.randomUUID().toString();
             String originalFileExtension = mpf.getOriginalFilename().substring(mpf.getOriginalFilename().lastIndexOf("."));
             String newFilename = newFilenameBase + originalFileExtension;
-            
 			String contentType = mpf.getContentType();
 			
 			File newFile = new File(getImageUploadPath() + File.separator + newFilename);
@@ -119,12 +145,9 @@ public class FileController extends MansungController {
             try {
                 mpf.transferTo(newFile);
                 
-                File thumbnailFile = makeThumbnail(newFile, newFilenameBase);
+                File thumbnailFile = makeThumbnail(newFile, newFilenameBase, false);
                 
                 PhotoInfo photo = new PhotoInfo();
-                if(user != null) {
-                	photo.setUploader(user.getId());
-                }
                 photo.setName(mpf.getOriginalFilename());
                 photo.setThumbnailFilename(thumbnailFile.getName());
                 photo.setNewFilename(newFilename);
@@ -139,7 +162,7 @@ public class FileController extends MansungController {
                 result = photoInfoService.update(photo);
                 
                 map.put("url", photo.getUrl());
-                map.put("result", result);
+                //map.put("result", result);
                 map.put("type", "image");
                 map.put("file", photo);
             } catch(IOException e) {
@@ -149,17 +172,16 @@ public class FileController extends MansungController {
         }
         return map;
 	}
-	private File makeThumbnail(File originFile, String newFilenameBase)throws IOException{
+	private File makeThumbnail(File originFile, String newFilenameBase, boolean isResize)throws IOException{
 		// 저장된 원본파일로부터 BufferedImage 객체를 생성합니다.
 		// File originFile = new File(filePath);
 		BufferedImage srcImg = ImageIO.read(originFile); 
-		 
+		// 썸네일의 너비와 높이 입니다. 
+		int dw = 400, dh = 225;
+		
 		// 원본 이미지의 너비와 높이 입니다. 
 		int ow = srcImg.getWidth(); 
 		int oh = srcImg.getHeight();
-		
-		// 썸네일의 너비와 높이 입니다. 
-		int dw = ow/2, dh = oh/2;
 		
 		// 원본 너비를 기준으로 하여 썸네일의 비율로 높이를 계산합니다. 
 		int nw = ow; 
@@ -173,13 +195,20 @@ public class FileController extends MansungController {
 		}
 		
 		// 계산된 크기로 원본이미지를 가운데에서 crop 합니다. 
-		// BufferedImage cropImg = Scalr.crop(srcImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
-		
-		BufferedImage thumbnail = Scalr.resize(srcImg, dw, dh);
-		
-        String thumbnailFilename = newFilenameBase + "-thumbnail.png";
-        File thumbnailFile = new File(originFile.getParent() + "/" + thumbnailFilename);
-        ImageIO.write(thumbnail, "png", thumbnailFile);
+		File thumbnailFile;
+		if(isResize) {
+			BufferedImage cropImg = Scalr.crop(srcImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
+			
+			BufferedImage thumbnail = Scalr.resize(cropImg, dw, dh);
+	        String thumbnailFilename = newFilenameBase + "-thumbnail.png";
+	        thumbnailFile = new File(originFile.getParent() + "/" + thumbnailFilename);
+	        ImageIO.write(thumbnail, "png", thumbnailFile);
+		}else {
+			BufferedImage thumbnail = Scalr.resize(srcImg, ow/2, oh/2);
+	        String thumbnailFilename = newFilenameBase + "-thumbnail.png";
+	        thumbnailFile = new File(originFile.getParent() + "/" + thumbnailFilename);
+	        ImageIO.write(thumbnail, "png", thumbnailFile);
+		}
         
         return thumbnailFile;
         

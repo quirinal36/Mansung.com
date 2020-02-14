@@ -1,6 +1,7 @@
 package www.mansung.com.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +35,9 @@ public class StoreInfo extends Paging{
 	String categoryTitle;
 	int wideBanner;
 	String wideBannerUrl;
+	List<HashTag> hashTag;
+	int bannerColor;
+	String bannerText;
 	
 	public static StoreInfo newInstance(int id) {
 		StoreInfo result = new StoreInfo();

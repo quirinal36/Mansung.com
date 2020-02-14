@@ -31,8 +31,11 @@ function editConfirm(){
 	}
 }
 function submitStore(){
-	var url = $("form").attr("action");
-	var param = $("form").serialize();
+	var url = $("#admin-store-add-form").attr("action");
+	var param = $("#admin-store-add-form").serialize();
+	
+	console.log(url);
+	console.log(param);
 	
 	if(confirm("저장하시겠습니까?")){
 		$.ajax({
@@ -48,26 +51,55 @@ function submitStore(){
 		});
 	}
 }
+
+function makeLI(file, name){
+	return $("<li>")
+		.append(
+			$("<img>").attr("src", file.thumbnailUrl))
+		.append(
+			$("<input>")
+				.attr("type","button").addClass("bt2").val("삭제")
+				.attr("onclick", "delImageClick(this);"))
+		.append(
+			$("<input>")
+				.attr("type","hidden").attr("name", name).val(file.id))
+		.attr("id", file.id);
+}
+
 $(document).ready(function(){
+	$('#image-upload-btn').fileupload({
+		imageCrop: true,
+        dataType: 'json',
+        done: function (e, data) {
+        	var file = data.result.file;
+        	var name = '';
+        	if(e.target.id == 'image-upload-btn'){
+        		name = 'representImage';
+        	}else if(e.target.id =='image-upload-btn-det'){
+        		name = 'detailImages';
+        	}
+        	$(e.target).closest('ul').append(makeLI(file, name));
+        },
+        progressall: function (e, data) {
+        	var progress = parseInt(data.loaded / data.total * 100, 10);
+            
+            $('#progress_img .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+            if(progress == 100){
+            	$('#progress_img .progress-bar').css('width','0');
+            }
+        },
+        dropZone: $('#dropzone-img')
+	});
+	
 	$('#imageupload').fileupload({
     	imageCrop: true,
         dataType: 'json',
         done: function (e, data) {
         	var file = data.result.file;
-        	console.log(file);
-        	$("#banner-li").append(
-        			$("<li>").append(
-        				$("<img>").attr("src", file.thumbnailUrl)		
-        			).append(
-        				$("<input>")
-        					.attr("type","button").addClass("bt2").val("삭제")
-        					.attr("onclick", "delImageClick(this);")
-        				
-        			).append(
-        				$("<input>")
-        					.attr("type","hidden").attr("name", "wideBanner").val(file.id)
-        			).attr("id", file.id)
-        	);
+        	$("#banner-li").append(makeLI(file, 'wideBanner'));
         },
         progressall: function (e, data) {
         	var progress = parseInt(data.loaded / data.total * 100, 10);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hashtag_sql">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="hashtag">
+		INSERT INTO HashTag
+		(
+			name
+		)
+		VALUES
+		(
+			'${name}'
+		)
+	</insert>
+	<select id="select_one" parameterType="hashtag" resultType="hashtag">
+		SELECT
+			id, name
+		FROM HashTag
+		<where>
+			name = '${name}'
+		</where>
+	</select>
+	
+	<insert id="mapping_tags" parameterType="storehash">
+		INSERT INTO StoreHash
+		(storeId, hashId)
+		VALUES
+		<foreach collection="list" item="elem" index="i" open="(" separator="),(" close=")">
+			${elem.storeId},
+			${elem.hashId}
+		</foreach>
+	</insert>
+</mapper>
