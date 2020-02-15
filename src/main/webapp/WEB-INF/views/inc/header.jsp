@@ -41,7 +41,10 @@ function moveToLogin(){
 		        	<a href="/talk/write" class="write"><img src="/resources/img/comm/bt_write.png" alt="글쓰기"></a>
 		        	<c:choose>
 		        		<c:when test="${empty user}">
+		        		<!--
 		        			<a href="javascript:return false;" onclick="javascript:moveToLogin();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
+		        		-->
+		        			<a href="javascript:return false;" onclick="loginOpen();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
 		        		</c:when>
 		        		<c:otherwise>
 							<a href="<c:url value="/member/signup"/>" class="login"><img src="/resources/img/comm/login.png" alt="마이페이지"></a>		        		
@@ -56,7 +59,7 @@ function moveToLogin(){
 		                <nav>
 		                    <ul>
 		                        <li><a href="#">만성닷컴 소개</a></li>
-		                        <li><a href="#">업체등록·정정신청</a></li>
+		                        <li><a href="http://naver.me/IgoZTYYM" target="_blank">업체등록·정정신청</a></li>
 		                        <li><a href="#">만성닷컴 이용안내</a></li>
 		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">문의하기</a></li>
 		                        <sec:authorize access="hasRole('ROLE_ADMIN')">

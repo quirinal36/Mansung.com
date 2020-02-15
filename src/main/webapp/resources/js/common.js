@@ -153,3 +153,33 @@ function copyIntoClipboard(text){
 function search(elem){
 	$(elem).closest("form").submit();
 }
+
+// Login
+function loginOpen() {
+	var text = [
+		"행복한 여행의<br> 가장 큰 준비물은<br> 	가벼운 마음이다.<br> <span>- 생텍쥐페리</span>",
+		"인생에서 실패한 사람 중 다수는<br> 성공을 목전에 두고도 모른 채<br> 포기한 이들이다.<br> <span>- 에디슨</span>"
+	]
+	
+	var num = Math.floor(Math.random() * 2 + 1);
+	console.log("num : " + num);
+	
+	$("#login_wrap .txt_wrap").html(text[num-1]);
+	
+	
+	$("#login_wrap .bg").css("background-image", "url(/resources/img/member/login_bg" + num + ".jpg)");
+	$("#login_wrap").show().animate({
+		top: "0"
+	}, 200 );
+	$("#fixedBanner").hide();
+}
+
+function loginClose() {
+	$("#login_wrap").animate({
+		top: "100%"
+	}, 200 );
+	setTimeout(function(){
+		$("#login_wrap").hide();
+	}, 200);
+	$("#fixedBanner").show();
+}

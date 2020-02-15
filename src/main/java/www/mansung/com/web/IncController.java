@@ -53,8 +53,11 @@ public class IncController {
 	}
 	
 	@RequestMapping(value="/inc/footer", method=RequestMethod.GET)
-	public ModelAndView getFooter(ModelAndView mv) {
+	public ModelAndView getFooter(ModelAndView mv) throws IOException {
 		mv.setViewName("/inc/footer");
+		File file = ResourceUtils.getFile("classpath:kakao.env");
+		String apiKey = FileUtils.readFileToString(file, Config.ENCODING);
+		mv.addObject("apiKey", apiKey);
 		return mv;
 	}
 	@RequestMapping(value="/inc/head", method=RequestMethod.GET)
