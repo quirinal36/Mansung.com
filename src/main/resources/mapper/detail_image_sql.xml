@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="detail_image_sql">
+	<insert id="insert_list" parameterType="store_detail_image">
+		INSERT INTO StoreDetailImage
+		(storeId, photoId)
+		VALUES
+		<foreach  collection="list" item="elem" index="i" open="(" separator="),(" close=")">
+			${elem.storeId},
+			${elem.photoId}
+		</foreach>
+	</insert>
+	
+	<select id="select_by_storeid" parameterType="store" resultType="photoinfo">
+		SELECT * FROM PhotoInfo
+		<where>
+			id IN (SELECT photoId FROM StoreDetailImage WHERE storeId = ${id})
+		</where>		
+	</select>
+</mapper>

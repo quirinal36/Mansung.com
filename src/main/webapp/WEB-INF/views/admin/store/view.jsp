@@ -69,7 +69,7 @@
 										${store.time }
                                     </td>
 								</tr>
-								<tr></tr>
+								<tr>
                                     <th>웹사이트</th>
                                     <td><a href="http://xn--o01bu84am0am2a97shmj.com" target="_blank">${store.website }</a></td>
                                 </tr>
@@ -82,7 +82,7 @@
                                     <td>
                                         <ul>
                                             <li>
-                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
+                                                <a href="${store.representImageUrl }" target="_blank">${store.representImageUrl }</a>
                                             </li>
                                         </ul>
                                     </td>
@@ -91,15 +91,11 @@
                                     <th>상세이미지</th>
                                     <td>
                                         <ul>
-                                            <li>
-                                                <a href="/resources/img/temp/1.png" target="_blank">/resources/img/temp/1.png</a>
-                                            </li>
-                                            <li>
-                                                <a href="/resources/img/temp/2.png" target="_blank">/resources/img/temp/2.png</a>
-                                            </li>
-                                            <li>
-                                                <a href="/resources/img/temp/3.png" target="_blank">/resources/img/temp/3.png</a>
-                                            </li>
+                                        	<c:forEach items="${detailImages }" var="item">
+	                                        	<li>
+	                                                <a href="${item.thumbnailUrl }" target="_blank">${item.thumbnailUrl }</a>
+	                                            </li>
+                                        	</c:forEach>
                                         </ul>
                                     </td>
                                 </tr>

@@ -113,9 +113,9 @@
 						</c:if>
 						</div>
 						<!-- 사진은 최대 3장까지 등록 가능 -->
-						<img src="/resources/img/store/1_1.png" alt="사진">
-						<img src="/resources/img/store/1_1.png" alt="사진">
-						
+						<c:forEach items="${detailImages }" var="item">
+							<img src="${item.thumbnailUrl }" alt="사진">
+						</c:forEach>
 					
 						<!-- 지도 -->
 						<div id="map" style="width:100%; height:260px;"></div>

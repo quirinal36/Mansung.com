@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.Config;
+import www.mansung.com.service.DetailImageService;
 import www.mansung.com.service.HashTagService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.HashTag;
+import www.mansung.com.vo.PhotoInfo;
 import www.mansung.com.vo.StoreInfo;
 
 @Controller
@@ -26,6 +28,8 @@ public class StoreController {
 	private StoreInfoService service;
 	@Autowired
 	private HashTagService hashTagService;
+	@Autowired
+	private DetailImageService dImageService;
 	
 	@RequestMapping(value="/view/{id}", method = RequestMethod.GET)
 	public ModelAndView getDetailView(ModelAndView mv,
@@ -39,6 +43,9 @@ public class StoreController {
 		
 		List<HashTag> tags = hashTagService.select(store);
 		mv.addObject("tags", tags);
+		
+		List<PhotoInfo> detailImages = dImageService.selectByStoreId(store);
+		mv.addObject("detailImages", detailImages);
 		
 		mv.setViewName("/store/view");
 		return mv;

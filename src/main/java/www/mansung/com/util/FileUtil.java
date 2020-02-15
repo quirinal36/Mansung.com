@@ -66,8 +66,6 @@ public class FileUtil {
 	}
 	
 	public File resizeTo(File input) throws IOException {
-		logger.info(input.getAbsolutePath());
-		
 		final String ext = input.getName().substring(input.getName().lastIndexOf(".") + 1);
 		
 		// 저장된 원본파일로부터 BufferedImage 객체를 생성합니다.

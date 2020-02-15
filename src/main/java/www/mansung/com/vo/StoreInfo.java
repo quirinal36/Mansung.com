@@ -31,6 +31,7 @@ public class StoreInfo extends Paging{
 	String blog;
 	String time;
 	int representImage;
+	String representImageUrl;
 	Date wdate;
 	Date udate;
 	int category;

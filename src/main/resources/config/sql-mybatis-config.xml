@@ -12,5 +12,7 @@
 		<typeAlias type="www.mansung.com.vo.HashTag" alias="hashtag"/>
 		<typeAlias type="www.mansung.com.vo.StoreHash" alias="storehash"/>
 		<typeAlias type="www.mansung.com.vo.StoreBanner" alias="banner"/>
+		<typeAlias type="www.mansung.com.vo.DetailImageMapper" alias="store_detail_image"/>
+		
     </typeAliases>
 </configuration>

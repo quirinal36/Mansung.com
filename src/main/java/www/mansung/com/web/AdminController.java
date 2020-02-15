@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.service.CategoryService;
+import www.mansung.com.service.DetailImageService;
 import www.mansung.com.service.HashTagService;
 import www.mansung.com.service.PhotoInfoService;
 import www.mansung.com.service.StoreBannerService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.StoreBanner;
 import www.mansung.com.vo.Category;
+import www.mansung.com.vo.DetailImageMapper;
 import www.mansung.com.vo.HashTag;
 import www.mansung.com.vo.PhotoInfo;
 import www.mansung.com.vo.StoreHash;
@@ -48,6 +50,8 @@ public class AdminController {
 	private HashTagService hashTagService;
 	@Autowired
 	private StoreBannerService bannerService;
+	@Autowired
+	private DetailImageService dImageService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());			
 	
@@ -62,26 +66,19 @@ public class AdminController {
 	private int updateHashTags(List<Integer> tagIds, StoreInfo info) {		
 		int result = 0;
 		List<StoreHash> existTags = hashTagService.selectByStoreId(info);
+		
 		if(existTags!=null && existTags.size()>0) {
 			Map<Integer, StoreHash> existMap = existTags.stream().collect(Collectors.toMap(StoreHash::getHashId, storeHash->storeHash));
-			List<StoreHash> deleteList = new ArrayList<StoreHash>();
 			List<StoreHash> insertList = new ArrayList<StoreHash>();
-			//List<StoreHash> hashTags = new ArrayList<StoreHash>();
 			for(Integer tag: tagIds) {
-				// 이미 있으면 deleteList에 추가 -> 추후 남은것들만 삭제할것
-				// 없으면 insert
-				if(existMap.containsKey(tag)) {
-					deleteList.add(existMap.get(tag));
-				}else {
+				// exist 에없으면 insert
+				if(!existMap.containsKey(tag)) {
 					insertList.add(StoreHash.newInstance(tag, info.getId()));
 				}
 			}
-			// insert, delete 작업
+			// insert
 			if(insertList.size() > 0) {
-				result = hashTagService.mappingTags(insertList);
-			}
-			if(deleteList.size() > 0) {
-				result = hashTagService.deleteList(deleteList);
+				hashTagService.mappingTags(insertList);
 			}
 		}else {
 			mappingHashTags(tagIds, info);
@@ -149,6 +146,9 @@ public class AdminController {
 			mv.addObject("wideBanner", wideBanner);
 		}
 		
+		List<PhotoInfo> detailImages = dImageService.selectByStoreId(store);
+		mv.addObject("detailImages", detailImages);
+		
 		mv.setViewName("/admin/store/view");
 		return mv;
 	}
@@ -164,13 +164,18 @@ public class AdminController {
 		List<HashTag> tags = hashTagService.select(store);
 		mv.addObject("tags", tags);
 		
+		List<PhotoInfo> detailImages = dImageService.selectByStoreId(store);
+		mv.addObject("detailImages", detailImages);
+		
 		mv.setViewName("/admin/store/edit");
 		return mv;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/store/edit", method = RequestMethod.POST, produces = "application/json; charset=utf8")
-	public String postStoreEdit(StoreInfo info, @RequestParam(value="tagId")List<Integer>tagIds) {
+	public String postStoreEdit(StoreInfo info, 
+			@RequestParam(value="tagId", required = false)List<Integer>tagIds,
+			@RequestParam(value="detailImages", required = false)List<Integer>detailImages) {
 		JSONObject json = new JSONObject(); 
 		
 		int result = service.update(info);
@@ -186,6 +191,17 @@ public class AdminController {
 			bannerService.update(banner);
 		}else {
 			bannerService.insert(banner);
+		}
+		
+		if(detailImages!=null && detailImages.size() > 0) {
+			List<DetailImageMapper> dList = new ArrayList<DetailImageMapper>();
+			for(Integer photoId : detailImages) {
+				DetailImageMapper dItem = DetailImageMapper.newInstance(info.getId());
+				dItem.setPhotoId(photoId);
+				dList.add(dItem);
+			}
+			
+			dImageService.insert(dList);
 		}
 		
 		json.put("result", result);

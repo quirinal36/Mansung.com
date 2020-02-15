@@ -115,6 +115,7 @@
 			s.*, 
 			c.title AS categoryTitle,
 			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt,
+			(SELECT thumbnailUrl FROM PhotoInfo WHERE id = s.representImage) AS representImageUrl,
 			b.bannerText
 		FROM 
 			StoreInfo s LEFT JOIN Category c 

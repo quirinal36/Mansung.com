@@ -120,24 +120,34 @@
 	                                <tr class="image">
 	                                    <th>대표이미지</th>
 	                                    <td id="dropzone-img-rep">
-	                                        <input id="image-upload-btn" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <input id="image-upload-btn" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>" value="사진 등록" class="bt2">
 	                                        <div id="progress_rep_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
 										        <div class="progress-bar" style="width: 0%;" ></div>
 										    </div>
 	                                        <ul id="rep-image">
-	                                        	
+	                                        	<c:if test="${store.representImage >0 }">
+	                                        		<li id="${store.representImage}">
+	                                        			<img src="${store.representImageUrl }">
+	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        		</li>
+	                                        	</c:if>
 	                                        </ul>
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
 	                                    <th>상세이미지</th>
 	                                    <td id="dropzone-img-det">
-	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>" value="사진 등록" class="bt2">
 	                                        <div id="progress_det_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
 										        <div class="progress-bar" style="width: 0%;" ></div>
 										    </div>
 	                                        <ul id="det-image">
-	                                            
+	                                            <c:forEach items="${detailImages }" var="item">
+	                                            	<li id="${item.id}">
+	                                        			<img src="${item.thumbnailUrl }">
+	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        		</li>
+	                                            </c:forEach>
 	                                        </ul>
 	                                    </td>
 	                                </tr>

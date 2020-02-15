@@ -13,11 +13,25 @@ function delImageClick(btn){
 	});
 }
 function editConfirm(){
-	var url = $("#adminEditForm").attr("action");
-	var param = $("#adminEditForm").serialize();
-	console.log(param);
 	
 	if(confirm("저장하시겠습니까?")){
+		var dataObj = {};
+		$($("#adminEditForm").serializeArray()).each(function (i,field){
+			dataObj[field.name] = field.value;
+		});
+		if(dataObj['priority'] == '' || dataObj['priority'] < 0){
+			console.log("remove priority");
+			$("#adminEditForm").find("input[name='priority']").remove();
+		}
+		if(dataObj['bannerText'] == ''){
+			console.log("remove bannerColor");
+			$("#adminEditForm").find("input[name='bannerColor']").remove();
+			$("#adminEditForm").find("input[name='bannerText']").remove();
+		}
+		
+		var url = $("#adminEditForm").attr("action");
+		var param = $("#adminEditForm").serialize();
+	
 		$.ajax({
 			url : url,
 			data: param,
@@ -32,29 +46,22 @@ function editConfirm(){
 	}
 }
 function submitStore(){
-	var url = $("#admin-store-add-form").attr("action");
-	
-	console.log(url);
-	
-	var dataObj = {};
-	$($("#admin-store-add-form").serializeArray()).each(function (i,field){
-		dataObj[field.name] = field.value;
-	});
-	if(dataObj['priority'] == '' || dataObj['priority'] < 0){
-		console.log("remove priority");
-		$("#admin-store-add-form").find("input[name='priority']").remove();
-	}
-	
-	if(dataObj['bannerText'] == ''){
-		console.log("remove bannerColor");
-		$("#admin-store-add-form").find("input[name='bannerColor']").remove();
-		$("#admin-store-add-form").find("input[name='bannerText']").remove();
-	}
-	
-	var param = $("#admin-store-add-form").serialize();
-	console.log(param);
-	
 	if(confirm("저장하시겠습니까?")){
+		
+		var dataObj = {};
+		$($("#admin-store-add-form").serializeArray()).each(function (i,field){
+			dataObj[field.name] = field.value;
+		});
+		if(dataObj['priority'] == '' || dataObj['priority'] < 0){
+			$("#admin-store-add-form").find("input[name='priority']").remove();
+		}
+		if(dataObj['bannerText'] == ''){
+			$("#admin-store-add-form").find("input[name='bannerColor']").remove();
+			$("#admin-store-add-form").find("input[name='bannerText']").remove();
+		}
+		
+		var url = $("#admin-store-add-form").attr("action");
+		var param = $("#admin-store-add-form").serialize();
 		$.ajax({
 			url : url,
 			data: param,
@@ -84,20 +91,15 @@ function makeLI(file, name){
 }
 
 $(document).ready(function(){
+	
+	// 대표이미지
 	$('#image-upload-btn').fileupload({
 		imageCrop: true,
         dataType: 'json',
         done: function (e, data) {
-        	console.log(data);
-        	
         	var file = data.result.file;
-        	var name = '';
-        	if(e.target.id == 'image-upload-btn'){
-        		name = 'representImage';
-        	}else if(e.target.id =='image-upload-btn-det'){
-        		name = 'detailImages';
-        	}
-        	$(e.target).closest('ul').append(makeLI(file, name));
+        	
+        	$("#rep-image").append(makeLI(file, 'representImage'));
         },
         progressall: function (e, data) {
         	var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -110,9 +112,30 @@ $(document).ready(function(){
             	$('#progress_img .progress-bar').css('width','0');
             }
         },
-        dropZone: $('#dropzone-img')
+        dropZone: $('#dropzone-img-rep')
 	});
-	
+	// 상세이미지
+	$('#image-upload-btn-det').fileupload({
+		imageCrop: true,
+        dataType: 'json',
+        done: function (e, data) {
+        	var file = data.result.file;
+        	
+        	$("#det-image").append(makeLI(file, 'detailImages'));
+        },
+        progressall: function (e, data) {
+        	var progress = parseInt(data.loaded / data.total * 100, 10);
+            
+            $('#progress_img .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+            if(progress == 100){
+            	$('#progress_img .progress-bar').css('width','0');
+            }
+        },
+        dropZone: $('#dropzone-img-det')
+	});
 	$('#imageupload').fileupload({
     	imageCrop: true,
         dataType: 'json',
@@ -133,5 +156,4 @@ $(document).ready(function(){
         },
         dropZone: $('#dropzone-img')
 	});
-        
 });
