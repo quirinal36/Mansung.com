@@ -55,7 +55,7 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-					<div class="tab_wrap item3">
+					<div class="tab_wrap type2 item3">
 						<a href="#" class="on">내 글에 댓글</a>
 						<a href="#">좋아하는 글</a>
 						<a href="#">내가 쓴 글</a>

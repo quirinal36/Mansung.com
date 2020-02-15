@@ -108,7 +108,7 @@
 						</c:forEach>
 						-->
 					</div>
-					<div class="tab_wrap item5">
+					<div class="tab_wrap type1 item5">
 						<a href="#" class="on">통합검색</a>
 						<a href="#">업체명</a>
 						<a href="#">태그</a>

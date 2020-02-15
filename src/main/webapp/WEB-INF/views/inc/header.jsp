@@ -58,7 +58,7 @@ function moveToLogin(){
 		                        <li><a href="#">만성닷컴 소개</a></li>
 		                        <li><a href="#">업체등록·정정신청</a></li>
 		                        <li><a href="#">만성닷컴 이용안내</a></li>
-		                        <li><a href="#">문의하기</a></li>
+		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">문의하기</a></li>
 		                        <sec:authorize access="hasRole('ROLE_ADMIN')">
 		                        	<li><a href="<c:url value="/admin/store"/>">관리자</a></li>
 		                        </sec:authorize>
@@ -70,7 +70,15 @@ function moveToLogin(){
 		            </div>
 		        </div>
 		    </div>
-			<div class="search_wrap">
+		    <!-- 만성닷컴 검색창 -->
+			<div class="search_wrap type1" style="display: none;">
+				<form action="/index">
+					<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+					<input type="button" value="검색" onclick="javascript:search(this);">
+				</form>
+			</div>
+		    <!-- 만성인 검색창 -->
+			<div class="search_wrap type2">
 				<form action="/index">
 					<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
 					<input type="button" value="검색" onclick="javascript:search(this);">

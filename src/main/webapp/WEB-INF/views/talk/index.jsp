@@ -18,6 +18,12 @@
 			<div id="container">
 				<div id="contentsPrint">
 					<!-- 커뮤니티 view -->
+					<div class="tab_wrap type2 item4">
+						<a href="#" class="on">통합검색</a>
+						<a href="#">활동명</a>
+						<a href="#">내용</a>
+						<a href="#">태그</a>
+					</div>
 					<div class="msg_wrap">
 						<div class="item" id="abc123">
 							<div class="top">

@@ -34,107 +34,111 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 26px;
+	background-color: #f5f6f7;
+	background-image: url(/resources/img/index/category_icons.png);
+	background-repeat: no-repeat;
+	background-size: 200px;
 	text-indent: -100px;
 	overflow: hidden;
 }
 
 .idx_category .restaurant span {
-	background-image: url(/resources/img/index/restaurant.png);
+	background-position: 0 0;
 }
 
 .idx_category .cafe span {
-	background-image: url(/resources/img/index/cafe.png);
+	background-position: -50px 0;
 }
 
 .idx_category .hospital span {
-	background-image: url(/resources/img/index/hospital.png);
+	background-position: -100px 0;
 }
 
 .idx_category .mart span {
-	background-image: url(/resources/img/index/mart.png);
+	background-position: -150px 0;
 }
 
 .idx_category .beauty span {
-	background-image: url(/resources/img/index/beauty.png);
+	background-position: 0 -50px;
 }
 
 .idx_category .academy span {
-	background-image: url(/resources/img/index/academy.png);
+	background-position: -50px -50px;
 }
 
 .idx_category .law span {
-	background-image: url(/resources/img/index/law.png);
+	background-position: -100px -50px;
 }
 
 .idx_category .estate span {
-	background-image: url(/resources/img/index/estate.png);
-}
-
-
-.idx_category .organization span {
-	background-image: url(/resources/img/index/organization.png);
+	background-position: -150px -50px;
 }
 
 
 .idx_category .construction span {
-	background-image: url(/resources/img/index/construction.png);
-}
-
-.idx_category .car span {
-	background-image: url(/resources/img/index/car.png);
-}
-
-.idx_category .kids span {
-	background-image: url(/resources/img/index/kids.png);
-}
-
-.idx_category .health span {
-	background-image: url(/resources/img/index/health.png);
-}
-
-.idx_category .bank span {
-	background-image: url(/resources/img/index/bank.png);
-}
-
-.idx_category .entertainment span {
-	background-image: url(/resources/img/index/entertainment.png);
+	background-position: 0 -100px;
 }
 
 
 .idx_category .church span {
-	background-image: url(/resources/img/index/church.png);
+	background-position: -50px -100px;
 }
 
-.idx_category .catholic span {
-	background-image: url(/resources/img/index/catholic.png);
+.idx_category .bank span {
+	background-position: -100px -100px;
 }
 
-.idx_category .interior span {
-	background-image: url(/resources/img/index/interior.png);
-}
-
-.idx_category .fashion span {
-	background-image: url(/resources/img/index/fashion.png);
-}
-
-.idx_category .tax span {
-	background-image: url(/resources/img/index/tax.png);
+.idx_category .organization span {
+	background-position: -150px -100px;
 }
 
 .idx_category .plant span {
-	background-image: url(/resources/img/index/plant.png);
+	background-position: 0 -150px;
 }
 
+.idx_category .catholic span {
+	background-position: -50px -150px;
+}
+
+.idx_category .tax span {
+	background-position: -100px -150px;
+}
+
+
 .idx_category .software span {
-	background-image: url(/resources/img/index/software.png);
+	background-position: -150px -150px;
 }
 
 .idx_category .stenograph span {
-	background-image: url(/resources/img/index/stenograph.png);
+	background-position: 0 -200px;
+}
+
+.idx_category .kids span {
+	background-position: -50px -200px;
+}
+
+.idx_category .health span {
+	background-position: -100px -200px;
+}
+
+.idx_category .interior span {
+	background-position: -150px -200px;
+}
+
+.idx_category .car span {
+	background-position: 0 -250px;
+}
+
+.idx_category .entertainment span {
+	background-position: -50px -250px;
+}
+
+.idx_category .fashion span {
+	background-position: -100px -250px;
 }
 
 .idx_category .etc span {
-	background-image: url(/resources/img/index/etc.png);
+	background-position: -150px -250px;
 }
 
 #contentsPrint > .bt_wrap {
@@ -148,6 +152,7 @@
 
 .idx_category .bt_cMore img {
 	width: 12px;
-	margin: 4px 0 0 2px;
-	vertical-align: top;
+	margin-left: 2px;
+	padding-bottom: 3px;
+	vertical-align: middle;
 }
