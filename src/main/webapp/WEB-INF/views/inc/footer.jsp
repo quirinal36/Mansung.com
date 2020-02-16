@@ -1,23 +1,18 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script type="text/javascript">
-$(window).scroll(function(){
-	/*
-    // 하단 고정배너
-    var top = $(window).scrollTop();
-    // console.log(top);
-    if(top > 100) {
-        $("#fixedBanner").addClass("hide");
-    } else {
-        $("#fixedBanner").removeClass("hide");
-    }
-    */
-});
-</script>
 <div id="footerWrap">
 	<footer>
 		<div id="footer">
-	    	<p>Copyright <a href="http://pf.kakao.com/_mxhnxnT" target="_blank">룩앳세븐</a>. All Rights Reserved.</p>
+			<ul class="menu">
+				<li><a href="/terms">이용약관</a></li>
+				<li><a href="/privacy">개인정보취급방침</a></li>
+			</ul>
+			<ul class="info">
+				<li>사업자등록번호 : 782-54-00430</li>
+				<li>대표 : 유단아</li>
+				<li>이메일 : lookatseven@naver.com</li>
+				<li>ⓒ <a href="http://pf.kakao.com/_mxhnxnT" target="_blank">룩앳세븐</a></li>
+			</ul>
 		</div>
 	</footer>
 	<div id="fixedBanner">
@@ -25,45 +20,4 @@ $(window).scroll(function(){
 	        <img src="/resources/img/temp/2.png" alt="배너">
 	    </a>
 	</div>
-</div>
-<div id="login_wrap">
-	<div class="bg" style="background-image: url(/resources/img/member/login_bg1.jpg);"></div>
-	<input type="button" value="닫기" class="bt_login_close" onclick="loginClose();">
-	<div class="txt_wrap">
-		행복한 여행의<br> 가장 큰 준비물은<br> 	가벼운 마음이다.<br> <span>- 생텍쥐페리</span>
-	</div>
-	<div class="bt_login_wrap">
-		<a href="#" onclick="login();">카카오톡<br> 로그인</a>
-	</div>
-	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script type="text/javascript">
-		Kakao.init('${apiKey}');
-		
-		function login(){
-			Kakao.Auth.login({ 
-				success : function(authObj) {
-					var url = "/member/signup";
-					var param = JSON.stringify(authObj);
-					console.log(authObj);
-					
-					$.ajax({
-						url : url,
-						data: param,
-						type: "POST",
-						dataType: "json",
-						contentType: 'application/json; charset=utf-8'
-					}).done(function(json){
-						console.log(json);
-						
-						if(json.id > 0){
-							window.location.replace("/member/login");
-						}
-					});
-				},
-				fail : function(err) {
-					alert("로그인에 실패했습니다.");
-				}
-			});
-		}
-	</script>
 </div>
