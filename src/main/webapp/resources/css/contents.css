@@ -941,11 +941,56 @@
 }
 
 /* 약관 */
-.temrs
+.terms_wrap {
+	padding: 0 17px 20px 17px;
+}
 
+.terms_wrap .title {
+	padding: 12px 0;
+	background: #f5f6f7;
+	text-align: center;
+	font-size: 1.6rem;
+}
 
+.terms_wrap .item {
+	margin-top: 20px;
+}
 
+.terms_wrap .item:first-child {
+	margin-top: 0;
+}
 
+.terms_wrap strong {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 1.4rem;
+	font-weight: 600;
+}
+
+.terms_wrap p {
+	font-size: 1.2rem;
+	color: #777;
+}
+
+.terms_wrap dl {
+	font-size: 0;
+}
+
+.terms_wrap dt,
+.terms_wrap dd {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1.2rem;
+	color: #777;
+}
+
+.terms_wrap dt {
+	width: 20px;
+}
+
+.terms_wrap dd {
+	width: calc(100% - 24px);
+}
 
 
 
