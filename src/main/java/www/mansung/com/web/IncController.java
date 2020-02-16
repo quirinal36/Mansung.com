@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.Config;
 import www.mansung.com.util.RestUtil;
+import www.mansung.com.vo.StoreInfo;
 import www.mansung.com.vo.UserVO;
 
 @Controller
@@ -25,7 +26,7 @@ public class IncController {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@RequestMapping(value="/inc/header", method=RequestMethod.GET)
-	public ModelAndView getHeader(ModelAndView mv, HttpSession session) throws IOException {
+	public ModelAndView getHeader(ModelAndView mv, HttpSession session, StoreInfo store) throws IOException {
 		File file = ResourceUtils.getFile("classpath:kakao.env");
 		String apiKey = FileUtils.readFileToString(file, Config.ENCODING);
 		mv.addObject("apiKey", apiKey);
@@ -48,6 +49,7 @@ public class IncController {
 				mv.addObject("user", user);
 			}
 		}
+		mv.addObject("store", store);
 		mv.setViewName("/inc/header");
 		return mv;
 	}
