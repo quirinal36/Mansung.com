@@ -1,6 +1,7 @@
 package www.mansung.com.web;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.servlet.http.HttpSession;
@@ -75,8 +76,30 @@ public class IncController {
 		return mv;
 	}
 	@RequestMapping(value="/inc/login", method = RequestMethod.GET)
-	public ModelAndView getLoginView(ModelAndView mv) {
-		mv.setViewName("/inc/login");
+	public ModelAndView getLoginView(ModelAndView mv, HttpSession session) throws IOException {
+		String accessToken = (String)session.getAttribute("access_token");
+		
+		if(accessToken != null && accessToken.length()>0) {
+			RestUtil util = new RestUtil();
+			JSONObject response = util.post("v2/user/me", accessToken);
+			if(response != null) {
+				JSONObject accountObj = response.getJSONObject("kakao_account");
+//				JSONObject profileObj = accountObj.getJSONObject("profile");
+				UserVO user = new UserVO();
+				user.setKakaoId(String.valueOf(response.getInt("id")));
+				
+				if(accountObj.has("email")) {
+					user.setEmail(accountObj.getString("email"));
+				}
+				
+				mv.setViewName("redirect:/");
+			}
+		}else {
+			File file = ResourceUtils.getFile("classpath:kakao.env");
+			String apiKey = FileUtils.readFileToString(file, Config.ENCODING);
+			mv.addObject("apiKey", apiKey);
+			mv.setViewName("/member/login");
+		}
 		return mv;
 	}
 }
