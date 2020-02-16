@@ -37,8 +37,6 @@ public class MemberController {
 	
 	@Autowired
 	UserService userService;
-	@Autowired
-	AuthenticationManager authenticationManager;
 	
 	@RequestMapping(value="/login")
 	public ModelAndView getLoginView(ModelAndView mv, HttpServletRequest request, HttpSession session) throws IOException {
@@ -68,38 +66,7 @@ public class MemberController {
 		return mv;
 	}
 		
-	@ResponseBody
-	@RequestMapping(value="/signup", method=RequestMethod.POST)
-	public String postSignupView(@RequestBody KakaoLogin kakao, HttpServletRequest request,
-			HttpSession session) throws IOException {
-		session.setAttribute("access_token", kakao.getAccess_token());
-		
-		RestUtil util = new RestUtil();
-		
-		JSONObject response = util.post("v2/user/me", kakao.getAccess_token());
-		JSONObject accountObj = response.getJSONObject("kakao_account");
-		
-		JSONObject profileObj = accountObj.getJSONObject("profile");
-		UserVO user = new UserVO();
-		user.setKakaoId(String.valueOf(response.getInt("id")));
-		if(accountObj.has("email")) {
-			user.setEmail(accountObj.getString("email"));
-		}
-		user.setNickname(profileObj.getString("nickname"));
-		user.setThumbnail_image_url(profileObj.getString("thumbnail_image_url"));
-		user.setProfile_image_url(profileObj.getString("profile_image_url"));
-
-		UserVO selectUser = userService.selectOne(user);
-		if(selectUser != null) {
-			login(selectUser.getKakaoId(), "", request);
-			return selectUser.toString();
-		}else {
-			userService.insert(user);
-			login(user.getKakaoId(), "", request);
-			return user.toString();
-		}
 	
-	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView getSignupView(ModelAndView mv, HttpSession session) throws IOException {
@@ -110,8 +77,6 @@ public class MemberController {
 			
 			JSONObject response = util.post("v2/user/me", accessToken);
 			if(response != null) {
-				logger.info(response.toString());
-				
 				JSONObject accountObj = response.getJSONObject("kakao_account");
 				JSONObject profileObj = accountObj.getJSONObject("profile");
 				UserVO user = new UserVO();
@@ -143,12 +108,6 @@ public class MemberController {
 		json.put("result", result);
 		
 		return json.toString();
-	}
-	private void login(String login, String inputPwd, HttpServletRequest request) {
-		UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(login, inputPwd);
-		authToken.setDetails(new WebAuthenticationDetails(request));
-		Authentication authentication = authenticationManager.authenticate(authToken);
-		SecurityContextHolder.getContext().setAuthentication(authentication);
 	}
 	
 	@RequestMapping(value="/agree", method = RequestMethod.GET)

@@ -76,6 +76,15 @@
 					s.phone1 like '%${query}%' or
 					s.phone2 like '%${query}%'
 					)
+				or (
+					s.id IN 
+						(
+						SELECT storeId FROM StoreHash 
+							WHERE 
+							hashId =
+								(SELECT id FROM HashTag WHERE name = '${query}')
+						)
+					)
 			</if>
 		</where>
 	</select>
@@ -95,15 +104,26 @@
 	
 	<select id="count" parameterType="store" resultType="int">
 		SELECT COUNT(*)
-		FROM StoreInfo
+		FROM StoreInfo s
 		<if test="category > 0">
 			<where>		
-				category = ${category}
+				<if test="category > 0">
+					s.category = ${category}
+				</if>
 				<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 					and (
 						s.title like '%${query}%' or
 						s.phone1 like '%${query}%' or
 						s.phone2 like '%${query}%'
+					)
+					or (
+						s.id IN 
+							(
+							SELECT storeId FROM StoreHash 
+								WHERE 
+								hashId =
+									(SELECT id FROM HashTag WHERE name = '${query}')
+							)
 					)
 				</if>
 			</where>

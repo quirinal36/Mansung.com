@@ -13,10 +13,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import www.mansung.com.Config;
 
 /**
  * 
@@ -28,25 +25,19 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	@Autowired
 	UserDetailService userService;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String username = authentication.getName();
-		// String password = (String)authentication.getCredentials();
 		
 		UserDetails user = null;
 		Collection<? extends GrantedAuthority> authorities = null;
 		
 		try {
-			logger.info("username: " + username);
 			user = userService.loadUserByUsername(username);
 			
 			if(user != null) {
-				logger.info("user" + user.toString());
 				authorities = user.getAuthorities();
 			}else {
 				throw new UsernameNotFoundException("존재하지 않는 아이디입니다.");

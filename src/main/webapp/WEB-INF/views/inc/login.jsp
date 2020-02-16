@@ -16,7 +16,7 @@
 		function login(){
 			Kakao.Auth.login({ 
 				success : function(authObj) {
-					var url = "/member/signup";
+					var url = "/inc/signup";
 					var param = JSON.stringify(authObj);
 					console.log(authObj);
 					
@@ -30,7 +30,7 @@
 						console.log(json);
 						
 						if(json.id > 0){
-							window.location.replace("/member/login");
+							window.location.replace("/");
 						}
 					});
 				},

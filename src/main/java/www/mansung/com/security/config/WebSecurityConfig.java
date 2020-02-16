@@ -66,7 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //			.maximumSessions(1);
 		http
 			.formLogin()
-			.loginPage("/member/login")
+			.loginPage("/inc/login")
 			.loginProcessingUrl("/member/loginProcess")
 			.usernameParameter("loginid")
 			.passwordParameter("loginpwd")
@@ -83,7 +83,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.authorizeRequests()
 			.antMatchers("/admin/**").hasRole("ADMIN")
-			.antMatchers("/member/login", "/**").permitAll()
+			.antMatchers("/talk/**").authenticated()
+			.antMatchers("/member/**").authenticated()
+			.antMatchers("/inc/**", "/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.httpBasic()
