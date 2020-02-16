@@ -78,8 +78,8 @@ function moveToLogin(){
 		    	<c:when test="${fn:length(logo2) gt 0}">
 				    <!-- 만성닷컴 검색창 -->
 					<div class="search_wrap type1">
-						<form action="/index">
-							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+						<form action="/" method="GET">
+							<input type="text" placeholder="검색어 입력" value="${store.query }" name="query" id="header_search_txt">
 							<input type="button" value="검색" onclick="javascript:search(this);">
 						</form>
 					</div>
