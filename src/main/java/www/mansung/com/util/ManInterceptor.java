@@ -42,10 +42,12 @@ public class ManInterceptor implements HandlerInterceptor{
 		if(split > 0) {
 			path = path.substring(split);
 			path = path.replaceAll(jspDir, "");
-			if(path.indexOf('/') > 0) {
+			
+			if(!(path.indexOf("/") < 0)) {
 				// 첫번째 디렉터리
-				String firstDir = path.substring(0, path.indexOf('/', 1));
-				if(firstDir.contains(talk)) {
+				String firstDir = path.substring(1, path.indexOf('/', 1));
+				
+				if(firstDir.equals(talk)) {
 					mv.addObject("logo1", "_off");
 					mv.addObject("logo2", "");
 				}
