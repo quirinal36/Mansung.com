@@ -1,7 +1,6 @@
 package www.mansung.com.web;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.servlet.http.HttpSession;

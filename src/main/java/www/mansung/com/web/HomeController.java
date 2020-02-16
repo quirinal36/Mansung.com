@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import www.mansung.com.dao.BoardDAO;
-import www.mansung.com.service.BoardService;
 import www.mansung.com.service.CategoryService;
 import www.mansung.com.service.StoreInfoService;
-import www.mansung.com.vo.Board;
 import www.mansung.com.vo.Category;
 import www.mansung.com.vo.StoreInfo;
 

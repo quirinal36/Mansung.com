@@ -32,7 +32,6 @@ import www.mansung.com.vo.StoreHash;
 import www.mansung.com.vo.StoreInfo;
 
 /**
- * 愿�由ъ옄 �럹�씠吏�
  * 
  * @author turbo
  *
@@ -235,22 +234,22 @@ public class AdminController {
 	
 	@RequestMapping(value="/talk", method = RequestMethod.GET)
 	public ModelAndView getAdminTalkView(ModelAndView mv) {
-		mv.setViewName("/talk/index");
+		mv.setViewName("/admin/talk/index");
 		return mv;
 	}
 	@RequestMapping(value="/member", method = RequestMethod.GET)
 	public ModelAndView getMemberListView(ModelAndView mv) {
-		mv.setViewName("/member/list");
+		mv.setViewName("/admin/member/list");
 		return mv;
 	}
 	@RequestMapping(value="/member/view", method = RequestMethod.GET)
 	public ModelAndView getMemberDetailView(ModelAndView mv) {
-		mv.setViewName("/member/view");
+		mv.setViewName("/admin/member/view");
 		return mv;
 	}
 	@RequestMapping(value="/member/edit", method = RequestMethod.GET)
 	public ModelAndView getMemberEditView(ModelAndView mv) {
-		mv.setViewName("/member/edit");
+		mv.setViewName("/admin/member/edit");
 		return mv;
 	}
 }
