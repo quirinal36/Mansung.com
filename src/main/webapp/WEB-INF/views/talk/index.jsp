@@ -282,6 +282,7 @@
 			</div>
 		</div>
 		<c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/login"></c:import>
 	</div>	
 </body>
 </html>

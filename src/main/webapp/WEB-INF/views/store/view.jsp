@@ -221,6 +221,7 @@
 			</div>
 		</div>
 		<c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/login"></c:import>
 		<c:import url="/inc/selectMap"></c:import>
 		<c:import url="/inc/selectShare"></c:import>
 	</div>	

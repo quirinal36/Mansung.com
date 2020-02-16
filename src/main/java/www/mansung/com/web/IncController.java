@@ -100,7 +100,7 @@ public class IncController {
 			File file = ResourceUtils.getFile("classpath:kakao.env");
 			String apiKey = FileUtils.readFileToString(file, Config.ENCODING);
 			mv.addObject("apiKey", apiKey);
-			mv.setViewName("/member/login");
+			mv.setViewName("/inc/login");
 		}
 		return mv;
 	}

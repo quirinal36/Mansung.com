@@ -139,15 +139,6 @@
 										<input type="button" value="복사" class="bt2" onclick="javascript:copyAddressMsg(this);">
 									</div>
 								</div>
-								<!-- 
-								<c:if test="${store.wideBanner > 0}">
-									<div class="banner_wrap imgType">
-										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
-									</div>
-								</c:if>
-								 -->
-								 
-								 
 								<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
 								<c:choose>
 									<c:when test="${ store.wideBanner > 0 }">
@@ -164,23 +155,6 @@
 										
 									</c:otherwise>
 								</c:choose>
-
-								<!--
-								색상 클래스는 관리자에서 선택한 색상 값과 동일합니다.
-								<div class="banner_wrap txtType cadetblue">
-									<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
-								</div>
-								<div class="banner_wrap txtType cornflowerblue">
-									<a href="#">만성닷컴 배너 무료 등록기간 운영안내1</a>
-								</div>
-								<div class="banner_wrap txtType steelblue">
-									<a href="#">만성닷컴 배너 무료 등록기간 운영안내4</a>
-								</div>
-								<div class="banner_wrap txtType mediumpurple">
-									<a href="#">만성닷컴 배너 무료 등록기간 운영안내14</a>
-								</div>
-								-->
-								
 								<div class="bt_wrap">
 									<a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
 										<img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
@@ -208,6 +182,7 @@
 			</div>
 		</div>
 		<c:import url="/inc/footer"></c:import>
+		<c:import url="/inc/login"></c:import>
 		<c:import url="/inc/selectMap"></c:import>
 		<c:import url="/inc/selectShare"></c:import>
 	</div>	
