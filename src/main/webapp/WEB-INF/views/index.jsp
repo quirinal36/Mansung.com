@@ -155,7 +155,7 @@
 											<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 										</div>
 									</c:when>
-									<c:when test="${store.bannerColor > 0 }">
+									<c:when test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
 										<div class="banner_wrap txtType ${store.bannerColorTxt }">
 											<a href="${store.bannerColor}">${store.bannerText}</a>
 										</div>

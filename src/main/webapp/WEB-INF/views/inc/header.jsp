@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
 Kakao.init('${apiKey}');
@@ -30,10 +31,10 @@ function moveToLogin(){
 	    	<div class="top">
 		        <h1 class="logo_wrap">
 		            <a href="/">
-		                <img src="/resources/img/comm/logo1${logo1 }.png" alt="만성닷컴">
+		                <img src="/resources/img/comm/logo1${logo1 }.png" alt="만성닷컴${logo1 }">
 		            </a>
 		            <a href="/talk/">
-		                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인">
+		                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인${logo2 }">
 		            </a>
 		        </h1>
 		        <div class="icons">
@@ -73,20 +74,26 @@ function moveToLogin(){
 		            </div>
 		        </div>
 		    </div>
-		    <!-- 만성닷컴 검색창 -->
-			<div class="search_wrap type1" style="display: none;">
-				<form action="/index">
-					<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
-					<input type="button" value="검색" onclick="javascript:search(this);">
-				</form>
-			</div>
-		    <!-- 만성인 검색창 -->
-			<div class="search_wrap type2">
-				<form action="/index">
-					<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
-					<input type="button" value="검색" onclick="javascript:search(this);">
-				</form>
-			</div>
+		    <c:choose>
+		    	<c:when test="${fn:length(logo2) gt 0}">
+				    <!-- 만성닷컴 검색창 -->
+					<div class="search_wrap type1">
+						<form action="/index">
+							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+							<input type="button" value="검색" onclick="javascript:search(this);">
+						</form>
+					</div>
+				</c:when>
+				<c:otherwise>
+				    <!-- 만성인 검색창 -->
+					<div class="search_wrap type2">
+						<form action="/index">
+							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+							<input type="button" value="검색" onclick="javascript:search(this);">
+						</form>
+					</div>
+				</c:otherwise>
+			</c:choose>
 	    </div>
 	</header>
 </div>
