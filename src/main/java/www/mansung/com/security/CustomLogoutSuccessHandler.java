@@ -26,7 +26,8 @@ public class CustomLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
 	@Override
 	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException, ServletException {
-		String refererUrl = "/";//request.getHeader("Referer");
+		String refererUrl = request.getHeader("Referer");
+		logger.info("refererUrl: " + refererUrl);
 		
 		if(refererUrl !=null && refererUrl.length() > 0) {
 			redirectStrategy.sendRedirect(request, response, refererUrl);

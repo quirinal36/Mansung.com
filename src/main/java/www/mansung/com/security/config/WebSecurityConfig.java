@@ -38,9 +38,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private CustomAuthenticationFailureHandler loginFailureHandler;
 	
 	@Autowired
-	private CustomLogoutSuccessHandler logoutSuccessHandler;
-	
-	@Autowired
 	private CustomAuthenticationProvider authProvider;
 
 	/**
@@ -78,7 +75,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.logout().logoutUrl("/j_spring_security_logout")
 			.deleteCookies("JSESSIONID")
-			.logoutSuccessHandler(logoutSuccessHandler)
+			//.logoutSuccessHandler(logoutSuccessHandler)
 			.logoutSuccessUrl("/")
 			.and()
 			.authorizeRequests()
