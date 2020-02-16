@@ -49,6 +49,8 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import www.mansung.com.util.ManInterceptor;
+
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -190,7 +192,10 @@ public class AppConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
+		ManInterceptor interceptor = new ManInterceptor();
 		
+		registry.addInterceptor(interceptor)
+				.addPathPatterns("/**");
 	}
 
 	@Bean

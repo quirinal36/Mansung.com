@@ -129,6 +129,7 @@
 	                                        		<li id="${store.representImage}">
 	                                        			<img src="${store.representImageUrl }">
 	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        			<input type="hidden" name="representImage" value="${store.representImage }"/>
 	                                        		</li>
 	                                        	</c:if>
 	                                        </ul>
@@ -146,20 +147,27 @@
 	                                            	<li id="${item.id}">
 	                                        			<img src="${item.thumbnailUrl }">
 	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        			<input type="hidden" value="${item.id }" name="detailImages"/>
 	                                        		</li>
 	                                            </c:forEach>
 	                                        </ul>
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
-	                                    <th>와이드 배너</th>
+	                                    <th>이미지 광고</th>
 	                                    <td id="dropzone-img">
 	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록" class="bt2">
 	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
 										        <div class="progress-bar" style="width: 0%;" ></div>
 										    </div>
 	                                        <ul id="banner-li">
-	                                        	
+	                                        	<c:if test="${store.wideBanner > 0}">
+	                                        		<li id="${store.wideBanner }">
+	                                        			<img src="${store.wideBannerUrl }">
+	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        			<input type="hidden" value="${store.wideBanner }" name="wideBanner"/>
+	                                        		</li>
+	                                        	</c:if>
 	                                        </ul>
 	                                    </td>
 	                                </tr>

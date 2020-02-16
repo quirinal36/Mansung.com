@@ -232,4 +232,25 @@ public class AdminController {
 		json.put("result", result);
 		return json.toString();
 	}
+	
+	@RequestMapping(value="/talk", method = RequestMethod.GET)
+	public ModelAndView getAdminTalkView(ModelAndView mv) {
+		mv.setViewName("/talk/index");
+		return mv;
+	}
+	@RequestMapping(value="/member", method = RequestMethod.GET)
+	public ModelAndView getMemberListView(ModelAndView mv) {
+		mv.setViewName("/member/list");
+		return mv;
+	}
+	@RequestMapping(value="/member/view", method = RequestMethod.GET)
+	public ModelAndView getMemberDetailView(ModelAndView mv) {
+		mv.setViewName("/member/view");
+		return mv;
+	}
+	@RequestMapping(value="/member/edit", method = RequestMethod.GET)
+	public ModelAndView getMemberEditView(ModelAndView mv) {
+		mv.setViewName("/member/edit");
+		return mv;
+	}
 }

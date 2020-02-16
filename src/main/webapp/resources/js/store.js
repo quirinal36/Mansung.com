@@ -13,7 +13,6 @@ function delImageClick(btn){
 	});
 }
 function editConfirm(){
-	
 	if(confirm("저장하시겠습니까?")){
 		var dataObj = {};
 		$($("#adminEditForm").serializeArray()).each(function (i,field){

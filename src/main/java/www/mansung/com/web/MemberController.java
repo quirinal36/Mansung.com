@@ -37,6 +37,7 @@ import www.mansung.com.util.RestUtil;
 import www.mansung.com.vo.KakaoLogin;
 import www.mansung.com.vo.UserVO;
 
+@RequestMapping(value="/member")
 @Controller
 public class MemberController {
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -46,17 +47,16 @@ public class MemberController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 	
-	@RequestMapping(value="/member/login")
+	@RequestMapping(value="/login")
 	public ModelAndView getLoginView(ModelAndView mv, HttpServletRequest request, HttpSession session) throws IOException {
 		String accessToken = (String)session.getAttribute("access_token");
-		logger.info("accessToken: "+accessToken);
 		
 		if(accessToken != null && accessToken.length()>0) {
 			RestUtil util = new RestUtil();
 			JSONObject response = util.post("v2/user/me", accessToken);
 			if(response != null) {
 				JSONObject accountObj = response.getJSONObject("kakao_account");
-				JSONObject profileObj = accountObj.getJSONObject("profile");
+//				JSONObject profileObj = accountObj.getJSONObject("profile");
 				UserVO user = new UserVO();
 				user.setKakaoId(String.valueOf(response.getInt("id")));
 				
@@ -76,7 +76,7 @@ public class MemberController {
 	}
 		
 	@ResponseBody
-	@RequestMapping(value="/member/signup", method=RequestMethod.POST)
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String postSignupView(@RequestBody KakaoLogin kakao, HttpServletRequest request,
 			HttpSession session) throws IOException {
 		session.setAttribute("access_token", kakao.getAccess_token());
@@ -110,7 +110,7 @@ public class MemberController {
 	
 	}
 	
-	@RequestMapping(value="/member/signup", method=RequestMethod.GET)
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView getSignupView(ModelAndView mv, HttpSession session) throws IOException {
 		String accessToken = (String)session.getAttribute("access_token");
 		
@@ -144,7 +144,7 @@ public class MemberController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/member/edit", method=RequestMethod.POST)
+	@RequestMapping(value="/edit", method=RequestMethod.POST)
 	public String postEdit(UserVO user) throws IOException {
 		int result = userService.update(user);
 		
@@ -159,4 +159,21 @@ public class MemberController {
 		Authentication authentication = authenticationManager.authenticate(authToken);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 	}
+	
+	@RequestMapping(value="/agree", method = RequestMethod.GET)
+	public ModelAndView getMemberAgreeView(ModelAndView mv) {
+		mv.setViewName("/member/agree");
+		return mv;
+	}
+	@RequestMapping(value="/edit", method = RequestMethod.GET)
+	public ModelAndView getMemberEditView(ModelAndView mv) {
+		mv.setViewName("/member/edit");
+		return mv;
+	}
+	@RequestMapping(value="/profile", method = RequestMethod.GET)
+	public ModelAndView getMemberProfileView(ModelAndView mv) {
+		mv.setViewName("/member/profile");
+		return mv;
+	}
+	
 }

@@ -43,11 +43,28 @@ public class HomeController {
 		mv.addObject("list", list);
 		List<Category> cateList = categoryService.select();
 		
-		mv.addObject("logo1", "");
-		mv.addObject("logo2", "_off");
 		mv.addObject("cateList", cateList);
 		mv.setViewName("index");
 		return mv;
 	}
-	
+	@RequestMapping(value="/about", method = RequestMethod.GET)
+	public ModelAndView getAboutView(ModelAndView mv) {
+		mv.setViewName("/contents/about");
+		return mv;
+	}
+	@RequestMapping(value="/guide", method = RequestMethod.GET)
+	public ModelAndView getGuideView(ModelAndView mv) {
+		mv.setViewName("/contents/guide");
+		return mv;
+	}
+	@RequestMapping(value="/terms", method = RequestMethod.GET)
+	public ModelAndView getTermsView(ModelAndView mv) {
+		mv.setViewName("/contents/terms");
+		return mv;
+	}
+	@RequestMapping(value="/privacy", method = RequestMethod.GET)
+	public ModelAndView getPrivacyView(ModelAndView mv) {
+		mv.setViewName("/contents/privacy");
+		return mv;
+	}
 }

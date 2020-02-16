@@ -11,8 +11,6 @@ public class TalkController {
 	@RequestMapping("/")
 	public ModelAndView getIndexView(ModelAndView mv) {
 		
-		mv.addObject("logo1", "_off");
-		mv.addObject("logo2", "");
 		mv.setViewName("/talk/index");
 		return mv;
 	}

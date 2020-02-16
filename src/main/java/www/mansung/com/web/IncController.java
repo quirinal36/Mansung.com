@@ -75,4 +75,9 @@ public class IncController {
 		mv.setViewName("/inc/selectShare");
 		return mv;
 	}
+	@RequestMapping(value="/inc/login", method = RequestMethod.GET)
+	public ModelAndView getLoginView(ModelAndView mv) {
+		mv.setViewName("/inc/login");
+		return mv;
+	}
 }
