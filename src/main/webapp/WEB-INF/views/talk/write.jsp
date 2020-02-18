@@ -26,9 +26,11 @@
 	<div id="wrap">
 		<div class="talk_wrap">
 			<div class="top">
-				<a href="javascript:history.back();" class="bt_prev"><img src="/resources/img/comm/bt_prev.png" alt="이전"></a>
-				<strong>새 글</strong>
-				<a href="#" class="bt_write">등록</a>
+				<div>
+					<a href="javascript:history.back();" class="bt_prev"><img src="/resources/img/comm/bt_prev.png" alt="이전"></a>
+					<strong>새 글</strong>
+					<a href="#" class="bt_write">등록</a>
+				</div>
 			</div>
 			<div class="msg_area">
 				<textarea placeholder="오늘 만성동의 날씨는 어떤가요?"></textarea>

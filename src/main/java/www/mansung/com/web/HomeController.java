@@ -64,4 +64,9 @@ public class HomeController {
 		mv.setViewName("/contents/privacy");
 		return mv;
 	}
+	@RequestMapping(value="/login", method = RequestMethod.GET)
+	public ModelAndView getLoginView(ModelAndView mv) {
+		mv.setViewName("/login");
+		return mv;
+	}
 }

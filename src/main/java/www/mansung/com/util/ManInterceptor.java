@@ -45,11 +45,15 @@ public class ManInterceptor implements HandlerInterceptor{
 			
 			if(!(path.indexOf("/") < 0)) {
 				// 첫번째 디렉터리
-				String firstDir = path.substring(1, path.indexOf('/', 1));
-				
-				if(firstDir.equals(talk)) {
-					mv.addObject("logo1", "_off");
-					mv.addObject("logo2", "");
+				try {
+					String firstDir = path.substring(1, path.indexOf('/', 1));
+					
+					if(firstDir.equals(talk)) {
+						mv.addObject("logo1", "_off");
+						mv.addObject("logo2", "");
+					}
+				}catch(Exception e) {
+					
 				}
 			}
 		}

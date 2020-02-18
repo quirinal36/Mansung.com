@@ -110,6 +110,7 @@ public class MemberController {
 		return json.toString();
 	}
 	
+	
 	@RequestMapping(value="/agree", method = RequestMethod.GET)
 	public ModelAndView getMemberAgreeView(ModelAndView mv) {
 		mv.setViewName("/member/agree");

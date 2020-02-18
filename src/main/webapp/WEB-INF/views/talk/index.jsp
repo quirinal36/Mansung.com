@@ -28,9 +28,9 @@
 						<div id="noResult">검색결과가 없습니다.</div>
 						<div class="item" id="abc123">
 							<div class="top">
-								<a href="#" class="image pImg type1">루루</a>
+								<a href="/member/profile" class="image pImg type1">루루</a>
 								<div class="info">
-									<a href="#" class="writer">관리자가 볼 때</a><br>
+									<a href="/member/profile" class="writer">관리자가 볼 때</a><br>
 									<span class="date">2020-01-04 11:29:01 수정됨</span>
 								</div>
 							</div>

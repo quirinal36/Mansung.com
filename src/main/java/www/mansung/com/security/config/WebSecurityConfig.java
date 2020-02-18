@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //			.maximumSessions(1);
 		http
 			.formLogin()
-			.loginPage("/inc/login")
+			.loginPage("/login")
 			.loginProcessingUrl("/member/loginProcess")
 			.usernameParameter("loginid")
 			.passwordParameter("loginpwd")

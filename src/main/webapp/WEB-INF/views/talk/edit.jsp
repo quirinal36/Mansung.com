@@ -7,19 +7,33 @@
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>">
 	<script src="<c:url value="/resources/js/tag.js"/>"></script>
+	<script>
+	function msg_area_height() {
+		var bodyHeight = $(window).height();
+		$(".talk_wrap .msg_area").height(bodyHeight - 56 - 109);
+	}
+	$(function(){
+		msg_area_height();
+	});
+	
+	$(window).resize(function(){
+		msg_area_height();
+	});
+	</script>
 </head>
 <body>
 	<div id="wrap">
 		<div class="talk_wrap">
 			<div class="top">
-				<a href="javascript:history.back();" class="bt_prev"><img src="/resources/img/comm/bt_prev.png" alt="이전"></a>
-				<strong>수정</strong>
-				<a href="#" class="bt_write">완료</a>
+				<div>
+					<a href="javascript:history.back();" class="bt_prev"><img src="/resources/img/comm/bt_prev.png" alt="이전"></a>
+					<strong>수정</strong>
+					<a href="#" class="bt_write">완료</a>
+				</div>
 			</div>
 			<div class="msg_area">
-				<textarea placeholder="오늘 만성동의 날씨는 어떤가요?">나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요. 나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요. 나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요. 나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요. 나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요. 나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요.</textarea>
+				<textarea placeholder="오늘 만성동의 날씨는 어떤가요?">나는 오늘 코딩학원에 갔다. 전주코딩학원 사랑해요.</textarea>
 			</div>
 			<div class="tag_area">
 				<div class="add">
