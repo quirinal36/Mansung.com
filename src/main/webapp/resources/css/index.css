@@ -1,6 +1,5 @@
 .idx_category {
 	padding: 25px 7px;
-	font-size: 0;
 }
 
 .idx_category_more {
@@ -8,23 +7,28 @@
 	margin-top: 20px;
 }
 
-.idx_category > a,
-.idx_category_more > a {
+.idx_category ul {
+	font-size: 0;
+}
+
+.idx_category li {
 	display: inline-block;
 	width: 25%;
 	margin-top: 20px;
-	text-align: center;
-	font-size: 1.4rem;
 	vertical-align: middle;
+	text-align: center;
 }
 
-.idx_category > a:nth-child(-n+4),
-.idx_category_more > a:nth-child(-n+4) {
+.idx_category li:nth-child(-n+4) {
 	margin-top: 0;
 }
 
-.idx_category > a > span,
-.idx_category_more > a > span {
+.idx_category a {
+	display: inline-block;
+	font-size: 1.4rem;
+}
+
+.idx_category a span {
 	display: block;
 	width: 50px;
 	height: 50px;
@@ -40,6 +44,11 @@
 	background-size: 200px;
 	text-indent: -100px;
 	overflow: hidden;
+}
+
+.idx_category a:hover span {
+	background-color: #f0f1f2;
+	transition: 0.5s;
 }
 
 .idx_category .restaurant span {

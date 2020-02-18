@@ -57,7 +57,7 @@ $(function(){
     	var msgNum = Math.floor(Math.random() * txtList.length);
     	// 댓글 작성창 자동입력
     	var txtList_msg = txtList[msgNum];
-    	$('.comment_write input[type="text"]').prop("placeholder", txtList_msg); 
+    	$('.comment_write textarea').prop("placeholder", txtList_msg); 
     });
     
     // 댓글 작성 창 닫기, 작성내용 초기화
@@ -65,7 +65,7 @@ $(function(){
     	$(".bottom").removeClass("on");
     	$(".comment_write_area").fadeOut(100);
     	setTimeout(function(){
-    		$('.comment_write input[type="text"]').val("");
+    		$('.comment_write textarea').val("");
     	}, 100);
     });
     

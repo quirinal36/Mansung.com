@@ -25,6 +25,7 @@
 						<a href="#">태그</a>
 					</div>
 					<div class="msg_wrap">
+						<div id="noResult">검색결과가 없습니다.</div>
 						<div class="item" id="abc123">
 							<div class="top">
 								<a href="#" class="image pImg type1">루루</a>
@@ -282,6 +283,9 @@
 			</div>
 		</div>
 		<c:import url="/inc/footer"></c:import>
+		<div id="fixedIcons">
+			<a href="/talk/write" class="bt_talk_write">글쓰기</a>
+		</div>
 		<c:import url="/inc/login"></c:import>
 	</div>	
 </body>

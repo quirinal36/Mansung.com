@@ -38,8 +38,6 @@ function moveToLogin(){
 		            </a>
 		        </h1>
 		        <div class="icons">
-		        	<!-- 글쓰기 버튼은 만성인에서만 보임 -->
-		        	<a href="/talk/write" class="write"><img src="/resources/img/comm/bt_write.png" alt="글쓰기"></a>
 		        	<c:choose>
 		        		<c:when test="${empty user}">
 		        		<!--
@@ -63,6 +61,7 @@ function moveToLogin(){
 		                        <li><a href="http://naver.me/IgoZTYYM" target="_blank">업체등록·정정신청</a></li>
 		                        <li><a href="/guide">만성닷컴 이용안내</a></li>
 		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">문의하기</a></li>
+		                        <li><a href="javascript:return false;" onclick="loginOpen();">로그인</a></li>
 		                        <sec:authorize access="hasRole('ROLE_ADMIN')">
 		                        	<li><a href="<c:url value="/admin/store"/>">관리자</a></li>
 		                        </sec:authorize>

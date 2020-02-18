@@ -211,7 +211,7 @@
 					</div>
 				</div>
 				<div class="comment_write">
-					<input type="text" placeholder="댓글 입력">
+					<textarea placeholder="댓글 입력"></textarea>
 					<input type="button" class="bt_emoticon" value="이모티콘 선택" onclick="eList(this);">
 					<input type="checkbox" id="chk_hide" class="bt_hide">
 					<label for="chk_hide">비밀글</label>
