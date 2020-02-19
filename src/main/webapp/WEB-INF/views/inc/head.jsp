@@ -26,3 +26,5 @@
 <script src="<c:url value="/resources/js/jquery-1.12.1.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery.bxslider.min.js"/>"></script>
 <script src="<c:url value="/resources/js/common.js"/>"></script>
+
+<meta name="naver-site-verification" content="82901f76e37c1d0eb569afcfb4b880145299a9af"/>
