@@ -160,19 +160,23 @@
 						</c:forEach>
 						-->
 					</div>
-					<div class="tab_wrap type1 item5">
-						<a href="#" class="on">통합검색</a>
-						<a href="#">업체명</a>
-						<a href="#">태그</a>
-						<a href="#">주소</a>
-						<a href="#">전화번호</a>
-					</div>
+					<c:if test="${not empty storeInfo.query }">
+						<div class="tab_wrap type1 item5">
+							<a href="#" class="on">통합검색</a>
+							<a href="#">업체명</a>
+							<a href="#">태그</a>
+							<a href="#">주소</a>
+							<a href="#">전화번호</a>
+						</div>
+					</c:if>
 					<!-- store list -->
 					<div class="store_list">
-						<div id="noResult">
-							<img src="/resources/img/emoticon/e15.png" alt="(머쓱)">
-							검색결과가 없습니다.
-						</div>
+						<c:if test="${fn:length(list) eq 0}">
+							<div id="noResult">
+								<img src="/resources/img/emoticon/e15.png" alt="(머쓱)">
+								검색결과가 없습니다.
+							</div>
+						</c:if>
 						<c:forEach items="${list }" var="store">
 						<div id="store-${store.id }" class="item">
 							<div class="info">

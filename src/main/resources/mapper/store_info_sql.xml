@@ -67,8 +67,9 @@
 				ON
 				s.id = b.storeId
 		<where>
+			s.priority > 0
 			<if test="category > 0">
-				s.category = ${category}
+				and s.category = ${category}
 			</if>
 			<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 				and (
@@ -87,6 +88,7 @@
 					)
 			</if>
 		</where>
+		ORDER BY s.priority ASC
 	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
@@ -106,9 +108,10 @@
 		SELECT COUNT(*)
 		FROM StoreInfo s
 		<if test="category > 0">
-			<where>		
+			<where>
+				s.priority > 0
 				<if test="category > 0">
-					s.category = ${category}
+					and s.category = ${category}
 				</if>
 				<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 					and (

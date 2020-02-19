@@ -41,6 +41,8 @@ public class HomeController {
 		List<Category> cateList = categoryService.select();
 		
 		mv.addObject("cateList", cateList);
+		
+		mv.addObject("storeInfo", storeInfo);
 		mv.setViewName("index");
 		return mv;
 	}

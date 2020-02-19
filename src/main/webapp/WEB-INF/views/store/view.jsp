@@ -159,13 +159,15 @@
 								두 번 탭하여 지도 이동
 							</div>
 						</div>
-						<!-- 태그 -->
-						<div class="tags">
-							<strong>태그</strong>
-							<c:forEach items="${tags }" var="item">
-								<a href="#">${item.name }</a>
-							</c:forEach>
-						</div>
+						<c:if test=${fn:length(tags) gt 0 }">
+							<!-- 태그 -->
+							<div class="tags">
+								<strong>태그</strong>
+								<c:forEach items="${tags }" var="item">
+									<a href="#">${item.name }</a>
+								</c:forEach>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
