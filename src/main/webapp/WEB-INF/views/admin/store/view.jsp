@@ -128,6 +128,12 @@
                                     	${store.priority }
                                     </td>
                                 </tr>
+                            	<tr>
+                                    <th>관리자 메모</th>
+                                    <td>
+                                    
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="bt_wrap">

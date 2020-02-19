@@ -169,7 +169,10 @@
 					</div>
 					<!-- store list -->
 					<div class="store_list">
-						<div id="noResult">검색결과가 없습니다.</div>
+						<div id="noResult">
+							<img src="/resources/img/emoticon/e15.png" alt="(머쓱)">
+							검색결과가 없습니다.
+						</div>
 						<c:forEach items="${list }" var="store">
 						<div id="store-${store.id }" class="item">
 							<div class="info">

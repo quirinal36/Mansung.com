@@ -33,22 +33,23 @@ function moveToLogin(){
 		            <a href="/">
 		                <img src="/resources/img/comm/logo1${logo1 }.png" alt="만성닷컴${logo1 }">
 		            </a>
-		            <a href="/talk/">
-		                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인${logo2 }">
-		            </a>
+		            <sec:authorize access="hasRole('ROLE_ADMIN')">
+			            <a href="/talk/">
+			                <img src="/resources/img/comm/logo2${logo2 }.png" alt="만성인${logo2 }">
+			            </a>
+		            </sec:authorize>
 		        </h1>
 		        <div class="icons">
-		        	<c:choose>
-		        		<c:when test="${empty user}">
-		        		<!--
-		        			<a href="javascript:return false;" onclick="javascript:moveToLogin();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
-		        		-->
-		        			<a href="javascript:return false;" onclick="loginOpen();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
-		        		</c:when>
-		        		<c:otherwise>
-							<a href="<c:url value="/member/profile"/>" class="login"><img src="/resources/img/comm/login.png" alt="마이페이지"></a>		        		
-		        		</c:otherwise>
-					</c:choose>
+		        	<sec:authorize access="hasRole('ROLE_ADMIN')">
+			        	<c:choose>
+			        		<c:when test="${empty user}">
+			        			<a href="javascript:return false;" onclick="loginOpen();" class="login"><img src="/resources/img/comm/login.png" alt="로그인"></a>
+			        		</c:when>
+			        		<c:otherwise>
+								<a href="<c:url value="/member/profile"/>" class="login"><img src="/resources/img/comm/login.png" alt="마이페이지"></a>		        		
+			        		</c:otherwise>
+						</c:choose>
+					</sec:authorize>
 		        </div>
 		        <div id="gnb_wrap">
 		            <input type="checkbox" id="bt_gnb">
@@ -79,7 +80,7 @@ function moveToLogin(){
 				    <!-- 만성닷컴 검색창 -->
 					<div class="search_wrap type1">
 						<form action="/" method="GET">
-							<input type="text" placeholder="검색어 입력" value="${store.query }" name="query" id="header_search_txt">
+							<input type="text" placeholder="검색어 입력" value="${store.query }" name="query" id="header_search_txt" autocomplete="off">
 							<input type="button" value="검색" onclick="javascript:search(this);">
 						</form>
 					</div>
@@ -88,7 +89,7 @@ function moveToLogin(){
 				    <!-- 만성인 검색창 -->
 					<div class="search_wrap type2">
 						<form action="/index">
-							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt">
+							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt" autocomplete="off">
 							<input type="button" value="검색" onclick="javascript:search(this);">
 						</form>
 					</div>

@@ -219,6 +219,12 @@
 	                                    	<input type="text" value="${store.bannerText}" placeholder="문구 입력" class="ipt1 mt-5" name="bannerText">
 	                                    </td>
 	                                </tr>
+	                                <tr>
+	                                	<th>관리자 메모</th>
+	                                	<td>
+	                                		<textarea placeholder="메모 입력" class="ipt1"></textarea>
+	                                	</td>
+	                                </tr>
 	                            </tbody>
 	                        </table>
 	                        <input type="hidden" name="id" value="${store.id }"/>
