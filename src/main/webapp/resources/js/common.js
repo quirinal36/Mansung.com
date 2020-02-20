@@ -9,6 +9,17 @@ $(function(){
 		$("#header_search_txt").val("");
 	});
 	
+
+	// 업체 상세보기 페이지(/store/view)의 태그 전체보기 기능
+	var tags_height = $(".tags_wrap").height();
+	console.log(tags_height);
+	if( tags_height > 70 ) {
+		$(".tags_wrap").addClass("over");
+	}
+	$(".tags_wrap .bt_more").click(function(){
+		$(".tags_wrap").removeClass("over");
+	});
+	
 	// 대화주제 자동입력
 	var talkList = [
 		"오늘 만성동의 날씨는 어떤가요?",

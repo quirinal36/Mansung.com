@@ -55,7 +55,7 @@
 										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 									</div>
 									<div class="banner_wrap txtType cornflowerblue">
-										<a href="#">전주코딩학원 학생이 EBS 뉴스에 나왔어요!</a>
+										<a href="#">${store.bannerText}</a>
 									</div>
 								</c:when>
 								<c:otherwise>
@@ -170,11 +170,14 @@
 						</div>
 						<c:if test="${fn:length(tags) gt 0 }">
 							<!-- 태그 -->
-							<div class="tags">
-								<strong>태그</strong>
-								<c:forEach items="${tags }" var="item">
-									<a href="#">${item.name }</a>
-								</c:forEach>
+							<div class="tags_wrap">
+								<div class="tags">
+									<strong>태그</strong>
+									<c:forEach items="${tags }" var="item">
+										<a href="#">${item.name }</a>
+									</c:forEach>
+								</div>
+								<input type="button" value="모두 보기" class="bt_more">
 							</div>
 						</c:if>
 					</div>
