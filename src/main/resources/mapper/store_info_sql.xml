@@ -67,10 +67,14 @@
 				ON
 				s.id = b.storeId
 		<where>
-			s.priority > 0
-			<if test="category > 0">
-				and s.category = ${category}
-			</if>
+			<choose>
+				<when test="category > 0">
+					s.category = ${category}
+				</when>
+				<otherwise>
+					s.priority > 0
+				</otherwise>
+			</choose>
 			<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 				and (
 					s.title like '%${query}%' or
@@ -88,7 +92,7 @@
 					)
 			</if>
 		</where>
-		ORDER BY s.priority ASC
+		ORDER BY s.priority DESC, s.wideBanner DESC, b.bannerText DESC, s.title
 	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
@@ -109,10 +113,14 @@
 		FROM StoreInfo s
 		<if test="category > 0">
 			<where>
-				s.priority > 0
-				<if test="category > 0">
-					and s.category = ${category}
-				</if>
+				<choose>
+					<when test="category > 0">
+						s.category = ${category}
+					</when>
+					<otherwise>
+						s.priority > 0
+					</otherwise>
+				</choose>
 				<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 					and (
 						s.title like '%${query}%' or

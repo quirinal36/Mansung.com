@@ -62,12 +62,14 @@ function moveToLogin(){
 		                        <li><a href="http://naver.me/IgoZTYYM" target="_blank">업체등록·정정신청</a></li>
 		                        <li><a href="/guide">만성닷컴 이용안내</a></li>
 		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">문의하기</a></li>
-		                        <li><a href="/login">로그인</a></li>
+		                        <sec:authorize access="isAnonymous()">
+		                        	<li><a href="/login">로그인</a></li>
+		                        </sec:authorize>
 		                        <sec:authorize access="hasRole('ROLE_ADMIN')">
 		                        	<li><a href="<c:url value="/admin/store"/>">관리자</a></li>
+		                        	<li><a href="/member/edit">내 프로필 수정</a></li>
 		                        </sec:authorize>
 		                        <sec:authorize access="isAuthenticated()">
-		                        	<li><a href="/member/edit">내 프로필 수정</a></li>
 		                        	<li><a href="#" id="kakao-logout-btn">로그아웃</a></li>
 		                        </sec:authorize>
 		                    </ul>

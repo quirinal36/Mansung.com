@@ -160,7 +160,7 @@
 						</c:forEach>
 						-->
 					</div>
-					<c:if test="${not empty storeInfo.query }">
+					<%--
 						<div class="tab_wrap type1 item5">
 							<a href="#" class="on">통합검색</a>
 							<a href="#">업체명</a>
@@ -168,7 +168,7 @@
 							<a href="#">주소</a>
 							<a href="#">전화번호</a>
 						</div>
-					</c:if>
+					 --%>
 					<!-- store list -->
 					<div class="store_list">
 						<c:if test="${fn:length(list) eq 0}">
@@ -218,9 +218,18 @@
 								<a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
 									<img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
 								</a>
-								<a href="tel:${store.phone1 }" class="bt_call">
-									<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
-								</a>
+								<c:choose>
+									<c:when test="${fn:length(store.phone1) gt 0 }">
+										<a href="tel:${store.phone1 }" class="bt_call">
+											<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a href="javascript:void(0);" onclick="alert('등록된 전화번호가 없습니다.')" class="bt_call">
+											<img src="/resources/img/comm/bt_call.png" alt="icon"> 전화
+										</a>
+									</c:otherwise>
+								</c:choose>
 								<a href="<c:url value="/store/view/${store.id }#map"/>" class="bt_map <!--popup_selectMap_opener-->">
 									<img src="/resources/img/comm/bt_map.png" alt="icon"> 지도
 								</a>
