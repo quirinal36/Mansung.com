@@ -206,6 +206,10 @@
 	font-size: 1.4rem;
 }
 
+.store_list .bt_wrap a:first-child {
+	border-left: 0;
+}
+
 .store_list .bt_wrap.item3 a {
 	width: 33%;
 }
