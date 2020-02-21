@@ -110,7 +110,7 @@ public class FileController extends MansungController {
     			
     			int result = photoInfoService.insert(photo);
             	if(result > 0) {
-            		photo.setUrl(getWebappDir(request) +"/thumbnail/"+photo.getId());
+            		photo.setUrl(getWebappDir(request) +"/picture/"+photo.getId());
                     photo.setThumbnailUrl(getWebappDir(request) + "/thumbnail/"+photo.getId());
                     
                     result = photoInfoService.update(photo);
