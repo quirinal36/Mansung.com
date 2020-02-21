@@ -94,14 +94,18 @@ public class AdminController {
 	private int mappingHashTags(List<Integer> tagIds, StoreInfo info) {		
 		int result = 0;
 		List<StoreHash> hashTags = new ArrayList<StoreHash>();
-		for(Integer tag: tagIds) {
-			hashTags.add(StoreHash.newInstance(tag, info.getId()));
-		}
-		if(hashTags.size() > 0) {
-			Iterator<StoreHash> insertIter = hashTags.iterator();
-			while(insertIter.hasNext()) {
-				result = hashTagService.mappingTags(insertIter.next());
+		try {
+			for(Integer tag: tagIds) {
+				hashTags.add(StoreHash.newInstance(tag, info.getId()));
 			}
+			if(hashTags.size() > 0) {
+				Iterator<StoreHash> insertIter = hashTags.iterator();
+				while(insertIter.hasNext()) {
+					result = hashTagService.mappingTags(insertIter.next());
+				}
+			}
+		}catch(NullPointerException e) {
+			logger.info(e.getMessage());
 		}
 		return result;
 	}

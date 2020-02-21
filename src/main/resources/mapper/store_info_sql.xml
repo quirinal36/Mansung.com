@@ -113,9 +113,6 @@
 			LEFT JOIN StoreBanner b
 				ON
 				s.id = b.storeId
-		<where>
-			s.priority > 0
-		</where>
 		ORDER BY s.priority DESC, s.wideBanner DESC, b.bannerText DESC, s.title
 	</select>
 	
