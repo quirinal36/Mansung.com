@@ -88,7 +88,7 @@
 					s.category = ${category}
 				</when>
 				<otherwise>
-					s.category > 0
+					s.priority > 0
 				</otherwise>
 			</choose>
 		</where>
@@ -154,7 +154,8 @@
 			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt,
 			(SELECT url FROM PhotoInfo WHERE id = s.representImage) AS representImageUrl,
 			(SELECT url FROM PhotoInfo WHERE id = s.wideBanner) AS wideBannerUrl,
-			b.bannerText
+			b.bannerText,
+			b.bannerColor
 		FROM 
 			StoreInfo s LEFT JOIN Category c 
 			ON

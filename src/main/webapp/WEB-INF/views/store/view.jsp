@@ -48,14 +48,16 @@
 							</c:if>
 							 -->
 							 
-							 
+
+							<c:if test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
+								<div class="banner_wrap txtType ${store.bannerColorTxt }">
+									<a href="javascript:void(0);">${store.bannerText}</a>
+								</div>
+							</c:if>							 
 							<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
 							<c:if test="${ store.wideBanner > 0 }">
 								<div class="banner_wrap imgType">
-									<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
-								</div>
-								<div class="banner_wrap txtType cornflowerblue">
-									<a href="#">${store.bannerText}</a>
+									<a href="javascript:void(0);"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 								</div>
 							</c:if>
 
