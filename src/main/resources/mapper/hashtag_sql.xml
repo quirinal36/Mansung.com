@@ -21,13 +21,11 @@
 	</select>
 	
 	<insert id="mapping_tags" parameterType="storehash">
-		INSERT INTO StoreHash
-		(storeId, hashId)
-		VALUES
-		<foreach collection="list" item="elem" index="i" open="(" separator="),(" close=")">
-			${elem.storeId},
-			${elem.hashId}
-		</foreach>
+		INSERT INTO StoreHash(storeId, hashId)
+		SELECT
+			${storeId},
+			${hashId}
+		FROM DUAL WHERE NOT EXISTS (SELECT * FROM StoreHash WHERE storeId = ${storeId} AND hashId = ${hashId})
 	</insert>
 	
 	<select id="select" parameterType="store" resultType="hashtag">

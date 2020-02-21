@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!doctype html>
 <html>
 <head>
@@ -49,18 +50,14 @@
 							 
 							 
 							<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
-							<c:choose>
-								<c:when test="${ store.wideBanner > 0 }">
-									<div class="banner_wrap imgType">
-										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
-									</div>
-									<div class="banner_wrap txtType cornflowerblue">
-										<a href="#">${store.bannerText}</a>
-									</div>
-								</c:when>
-								<c:otherwise>
-								</c:otherwise>
-							</c:choose>
+							<c:if test="${ store.wideBanner > 0 }">
+								<div class="banner_wrap imgType">
+									<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+								</div>
+								<div class="banner_wrap txtType cornflowerblue">
+									<a href="#">${store.bannerText}</a>
+								</div>
+							</c:if>
 
 							<!--
 							<div class="banner_wrap txtType cadetblue">
@@ -100,13 +97,13 @@
 					</div>
 					<div class="storeView">
 						<div class="text">
-							<c:if test="${fn:length(store.information) > 0 }">
-														${store.information }
-													</c:if>
-													<c:if test="${fn:length(store.time) > 0 }">
+						<c:if test="${fn:length(store.information) > 0 }">
+							${store.information }
+						</c:if>
+						<c:if test="${fn:length(store.time) > 0 }">
 							<div>
-							<strong>영업시간</strong>
-															${store.time }
+								<strong>영업시간</strong>
+								${fn:replace(store.time, newLineChar, "<br/>")}
 							</div>
 						</c:if>
 						<c:if test="${fn:length(store.website) > 0 }">
@@ -124,7 +121,7 @@
 						</div>
 						<!-- 사진은 최대 3장까지 등록 가능 -->
 						<c:forEach items="${detailImages }" var="item">
-							<img src="${item.thumbnailUrl }" alt="사진">
+							<img src="${item.url }" alt="사진">
 						</c:forEach>
 					
 						<!-- 지도 -->

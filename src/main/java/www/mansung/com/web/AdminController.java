@@ -1,6 +1,7 @@
 package www.mansung.com.web;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -65,7 +66,10 @@ public class AdminController {
 	private int updateHashTags(List<Integer> tagIds, StoreInfo info) {		
 		int result = 0;
 		List<StoreHash> existTags = hashTagService.selectByStoreId(info);
-		
+		Iterator<StoreHash> iter = existTags.iterator();
+		while(iter.hasNext()) {
+			logger.info(iter.next().toString());
+		}
 		if(existTags!=null && existTags.size()>0) {
 			Map<Integer, StoreHash> existMap = existTags.stream().collect(Collectors.toMap(StoreHash::getHashId, storeHash->storeHash));
 			List<StoreHash> insertList = new ArrayList<StoreHash>();
@@ -77,7 +81,10 @@ public class AdminController {
 			}
 			// insert
 			if(insertList.size() > 0) {
-				hashTagService.mappingTags(insertList);
+				Iterator<StoreHash> insertIter = insertList.iterator();
+				while(insertIter.hasNext()) {
+					hashTagService.mappingTags(insertIter.next());
+				}
 			}
 		}else {
 			mappingHashTags(tagIds, info);
@@ -91,7 +98,10 @@ public class AdminController {
 			hashTags.add(StoreHash.newInstance(tag, info.getId()));
 		}
 		if(hashTags.size() > 0) {
-			result = hashTagService.mappingTags(hashTags);
+			Iterator<StoreHash> insertIter = hashTags.iterator();
+			while(insertIter.hasNext()) {
+				result = hashTagService.mappingTags(insertIter.next());
+			}
 		}
 		return result;
 	}

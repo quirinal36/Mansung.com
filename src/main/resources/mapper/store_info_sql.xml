@@ -68,19 +68,12 @@
 				s.id = b.storeId
 		<where>
 			<choose>
-				<when test="category > 0">
-					s.category = ${category}
-				</when>
-				<otherwise>
-					s.priority > 0
-				</otherwise>
-			</choose>
-			<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
-				and (
+				<when test="@www.mansung.com.util.StringUtil@notEmpty(query)">
+					and (
 					s.title like '%${query}%' or
 					s.phone1 like '%${query}%' or
 					s.phone2 like '%${query}%'
-					)
+				)
 				or (
 					s.id IN 
 						(
@@ -89,56 +82,72 @@
 							hashId =
 								(SELECT id FROM HashTag WHERE name = '${query}')
 						)
-					)
-			</if>
+				)
+				</when>
+				<when test="category > 0">
+					s.category = ${category}
+				</when>
+				<otherwise>
+					s.category > 0
+				</otherwise>
+			</choose>
 		</where>
 		ORDER BY s.priority DESC, s.wideBanner DESC, b.bannerText DESC, s.title
 	</select>
 	<select id="select_all" resultType="store">
 		SELECT 
 			s.*, 
-			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt,
-			c.title AS categoryTitle
+			c.title AS categoryTitle,
+			p.id AS wideBanner,
+			p.url AS wideBannerUrl,
+			b.bannerText,
+			b.bannerColor,
+			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt
 		FROM 
 			StoreInfo s LEFT JOIN Category c 
-			ON
-			s.category = c.id
+				ON
+				s.category = c.id
+			LEFT JOIN PhotoInfo p
+				ON
+				s.wideBanner = p.id
 			LEFT JOIN StoreBanner b
 				ON
 				s.id = b.storeId
+		<where>
+			s.priority > 0
+		</where>
+		ORDER BY s.priority DESC, s.wideBanner DESC, b.bannerText DESC, s.title
 	</select>
 	
 	<select id="count" parameterType="store" resultType="int">
 		SELECT COUNT(*)
 		FROM StoreInfo s
-		<if test="category > 0">
-			<where>
-				<choose>
-					<when test="category > 0">
-						s.category = ${category}
-					</when>
-					<otherwise>
-						s.priority > 0
-					</otherwise>
-				</choose>
-				<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
+		<where>
+			<choose>
+				<when test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 					and (
-						s.title like '%${query}%' or
-						s.phone1 like '%${query}%' or
-						s.phone2 like '%${query}%'
-					)
-					or (
-						s.id IN 
-							(
-							SELECT storeId FROM StoreHash 
-								WHERE 
-								hashId =
-									(SELECT id FROM HashTag WHERE name = '${query}')
-							)
-					)
-				</if>
-			</where>
-		</if>
+					s.title like '%${query}%' or
+					s.phone1 like '%${query}%' or
+					s.phone2 like '%${query}%'
+				)
+				or (
+					s.id IN 
+						(
+						SELECT storeId FROM StoreHash 
+							WHERE 
+							hashId =
+								(SELECT id FROM HashTag WHERE name = '${query}')
+						)
+				)
+				</when>
+				<when test="category > 0">
+					s.category = ${category}
+				</when>
+				<otherwise>
+					s.priority > 0
+				</otherwise>
+			</choose>
+		</where>
 	</select>
 	
 	<select id="select_one" resultType="store" parameterType="store">

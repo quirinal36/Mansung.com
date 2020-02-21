@@ -58,8 +58,8 @@ public class HashTagDAO implements DataAccess<HashTag> {
 		return 0;
 	}
 
-	public int mappingTags(List<StoreHash> list) {
-		return sqlSession.insert(namespace +".mapping_tags", list);
+	public int mappingTags(StoreHash input) {
+		return sqlSession.insert(namespace +".mapping_tags", input);
 	}
 	public List<StoreHash> selectByStoreId(StoreInfo input){
 		return sqlSession.selectList(namespace +".select_by_storeid", input);

@@ -19,11 +19,9 @@ function editConfirm(){
 			dataObj[field.name] = field.value;
 		});
 		if(dataObj['priority'] == '' || dataObj['priority'] < 0){
-			console.log("remove priority");
 			$("#adminEditForm").find("input[name='priority']").remove();
 		}
 		if(dataObj['bannerText'] == ''){
-			console.log("remove bannerColor");
 			$("#adminEditForm").find("input[name='bannerColor']").remove();
 			$("#adminEditForm").find("input[name='bannerText']").remove();
 		}
@@ -31,6 +29,8 @@ function editConfirm(){
 		var url = $("#adminEditForm").attr("action");
 		var param = $("#adminEditForm").serialize();
 	
+		console.log(param);
+		
 		$.ajax({
 			url : url,
 			data: param,

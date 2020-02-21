@@ -58,8 +58,8 @@ public class HashTagService implements DataService<HashTag> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	public int mappingTags(List<StoreHash> list) {
-		return dao.mappingTags(list);
+	public int mappingTags(StoreHash input) {
+		return dao.mappingTags(input);
 	}
 	public List<StoreHash> selectByStoreId(StoreInfo input){
 		return dao.selectByStoreId(input);

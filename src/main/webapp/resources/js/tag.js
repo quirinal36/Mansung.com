@@ -7,7 +7,6 @@ function addTag() {
 		
 		// 공백이 아닐 때만 태그 생성	
 		if(txt != "") {
-			console.log(txt);
 			$.ajax({
 				url : "/admin/store/tag",
 				data: "tagName="+txt,
@@ -20,8 +19,6 @@ function addTag() {
 							.append( $("<input>").attr("type", "hidden").attr("name","tagId").val(json.id) )
 						);
 			});
-			// $(".tags").append(' <a href="javascript:void(0);">' + txt + ' <input type="button" value="삭제" onclick="deleteTag(this)"></a>');
-			
 			$("#ipt_tag").val("");
 		}	
 	}

@@ -30,9 +30,12 @@ public class ManInterceptor implements HandlerInterceptor{
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView mv) throws Exception {
-		mv.addObject("logo1", "");
-		mv.addObject("logo2", "_off");
-		
+		try {
+			mv.addObject("logo1", "");
+			mv.addObject("logo2", "_off");
+		}catch(NullPointerException e) {
+			logger.info(e.getMessage());
+		}
 		final String talk = "talk";
 		
 		String path = request.getRequestURL().toString();
@@ -53,7 +56,7 @@ public class ManInterceptor implements HandlerInterceptor{
 						mv.addObject("logo2", "");
 					}
 				}catch(Exception e) {
-					
+					logger.info(e.getMessage());
 				}
 			}
 		}

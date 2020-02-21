@@ -16,24 +16,27 @@
 		<div id="containerWrap">
 			<div id="container">
 				<div id="contentsPrint">
-					<!-- 코로나 관련 -->
-					<div class="virus_wrap">
-						<div class="banner">
-							<a href="#" target="_blank">
-								<img src="http://www.jeonju.go.kr/planweb/upload/402880863251923e01325193a7480005/popup/thumbnail/3a987738-2360-41af-b44a-c64234e95084.jpg" alt="신종코로나바이러스감증 예방행동수칙">
-							</a>
+				
+					<c:if test="${empty storeInfo.query }">
+						<!-- 코로나 관련 -->
+						<div class="virus_wrap">
+							<div class="banner">
+								<a href="#" target="_blank">
+									<img src="http://www.jeonju.go.kr/planweb/upload/402880863251923e01325193a7480005/popup/thumbnail/3a987738-2360-41af-b44a-c64234e95084.jpg" alt="신종코로나바이러스감증 예방행동수칙">
+								</a>
+							</div>
+							<div class="menus">
+								<a href="http://jeonju.go.kr/corona/#tab1" target="_blank">전주시<br> 재난안전대책본부</a>
+								<a href="http://jeonju.go.kr/corona/#tab2" target="_blank">예방행동수칙</a>
+								<a href="http://jeonju.go.kr/corona/#tab3" target="_blank">선별진료소 현황</a>
+							</div>
+							<div class="menus">
+								<a href="http://jeonju.go.kr/corona/#tab4" target="_blank">대응소식</a>
+								<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">확진자 이동경로</a>
+								<a href="http://jeonju.go.kr/corona/#tab6" target="_blank">자주 묻는 질문</a>
+							</div>
 						</div>
-						<div class="menus">
-							<a href="http://jeonju.go.kr/corona/#tab1" target="_blank">전주시<br> 재난안전대책본부</a>
-							<a href="http://jeonju.go.kr/corona/#tab2" target="_blank">예방행동수칙</a>
-							<a href="http://jeonju.go.kr/corona/#tab3" target="_blank">선별진료소 현황</a>
-						</div>
-						<div class="menus">
-							<a href="http://jeonju.go.kr/corona/#tab4" target="_blank">대응소식</a>
-							<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">확진자 이동경로</a>
-							<a href="http://jeonju.go.kr/corona/#tab6" target="_blank">자주 묻는 질문</a>
-						</div>
-					</div>
+					</c:if>
 					<div class="suggest">
 						<a href="/?query=배달">
 							<span>밖에 나가기 조심스러우시죠?</span>
