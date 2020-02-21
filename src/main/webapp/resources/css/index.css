@@ -162,7 +162,7 @@
 	vertical-align: middle;
 }
 
-.bt_wrap {
+#contentsPrint > .bt_wrap {
 	padding: 0 17px 20px 17px;
 }
 
