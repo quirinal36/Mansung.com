@@ -40,7 +40,7 @@
 					<div class="suggest">
 						<a href="/?query=배달">
 							<span>밖에 나가기 조심스러우시죠?</span>
-							<b>만성동 배달 되는 식당·마트</b>
+							<b>우리동네 배달 가능한 식당·마트</b>
 						</a>
 						<a href="/?query=마스크" onclick="alert('재고문의 후 방문하세요.')">
 							<span>미리미리 구비하세요</span>
