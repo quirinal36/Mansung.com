@@ -204,7 +204,7 @@
 					<div class="store_list">
 						<c:if test="${fn:length(list) eq 0}">
 							<div id="noResult">
-								<img src="/resources/img/emoticon/e15.png" alt="(머쓱)">
+								<img src="/resources/img/emoticon/e14.png" alt="(머쓱)">
 								검색결과가 없습니다.
 							</div>
 						</c:if>
