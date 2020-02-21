@@ -204,21 +204,16 @@
 								</div>
 							</div>
 							<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
-							<c:choose>
-								<c:when test="${ store.wideBanner > 0 }">
-									<div class="banner_wrap imgType">
-										<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
-									</div>
-								</c:when>
-								<c:when test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
-									<div class="banner_wrap txtType ${store.bannerColorTxt }">
-										<a href="${store.bannerColor}">${store.bannerText}</a>
-									</div>
-								</c:when>
-								<c:otherwise>
-									
-								</c:otherwise>
-							</c:choose>
+							<c:if test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
+								<div class="banner_wrap txtType ${store.bannerColorTxt }">
+									<a href="${store.bannerColor}">${store.bannerText}</a>
+								</div>
+							</c:if>
+							<c:if test="${ store.wideBanner > 0 }">
+								<div class="banner_wrap imgType">
+									<a href="#" target="_blank"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+								</div>
+							</c:if>
 							<div class="bt_wrap">
 								<a href="<c:url value="/store/view/${store.id }"/>" class="bt_view">
 									<img src="/resources/img/comm/bt_view.png" alt="icon"> 상세
