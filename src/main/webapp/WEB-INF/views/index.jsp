@@ -39,7 +39,7 @@
 							<span>밖에 나가기 조심스러우시죠?</span>
 							<b>만성동 배달 되는 식당·마트</b>
 						</a>
-						<a href="/?query=마스크" onclick="alert('전화 문의 후 방문하세요.')">
+						<a href="/?query=마스크" onclick="alert('재고문의 후 방문하세요.')">
 							<span>미리미리 구비하세요</span>
 							<b>만성동 마스크 파는 곳</b>
 						</a>
@@ -203,11 +203,6 @@
 							<div id="noResult">
 								<img src="/resources/img/emoticon/e15.png" alt="(머쓱)">
 								검색결과가 없습니다.
-								<div class="guide">
-									서비스 이용에 불편하신 점이 있으신가요?<br>
-									만성닷컴에 알려주세요.
-									<a href="http://pf.kakao.com/_gxkyjxb" target="_blank">불편사항 신고</a>
-								</div>
 							</div>
 						</c:if>
 						<c:forEach items="${list }" var="store">
@@ -277,6 +272,10 @@
 							</div>
 						</div>
 						</c:forEach>
+						<div class="user_guide">
+							<p>만성동의 유익한 정보를 만성닷컴에 알려주세요.</p>
+							<a href="http://pf.kakao.com/_gxkyjxb" target="_blank">만성닷컴 카카오톡 채널</a>
+						</div>
 					</div>
 				</div>
 			</div>
