@@ -35,11 +35,11 @@
 						</div>
 					</div>
 					<div class="suggest">
-						<a href="#">
+						<a href="/?query=배달">
 							<span>밖에 나가기 조심스러우시죠?</span>
 							<b>만성동 배달 되는 식당·마트</b>
 						</a>
-						<a href="#" onclick="alert('전화 문의 후 방문하세요.')">
+						<a href="/?query=마스크" onclick="alert('전화 문의 후 방문하세요.')">
 							<span>미리미리 구비하세요</span>
 							<b>만성동 마스크 파는 곳</b>
 						</a>
