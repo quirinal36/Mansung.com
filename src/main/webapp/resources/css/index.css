@@ -165,3 +165,105 @@
 	padding-bottom: 3px;
 	vertical-align: middle;
 }
+
+.virus_wrap .banner {
+	font-size: 0;
+}
+
+.virus_wrap .banner img {
+	width: 100%;
+}
+
+.virus_wrap .menus {
+	display: table;
+	width: 100%;
+	font-size: 0;
+}
+
+.virus_wrap .menus a {
+	display: table-cell;
+	width: 33.3%;
+	padding: 8px 0;
+	vertical-align: middle;
+	box-sizing: border-box;
+	border-top: 1px solid #f0b3b3;
+	border-left: 1px solid #f0b3b3;
+	background: #a52a2a;
+	text-align: center;
+	font-size: 1.4rem;
+	color: #fff;
+	letter-spacing: -1px;
+}
+
+.virus_wrap .menus a:nth-child(3n-2) {
+	width: 33.4%;
+	border-left: 0;
+}
+
+.suggest {
+	margin-bottom: 20px;
+	padding: 10px 0;
+	background: #f5f6f7;
+}
+
+.suggest a {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	padding: 20px;
+	box-sizing: border-box;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	background: #fff url(/resources/img/index/suggest_more.png) no-repeat 100% 50% /30px;
+}
+
+.suggest a:first-child {
+	margin-top: 0;
+}
+
+.suggest a span {
+	display: block;
+	font-size: 1.2rem;
+	color: #777;
+}
+
+.suggest a b {
+	display: block;
+	font-size: 1.8rem;
+	letter-spacing: -1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

@@ -1,7 +1,7 @@
 #noResult {
 	padding: 20px 0;
 	text-align: center;
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 }
 
 #noResult img {
@@ -9,22 +9,6 @@
 	width: 100px;
 	margin: 0 auto 15px auto;
 	animation: noResultImg 2s infinite;
-}
-
-#noResult .guide {
-	margin-top: 20px;
-	padding-top: 20px;
-	border-top: 1px dotted #eee;
-}
-
-#noResult .guide a {
-	display: block;
-	width: 120px;
-	margin: 15px auto 0 auto;
-	padding: 13px 0;
-	border-radius: 2px;
-	background: #f5f6f7;
-	line-height: 100%;
 }
 
 @keyframes noResultImg {
@@ -44,6 +28,32 @@
 		padding-left: 100px;
 		opacity: 0;
 	}
+}
+
+.user_guide {
+	padding: 20px 0;
+}
+
+.user_guide {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px dotted #eee;
+	text-align: center;
+}
+
+.user_guide p {
+	margin-bottom: 10px;
+	font-size: 1.4rem;
+}
+
+.user_guide a {
+	display: inline-block;
+	padding: 13px 15px;
+	border-radius: 2px;
+	background: #174797;
+	line-height: 100%;
+	font-size: 1.4rem;
+	color: #fff;
 }
 
 .store_list {
