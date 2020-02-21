@@ -16,8 +16,13 @@
 		</div>
 	</footer>
 	<div id="fixedBanner">
+		<!--
 	    <a href="https://blog.naver.com/code-ing/221741335660" target="_blank" style="background: #8f81bc;">
 	        <img src="/resources/img/temp/2.png" alt="배너">
+	    </a>
+	    -->
+	    <a href="http://ncov.mohw.go.kr" target="_blank" style="background: #22509c;">
+	        <img src="/resources/img/banner/3.gif" alt="코로나바이러스감염증-19 정식 홈페이지">
 	    </a>
 	</div>
 </div>
