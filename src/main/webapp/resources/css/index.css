@@ -1,5 +1,5 @@
 .idx_category {
-	padding: 25px 7px;
+	padding: 25px 7px 10px 7px;
 }
 
 .idx_category_more {
@@ -23,7 +23,7 @@
 	margin-top: 0;
 }
 
-.idx_category a {
+.idx_category li a {
 	display: inline-block;
 	font-size: 1.4rem;
 }
@@ -150,10 +150,6 @@
 	background-position: -150px -250px;
 }
 
-#contentsPrint > .bt_wrap {
-	padding: 0 17px;
-}
-
 .idx_category .bt_wrap {
 	margin-top: 20px;
 	padding: 0 10px;
@@ -164,6 +160,10 @@
 	margin-left: 2px;
 	padding-bottom: 3px;
 	vertical-align: middle;
+}
+
+.bt_wrap {
+	padding: 0 17px 20px 17px;
 }
 
 .virus_wrap .banner {
@@ -201,7 +201,6 @@
 }
 
 .suggest {
-	margin-bottom: 20px;
 	padding: 10px 0;
 	background: #f5f6f7;
 }

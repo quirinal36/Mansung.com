@@ -6,6 +6,7 @@
 
 #noResult img {
 	display: block;
+	display: none;
 	width: 100px;
 	margin: 0 auto 15px auto;
 	animation: noResultImg 2s infinite;
@@ -39,6 +40,12 @@
 	padding-top: 20px;
 	border-top: 1px dotted #eee;
 	text-align: center;
+}
+
+.user_guide img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 15px;
 }
 
 .user_guide p {

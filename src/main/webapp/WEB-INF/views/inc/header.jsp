@@ -58,7 +58,7 @@ function moveToLogin(){
 		            	<div class="bg"></div>
 		                <nav>
 		                    <ul>
-		                        <li><a href="http://naver.me/IgoZTYYM" target="_blank">업체등록·정정신청</a></li>
+		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">업체등록·정정신청</a></li>
 		                        <li><a href="http://pf.kakao.com/_gxkyjxb" target="_blank">문의하기</a></li>
 		                        <sec:authorize access="isAnonymous()">
 		                        	<li><a href="/login">로그인</a></li>

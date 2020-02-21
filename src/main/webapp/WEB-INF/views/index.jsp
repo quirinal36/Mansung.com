@@ -32,174 +32,166 @@
 							</div>
 							<div class="menus">
 								<a href="http://jeonju.go.kr/corona/#tab4" target="_blank">대응소식</a>
-								<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">확진자 이동경로</a>
+								<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">확진환자 이동경로</a>
 								<a href="http://jeonju.go.kr/corona/#tab6" target="_blank">자주 묻는 질문</a>
 							</div>
 						</div>
-					</c:if>
-					<div class="suggest">
-						<a href="/?query=배달">
-							<span>밖에 나가기 조심스러우시죠?</span>
-							<b>우리동네 배달 가능한 식당·마트</b>
-						</a>
-						<a href="/?query=마스크" onclick="alert('재고문의 후 방문하세요.')">
-							<span>미리미리 구비하세요</span>
-							<b>만성동 마스크 파는 곳</b>
-						</a>
-					</div>
-					<div class="bt_wrap">
-						<a href="http://naver.me/IgoZTYYM" target="_blank" class="bt4 on">업체등록·정정신청</a>
-					</div>
-					<!-- index category -->
-					<div class="idx_category">
-						<ul>
-							<li>
-								<a href="/index?category=2" class="restaurant">
-									<span>icon</span> 식당
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=3" class="cafe">
-									<span>icon</span> 카페·디저트
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=4" class="hospital">
-									<span>icon</span> 의료
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=5" class="mart">
-									<span>icon</span> 마트·쇼핑
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=6" class="beauty">
-									<span>icon</span> 미용·뷰티
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=7" class="academy">
-									<span>icon</span> 학원
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=8" class="law">
-									<span>icon</span> 법률
-								</a>
-							</li>
-							<li>
-								<a href="/index?category=9" class="estate">
-									<span>icon</span> 부동산
-								</a>
-							</li>
-						</ul>
-						<!-- 숨은 카테고리 -->
-						<div class="idx_category_more">
+						
+						<div class="suggest">
+							<a href="/?query=배달">
+								<span>밖에 나가기 조심스러우시죠?</span>
+								<b>우리동네 배달 가능한 식당·마트</b>
+							</a>
+							<a href="/?query=마스크" onclick="alert('재고문의 후 방문하세요.')">
+								<span>미리미리 구비하세요</span>
+								<b>만성동 마스크 파는 곳</b>
+							</a>
+						</div>
+						<!-- index category -->
+						<div class="idx_category">
 							<ul>
 								<li>
-									<a href="/index?category=11" class="construction">
-										<span>icon</span> 건축·환경
+									<a href="/index?category=2" class="restaurant">
+										<span>icon</span> 식당
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=17" class="church">
-										<span>icon</span> 교회
+									<a href="/index?category=3" class="cafe">
+										<span>icon</span> 카페·디저트
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=15" class="bank">
-										<span>icon</span> 금융
+									<a href="/index?category=4" class="hospital">
+										<span>icon</span> 의료
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=10" class="organization">
-										<span>icon</span> 기관·단체
+									<a href="/index?category=5" class="mart">
+										<span>icon</span> 마트·쇼핑
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=22" class="plant">
-										<span>icon</span> 꽃·식물
+									<a href="/index?category=6" class="beauty">
+										<span>icon</span> 미용·뷰티
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=18" class="catholic">
-										<span>icon</span> 성당
+									<a href="/index?category=7" class="academy">
+										<span>icon</span> 학원
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=21" class="tax">
-										<span>icon</span> 세무·회계
+									<a href="/index?category=8" class="law">
+										<span>icon</span> 법률
 									</a>
 								</li>
 								<li>
-									<a href="/index?category=23" class="software">
-										<span>icon</span> 소프트웨어
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=24" class="stenograph">
-										<span>icon</span> 속기
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=13" class="kids">
-										<span>icon</span> 어린이
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=14" class="health">
-										<span>icon</span> 운동·건강
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=19" class="interior">
-										<span>icon</span> 인테리어
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=12" class="car">
-										<span>icon</span> 자동차
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=16" class="entertainment">
-										<span>icon</span> 취미·오락
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=20" class="fashion">
-										<span>icon</span> 패션
-									</a>
-								</li>
-								<li>
-									<a href="/index?category=1" class="etc">
-										<span>icon</span> 기타
+									<a href="/index?category=9" class="estate">
+										<span>icon</span> 부동산
 									</a>
 								</li>
 							</ul>
+							<!-- 숨은 카테고리 -->
+							<div class="idx_category_more">
+								<ul>
+									<li>
+										<a href="/index?category=11" class="construction">
+											<span>icon</span> 건축·환경
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=17" class="church">
+											<span>icon</span> 교회
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=15" class="bank">
+											<span>icon</span> 금융
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=10" class="organization">
+											<span>icon</span> 기관·단체
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=22" class="plant">
+											<span>icon</span> 꽃·식물
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=18" class="catholic">
+											<span>icon</span> 성당
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=21" class="tax">
+											<span>icon</span> 세무·회계
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=23" class="software">
+											<span>icon</span> 소프트웨어
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=24" class="stenograph">
+											<span>icon</span> 속기
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=13" class="kids">
+											<span>icon</span> 어린이
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=14" class="health">
+											<span>icon</span> 운동·건강
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=19" class="interior">
+											<span>icon</span> 인테리어
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=12" class="car">
+											<span>icon</span> 자동차
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=16" class="entertainment">
+											<span>icon</span> 취미·오락
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=20" class="fashion">
+											<span>icon</span> 패션
+										</a>
+									</li>
+									<li>
+										<a href="/index?category=1" class="etc">
+											<span>icon</span> 기타
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="bt_wrap">
+								<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기 <img src="/resources/img/comm/arrow_down.png" alt="아이콘"></a>
+							</div>
+							<!--
+							<c:forEach items="${cateList }" var="category">
+								<a href="<c:url value="/index?category=${category.id }"/>">
+									<span>icon</span>
+									${category.title }
+								</a>
+							</c:forEach>
+							-->
 						</div>
-						<div class="bt_wrap">
-							<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기 <img src="/resources/img/comm/arrow_down.png" alt="아이콘"></a>
-						</div>
-						<!--
-						<c:forEach items="${cateList }" var="category">
-							<a href="<c:url value="/index?category=${category.id }"/>">
-								<span>icon</span>
-								${category.title }
-							</a>
-						</c:forEach>
-						-->
+					</c:if>
+					<div class="bt_wrap">
+						<a href="http://pf.kakao.com/_gxkyjxb" target="_blank" class="bt4 on">업체등록·정정신청</a>
 					</div>
-					<%--
-						<div class="tab_wrap type1 item5">
-							<a href="#" class="on">통합검색</a>
-							<a href="#">업체명</a>
-							<a href="#">태그</a>
-							<a href="#">주소</a>
-							<a href="#">전화번호</a>
-						</div>
-					 --%>
 					<!-- store list -->
 					<div class="store_list">
 						<c:if test="${fn:length(list) eq 0}">
@@ -271,7 +263,8 @@
 						</div>
 						</c:forEach>
 						<div class="user_guide">
-							<p>만성동의 유익한 정보를 만성닷컴에 알려주세요.</p>
+							<img src="/resources/img/emoticon/e12.png" alt="따봉">
+							<p>만성닷컴에 아직 적용되지 않은<br> 유익한 정보를 알려주세요.</p>
 							<a href="http://pf.kakao.com/_gxkyjxb" target="_blank">만성닷컴 카카오톡 채널</a>
 						</div>
 					</div>
