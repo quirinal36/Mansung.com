@@ -17,11 +17,11 @@
 			<div id="container">
 				<div id="contentsPrint">
 				
-					<c:if test="${empty storeInfo.query }">
+					<c:if test="${(empty storeInfo.query) and (storeInfo.category eq 0)}">
 						<!-- 코로나 관련 -->
 						<div class="virus_wrap">
 							<div class="banner">
-								<a href="#" target="_blank">
+								<a href="http://jeonju.go.kr" target="_blank">
 									<img src="http://www.jeonju.go.kr/planweb/upload/402880863251923e01325193a7480005/popup/thumbnail/3a987738-2360-41af-b44a-c64234e95084.jpg" alt="신종코로나바이러스감증 예방행동수칙">
 								</a>
 							</div>
