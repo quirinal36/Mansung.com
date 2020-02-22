@@ -26,14 +26,14 @@
 								</a>
 							</div>
 							<div class="menus">
-								<a href="http://jeonju.go.kr/corona/#tab1" target="_blank">전주시<br> 재난안전대책본부</a>
+								<a href="http://jeonju.go.kr/corona/#tab1" target="_blank">대응소식</a>
 								<a href="http://jeonju.go.kr/corona/#tab2" target="_blank">예방행동수칙</a>
 								<a href="http://jeonju.go.kr/corona/#tab3" target="_blank">선별진료소 현황</a>
 							</div>
 							<div class="menus">
-								<a href="http://jeonju.go.kr/corona/#tab4" target="_blank">대응소식</a>
-								<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">확진환자 이동경로</a>
-								<a href="http://jeonju.go.kr/corona/#tab6" target="_blank">자주 묻는 질문</a>
+								<a href="http://jeonju.go.kr/corona/#tab4" target="_blank">확진환자 이동경로</a>
+								<a href="http://jeonju.go.kr/corona/#tab5" target="_blank">자주 묻는 질문</a>
+								<a href="http://jeonju.go.kr/corona/#tab6" target="_blank">전주시<br> 재난안전대책본부</a>
 							</div>
 						</div>
 						
