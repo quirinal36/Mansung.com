@@ -100,7 +100,7 @@
 					<div class="storeView">
 						<div class="text">
 						<c:if test="${fn:length(store.information) > 0 }">
-							${store.information }
+							${fn:replace(store.information, newLineChar, "<br/>")}
 						</c:if>
 						<c:if test="${fn:length(store.time) > 0 }">
 							<div>

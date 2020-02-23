@@ -3,12 +3,15 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="su" uri="/WEB-INF/tlds/customTags" %>
+<jsp:useBean id="today" class="java.util.Date" />
+<fmt:formatDate value="${today}" pattern="yyyyMMdd-HHmm" var="nowDate"/>
+
 <!doctype html>
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
-	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"/>">
-	<script src="<c:url value="/resources/js/index.js"/>"></script>
+	<link rel="stylesheet" href="<c:url value="/resources/css/index.css"><c:param name="dt" value="${nowDate }"/></c:url>">
+	<script src="<c:url value="/resources/js/index.js"><c:param name="dt" value="${nowDate }"/></c:url>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -21,7 +24,7 @@
 						<!-- 코로나 관련 -->
 						<div class="virus_wrap">
 							<div class="banner">
-								<a href="http://jeonju.go.kr" target="_blank">
+								<a href="http://jeonju.go.kr/corona/#tab2" target="_blank">
 									<img src="http://www.jeonju.go.kr/planweb/upload/402880863251923e01325193a7480005/popup/thumbnail/3a987738-2360-41af-b44a-c64234e95084.jpg" alt="신종코로나바이러스감증 예방행동수칙">
 								</a>
 							</div>

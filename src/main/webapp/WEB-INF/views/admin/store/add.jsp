@@ -125,7 +125,7 @@
 	                                <tr class="image">
 	                                    <th>상세이미지</th>
 	                                    <td id="dropzone-img-det">
-	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/sized/image"/>">
+	                                        <input id="image-upload-btn-det" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>">
 	                                        <div id="progress_det_image" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
 										        <div class="progress-bar" style="width: 0%;" ></div>
 										    </div>

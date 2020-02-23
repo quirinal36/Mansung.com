@@ -3,6 +3,8 @@ package www.mansung.com.vo;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.format.annotation.NumberFormat;
 
 import lombok.Getter;
@@ -11,7 +13,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class StoreInfo extends Paging{
 	int id;
 	String title;
@@ -49,5 +50,10 @@ public class StoreInfo extends Paging{
 		StoreInfo result = new StoreInfo();
 		result.setId(id);
 		return result;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
 	}
 }
