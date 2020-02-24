@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!doctype html>
 <html>
 <head>
@@ -65,12 +67,16 @@
                                 </tr>
                                 <tr>
                                     <th>소개</th>
-                                    <td>${store.information }</td>
+                                    <td>${fn:replace(store.information, newLineChar, "<br/>")}</td>
+                                </tr>
+                                <tr>
+                                    <th>메뉴</th>
+                                    <td>${fn:replace(store.storeMenu, newLineChar, "<br/>")}</td>
                                 </tr>
                                 <tr>
                                     <th>영업시간</th>
 									<td>
-										${store.time }
+										${fn:replace(store.time, newLineChar, "<br/>")}
                                     </td>
 								</tr>
 								<tr>
@@ -82,7 +88,7 @@
                                     <td><a href="https://blog.naver.com/code-ing" target="_blank">${store.blog }</a></td>
                                 </tr>
                                 <tr class="image">
-                                    <th>썸네일</th>
+                                    <th>대표이미지</th>
                                     <td>
                                         <ul>
                                             <li>
@@ -103,8 +109,20 @@
                                         </ul>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th>텍스트 광고</th>
+                                    <td>
+                                    	${store.bannerText}
+                                    </td>
+                                </tr>
+                                <tr>
+                                	<th>텍스트 광고 링크</th>
+                                	<td>
+                                		${store.textBannerLink }
+                                	</td>
+                                </tr>
                                 <tr class="image">
-                                    <th>와이드 배너</th>
+                                    <th>이미지 광고</th>
                                     <td>
                                         <ul>
                                         	<c:if test="${not empty wideBanner }">
@@ -116,7 +134,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>키워드</th>
+                                    <th>이미지 광고 링크</th>
+                                    <td>${store.wideBannerLink }</td>
+                                </tr>
+                                <tr>
+                                    <th>태그</th>
                                     <td>
 										<div class="tags">
 											<c:forEach items="${tags }" var="item">
@@ -135,7 +157,7 @@
                             	<tr>
                                     <th>관리자 메모</th>
                                     <td>
-                                    
+                                    	${store.adminMemo }
                                     </td>
                                 </tr>
                             </tbody>

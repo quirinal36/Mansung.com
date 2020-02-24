@@ -25,7 +25,9 @@
 			category,
 			wideBanner,
 			wideBannerLink,
-			textBannerLink
+			textBannerLink,
+			storeMenu,
+			adminMemo
 		)
 		VALUES
 		(
@@ -50,7 +52,9 @@
 			${category},
 			${wideBanner},
 			'${wideBannerLink}',
-			'${textBannerLink}'
+			'${textBannerLink}',
+			'${storeMenu}',
+			'${adminMemo}'
 		)
 	</insert>
 	<select id="select" parameterType="store" resultType="store">
@@ -199,7 +203,9 @@
 			wideBanner = ${wideBanner},
 			priority = ${priority},
 			wideBannerLink = '${wideBannerLink}',
-			textBannerLink = '${textBannerLink}'
+			textBannerLink = '${textBannerLink}',
+			storeMenu = '${storeMenu}',
+			adminMemo = '${adminMemo}'
 		</set>
 		<where>
 			id=${id}

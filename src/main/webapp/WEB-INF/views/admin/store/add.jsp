@@ -30,8 +30,11 @@
 	                                    <th>카테고리</th>
 	                                    <td>
 	                                    	<select name="category">
+	                                    		<option value="1">기타</option>
 	                                    		<c:forEach items="${cateList }" var="cate">
-	                                    			<option value="${cate.id }">${cate.title }</option>
+                                    				<c:if test="${cate.id gt 1}">
+                                    					<option value="${cate.id }">${cate.title }</option>
+                                    				</c:if>
 	                                    		</c:forEach>
 	                                    	</select>
 	                                    </td>
@@ -97,6 +100,12 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
+	                                    <th>메뉴</th>
+	                                    <td>
+	                                        <textarea placeholder="메뉴 입력" class="ipt1" name="storeMenu"></textarea>
+	                                    </td>
+	                                </tr>
+	                                <tr>
 	                                    <th>영업시간</th>
 	                                    <td>
 	                                        <textarea placeholder="영업시간 입력" class="ipt1" name="time"></textarea>
@@ -138,26 +147,8 @@
 	                                        </ul>
 	                                    </td>
 	                                </tr>
-	                                <tr class="image">
-	                                    <th>이미지 광고</th>
-	                                    <td id="dropzone-img">
-	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록">
-	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-										        <div class="progress-bar" style="width: 0%;" ></div>
-										    </div>
-	                                        <ul id="banner-li">
-	                                           
-	                                        </ul>
-	                                    </td>
-	                                </tr>
 	                                <tr>
-	                                	<th>이미지 광고 링크</th>
-	                                	<td>
-	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
-	                                	</td>
-	                                </tr>
-	                                <tr>
-	                                    <th>키워드</th>
+	                                    <th>태그</th>
 	                                    <td>
 											<div class="tag_area">
 												<div class="add">
@@ -173,11 +164,7 @@
 											</div>
 	                                    </td>
 	                                </tr>
-	                            	<tr>
-	                                    <th>메인 노출순서</th>
-	                                    <td><input type="number" value="" placeholder="노출순서 입력" class="ipt1" name="priority"></td>
-	                                </tr>
-	                            	<tr>
+	                                <tr>
 	                                    <th>텍스트 광고</th>
 	                                    <td>
 	                                    	<div class="colorSelect">
@@ -203,10 +190,32 @@
 	                                		<input type="text" name="textBannerLink" placeholder="http://"/>
 	                                	</td>
 	                                </tr>
+	                                <tr class="image">
+	                                    <th>이미지 광고</th>
+	                                    <td id="dropzone-img">
+	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록">
+	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="banner-li">
+	                                           
+	                                        </ul>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                	<th>이미지 광고 링크</th>
+	                                	<td>
+	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
+	                                	</td>
+	                                </tr>
+	                            	<tr>
+	                                    <th>메인 노출순서</th>
+	                                    <td><input type="number" value="" placeholder="노출순서 입력" class="ipt1" name="priority"></td>
+	                                </tr>
 	                                <tr>
 	                                	<th>관리자 메모</th>
 	                                	<td>
-	                                		<textarea placeholder="메모 입력" class="ipt1"></textarea>
+	                                		<textarea placeholder="메모 입력" class="ipt1" name="adminMemo"></textarea>
 	                                	</td>
 	                                </tr>
 	                            </tbody>

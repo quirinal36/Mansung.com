@@ -45,7 +45,9 @@ public class StoreInfo extends Paging{
 	String bannerText;
 	String bannerColorTxt;
 	String wideBannerLink;
-	String textBannerLink;	
+	String textBannerLink;
+	String storeMenu;
+	String adminMemo;
 	int priority;
 	
 	public static StoreInfo newInstance(int id) {

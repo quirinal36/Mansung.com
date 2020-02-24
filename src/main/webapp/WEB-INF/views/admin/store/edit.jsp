@@ -104,6 +104,12 @@
 	                                    </td>
 	                                </tr>
 	                                <tr>
+	                                    <th>메뉴</th>
+	                                    <td>
+	                                        <textarea placeholder="메뉴 입력" class="ipt1" name="storeMenu">${store.storeMenu }</textarea>
+	                                    </td>
+	                                </tr>
+	                                <tr>
 	                                    <th>영업시간</th>
 	                                    <td>
 	                                        <textarea placeholder="영업시간 입력" class="ipt1" name="time">${store.time }</textarea>
@@ -157,30 +163,6 @@
 	                                        </ul>
 	                                    </td>
 	                                </tr>
-	                                <tr class="image">
-	                                    <th>이미지 광고</th>
-	                                    <td id="dropzone-img">
-	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록" class="bt2">
-	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-										        <div class="progress-bar" style="width: 0%;" ></div>
-										    </div>
-	                                        <ul id="banner-li">
-	                                        	<c:if test="${store.wideBanner > 0}">
-	                                        		<li id="${store.wideBanner }">
-	                                        			<img src="${store.wideBannerUrl }">
-	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
-	                                        			<input type="hidden" value="${store.wideBanner }" name="wideBanner"/>
-	                                        		</li>
-	                                        	</c:if>
-	                                        </ul>
-	                                    </td>
-	                                </tr>
-	                                <tr>
-	                                	<th>이미지 광고 링크</th>
-	                                	<td>
-	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
-	                                	</td>
-	                                </tr>
 	                                <tr>
 	                                    <th>태그</th>
 	                                    <td>
@@ -203,13 +185,7 @@
 											</div>
 	                                    </td>
 	                                </tr>
-	                            	<tr>
-	                                    <th>메인 노출순서</th>
-	                                    <td>
-	                                    	<input type="number" value="${store.priority }" placeholder="노출순서 입력" class="ipt1" name="priority">
-	                                    </td>
-	                                </tr>
-	                            	<tr>
+	                                <tr>
 	                                    <th>텍스트 광고</th>
 	                                    <td>
 	                                    	<div class="colorSelect">
@@ -235,10 +211,40 @@
 	                                		<input type="text" value="${store.textBannerLink }" name="textBannerLink" placeholder="http://"/>
 	                                	</td>
 	                                </tr>
+	                                <tr class="image">
+	                                    <th>이미지 광고</th>
+	                                    <td id="dropzone-img">
+	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록" class="bt2">
+	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+										        <div class="progress-bar" style="width: 0%;" ></div>
+										    </div>
+	                                        <ul id="banner-li">
+	                                        	<c:if test="${store.wideBanner > 0}">
+	                                        		<li id="${store.wideBanner }">
+	                                        			<img src="${store.wideBannerUrl }">
+	                                        			<input type="button" class="bt2" value="삭제" onclick="delImageClick(this);">
+	                                        			<input type="hidden" value="${store.wideBanner }" name="wideBanner"/>
+	                                        		</li>
+	                                        	</c:if>
+	                                        </ul>
+	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                	<th>이미지 광고 링크</th>
+	                                	<td>
+	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
+	                                	</td>
+	                                </tr>
+	                            	<tr>
+	                                    <th>메인 노출순서</th>
+	                                    <td>
+	                                    	<input type="number" value="${store.priority }" placeholder="노출순서 입력" class="ipt1" name="priority">
+	                                    </td>
+	                                </tr>
 	                                <tr>
 	                                	<th>관리자 메모</th>
 	                                	<td>
-	                                		<textarea placeholder="메모 입력" class="ipt1"></textarea>
+	                                		<textarea placeholder="메모 입력" class="ipt1" name="adminMemo">${store.adminMemo }</textarea>
 	                                	</td>
 	                                </tr>
 	                            </tbody>
