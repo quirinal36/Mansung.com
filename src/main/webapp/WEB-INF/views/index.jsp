@@ -195,6 +195,7 @@
 							</div>
 							<div class="bt_wrap">
 								<a href="javascript:void(0);" class="bt4 bt_cMore">카테고리 전체보기 <img src="/resources/img/comm/arrow_down.png" alt="아이콘"></a>
+								<a href="http://pf.kakao.com/_gxkyjxb" target="_blank" class="bt4 on">업체등록·정정신청</a>
 							</div>
 							<!--
 							<c:forEach items="${cateList }" var="category">
@@ -206,9 +207,6 @@
 							-->
 						</div>
 					</c:if>
-					<div class="bt_wrap">
-						<a href="http://pf.kakao.com/_gxkyjxb" target="_blank" class="bt4 on">업체등록·정정신청</a>
-					</div>
 					<!-- store list -->
 					<div class="store_list">
 						<c:if test="${fn:length(list) eq 0}">
