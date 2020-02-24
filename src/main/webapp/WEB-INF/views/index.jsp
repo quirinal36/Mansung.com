@@ -45,9 +45,23 @@
 								<span>밖에 나가기 조심스러우시죠?</span>
 								<b>우리동네 배달 가능한 식당·마트</b>
 							</a>
+							<!-- 
 							<a href="/?query=마스크" onclick="alert('재고문의 후 방문하세요.')">
 								<span>미리미리 구비하세요</span>
 								<b>만성동 마스크 파는 곳</b>
+							</a>
+							-->
+							<a href="/?query=착한식당">
+								<span>주메뉴 7,000원 이하</span>
+								<b>맛있는데 가격도 착해</b>
+							</a>
+							<a href="/?query=런치할인">
+								<span>맛있는 메뉴를 보다 저렴하게~</span>
+								<b>점심에 가면 할인되는 식당</b>
+							</a>
+							<a href="/?query=예쁜가게">
+								<span>남심저격 여심저격</span>
+								<b>우리동네 예쁜가게</b>
 							</a>
 						</div>
 						<!-- index category -->
