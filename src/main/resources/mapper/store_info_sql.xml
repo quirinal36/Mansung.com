@@ -5,6 +5,7 @@
 		INSERT INTO StoreInfo
 		(
 			title, 
+			titleLocal,
 			address1, 
 			address2, 
 			address3, 
@@ -22,11 +23,14 @@
 			time,
 			representImage,
 			category,
-			wideBanner
+			wideBanner,
+			wideBannerLink,
+			textBannerLink
 		)
 		VALUES
 		(
 			'${title}', 
+			'${titleLocal}',
 			'${address1}', 
 			'${address2}', 
 			'${address3}', 
@@ -44,7 +48,9 @@
 			'${time}',
 			${representImage},
 			${category},
-			${wideBanner}
+			${wideBanner},
+			'${wideBannerLink}',
+			'${textBannerLink}'
 		)
 	</insert>
 	<select id="select" parameterType="store" resultType="store">
@@ -171,7 +177,8 @@
 	<update id="update" parameterType="store">
 		UPDATE StoreInfo
 		<set>
-			title='${title}', 
+			title='${title}',
+			titleLocal='${titleLocal}',  
 			address1 = '${address1}', 
 			address2 = '${address2}', 
 			address3 = '${address3}', 
@@ -190,7 +197,9 @@
 			representImage = ${representImage},
 			category = ${category},
 			wideBanner = ${wideBanner},
-			priority = ${priority}
+			priority = ${priority},
+			wideBannerLink = '${wideBannerLink}',
+			textBannerLink = '${textBannerLink}'
 		</set>
 		<where>
 			id=${id}

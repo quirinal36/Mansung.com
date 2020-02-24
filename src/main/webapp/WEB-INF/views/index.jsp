@@ -219,7 +219,7 @@
 						<div id="store-${store.id }" class="item">
 							<div class="info">
 								<!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
-								<a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title }</a>
+								<a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title } ${store.titleLocal }</a>
 								<span class="category">${store.categoryTitle }</span>
 								 <c:if test="${fn:length(store.phone1) > 0 }">
 									<div>

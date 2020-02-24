@@ -16,6 +16,7 @@ import lombok.ToString;
 public class StoreInfo extends Paging{
 	int id;
 	String title;
+	String titleLocal;
 	String address1;
 	String address2;
 	String address3;
@@ -43,7 +44,8 @@ public class StoreInfo extends Paging{
 	int bannerColor;
 	String bannerText;
 	String bannerColorTxt;
-	
+	String wideBannerLink;
+	String textBannerLink;	
 	int priority;
 	
 	public static StoreInfo newInstance(int id) {

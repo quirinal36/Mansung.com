@@ -28,6 +28,10 @@
                                     <td>${store.title }</td>
                                 </tr>
                                 <tr>
+                                    <th>지점명</th>
+                                    <td>${store.titleLocal }</td>
+                                </tr>
+                                <tr>
                                     <th>지역명</th>
                                     <td>${store.address1 }</td>
                                 </tr>

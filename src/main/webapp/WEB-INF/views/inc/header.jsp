@@ -88,13 +88,15 @@ function moveToLogin(){
 					</div>
 				</c:when>
 				<c:otherwise>
-				    <!-- 만성인 검색창 -->
-					<div class="search_wrap type2">
-						<form action="/index">
-							<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt" autocomplete="off">
-							<input type="button" value="검색" onclick="javascript:search(this);">
-						</form>
-					</div>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					    <!-- 만성인 검색창 -->
+						<div class="search_wrap type2">
+							<form action="/index">
+								<input type="text" placeholder="검색어 입력" value="" name="query" id="header_search_txt" autocomplete="off">
+								<input type="button" value="검색" onclick="javascript:search(this);">
+							</form>
+						</div>
+					</sec:authorize>
 				</c:otherwise>
 			</c:choose>
 	    </div>
