@@ -37,7 +37,7 @@
                             <tbody>
                             	<c:forEach items="${list }" var="item">
                             		<tr>
-										<td class="name"><a href="<c:url value="/admin/store/view/${item.id }"/>">${item.title }</a></td>
+										<td class="name"><a href="<c:url value="/admin/store/view/${item.id }"/>">${item.title } ${item.titleLocal }</a></td>
 										<td>100</td>
 										<td>15</td>
 										<td><fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd" /></td>
