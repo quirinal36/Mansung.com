@@ -42,7 +42,7 @@
 						
 						<div class="suggest">
 							<a href="/?query=배달">
-								<span>밖에 나가기 조심스러우시죠?</span>
+								<span>밖에 나가기 조심스러우시죠? 메뉴 업데이트!</span>
 								<b>우리동네 배달 가능한 식당·마트</b>
 							</a>
 							<!-- 
@@ -52,17 +52,23 @@
 							</a>
 							-->
 							<a href="/?query=착한식당">
-								<span>주메뉴 7,000원 이하</span>
-								<b>맛있는데 가격도 착해</b>
+								<span>맛있는데 가격도 착해</span>
+								<b>주메뉴 7,000원 이하인 식당</b>
 							</a>
 							<a href="/?query=런치할인">
 								<span>맛있는 메뉴를 보다 저렴하게~</span>
-								<b>점심에 가면 할인되는 식당</b>
+								<b>점심에 가면 런치할인 적용!</b>
 							</a>
+							<!--
 							<a href="/?query=예쁜가게">
 								<span>남심저격 여심저격</span>
 								<b>우리동네 예쁜가게</b>
 							</a>
+							<a href="/?query=봉사">
+								<span>코로나 사태 종료 후 봉사활동 가능</span>
+								<b>중고등학생 봉사활동 여기서~</b>
+							</a>
+							-->
 						</div>
 						<!-- index category -->
 						<div class="idx_category">
