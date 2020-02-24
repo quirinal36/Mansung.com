@@ -208,7 +208,7 @@
 	                                <tr>
 	                                	<th>텍스트 광고 링크</th>
 	                                	<td>
-	                                		<input type="text" value="${store.textBannerLink }" name="textBannerLink" placeholder="http://"/>
+	                                		<input type="text" value="${store.textBannerLink }" name="textBannerLink" placeholder="링크 입력" class="ipt1"/>
 	                                	</td>
 	                                </tr>
 	                                <tr class="image">
@@ -232,7 +232,7 @@
 	                                <tr>
 	                                	<th>이미지 광고 링크</th>
 	                                	<td>
-	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
+	                                		<input type="text" name="wideBannerLink" placeholder="링크 입력" value="${store.wideBannerLink }" class="ipt1"/>
 	                                	</td>
 	                                </tr>
 	                            	<tr>

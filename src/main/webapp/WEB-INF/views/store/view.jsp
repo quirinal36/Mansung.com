@@ -51,30 +51,16 @@
 
 							<c:if test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
 								<div class="banner_wrap txtType ${store.bannerColorTxt }">
-									<a href="javascript:void(0);">${store.bannerText}</a>
+									<a href="${store.textBannerLink}">${store.bannerText}</a>
 								</div>
 							</c:if>							 
 							<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
 							<c:if test="${ store.wideBanner > 0 }">
 								<div class="banner_wrap imgType">
-									<a href="javascript:void(0);"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+									<a href="${store.wideBannerLink }"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 								</div>
 							</c:if>
-
-							<!--
-							<div class="banner_wrap txtType cadetblue">
-								<a href="#">만성닷컴 배너 무료 등록기간 운영안내</a>
-							</div>
-							<div class="banner_wrap txtType cornflowerblue">
-								<a href="#">만성닷컴 배너 무료 등록기간 운영안내1</a>
-							</div>
-							<div class="banner_wrap txtType steelblue">
-								<a href="#">만성닷컴 배너 무료 등록기간 운영안내4</a>
-							</div>
-							<div class="banner_wrap txtType mediumpurple">
-								<a href="#">만성닷컴 배너 무료 등록기간 운영안내14</a>
-							</div>
-							-->
+							<!-- 전화, 지도, 공유버튼 -->
 							<div class="bt_wrap item3">
 								<c:choose>
 									<c:when test="${fn:length(store.phone1) gt 0 }">
@@ -101,6 +87,12 @@
 						<div class="text">
 						<c:if test="${fn:length(store.information) > 0 }">
 							${fn:replace(store.information, newLineChar, "<br/>")}
+						</c:if>
+						<c:if test="${fn:length(store.storeMenu) > 0 }">
+							<div>
+								<strong>가격정보</strong>
+								${fn:replace(store.storeMenu, newLineChar, "<br/>")}
+							</div>
 						</c:if>
 						<c:if test="${fn:length(store.time) > 0 }">
 							<div>

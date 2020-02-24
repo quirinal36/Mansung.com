@@ -236,6 +236,10 @@
 	margin-top: 20px;
 }
 
+.storeView .text div:first-child {
+	margin-top: 0;
+}
+
 .storeView .text div a {
 	text-decoration: underline;
 	color: navy;

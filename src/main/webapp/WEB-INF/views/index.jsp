@@ -218,7 +218,6 @@
 						<c:forEach items="${list }" var="store">
 						<div id="store-${store.id }" class="item">
 							<div class="info">
-								<!-- <a href="javascript:void(0)" class="thumbnail" style="background-image: url(/resources/img/store/.png);">${store.title }</a> -->
 								<a href="<c:url value="/store/view/${store.id }"/>" class="name">${store.title } ${store.titleLocal }</a>
 								<span class="category">${store.categoryTitle }</span>
 								 <c:if test="${fn:length(store.phone1) > 0 }">
@@ -239,12 +238,12 @@
 							<!-- 이미지배너가 있을 때는 이미지배너 등록, 텍스트배너가 있을 때는 텍스트배너 등록, 중복 가능 -->
 							<c:if test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
 								<div class="banner_wrap txtType ${store.bannerColorTxt }">
-									<a href="javascript:void(0);">${store.bannerText}</a>
+									<a href="${store.textBannerLink}">${store.bannerText}</a>
 								</div>
 							</c:if>
 							<c:if test="${ store.wideBanner > 0 }">
 								<div class="banner_wrap imgType">
-									<a href="javascript:void(0);"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
+									<a href="${store.wideBannerLink }"><img src="${store.wideBannerUrl }" alt="${store.title }"></a>
 								</div>
 							</c:if>
 							<div class="bt_wrap">
@@ -270,7 +269,6 @@
 									<c:set var="fullURL" value="${pageContext.request.requestURL }"></c:set>
 									<c:set var="pathURL" value="${pageContext.request.requestURI }"></c:set>
 									<c:set var="baseURL" value="${fn:replace(fullURL, pathURL, '')}"></c:set>
-									
 									<input type="hidden" value="<c:url value="${baseURL }/store/view/${store.id }"/>"/>
 									<img src="/resources/img/comm/bt_share.png" alt="icon"> 공유
 								</a>
