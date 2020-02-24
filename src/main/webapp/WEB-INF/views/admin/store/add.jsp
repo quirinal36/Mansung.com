@@ -41,6 +41,10 @@
 	                                    <td><input type="text" placeholder="업체명 입력" class="ipt1" name="title"></td>
 	                                </tr>
 	                                <tr>
+	                                    <th>지점명</th>
+	                                    <td><input type="text" placeholder="지점명 입력" class="ipt1" name="titleLocal"></td>
+	                                </tr>
+	                                <tr>
 	                                    <th>지역명</th>
 	                                    <td>
 	                                        <input type="text" value="전북 전주시 덕진구" placeholder="주소 입력" class="ipt1" name="address1">
@@ -135,7 +139,7 @@
 	                                    </td>
 	                                </tr>
 	                                <tr class="image">
-	                                    <th>와이드 배너</th>
+	                                    <th>이미지 광고</th>
 	                                    <td id="dropzone-img">
 	                                        <input id="imageupload" type="file" accept="image/*" data-url="<c:url value="/upload/image"/>" value="사진 등록">
 	                                        <div id="progress_img" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -145,6 +149,12 @@
 	                                           
 	                                        </ul>
 	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                	<th>이미지 광고 링크</th>
+	                                	<td>
+	                                		<input type="text" name="wideBannerLink" placeholder="http://"/>
+	                                	</td>
 	                                </tr>
 	                                <tr>
 	                                    <th>키워드</th>
@@ -186,6 +196,12 @@
 	                                    	</div>
 	                                    	<input type="text" value="" placeholder="문구 입력" class="ipt1 mt-5" name="bannerText">
 	                                    </td>
+	                                </tr>
+	                                <tr>
+	                                	<th>텍스트 광고 링크</th>
+	                                	<td>
+	                                		<input type="text" name="textBannerLink" placeholder="http://"/>
+	                                	</td>
 	                                </tr>
 	                                <tr>
 	                                	<th>관리자 메모</th>

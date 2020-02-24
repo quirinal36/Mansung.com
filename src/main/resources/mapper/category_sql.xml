@@ -4,6 +4,7 @@
 
 	<select id="select_all" resultType="cate">
 		SELECT * FROM Category
+		order by title
 	</select>
 	
 	<select id="select_one" resultType="cate" parameterType="cate">
