@@ -165,7 +165,7 @@
 								<div class="tags">
 									<strong>태그</strong>
 									<c:forEach items="${tags }" var="item">
-										<a href="#">${item.name }</a>
+										<a href="/?query=${item.name }">${item.name }</a>
 									</c:forEach>
 								</div>
 								<input type="button" value="모두 보기" class="bt_more">

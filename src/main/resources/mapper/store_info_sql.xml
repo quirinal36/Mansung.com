@@ -63,7 +63,7 @@
 			c.title AS categoryTitle,
 			p.id AS wideBanner,
 			p.url AS wideBannerUrl,
-			b.bannerText,
+			ifnull(b.bannerText,''),
 			b.bannerColor,
 			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt
 		FROM 
@@ -110,7 +110,7 @@
 			c.title AS categoryTitle,
 			p.id AS wideBanner,
 			p.url AS wideBannerUrl,
-			b.bannerText,
+			ifnull(b.bannerText,''),
 			b.bannerColor,
 			(SELECT color FROM BannerColor WHERE id = b.bannerColor ) AS bannerColorTxt
 		FROM 
