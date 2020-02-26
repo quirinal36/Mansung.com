@@ -1,5 +1,7 @@
 package www.mansung.com.vo;
 
+import java.util.Date;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -15,6 +17,7 @@ public class Recommend {
 	String query;
 	int recOrder;
 	int visible;
+	Date wdate;
 	
 	@Override
 	public String toString() {

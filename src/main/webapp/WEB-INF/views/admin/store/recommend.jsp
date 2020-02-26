@@ -1,30 +1,97 @@
 <%@page contentType="text/html" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html>
 <head>
 	<c:import url="/inc/head"></c:import>
 	<script>
         function moveUp(bt) {
-            var $tr = $(bt).parent().parent();
-	        $tr.prev().before($tr);
+            var $tr = $(bt).closest("tr");
+            
+            var bOrder = $tr.prev().find("input[name='recOrder']").val();
+            var bId = $tr.prev().find("input[name='id']").val();
+            var bVisible = $tr.prev().find("input[name='visible']").val();
+            var cOrder = $tr.find("input[name='recOrder']").val();
+            var cId = $tr.find("input[name='id']").val();
+            var cVisible = $tr.find("input[name='visible']").val();
+            
+			if(bId > 0 && bId != 'undefined'){	        
+		        var url = "/admin/store/recommend/edit";
+		        var param = "id="+bId +"&recOrder="+cOrder+"&visible="+cVisible;
+		        $.ajax({
+		        	url : url,
+	            	data: param,
+	            	type: "POST",
+	            	dataType: "json"
+		        }).done(function(){
+		        	param = "id="+cId +"&recOrder="+bOrder+"&visible="+bVisible;
+		        	$.ajax({
+		        		url : url,
+		            	data: param,
+		            	type: "POST",
+		            	dataType: "json"
+		        	}).done(function(){
+		        		$tr.prev().before($tr);
+		        	});
+		        });
+			}
         }
         function moveDown(bt) {
-            var $tr = $(bt).parent().parent();
-	        $tr.next().after($tr);
+            var $tr = $(bt).closest("tr");
+            
+            var nOrder = $tr.next().find("input[name='recOrder']").val();
+            var nId = $tr.next().find("input[name='id']").val();
+            var nVisible = $tr.next().find("input[name='visible']").val();
+            var cOrder = $tr.find("input[name='recOrder']").val();
+            var cId = $tr.find("input[name='id']").val();
+            var cVisible = $tr.find("input[name='visible']").val();
+            
+            if(nId > 0 && nId != 'undefined'){	        
+		        var url = "/admin/store/recommend/edit";
+		        var param = "id="+nId +"&recOrder="+cOrder+"&visible="+cVisible;
+		        $.ajax({
+		        	url : url,
+	            	data: param,
+	            	type: "POST",
+	            	dataType: "json"
+		        }).done(function(){
+		        	param = "id="+cId +"&recOrder="+nOrder+"&visible="+nVisible;
+		        	$.ajax({
+		        		url : url,
+		            	data: param,
+		            	type: "POST",
+		            	dataType: "json"
+		        	}).done(function(){
+		        		$tr.next().after($tr);
+		        	});
+		        });
+			}
         }
         function recommendDelete(bt) {
-            alert("삭제하시겠습니까?");
-            $(bt).closest("tr").remove();
+        	var id = $(bt).parent().find("input[name='id']").val();
+            if(confirm("삭제하시겠습니까?")){
+	            var url = "/admin/store/recommend/delete";
+	            var param = "id="+id;
+	            
+	            $.ajax({
+	            	url : url,
+	            	data: param,
+	            	type: "POST",
+	            	dataType: "json"
+	            }).done(function(json){
+	            	if(json.result > 0){
+	            		$(bt).closest("tr").remove();
+	            	}
+	            });
+            }
         }
         $(function(){
         	$(".ipt1").focusout(function(item){
-        		var obj = new Object();
-        		$(this).parent().find("input").each(function(i, elem){
-        			console.log($(elem).attr("name"));
-        			console.log($(elem).val());
-        			
+        		var param = "";
+        		$(this).closest("tr").find("input").each(function(i, elem){
+        			param = param +"&"+ $(elem).attr("name") +"=" + $(elem).val(); 
         		});
         		
         		var url = "/admin/store/recommend/edit";
@@ -34,7 +101,9 @@
             		type: "POST",
             		dataType: "json"
         		}).done(function(json){
-        			
+        			if(json.result > 0 && json.filled == true){
+        				$("#bt_private"+json.recommend.id).removeAttr("disabled");
+        			}
         		});
         	});
             $(".bt_recommend_add").click(function(){
@@ -47,31 +116,24 @@
             		dataType: "json"
                 }).done(function(json){
                 	if(json.result > 0){
-                		var num = json.recommend.id;
                 		window.location.reload();
-                		/*
-                		$(".admin_recommend_wrap tbody")
-                    	.append(
-                    			$("<tr>")
-                    			.append(
-                    				$("<td>").html(num+1)
-                    			).append(
-                    				$("<td>")
-                    					.append($("<input>").attr("type","text").attr("placeholder","설명 입력").addClass("ipt1"))
-                    					.append($("<input>").attr("type","text").attr("placeholder","설명 입력").addClass("ipt1"))
-                    					.append($("<input>").attr("type","text").attr("placeholder","설명 입력").addClass("ipt1"))
-                    			).append(
-                    				$("<td>")
-                    					.append($("<input>").attr("type","button").attr("onclick","moveUp(this)").addClass("bt_up").val("위로"))
-                    					.append($("<input>").attr("type","button").attr("onclick","moveDown(this)").addClass("bt_down").val("아래로"))
-                    					.append($("<input>").attr("type","checkbox").attr("id","bt_private"+(num+1)).addClass("bt_private"))
-                    					.append($("<label>").attr("for","bt_private"+(num+1)).html("비공개"))
-                    					.append($("<input>").attr("type","button").attr("onclick","recommendDelete(this)").addClass("bt_del").val("삭제"))
-                    			)
-                    		);
-                		*/
                 	}
                 });
+            });
+            $(".bt_private").change(function(e){
+            	var isChecked = $(this).is(":checked") ? 0 : 1;
+            	var id = $(this).parent().find("input[name='id']").val();
+            	
+            	var url = "/admin/store/recommend/edit";
+            	var param = "id="+id +"&visible="+isChecked;
+        		$.ajax({
+        			url : url,
+        			data: param,
+            		type: "POST",
+            		dataType: "json"
+        		}).done(function(json){
+        			
+        		});
             });
         });
     </script>
@@ -87,13 +149,13 @@
 			            <form>
 			                <table class="tbl2">
 			                    <colgroup>
-			                        <col width="10%">
-			                        <col width="70%">
-			                        <col width="30%">
+			                        <col width="20%">
+			                        <col width="50%">
+			                        <col width="30%"> 
 			                    </colgroup>
 			                    <thead>
 			                        <tr>
-			                            <th><a href="javascript:void(0);">등록번호</a></th>
+			                            <th><a href="javascript:void(0);">등록일</a></th>
 			                            <th><a href="javascript:void(0);">제목</a></th>
 			                            <th><a href="javascript:void(0);">설정</a></th>
 			                        </tr>
@@ -101,19 +163,25 @@
 			                    <tbody>
 			                    	<c:forEach items="${list }" var="item">
 			                    		<tr>
-				                            <td>${item.id }</td>
+				                            <td><fmt:formatDate value="${item.wdate }" pattern="yyyy-MM-dd"/></td>
 				                            <td>
-				                                <input type="text" placeholder="설명 입력" value="${item.title }" class="ipt1" name="title">
-				                                <input type="text" placeholder="제목 입력" value="${item.subTitle }" class="ipt1 ipt_title" name="subtitle">
+				                                <input type="text" placeholder="설명 입력" value="${item.subTitle }" class="ipt1" name="subTitle">
+				                                <input type="text" placeholder="제목 입력" value="${item.title }" class="ipt1 ipt_title" name="title">
 				                                <input type="text" placeholder="태그 입력" value="${item.query }" class="ipt1" name="query">
 				                                <input type="hidden" name="id" value="${item.id }">
 				                            </td>
 				                            <td>
 				                                <input type="button" value="위로" onclick="moveUp(this)" class="bt_up">
 				                                <input type="button" value="아래로" onclick="moveDown(this)" class="bt_down">
-				                                <input type="checkbox" id="bt_private1" class="bt_private">
-				                                <label for="bt_private1">비공개</label>
+				                                <input type="checkbox" id="bt_private${item.id }" class="bt_private"
+				                                	<c:if test="${fn:length(item.title) eq 0 and fn:length(item.subTitle) eq 0 and fn:length(item.query) eq 0 }">disabled='disabled'</c:if> 
+				                                	<c:if test="${item.visible eq 0}">checked='checked'</c:if>
+				                                >
+			                                	<label for="bt_private${item.id }">비공개</label>
 				                                <input type="button" value="삭제" onclick="recommendDelete(this)" class="bt_del">
+				                                <input type="hidden" name="visible" value="${item.visible }">
+				                                <input type="hidden" name="recOrder" value="${item.recOrder }">
+				                                <input type="hidden" name="id" value="${item.id }">
 				                            </td>
 				                        </tr>
 			                    	</c:forEach>

@@ -321,8 +321,12 @@
     padding: 20px 17px;
 }
 
-.admin_recommend_wrap .ipt_title {
+.admin_recommend_wrap input[type="text"] {
     margin-top: 5px;
+}
+
+.admin_recommend_wrap input[type="text"]:first-child {
+	margin-top: 0;
 }
 
 .admin_recommend_wrap .bt_up,

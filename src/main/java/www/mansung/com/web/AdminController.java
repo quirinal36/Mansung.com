@@ -91,8 +91,21 @@ public class AdminController {
 		JSONObject json = new JSONObject();
 		int result = recommendService.update(recommend);
 		
+		boolean filled = recommend.getTitle()!=null && recommend.getTitle().length() > 0 
+				&& recommend.getSubTitle()!=null && recommend.getSubTitle().length() > 0
+				&& recommend.getQuery()!=null && recommend.getQuery().length() >0;
+				
 		json.put("result", result);
-		json.put("recommend", recommend);
+		json.put("filled", filled);
+		json.put("recommend", new JSONObject(recommend.toString()));
+		return json.toString();
+	}
+	@ResponseBody
+	@RequestMapping(value="/store/recommend/delete", method=RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String deleteRecommend(Recommend recommend) {
+		JSONObject json = new JSONObject();
+		int result = recommendService.delete(recommend);
+		json.put("result", result);
 		return json.toString();
 	}
 	@RequestMapping(value="/store/add", method = RequestMethod.GET)

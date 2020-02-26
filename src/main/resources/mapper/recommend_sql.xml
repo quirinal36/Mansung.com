@@ -13,10 +13,18 @@
 	<update id="update" parameterType="recommend">
 		UPDATE Recommend
 		<set>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(title)">
 			title = '${title}',
+			</if>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(subTitle)">
 			subTitle = '${subTitle}',
+			</if>
+			<if test="@www.mansung.com.util.StringUtil@notEmpty(query)">
 			query = '${query}',
+			</if>
+			<if test="recOrder gt 0">
 			recOrder = ${recOrder},
+			</if>
 			visible = ${visible}
 		</set>
 		<where>
@@ -34,5 +42,15 @@
 	<select id="select-all" parameterType="recommend" resultType="recommend">
 		SELECT * 
 		FROM Recommend
+		order by recOrder
+	</select>
+	
+	<select id="select" parameterType="recommend" resultType="recommend">
+		SELECT *
+		FROM Recommend
+		<where>
+			visible = ${visible}
+		</where>
+		order by recOrder
 	</select>
 </mapper>

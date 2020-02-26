@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.mansung.com.service.CategoryService;
+import www.mansung.com.service.RecommendService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.Category;
+import www.mansung.com.vo.Recommend;
 import www.mansung.com.vo.StoreInfo;
 
 /**
@@ -29,6 +31,8 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryService;
 	private Logger logger = LoggerFactory.getLogger(getClass());
+	@Autowired
+	private RecommendService recommendService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -47,6 +51,12 @@ public class HomeController {
 		logger.info(storeInfo.toString());
 		
 		mv.addObject("storeInfo", storeInfo);
+		
+		Recommend recommend = new Recommend();
+		recommend.setVisible(1);
+		List<Recommend> recomList = recommendService.select(recommend);
+		mv.addObject("recommends", recomList);
+		
 		mv.setViewName("index");
 		return mv;
 	}
