@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recommend_sql">
+	<insert id="insert" parameterType="recommend" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO Recommend
+		(
+			recOrder
+		)
+		SELECT MAX(recOrder)+1 FROM Recommend 
+		
+	</insert>
+	
+	<update id="update" parameterType="recommend">
+		UPDATE Recommend
+		<set>
+			title = '${title}',
+			subTitle = '${subTitle}',
+			query = '${query}',
+			recOrder = ${recOrder},
+			visible = ${visible}
+		</set>
+		<where>
+			id=${id}
+		</where>
+	</update>
+	
+	<delete id="delete" parameterType="recommend">
+		DELETE FROM Recommend
+		<where>
+			id=${id}
+		</where>
+	</delete>
+	
+	<select id="select-all" parameterType="recommend" resultType="recommend">
+		SELECT * 
+		FROM Recommend
+	</select>
+</mapper>

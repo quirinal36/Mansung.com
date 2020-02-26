@@ -317,6 +317,52 @@
 	color: #888;
 }
 
+.admin_recommend_wrap {
+    padding: 20px 17px;
+}
+
+.admin_recommend_wrap .ipt_title {
+    margin-top: 5px;
+}
+
+.admin_recommend_wrap .bt_up,
+.admin_recommend_wrap .bt_down,
+.admin_recommend_wrap .bt_private + label,
+.admin_recommend_wrap .bt_del {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 2px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 24px;
+    vertical-align: middle;
+    text-indent: -200px;
+    overflow: hidden;
+}
+
+.admin_recommend_wrap .bt_up {
+    margin-left: 0;
+    background-image: url(/resources/img/comm/bt_up.png);
+}
+
+.admin_recommend_wrap .bt_down {
+    background-image: url(/resources/img/comm/bt_down.png);
+}
+
+.admin_recommend_wrap .bt_private + label {
+    background-image: url(/resources/img/comm/bt_private.png);
+}
+
+.admin_recommend_wrap .bt_private:checked + label {
+    background-image: url(/resources/img/comm/bt_private_on.png);
+}
+.admin_recommend_wrap .bt_del {
+    background-image: url(/resources/img/comm/bt_del.png);
+}
+
+
 .admin_store_add input[type="text"] {
 	margin-top: 5px;
 }

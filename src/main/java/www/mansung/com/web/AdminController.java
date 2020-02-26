@@ -22,6 +22,7 @@ import www.mansung.com.service.CategoryService;
 import www.mansung.com.service.DetailImageService;
 import www.mansung.com.service.HashTagService;
 import www.mansung.com.service.PhotoInfoService;
+import www.mansung.com.service.RecommendService;
 import www.mansung.com.service.StoreBannerService;
 import www.mansung.com.service.StoreInfoService;
 import www.mansung.com.vo.StoreBanner;
@@ -29,6 +30,7 @@ import www.mansung.com.vo.Category;
 import www.mansung.com.vo.DetailImageMapper;
 import www.mansung.com.vo.HashTag;
 import www.mansung.com.vo.PhotoInfo;
+import www.mansung.com.vo.Recommend;
 import www.mansung.com.vo.StoreHash;
 import www.mansung.com.vo.StoreInfo;
 
@@ -52,9 +54,47 @@ public class AdminController {
 	private StoreBannerService bannerService;
 	@Autowired
 	private DetailImageService dImageService;
+	@Autowired
+	private RecommendService recommendService;
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());			
 	
+	/**
+	 * 추천리스트 수정.추가
+	 * 
+	 * @param mv
+	 * @return
+	 */
+	@RequestMapping(value="/store/recommend", method = RequestMethod.GET)
+	public ModelAndView getStoreRecommendView(ModelAndView mv) {
+		List<Recommend> list = recommendService.select();
+		
+		mv.addObject("list", list);
+		mv.setViewName("/admin/store/recommend");
+		return mv;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/store/recommend/add", method=RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String addEmptyRecommend() {
+		JSONObject json = new JSONObject();
+		Recommend recommend = new Recommend();
+		int result = recommendService.insert(recommend);
+		
+		json.put("result", result);
+		json.put("recommend", recommend);
+		return json.toString();
+	}
+	@ResponseBody
+	@RequestMapping(value="/store/recommend/edit", method=RequestMethod.POST, produces = "application/json; charset=utf8")
+	public String editRecommend(Recommend recommend) {
+		JSONObject json = new JSONObject();
+		int result = recommendService.update(recommend);
+		
+		json.put("result", result);
+		json.put("recommend", recommend);
+		return json.toString();
+	}
 	@RequestMapping(value="/store/add", method = RequestMethod.GET)
 	public ModelAndView getStoreAddFormView(ModelAndView mv) {
 		List<Category> cateList = categoryService.select();

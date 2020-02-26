@@ -18,6 +18,7 @@
                         <div class="tit1">업체 목록</div>
                         <div class="bt_wrap">
 							 <a href="<c:url value="/admin/store/add"/>" class="bt1 on" style="position: absolute; top: 0; right: 17px;">등록</a>
+							<a href="<c:url value="/admin/store/recommend"/>" class="bt1 on" style="position: absolute; top: 0; right: 107px;">추천목록</a>
 						</div>
                         <table class="tbl2">
 							<colgroup>
