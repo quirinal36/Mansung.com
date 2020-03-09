@@ -39,6 +39,7 @@
 									</span> 
 									<input type="button" value="복사" class="bt2" onclick="javascript:copyInnerHtml(this);">
 								</div>
+								<a href="#" target="_blank" class="bt4 on">정보수정</a>
 							</div>
 							<!-- 
 							<c:if test="${store.wideBanner > 0}">
@@ -47,8 +48,6 @@
 								</div>
 							</c:if>
 							 -->
-							 
-
 							<c:if test="${store.bannerColor > 0 and fn:length(store.bannerText) gt 0}">
 								<div class="banner_wrap txtType ${store.bannerColorTxt }">
 									<a href="${store.textBannerLink}">${store.bannerText}</a>

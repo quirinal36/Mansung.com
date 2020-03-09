@@ -85,6 +85,10 @@
 	padding: 0 17px 17px 17px;
 }
 
+.store_list .info .bt4 {
+	margin-top: 7px;
+}
+
 .store_list .info .thumbnail {
 	position: absolute;
 	top: 20px;
@@ -227,6 +231,7 @@
 .storeView {
 	padding: 20px 0;
 }
+
 .storeView .text {
 	padding: 0 17px;
 	font-size: 1.4rem;
