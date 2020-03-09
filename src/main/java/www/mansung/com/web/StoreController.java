@@ -50,4 +50,10 @@ public class StoreController {
 		mv.setViewName("/store/view");
 		return mv;
 	}
+	
+	@RequestMapping(value="/edit")
+	public ModelAndView getEditView(ModelAndView mv) {
+		mv.setViewName("/store/edit");
+		return mv;
+	}
 }
